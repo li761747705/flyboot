@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" version="1.1" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  <g transform="translate(400,300)">
+    <!-- 控制中心 -->
+    <rect x="-80" y="-80" width="160" height="160" rx="20" fill="#fd7e14" opacity="0.8"/>
+    <!-- 显示屏 -->
+    <rect x="-60" y="-60" width="120" height="80" rx="5" fill="#fd7e14" opacity="0.9"/>
+    <!-- 控制按钮 -->
+    <circle cx="-40" cy="40" r="15" fill="#fd7e14" opacity="0.7"/>
+    <circle cx="0" cy="40" r="15" fill="#fd7e14" opacity="0.7"/>
+    <circle cx="40" cy="40" r="15" fill="#fd7e14" opacity="0.7"/>
+    <!-- 连接线 -->
+    <path d="M-120,-120 L-80,-80" stroke="#fd7e14" stroke-width="2" opacity="0.3"/>
+    <path d="M120,-120 L80,-80" stroke="#fd7e14" stroke-width="2" opacity="0.3"/>
+    <path d="M-120,120 L-80,80" stroke="#fd7e14" stroke-width="2" opacity="0.3"/>
+    <path d="M120,120 L80,80" stroke="#fd7e14" stroke-width="2" opacity="0.3"/>
+  </g>
+  <text x="400" y="500" fill="#6c757d" font-family="Arial" font-size="24" text-anchor="middle">智能集群模块</text>
+  <text x="400" y="530" fill="#6c757d" font-family="Arial" font-size="16" text-anchor="middle">800 x 600</text>
+</svg> 

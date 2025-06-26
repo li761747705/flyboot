@@ -1,0 +1,920 @@
+<template>
+  <div class="product-detail-page multirotor-detail">
+    <!-- 返回导航 -->
+    <nav class="back-navigation">
+      <div class="container">
+        <button class="back-btn" @click="goBack">
+          <i class="bi bi-arrow-left"></i>
+          <span>返回产品列表</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 产品英雄区域 -->
+    <section class="hero-section">
+      <div class="hero-background">
+        <div class="hero-pattern"></div>
+        <div class="hero-overlay">
+          <div class="container">
+            <div class="hero-content">
+              <div class="product-badge">
+                <i class="bi bi-grid-3x3"></i>
+                <span>多旋翼无人机</span>
+              </div>
+              <h1 class="product-title">{{ current.name }}</h1>
+              <p class="product-subtitle">专业级多旋翼无人机，稳定悬停，精准控制，广泛应用</p>
+              <div class="product-highlights">
+                <div class="highlight-item">
+                  <i class="bi bi-pause-circle"></i>
+                  <span>稳定悬停</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="bi bi-gear-wide"></i>
+                  <span>精准控制</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="bi bi-camera"></i>
+                  <span>广泛应用</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品详情内容 -->
+    <section class="product-content">
+      <div class="container">
+        <!-- 飞行性能展示 -->
+        <div class="feature-section">
+          <div class="feature-grid">
+            <div class="feature-image">
+              <div class="image-placeholder" :style="{background: getGradient(0)}">
+                <i class="bi bi-grid-3x3"></i>
+              </div>
+            </div>
+            <div class="feature-content">
+              <div class="feature-header">
+                <h2 class="feature-title">飞行性能</h2>
+                <div class="feature-icon">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+              </div>
+              <p class="feature-description">
+                多旋翼无人机具备稳定悬停、精准控制的飞行能力，适合航拍、测绘、巡检等多种应用场景。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现精准的作业控制。
+              </p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>稳定悬停能力</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>精准飞行控制</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>多种应用场景</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>优秀的机动性能</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 高强结构展示 -->
+        <div class="feature-section reverse">
+          <div class="feature-grid">
+            <div class="feature-content">
+              <div class="feature-header">
+                <h2 class="feature-title">高强结构</h2>
+                <div class="feature-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+              </div>
+              <p class="feature-description">
+                采用高强度碳纤维和铝合金材料，机身结构坚固且轻量化，适应各种环境，保障飞行安全。先进的材料工艺和结构设计使得无人机在保证结构强度的同时，具有良好的抗疲劳性和耐久性。
+              </p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>碳纤维机架设计</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>铝合金结构件</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>轻量化高强度</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>优秀的抗疲劳性</span>
+                </div>
+              </div>
+            </div>
+            <div class="feature-image">
+              <div class="image-placeholder" :style="{background: getGradient(1)}">
+                <i class="bi bi-gear-wide-connected"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 产品参数标签页 -->
+        <div class="specs-section">
+          <div class="specs-header">
+            <h2 class="specs-title">产品参数</h2>
+            <p class="specs-subtitle">详细的技术规格和配置信息</p>
+          </div>
+          
+          <div class="specs-tabs">
+            <div class="tab-buttons">
+              <button 
+                class="tab-btn" 
+                :class="{ active: activeTab === 'basic' }"
+                @click="activeTab = 'basic'"
+              >
+                <i class="bi bi-info-circle"></i>
+                基本参数
+              </button>
+              <button 
+                class="tab-btn" 
+                :class="{ active: activeTab === 'tech' }"
+                @click="activeTab = 'tech'"
+              >
+                <i class="bi bi-gear"></i>
+                技术参数
+              </button>
+              <button 
+                class="tab-btn" 
+                :class="{ active: activeTab === 'package' }"
+                @click="activeTab = 'package'"
+              >
+                <i class="bi bi-box-seam"></i>
+                包装清单
+              </button>
+            </div>
+
+            <div class="tab-content">
+              <!-- 基本参数 -->
+              <div v-show="activeTab === 'basic'" class="tab-pane">
+                <div class="specs-grid">
+                  <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
+                    <div class="spec-label">{{ key }}</div>
+                    <div class="spec-value">{{ value }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 技术参数 -->
+              <div v-show="activeTab === 'tech'" class="tab-pane">
+                <div class="specs-grid">
+                  <div class="spec-item" v-for="(value, key) in current.tech" :key="key">
+                    <div class="spec-label">{{ key }}</div>
+                    <div class="spec-value">{{ value }}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 包装清单 -->
+              <div v-show="activeTab === 'package'" class="tab-pane">
+                <div class="package-content">
+                  <div class="package-section">
+                    <h3 class="package-title">
+                      <i class="bi bi-box-seam"></i>
+                      标配清单
+                    </h3>
+                    <div class="package-list">
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>飞行器机身 × 1</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>螺旋桨 × 4</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>智能飞控 × 1</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>动力电池 × 2</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>充电器 × 1</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>遥控器 × 1</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="package-section">
+                    <h3 class="package-title">
+                      <i class="bi bi-file-text"></i>
+                      随机文件
+                    </h3>
+                    <div class="package-list">
+                      <div class="package-item">
+                        <i class="bi bi-file-text"></i>
+                        <span>产品说明书</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-file-text"></i>
+                        <span>快速入门指南</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-file-text"></i>
+                        <span>免责声明</span>
+                      </div>
+                      <div class="package-item">
+                        <i class="bi bi-file-text"></i>
+                        <span>合格证</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 保修服务 -->
+        <div class="warranty-section">
+          <div class="warranty-header">
+            <h2 class="warranty-title">保修服务</h2>
+            <p class="warranty-subtitle">专业的售后保障，让您使用无忧</p>
+          </div>
+          <div class="warranty-content">
+            <div class="warranty-item">
+              <div class="warranty-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="warranty-text">
+                <h3>保修期限</h3>
+                <p>我们承诺对提供的产品给予一年保修期限，在这期间，客户可以享受到全方位保修服务。从产品交付之日起计算，无论是产品硬件故障，还是因产品质量问题导致性能异常等情况，我们将负责解决。</p>
+              </div>
+            </div>
+            <div class="warranty-item">
+              <div class="warranty-icon">
+                <i class="bi bi-tools"></i>
+              </div>
+              <div class="warranty-text">
+                <h3>硬件维修与更换</h3>
+                <p>涵盖产品的各个零部件，如主板、显示屏、硬盘、电源等，若这些硬件出现非人为损坏故障，我们将免费进行维修或更换。</p>
+              </div>
+            </div>
+            <div class="warranty-item">
+              <div class="warranty-icon">
+                <i class="bi bi-headset"></i>
+              </div>
+              <div class="warranty-text">
+                <h3>快速响应</h3>
+                <p>对于一般故障，客户可通过电话、邮件等方式向我们反馈，我们的客服人员会在接到反馈后2小时回复客户，确认已收到问题，然后，根据故障具体情况，在24小时内为客户提供解决方案。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MultiRotorDetail',
+  data() {
+    return {
+      activeTab: 'basic',
+      products: {
+        'multirotor-m600': {
+          name: 'M600 专业多旋翼',
+          banner: 'M600 专业多旋翼',
+          flyingImg: '/images/placeholder.svg',
+          structureImg: '/images/placeholder.svg',
+          basic: {
+            '机身尺寸': '600 mm',
+            '重量(不含电池)': '2.8 kg',
+            '机架材质': '碳纤维',
+            '动力系统': '无刷电机',
+            '螺旋桨尺寸': '13寸',
+            '电池容量': '6000mAh'
+          },
+          tech: {
+            '最大速度': '65 km/h',
+            '续航时间': '35 分钟',
+            '图传系统': '数字高清',
+            '控制距离': '7 km',
+            '悬停精度': '±0.1m',
+            '工作环境温度': '-10℃ ~ 50℃'
+          }
+        },
+        'multirotor-m800': {
+          name: 'M800 大型多旋翼',
+          banner: 'M800 大型多旋翼',
+          flyingImg: '/images/placeholder.svg',
+          structureImg: '/images/placeholder.svg',
+          basic: {
+            '机身尺寸': '800 mm',
+            '重量(不含电池)': '4.2 kg',
+            '机架材质': '碳纤维',
+            '动力系统': '无刷电机',
+            '螺旋桨尺寸': '15寸',
+            '电池容量': '8000mAh'
+          },
+          tech: {
+            '最大速度': '70 km/h',
+            '续航时间': '45 分钟',
+            '图传系统': '数字高清',
+            '控制距离': '10 km',
+            '悬停精度': '±0.1m',
+            '工作环境温度': '-15℃ ~ 55℃'
+          }
+        },
+        'multirotor-m400': {
+          name: 'M400 轻型多旋翼',
+          banner: 'M400 轻型多旋翼',
+          flyingImg: '/images/placeholder.svg',
+          structureImg: '/images/placeholder.svg',
+          basic: {
+            '机身尺寸': '400 mm',
+            '重量(不含电池)': '1.8 kg',
+            '机架材质': '碳纤维',
+            '动力系统': '无刷电机',
+            '螺旋桨尺寸': '10寸',
+            '电池容量': '4000mAh'
+          },
+          tech: {
+            '最大速度': '55 km/h',
+            '续航时间': '25 分钟',
+            '图传系统': '数字高清',
+            '控制距离': '5 km',
+            '悬停精度': '±0.2m',
+            '工作环境温度': '-5℃ ~ 45℃'
+          }
+        },
+        'multirotor-m1000': {
+          name: 'M1000 重型多旋翼',
+          banner: 'M1000 重型多旋翼',
+          flyingImg: '/images/placeholder.svg',
+          structureImg: '/images/placeholder.svg',
+          basic: {
+            '机身尺寸': '1000 mm',
+            '重量(不含电池)': '6.5 kg',
+            '机架材质': '碳纤维',
+            '动力系统': '无刷电机',
+            '螺旋桨尺寸': '18寸',
+            '电池容量': '12000mAh'
+          },
+          tech: {
+            '最大速度': '75 km/h',
+            '续航时间': '60 分钟',
+            '图传系统': '数字高清',
+            '控制距离': '15 km',
+            '悬停精度': '±0.1m',
+            '工作环境温度': '-20℃ ~ 60℃'
+          }
+        }
+      },
+      current: null
+    }
+  },
+  created() {
+    const id = this.$route.params.id
+    this.current = this.products[id] || this.products['multirotor-m600']
+  },
+  methods: {
+    goBack() {
+      this.$router.push('/products/multi-rotor')
+    },
+    getGradient(index) {
+      const gradients = [
+        'linear-gradient(135deg, #2ecc71, #27ae60)',
+        'linear-gradient(135deg, #3498db, #2980b9)'
+      ]
+      return gradients[index % gradients.length]
+    }
+  }
+}
+</script>
+
+<style scoped>
+.product-detail-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* 返回导航 */
+.back-navigation {
+  background: #fff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.back-btn:hover {
+  background: #f8f9fa;
+  color: #495057;
+  transform: translateX(-2px);
+}
+
+/* 英雄区域 */
+.hero-section {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-background {
+  height: 100%;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  position: relative;
+}
+
+.hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: patternMove 20s ease-in-out infinite;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-content {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.product-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.product-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.product-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* 产品内容 */
+.product-content {
+  padding: 4rem 0;
+}
+
+/* 特性区域 */
+.feature-section {
+  margin-bottom: 4rem;
+}
+
+.feature-section.reverse .feature-grid {
+  flex-direction: row-reverse;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.feature-image {
+  position: relative;
+}
+
+.image-placeholder {
+  height: 300px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-placeholder i {
+  font-size: 4rem;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.feature-content {
+  padding: 2rem;
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.feature-description {
+  color: #6c757d;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.feature-item i {
+  color: #28a745;
+  font-size: 1.2rem;
+}
+
+/* 规格区域 */
+.specs-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.specs-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.specs-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.specs-subtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.specs-tabs {
+  width: 100%;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 12px;
+  color: #6c757d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: #e9ecef;
+  color: #495057;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+.tab-content {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.tab-pane {
+  display: block;
+}
+
+.tab-pane[v-show="false"] {
+  display: none;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.spec-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.spec-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.spec-value {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* 包装清单 */
+.package-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.package-section {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.package-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.package-title i {
+  color: #2ecc71;
+}
+
+.package-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.package-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.package-item i {
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+/* 保修服务 */
+.warranty-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.warranty-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.warranty-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.warranty-subtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.warranty-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.warranty-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.warranty-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.warranty-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.warranty-text h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.warranty-text p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@keyframes patternMove {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, -10px); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 400px;
+  }
+  
+  .product-title {
+    font-size: 2.5rem;
+  }
+  
+  .product-highlights {
+    gap: 1rem;
+  }
+  
+  .highlight-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .feature-section.reverse .feature-grid {
+    flex-direction: column;
+  }
+  
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .specs-section {
+    padding: 2rem 1rem;
+  }
+  
+  .tab-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .package-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .warranty-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .warranty-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style> 

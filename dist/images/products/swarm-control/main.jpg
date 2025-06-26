@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" version="1.1" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+ <rect width="800" height="600" fill="#f8f9fa"/>
+ <text x="400" y="300" fill="#6c757d" font-family="Arial" font-size="24" text-anchor="middle">产品图片</text>
+ <text x="400" y="330" fill="#6c757d" font-family="Arial" font-size="16" text-anchor="middle">800 x 600</text>
+</svg> 

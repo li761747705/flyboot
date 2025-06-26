@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" version="1.1" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  <g transform="translate(400,300)">
+    <!-- 平台主体 -->
+    <rect x="-100" y="-60" width="200" height="120" rx="10" fill="#6f42c1" opacity="0.8"/>
+    <!-- 支撑腿 -->
+    <path d="M-80,60 L-80,100 L-60,100 L-60,60 Z" fill="#6f42c1" opacity="0.7"/>
+    <path d="M80,60 L80,100 L60,100 L60,60 Z" fill="#6f42c1" opacity="0.7"/>
+    <!-- 轮子 -->
+    <circle cx="-70" cy="100" r="15" fill="#6f42c1" opacity="0.6"/>
+    <circle cx="70" cy="100" r="15" fill="#6f42c1" opacity="0.6"/>
+    <!-- 控制面板 -->
+    <rect x="-40" y="-40" width="80" height="60" rx="5" fill="#6f42c1" opacity="0.9"/>
+  </g>
+  <text x="400" y="500" fill="#6c757d" font-family="Arial" font-size="24" text-anchor="middle">移动起降模块</text>
+  <text x="400" y="530" fill="#6c757d" font-family="Arial" font-size="16" text-anchor="middle">800 x 600</text>
+</svg> 

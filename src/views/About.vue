@@ -77,7 +77,7 @@
                 <div class="about-image">
                   <img src="/images/about/contact.jpg" alt="联系方式" class="img-fluid">
                   <div class="image-overlay">
-                    <i class="bi bi-telephone"></i>
+                    <i class="bi bi-telephone"  ></i>
                   </div>
                 </div>
                 <div class="about-content">

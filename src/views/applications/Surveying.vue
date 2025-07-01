@@ -1,55 +1,145 @@
 <template>
-  <div class="application-detail">
-    <div class="header">
-      <h1>测绘应用</h1>
-      <p>无人机高效完成地形测绘、三维建模、地籍调查等测绘任务。</p>
+  <div class="scene-page">
+    <div class="scene-title-wrapper">
+      <h1 class="scene-title">测绘应用</h1>
     </div>
-    <section class="section">
-      <h2>应用亮点</h2>
-      <ul>
-        <li>高精度航测，快速获取地理信息</li>
-        <li>三维建模，数据可视化</li>
-        <li>自动航线规划，作业高效</li>
-        <li>多传感器融合，适应多场景</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h2>应用案例</h2>
-      <div class="case">
-        <h3>地形测绘</h3>
-        <p>无人机搭载高精度相机，快速完成大面积地形测绘，生成正射影像和高程数据。</p>
+    <div class="scene-section">
+      <h2 class="scene-section-title">适用场景</h2>
+      <div class="scene-card-grid">
+        <div
+          v-for="item in cards"
+          :key="item.title"
+          class="scene-card"
+          @click="onCardClick(item)"
+          tabindex="0"
+        >
+          <div class="scene-card-img-wrapper">
+            <span class="scene-card-default-icon">+</span>
+          </div>
+          <div class="scene-card-title">{{ item.title }}</div>
+        </div>
       </div>
-      <div class="case">
-        <h3>三维建模</h3>
-        <p>通过多角度航拍，生成真实三维模型，辅助城市规划与建设。</p>
-      </div>
-    </section>
-    <section class="section">
-      <h2>适用场景</h2>
-      <ul>
-        <li>地形测绘</li>
-        <li>三维建模</li>
-        <li>地籍调查</li>
-        <li>工程测量</li>
-      </ul>
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SurveyingApplication'
+  name: 'SurveyingScene',
+  data() {
+    return {
+      cards: [
+        { title: '地形测量' },
+        { title: '地籍调查' },
+        { title: '工程测量' },
+        { title: '三维建模' },
+        { title: '地图制作' }
+      ]
+    }
+  },
+  methods: {
+    onCardClick(item) {
+      // 可点击但不跳转
+    }
+  }
 }
 </script>
 
 <style scoped>
-.application-detail { background: #fff; border-radius: 12px; padding: 40px 24px; max-width: 900px; margin: 40px auto; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-.header { text-align: center; margin-bottom: 32px; }
-.header h1 { font-size: 2.5rem; margin-bottom: 12px; }
-.header p { color: #666; font-size: 1.2rem; }
-.section { margin-bottom: 32px; }
-.section h2 { font-size: 1.4rem; color: #1a4fa0; margin-bottom: 16px; }
-.case { background: #f5f8fa; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
-ul { padding-left: 20px; }
-li { margin-bottom: 8px; }
+.scene-page {
+  background: #fff;
+  min-height: 100vh;
+}
+.scene-title-wrapper {
+  width: 100%;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.scene-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0;
+}
+.scene-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.scene-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #222;
+}
+.scene-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 8px;
+}
+.scene-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.scene-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+.scene-card-img-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.scene-card-default-icon {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: bold;
+}
+.scene-card-title {
+  font-size: 1.18rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .scene-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scene-card {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .scene-card {
+    height: 280px;
+  }
+}
 </style> 

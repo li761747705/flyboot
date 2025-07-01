@@ -1,6 +1,9 @@
 <!-- 联系我们页面 -->
 <template>
   <div class="contact-page">
+    <div class="jobs-banner">
+      <img src="/images/about/contact/通用1900X400.png" alt="招贤纳士" />
+    </div>
     <!-- 联系信息区域 -->
     <section class="contact-info-section">
       <div class="container">
@@ -179,7 +182,6 @@ export default {
 .contact-page {
   background: #f8f9fa;
   min-height: 100vh;
-  padding: 2rem 0;
 }
 
 /* 联系信息区域 */

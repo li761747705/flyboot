@@ -14,10 +14,9 @@
           :key="item.title"
           class="downloads-card"
           @click="goTo(item.link)"
+          :style="{ backgroundImage: `url('${item.img}')` }"
         >
-          <div class="card-icon">
-            <i :class="getCardIcon(item.title)"></i>
-          </div>
+          <div class="card-bg-mask"></div>
           <div class="downloads-card-title">{{ item.title }}</div>
           <div class="downloads-card-link">
             <span>固件与文档</span>
@@ -38,10 +37,18 @@ export default {
   data() {
     return {
       series: [
-        { title: '穿越无人机系列', link: '/download/fpv' },
-        { title: '固定翼无人机系列', link: '/download/fixedwing' },
-        { title: '多旋翼无人机系列', link: '/download/multirotor' },
-        { title: '无人直升机系列', link: '/download/helicopter' }
+        { title: '穿越无人机系列', 
+        link: '/download/fpv', 
+        img: '/images/support/download/产品系列：穿越机400X400.png' },
+        { title: '固定翼无人机系列', 
+        link: '/download/fixedwing', 
+        img: '/images/support/download/产品系列：固定翼400X400.png' },
+        { title: '多旋翼无人机系列', 
+        link: '/download/multirotor', 
+        img: '/images/support/download/产品系列：多轴400X400.png' },
+        { title: '无人直升机系列', 
+        link: '/download/helicopter', 
+        img: '/images/support/download/产品系列：直升机400X400.png' }
       ]
     }
   },
@@ -115,8 +122,10 @@ export default {
 .downloads-card {
   width: 100%;
   max-width: 380px;
-  height: 280px;
-  background: #fff;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 2px solid #e9ecef;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -128,6 +137,18 @@ export default {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+}
+
+.card-bg-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: rgba(40, 60, 90, 0.18); */
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s;
 }
 
 .downloads-card::before {
@@ -152,37 +173,20 @@ export default {
   opacity: 1;
 }
 
-.card-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+.downloads-card-title,
+.downloads-card-link {
   position: relative;
-  z-index: 1;
-  transition: transform 0.3s ease;
-}
-
-.downloads-card:hover .card-icon {
-  transform: scale(1.1);
-}
-
-.card-icon i {
-  font-size: 2rem;
-  color: white;
+  z-index: 2;
+  width: 90%;
+  text-align: center;
 }
 
 .downloads-card-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  text-align: center;
-  color: #2c3e50;
-  position: relative;
-  z-index: 1;
+  color: #222;
+  text-shadow: 0 2px 8px #fff, 0 0px 2px #fff, 0 0px 2px #fff;
 }
 
 .downloads-card-link {
@@ -190,15 +194,15 @@ export default {
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  color: #667eea;
+  color: #222;
   font-weight: 500;
-  position: relative;
-  z-index: 1;
   transition: all 0.3s ease;
+  justify-content: center;
+  text-shadow: 0 2px 8px #fff, 0 0px 2px #fff, 0 0px 2px #fff;
 }
 
 .downloads-card:hover .downloads-card-link {
-  color: #5a67d8;
+  color: #0056b3;
 }
 
 .downloads-card-link i {
@@ -252,17 +256,7 @@ export default {
   
   .downloads-card {
     max-width: 100%;
-    height: 240px;
-  }
-  
-  .card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1rem;
-  }
-  
-  .card-icon i {
-    font-size: 1.5rem;
+    aspect-ratio: 1/1;
   }
   
   .downloads-card-title {

@@ -1,10 +1,13 @@
 <template>
   <div class="support-page">
+
+     <!-- 只在/support主页面展示所有子banners -->
+     <template v-if="$route.path === '/support'">
     <!-- 固定顶部banner -->
     <section
       class="support-banner clickable-banner"
       :style="{ backgroundImage: `url('${fixedBanner.bgImg}')`, height: fixedBanner.height }"
-      @click="goTo(fixedBanner.link)"
+      @click="goTo(fixedBanner)"
     >
       <div class="support-banner-overlay">
         <div class="banner-content">
@@ -17,15 +20,12 @@
         </div>
       </div>
     </section>
-
-    <!-- 只在/support主页面展示所有子banners -->
-    <template v-if="$route.path === '/support'">
       <section
         v-for="(banner, idx) in allBanners"
         :key="banner.title"
         class="support-banner clickable-banner"
         :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
-        @click="goTo(banner.link)"
+        @click="goTo(banner)"
       >
         <div class="support-banner-overlay">
           <div class="banner-content">
@@ -44,7 +44,23 @@
       </section>
     </template>
     
-    <router-view v-if="$route.path !== '/support'" />
+    <!-- 子页面顶部banner -->
+    <template v-else>
+      <section v-if="currentBanner" class="support-banner"
+        :style="{ backgroundImage: `url('${currentBanner.bgImg}')`, height: currentBanner.height }">
+        <div class="support-banner-overlay">
+          <div class="banner-content">
+            <div class="banner-icon">
+              <i :class="getBannerIcon(currentBanner.title)"></i>
+            </div>
+            <h2 class="support-banner-title">{{ currentBanner.title }}</h2>
+            <p class="support-banner-subtitle">{{ currentBanner.subtitle }}</p>
+            <p class="support-banner-subtitle">{{ currentBanner.subtitle2 }}</p>
+          </div>
+        </div>
+      </section>
+      <router-view />
+    </template>
   </div>
 </template>
 
@@ -60,7 +76,7 @@ export default {
         title: '服务与支持',
         subtitle: '我们提供全面的技术支持与服务，确保您的问题快速解决',
         subtitle2: '专业团队，7×24小时为您服务',
-        bgImg: '/images/home/service.png',
+        bgImg: '/images/support/服务与支持1900X700.png',
         height: '700px',
         link: '/support'
       },
@@ -69,7 +85,7 @@ export default {
           title: '下载中心',
           subtitle: '获取最新的软件、固件和文档资料',
           subtitle2: '支持多种产品型号，持续更新维护',
-          bgImg: '/images/home/download.png',
+          bgImg: '/images/support/下载中心1900X300.png',
           height: '500px',
           link: '/support/downloads'
         },
@@ -77,7 +93,7 @@ export default {
           title: '售后服务政策',
           subtitle: '了解我们的服务承诺和保修条款',
           subtitle2: '透明政策，让您安心使用',
-          bgImg: '/images/home/after-sale.png',
+          bgImg: '/images/support/售后服务政策1900X300.png',
           height: '600px',
           link: '/support/policy'
         },
@@ -85,7 +101,7 @@ export default {
           title: '常见问题',
           subtitle: '快速找到您需要的答案',
           subtitle2: '分类整理，便于查找',
-          bgImg: '/images/home/after-sale.png',
+          bgImg: '/images/support/常见问题1900X300.png',
           height: '600px',
           link: '/support/faq'
         },
@@ -93,16 +109,29 @@ export default {
           title: '服务热线',
           subtitle: '热线电话：400-888-8888',
           subtitle2: '周一至周六：9:00-18:00',
-          bgImg: '/images/home/after-sale.png',
+          bgImg: '/images/support/服务热线1900X300.png',
           height: '600px',
           link: '/support/hotline'
         }
-      ]
+      ],
+    }
+  },
+  computed: {
+    currentBanner() {
+      if (this.$route.path === '/support') return null;
+      // 用path和allBanners的link字段匹配
+      const banner = this.allBanners.find(b => b.link === this.$route.path);
+      // 没有匹配时默认第一个
+      return banner || this.allBanners[0];
     }
   },
   methods: {
-    goTo(link) {
-      this.$router.push(link)
+    goTo(banner) {
+      if (banner.link === '/support') {
+        this.$router.push(banner.link)
+      } else {
+        this.$router.push({ path: banner.link, query: { banner: banner.title } })
+      }
     },
     getBannerIcon(title) {
       const iconMap = {
@@ -151,7 +180,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+  /* background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); */
   z-index: 1;
 }
 
@@ -264,7 +293,7 @@ export default {
 }
 
 .clickable-banner:hover::before {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+  background: linear-gradient(135deg, rgba(179, 179, 255, 0.9), rgba(255, 255, 255, 0.9));
 }
 
 /* 动画效果 */

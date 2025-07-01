@@ -1,76 +1,145 @@
 <template>
-  <div class="delivery-application">
-    <section class="page-header bg-primary text-white py-5">
-      <div class="container">
-        <h1 class="display-5 fw-bold mb-3">应急应用</h1>
-        <p class="lead mb-0">无人机在应急领域的智能解决方案</p>
-      </div>
-    </section>
-    
-    <section class="py-5">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-8 mb-4 mb-lg-0">
-            <h2 class="fw-bold mb-4">应急救援｜物资投放｜搜救｜灾害监测</h2>
-            <p class="mb-4">麒风智能为应急行业提供高效、安全、智能的解决方案。从应急救援到物资投放，我们的无人机系统能够在复杂环境下完成高精度任务，提高工作效率，降低人力成本。</p>
-            
-            <div class="mb-5">
-              <h3 class="h4 fw-bold mb-3">应用案例</h3>
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <div class="border rounded p-3 h-100">
-                    <h4 class="h5 fw-bold mb-3">某应急管理局</h4>
-                    <p><span class="fw-bold">20公里</span>应急救援</p>
-                    <p class="mb-0">救援率达<span class="fw-bold">99%</span></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="border rounded p-3 h-100">
-                    <h4 class="h5 fw-bold mb-3">某搜救队</h4>
-                    <p><span class="fw-bold">1年</span>累计<span class="fw-bold">5000公里</span></p>
-                    <p class="mb-0">航程搜救任务</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  <div class="scene-page">
+    <div class="scene-title-wrapper">
+      <h1 class="scene-title">应急</h1>
+    </div>
+    <div class="scene-section">
+      <h2 class="scene-section-title">适用场景</h2>
+      <div class="scene-card-grid">
+        <div
+          v-for="item in cards"
+          :key="item.title"
+          class="scene-card"
+          @click="onCardClick(item)"
+          tabindex="0"
+        >
+          <div class="scene-card-img-wrapper">
+            <span class="scene-card-default-icon">+</span>
           </div>
-          
-          <div class="col-lg-4">
-            <div class="bg-light p-4 rounded shadow-sm mb-4">
-              <h3 class="h4 fw-bold mb-3">成功案例: 应急救援</h3>
-              <p>近年来，在'双碳'背景下，我国应急救援步伐进一步加快。麒风智能助力某应急管理局，实现应急智慧救援。</p>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-2"><i class="bi bi-lightning-fill text-warning me-2"></i>效率提升6倍</li>
-                <li class="mb-2"><i class="bi bi-camera-fill text-warning me-2"></i>救援成功率提高40%</li>
-                <li><i class="bi bi-calendar-fill text-warning me-2"></i>救援周期缩短75%</li>
-              </ul>
-            </div>
-            
-            <div class="bg-light p-4 rounded shadow-sm">
-              <h3 class="h4 fw-bold mb-3">适用场景</h3>
-              <ul class="list-unstyled mb-0">
-                <li class="mb-2"><i class="bi bi-dash-circle me-2 text-primary"></i>应急救援</li>
-                <li class="mb-2"><i class="bi bi-dash-circle me-2 text-primary"></i>物资投放</li>
-                <li class="mb-2"><i class="bi bi-dash-circle me-2 text-primary"></i>搜救</li>
-                <li class="mb-2"><i class="bi bi-dash-circle me-2 text-primary"></i>灾害监测</li>
-                <li><i class="bi bi-dash-circle me-2 text-primary"></i>应急通信</li>
-              </ul>
-            </div>
-          </div>
+          <div class="scene-card-title">{{ item.title }}</div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DeliveryApplicationView'
+  name: 'DeliveryScene',
+  data() {
+    return {
+      cards: [
+        { title: '火灾救援' },
+        { title: '地震救援' },
+        { title: '水灾救援' },
+        { title: '交通事故救援' },
+        { title: '物质运输投放' }
+      ]
+    }
+  },
+  methods: {
+    onCardClick(item) {
+      // 可点击但不跳转
+    }
+  }
 }
 </script>
 
 <style scoped>
-.page-header {
-  background: linear-gradient(135deg, #512da8 0%, #1e90ff 100%);
+.scene-page {
+  background: #fff;
+  min-height: 100vh;
+}
+.scene-title-wrapper {
+  width: 100%;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.scene-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0;
+}
+.scene-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.scene-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #222;
+}
+.scene-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 8px;
+}
+.scene-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.scene-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+.scene-card-img-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.scene-card-default-icon {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: bold;
+}
+.scene-card-title {
+  font-size: 1.18rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .scene-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scene-card {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .scene-card {
+    height: 280px;
+  }
 }
 </style> 

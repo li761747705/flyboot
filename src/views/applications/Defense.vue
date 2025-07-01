@@ -1,55 +1,145 @@
 <template>
-  <div class="application-detail">
-    <div class="header">
-      <h1 class="display-5 fw-bold mb-3">安防应用</h1>
-      <p class="lead mb-0">无人机在安防领域的智能解决方案</p>
+  <div class="scene-page">
+    <div class="scene-title-wrapper">
+      <h1 class="scene-title">国防应用</h1>
     </div>
-    <section class="section">
-      <h2>应用亮点</h2>
-      <ul>
-        <li>自动巡逻，实时视频回传</li>
-        <li>智能识别异常，及时预警</li>
-        <li>夜间红外巡查，全天候作业</li>
-        <li>远程调度，提升安保效率</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h2>应用案例</h2>
-      <div class="case">
-        <h3>园区安防</h3>
-        <p>无人机定时巡逻园区，发现异常自动报警，提升园区安全等级。</p>
+    <div class="scene-section">
+      <h2 class="scene-section-title">适用场景</h2>
+      <div class="scene-card-grid">
+        <div
+          v-for="item in cards"
+          :key="item.title"
+          class="scene-card"
+          @click="onCardClick(item)"
+          tabindex="0"
+        >
+          <div class="scene-card-img-wrapper">
+            <span class="scene-card-default-icon">+</span>
+          </div>
+          <div class="scene-card-title">{{ item.title }}</div>
+        </div>
       </div>
-      <div class="case">
-        <h3>边境防控</h3>
-        <p>无人机对边境线进行高频巡查，及时发现非法入侵。</p>
-      </div>
-    </section>
-    <section class="section">
-      <h2>适用场景</h2>
-      <ul>
-        <li>园区安防</li>
-        <li>边境防控</li>
-        <li>大型活动安保</li>
-        <li>夜间巡逻</li>
-      </ul>
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DefenseApplication'
+  name: 'DefenseScene',
+  data() {
+    return {
+      cards: [
+        { title: '边境巡逻' },
+        { title: '目标侦察' },
+        { title: '通信保障' },
+        { title: '应急支援' },
+        { title: '演习训练' }
+      ]
+    }
+  },
+  methods: {
+    onCardClick(item) {
+      // 可点击但不跳转
+    }
+  }
 }
 </script>
 
 <style scoped>
-.application-detail { background: #fff; border-radius: 12px; padding: 40px 24px; max-width: 900px; margin: 40px auto; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-.header { text-align: center; margin-bottom: 32px; }
-.header h1 { font-size: 2.5rem; margin-bottom: 12px; }
-.header p { color: #666; font-size: 1.2rem; }
-.section { margin-bottom: 32px; }
-.section h2 { font-size: 1.4rem; color: #1a4fa0; margin-bottom: 16px; }
-.case { background: #f5f8fa; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
-ul { padding-left: 20px; }
-li { margin-bottom: 8px; }
+.scene-page {
+  background: #fff;
+  min-height: 100vh;
+}
+.scene-title-wrapper {
+  width: 100%;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.scene-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0;
+}
+.scene-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.scene-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #222;
+}
+.scene-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 8px;
+}
+.scene-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.scene-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+.scene-card-img-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.scene-card-default-icon {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: bold;
+}
+.scene-card-title {
+  font-size: 1.18rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .scene-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scene-card {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .scene-card {
+    height: 280px;
+  }
+}
 </style> 

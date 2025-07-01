@@ -1,55 +1,145 @@
 <template>
-  <div class="application-detail">
-    <div class="header">
-      <h1 class="display-5 fw-bold mb-3">能源应用</h1>
-      <p class="lead mb-0">无人机在能源领域的智能解决方案</p>
+  <div class="scene-page">
+    <div class="scene-title-wrapper">
+      <h1 class="scene-title">能源应用</h1>
     </div>
-    <section class="section">
-      <h2>应用亮点</h2>
-      <ul>
-        <li>高空巡检，减少人工风险</li>
-        <li>红外检测，精准发现隐患</li>
-        <li>自动航线规划，作业高效</li>
-        <li>多场景适应，支持风电、光伏等能源设施</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h2>应用案例</h2>
-      <div class="case">
-        <h3>风电巡检</h3>
-        <p>无人机对风力发电机组进行高空巡检，发现叶片损伤等问题，辅助维护。</p>
+    <div class="scene-section">
+      <h2 class="scene-section-title">适用场景</h2>
+      <div class="scene-card-grid">
+        <div
+          v-for="item in cards"
+          :key="item.title"
+          class="scene-card"
+          @click="onCardClick(item)"
+          tabindex="0"
+        >
+          <div class="scene-card-img-wrapper">
+            <span class="scene-card-default-icon">+</span>
+          </div>
+          <div class="scene-card-title">{{ item.title }}</div>
+        </div>
       </div>
-      <div class="case">
-        <h3>光伏电站检测</h3>
-        <p>通过红外成像，快速定位光伏板故障点，提升检修效率。</p>
-      </div>
-    </section>
-    <section class="section">
-      <h2>适用场景</h2>
-      <ul>
-        <li>风电巡检</li>
-        <li>光伏检测</li>
-        <li>输电线路巡检</li>
-        <li>应急抢修</li>
-      </ul>
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'EnergyApplication'
+  name: 'EnergyScene',
+  data() {
+    return {
+      cards: [
+        { title: '风电巡检' },
+        { title: '光伏检测' },
+        { title: '油气管道巡检' },
+        { title: '能源监控' },
+        { title: '设备维护' }
+      ]
+    }
+  },
+  methods: {
+    onCardClick(item) {
+      // 可点击但不跳转
+    }
+  }
 }
 </script>
 
 <style scoped>
-.application-detail { background: #fff; border-radius: 12px; padding: 40px 24px; max-width: 900px; margin: 40px auto; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-.header { text-align: center; margin-bottom: 32px; }
-.header h1 { font-size: 2.5rem; margin-bottom: 12px; }
-.header p { color: #666; font-size: 1.2rem; }
-.section { margin-bottom: 32px; }
-.section h2 { font-size: 1.4rem; color: #1a4fa0; margin-bottom: 16px; }
-.case { background: #f5f8fa; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
-ul { padding-left: 20px; }
-li { margin-bottom: 8px; }
+.scene-page {
+  background: #fff;
+  min-height: 100vh;
+}
+.scene-title-wrapper {
+  width: 100%;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.scene-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0;
+}
+.scene-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.scene-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #222;
+}
+.scene-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 8px;
+}
+.scene-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.scene-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+.scene-card-img-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.scene-card-default-icon {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: bold;
+}
+.scene-card-title {
+  font-size: 1.18rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .scene-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scene-card {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .scene-card {
+    height: 280px;
+  }
+}
 </style> 

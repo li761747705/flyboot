@@ -7,24 +7,32 @@
           <h5 class="fw-bold mb-3">产品系列</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><router-link to="/products/fpv" class="text-dark text-decoration-none">穿越无人机</router-link></li>
-            <li class="mb-2"><router-link to="/products/helicopter" class="text-dark text-decoration-none">无人直升机</router-link></li>
-            <li class="mb-2"><router-link to="/products/fixed-wing" class="text-dark text-decoration-none">固定翼无人机</router-link></li>
             <li class="mb-2"><router-link to="/products/multi-rotor" class="text-dark text-decoration-none">多旋翼无人机</router-link></li>
-          </ul>
+            <li class="mb-2"><router-link to="/products/fixed-wing" class="text-dark text-decoration-none">固定翼无人机</router-link></li>
+            <li class="mb-2"><router-link to="/products/helicopter" class="text-dark text-decoration-none">无人直升机</router-link></li>
+         </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-6">
           <h5 class="fw-bold mb-3">场景化解决方案</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/applications/industry" class="text-dark text-decoration-none">场景化解决方案</router-link></li>
-            <li class="mb-2"><router-link to="/applications/agriculture" class="text-dark text-decoration-none">农业应用</router-link></li>
-            <li><router-link to="/applications/logistics" class="text-dark text-decoration-none">运输应用</router-link></li>
+            <li class="mb-2"><router-link to="/applications/mapping" class="text-dark text-decoration-none">测绘</router-link></li>
+            <li class="mb-2"><router-link to="/applications/inspection" class="text-dark text-decoration-none">水利</router-link></li>
+            <li><router-link to="/applications/delivery" class="text-dark text-decoration-none">应急</router-link></li>
+            <li><router-link to="/applications/agriculture" class="text-dark text-decoration-none">森林勘察</router-link></li>
+            <li><router-link to="/applications/aerial" class="text-dark text-decoration-none">交通</router-link></li>
+            <li><router-link to="/applications/powerline" class="text-dark text-decoration-none">电力巡检</router-link></li>
+            <li><router-link to="/applications/spraying" class="text-dark text-decoration-none">环保</router-link></li>
+            <li><router-link to="/applications/farming" class="text-dark text-decoration-none">农业应用</router-link></li>
+            <li><router-link to="/applications/integration" class="text-dark text-decoration-none">运载应用</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-6">
           <h5 class="fw-bold mb-3">服务与支持</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/support/manual" class="text-dark text-decoration-none">操作指南</router-link></li>
-            <li><router-link to="/support/safety" class="text-dark text-decoration-none">安全飞行指导</router-link></li>
+            <li class="mb-2"><router-link to="/support/downloads" class="text-dark text-decoration-none">下载中心</router-link></li>
+            <li><router-link to="/support/policy" class="text-dark text-decoration-none">售后服务政策</router-link></li>
+            <li><router-link to="/support/faq" class="text-dark text-decoration-none">常见问题</router-link></li>
+            <li><router-link to="/support/hotline" class="text-dark text-decoration-none">服务热线</router-link></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-6">
@@ -38,8 +46,8 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <h5 class="fw-bold mb-3">联系我们</h5>
-          <p class="mb-2">电话：400-882-3882</p>
-          <p class="mb-0">地址：北京市朝阳区科技园区麒风大厦</p>
+          <p class="mb-2">电话：028-8888-8888</p>
+          <p class="mb-0">地址：四川省成都市高新区天府五街200号菁蓉汇7号楼</p>
         </div>
       </div>
       <hr class="my-4 opacity-25" style="border-color: var(--line-color);">

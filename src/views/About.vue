@@ -1,9 +1,19 @@
 <template>
   <div class="about-page">
-    <!-- 页面标题区 -->
+   
+
+    <!-- 子路由内容区 -->
+    <router-view v-if="$route.path !== '/about'" />
+    
+
+
+    <!-- 主关于我们展示区 (仅在没有子路由时显示) -->
+    <div v-else>
+       <!-- 页面标题区 -->
     <section class="page-header">
       <!-- 顶部 Banner -->
       <div class="banner">
+        <img class="banner-bg" src="/images/about/通用图片1900X300.png" alt="banner" />
         <div class="banner-overlay"></div>
         <div class="banner-content">
           <h1>关于麒风智能</h1>
@@ -11,14 +21,36 @@
         </div>
       </div>
     </section>
-
-    <!-- 子路由内容区 -->
-    <router-view v-if="$route.path !== '/about'" />
-    
-    <!-- 主关于我们展示区 (仅在没有子路由时显示) -->
-    <div v-else>
       <section class="about-main-section">
         <div class="container">
+      
+          <!-- 公司厂房大图及简介 -->
+          <div class="about-factory-section mb-5">
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+            <div class="about-factory-desc">
+              XX无人机科技是全球领先的智能飞行系统解决方案商，专注于工业级无人机研发与人工智能应用。自2015年成立以来，我们始终以「让天空成为人类的新生产力」为使命，通过自主创新的飞控技术、高精度传感系统和云端智能平台，为农业、测绘、安防等20+行业提供革命性的空中作业方案。
+            </div>
+          </div>
+             <div class="about-factory-section mb-5">
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+            <div class="about-factory-desc">
+              我们采用全自动化生产线，结合高精度装配工艺，确保每架无人机性能稳定、质量可靠。核心部件误差控制在0.01mm级，并通过AI视觉检测，不良率低于0.3%。
+            </div>
+          </div>
+          <div class="about-factory-section mb-5">
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+            <div class="about-factory-desc">
+              <h2 style="font-size:1.3rem;margin-bottom:0.7em;">1. 核心团队</h2>
+              <p>我们的团队由人工智能、工业设计等领域组成，核心成员平均拥有15年以上行业经验，曾主导多个国家级无人机项目研发。</p>
+              <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">2. 技术团队</h2>
+              <p>60+人的专职研发团队，涵盖飞控系统、动力系统、传感器融合等关键技术方向，已申请200+项技术专利，其中发明专利占比超40%。</p>
+              <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">3. 生产团队</h2>
+              <p>20000㎡现代化生产基地，配备SMT贴片机、六轴机械臂等智能设备，通过ISO9001质量管理体系认证，月产能达5000+台。</p>
+            </div>
+          </div>
+          <div class="about-factory-section mb-5">
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+          </div>
           <!-- 公司介绍卡片 -->
           <div class="row mb-5">
             <div class="col-md-4 mb-4">
@@ -147,15 +179,24 @@ export default {
 
 .banner {
   height: 400px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  background-size: cover;
-  background-position: center;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  position: relative;
+  overflow: hidden;
+}
+
+.banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .banner-overlay {
@@ -165,6 +206,7 @@ export default {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .banner-content {
@@ -417,5 +459,75 @@ export default {
   .about-content {
     padding: 1.5rem;
   }
+}
+
+/* 新增样式 */
+.about-factory-section {
+  width: 100%;
+  max-width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-factory-img {
+  width: 100%;
+  max-width: 1900px;
+  min-height: 320px;
+  max-height: 640px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  margin-bottom: 2.2rem;
+  display: block;
+}
+.about-factory-desc {
+  font-size: 1.22rem;
+  color: #222;
+  text-align: center;
+  line-height: 1.85;
+  max-width: 1100px;
+  margin: 0 auto 0 auto;
+  padding: 0 18px;
+}
+
+.about-production-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-production-img {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.about-production-desc {
+  font-size: 1.12rem;
+  color: #222;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 16px;
+}
+.about-production-gallery {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.about-production-gallery-img {
+  width: 49%;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  object-fit: cover;
+  display: block;
 }
 </style> 

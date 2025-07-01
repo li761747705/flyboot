@@ -1,5 +1,8 @@
 <template>
   <div class="jobs-page">
+    <div class="jobs-banner">
+      <img src="/images/about/careers/通用1900X400.png" alt="招贤纳士" />
+    </div>
     <!-- 职位搜索区域 -->
     <section class="jobs-header-section">
       <div class="container">
@@ -278,6 +281,12 @@
           </form>
         </div>
       </div>
+    </section>
+
+    <section class="training-section">
+      <h2 class="training-title">员工培训</h2>
+      <img class="about-section-img" src="/images/about/通用620X420.png" alt="员工培训" />
+      <!-- 可在此处补充培训相关介绍内容 -->
     </section>
   </div>
 </template>
@@ -1027,5 +1036,34 @@ export default {
     margin: 0.5rem;
     max-width: 98%;
   }
+}
+
+.jobs-banner {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.jobs-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.about-section-img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 32px auto 24px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  object-fit: cover;
 }
 </style> 

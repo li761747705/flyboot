@@ -1,5 +1,10 @@
 <template>
   <div class="company-page">
+
+    <div class="company-banner">
+      <img src="/images/about/company/通用-1900X400.png" alt="公司介绍" />
+    </div>
+
     <!-- 顶部导航 -->
     <div class="nav-bar">
       <div class="nav-container">
@@ -147,8 +152,7 @@
           <div class="timeline-item">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <i class="bi bi-rocket"></i>
-                <span>2025年相关图片</span>
+                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
               </div>
             </div>
             <div class="timeline-marker">
@@ -169,8 +173,8 @@
         
             <div class="timeline-image">
               <div class="image-placeholder">
-                <i class="bi bi-trophy"></i>
-                <span>2024年相关图片</span>
+                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
+            
               </div>
             </div>
             <div class="timeline-marker">
@@ -191,8 +195,8 @@
           <div class="timeline-item">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <i class="bi bi-battery-charging"></i>
-                <span>2023年相关图片</span>
+                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
+            
               </div>
             </div>
             <div class="timeline-marker">
@@ -212,8 +216,8 @@
           <div class="timeline-item">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <i class="bi bi-airplane"></i>
-                <span>2022年相关图片</span>
+                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
+            
               </div>
             </div>
             <div class="timeline-marker">
@@ -233,8 +237,8 @@
           <div class="timeline-item">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <i class="bi bi-lightbulb"></i>
-                <span>2021年相关图片</span>
+                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
+            
               </div>
             </div>
             <div class="timeline-marker">
@@ -260,10 +264,7 @@
           <!-- 核心价值观 -->
           <div class="culture-item">
             <div class="culture-image">
-              <div class="image-placeholder">
-                <i class="bi bi-star"></i>
-                <span>核心价值观图片</span>
-              </div>
+              <img class="about-section-img" src="/images/about/company/通用620X420.png" alt="核心价值观" />
             </div>
             <div class="culture-content">
               <div class="culture-title">
@@ -326,16 +327,13 @@
               </div>
             </div>
             <div class="culture-image">
-              <div class="image-placeholder">
-                <i class="bi bi-people"></i>
-                <span>员工培训图片</span>
-              </div>
+              <img class="about-section-img" src="/images/about/company/通用620X420.png" alt="员工培训" />
             </div>
           </div>
         </div>
       </div>
     </section>
-  </div>
+ </div>
 </template>
 
 <script>
@@ -353,7 +351,6 @@ export default {
 .company-page {
   background: #f8f9fa;
   min-height: 100vh;
-  padding: 2rem 0;
 }
 
 /* 导航栏 */
@@ -801,8 +798,8 @@ export default {
 }
 
 .image-placeholder {
-  width: 250px;
-  height: 180px;
+  width: 410px;
+  height: 240px;
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   border-radius: 16px;
   display: flex;
@@ -1077,5 +1074,35 @@ export default {
   .timeline-container::before {
     left: 20px;
   }
+}
+
+.about-section-img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  margin: 32px auto 24px auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+.company-banner {
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+  .company-banner img {
+  width: 100vw;
+  min-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 </style>

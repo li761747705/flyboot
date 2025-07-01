@@ -1,55 +1,143 @@
 <template>
-  <div class="application-detail">
-    <div class="header">
-      <h1>集成应用</h1>
-      <p>无人机与多系统集成，实现数据互通与智能协作，提升作业效率。</p>
+  <div class="scene-page">
+    <div class="scene-title-wrapper">
+      <h1 class="scene-title">运载应用</h1>
     </div>
-    <section class="section">
-      <h2>应用亮点</h2>
-      <ul>
-        <li>与GIS、物联网等系统无缝对接</li>
-        <li>数据自动上传与分析</li>
-        <li>支持多平台远程调度</li>
-        <li>智能任务分配，提升协作效率</li>
-      </ul>
-    </section>
-    <section class="section">
-      <h2>应用案例</h2>
-      <div class="case">
-        <h3>智慧城市巡检</h3>
-        <p>无人机与城市管理平台集成，实现自动巡检与数据上报。</p>
+    <div class="scene-section">
+      <h2 class="scene-section-title">适用场景</h2>
+      <div class="scene-card-grid">
+        <div
+          v-for="item in cards"
+          :key="item.title"
+          class="scene-card"
+          @click="onCardClick(item)"
+          tabindex="0"
+        >
+          <div class="scene-card-img-wrapper">
+            <span class="scene-card-default-icon">+</span>
+          </div>
+          <div class="scene-card-title">{{ item.title }}</div>
+        </div>
       </div>
-      <div class="case">
-        <h3>农业物联网</h3>
-        <p>无人机采集农田数据，实时上传至农业物联网平台，辅助精准农业。</p>
-      </div>
-    </section>
-    <section class="section">
-      <h2>适用场景</h2>
-      <ul>
-        <li>智慧城市</li>
-        <li>农业物联网</li>
-        <li>应急联动</li>
-        <li>远程调度</li>
-      </ul>
-    </section>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IntegrationApplication'
+  name: 'IntegrationScene',
+  data() {
+    return {
+      cards: [
+        { title: '快递配送' },
+        { title: '货物运输' },
+        { title: '紧急救援物质运输' }
+      ]
+    }
+  },
+  methods: {
+    onCardClick(item) {
+      // 可点击但不跳转
+    }
+  }
 }
 </script>
 
 <style scoped>
-.application-detail { background: #fff; border-radius: 12px; padding: 40px 24px; max-width: 900px; margin: 40px auto; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
-.header { text-align: center; margin-bottom: 32px; }
-.header h1 { font-size: 2.5rem; margin-bottom: 12px; }
-.header p { color: #666; font-size: 1.2rem; }
-.section { margin-bottom: 32px; }
-.section h2 { font-size: 1.4rem; color: #1a4fa0; margin-bottom: 16px; }
-.case { background: #f5f8fa; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
-ul { padding-left: 20px; }
-li { margin-bottom: 8px; }
+.scene-page {
+  background: #fff;
+  min-height: 100vh;
+}
+.scene-title-wrapper {
+  width: 100%;
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+.scene-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0;
+}
+.scene-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 16px 60px 16px;
+}
+.scene-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #222;
+}
+.scene-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 8px;
+}
+.scene-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.scene-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+.scene-card-img-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.scene-card-default-icon {
+  font-size: 2.5rem;
+  color: #bbb;
+  font-weight: bold;
+}
+.scene-card-title {
+  font-size: 1.18rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 900px) {
+  .scene-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .scene-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scene-card {
+    height: 220px;
+  }
+}
+@media (max-width: 768px) {
+  .scene-card {
+    height: 280px;
+  }
+}
 </style> 

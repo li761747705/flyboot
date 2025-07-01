@@ -172,22 +172,22 @@ export default {
       solutions: [
         { 
           title: '测绘', 
-          image: '/images/home/scene/Surveyingandmapping.png',
+          image: '/images/home/scene/测绘.png',
           link: '/applications/mapping'
         },
         { 
           title: '水利', 
-          image: '/images/home/scene/水利已选用.png',
+          image: '/images/home/scene/水利.png',
           link: '/applications/inspection'
         },
         { 
           title: '应急', 
-          image: '/images/home/scene/应急已选用.png',
+          image: '/images/home/scene/应急.png',
           link: '/applications/delivery'
         },
         { 
           title: '交通', 
-          image: '/images/home/scene/交通已选用.png',
+          image: '/images/home/scene/交通.png',
           link: '/applications/aerial'
         },
         { 
@@ -197,7 +197,7 @@ export default {
         },
         { 
           title: '森林勘察', 
-          image: '/images/home/scene/森林已选用.png',
+          image: '/images/home/scene/森林.png',
           link: '/applications/agriculture'
         },
         { 
@@ -207,18 +207,18 @@ export default {
         },
         { 
           title: '农业应用', 
-          image: '/images/home/scene/农林.png',
+          image: '/images/home/scene/农业.png',
           link: '/applications/farming'
         },
         { 
           title: '运载应用', 
-          image: '/images/home/scene/运载已选用.png',
+          image: '/images/home/scene/运载.png',
           link: '/applications/powerline'
         }
       ],
       serviceSupport: {
         title: '服务与支持',
-        image: '/images/home/service.png',
+        image: '/images/home/服务与支持已选用.png',
         number: 1,
         buttonText: '了解更多',
         buttonNumber: 2,

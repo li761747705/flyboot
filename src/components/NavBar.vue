@@ -2,10 +2,12 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid px-md-4 px-2">
       <router-link class="navbar-brand d-flex align-items-center py-2" to="/">
-        <img src="/images/logo.jpg" alt="麒风智能" height="60" class="logo-img d-none d-md-block" :class="$i18n.locale === 'ar' ? 'ms-2' : 'me-2'"/>
-        <img src="/images/logo.jpg" alt="麒风智能" height="40" class="logo-img d-block d-md-none" :class="$i18n.locale === 'ar' ? 'ms-2' : 'me-2'"/>
+        <img src="/images/logo.jpg" alt="麒风智能" height="60" class="logo-img d-none d-md-block"
+          :class="$i18n.locale === 'ar' ? 'ms-2' : 'me-3'" />
+        <img src="/images/logo.jpg" alt="麒风智能" height="40" class="logo-img d-block d-md-none"
+          :class="$i18n.locale === 'ar' ? 'ms-2' : 'me-3'" />
       </router-link>
-      
+
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item">
@@ -13,91 +15,107 @@
               {{ $t('common.home') }}
             </router-link>
           </li>
-          
-          <li class="nav-item mega-menu-trigger" 
-              @mouseenter="handleProductMenuEnter" 
-              @mouseleave="handleProductMenuLeave">
+
+          <li class="nav-item mega-menu-trigger" @mouseenter="handleProductMenuEnter"
+            @mouseleave="handleProductMenuLeave">
             <router-link class="nav-link" to="/products">
               {{ $t('common.products') }}
             </router-link>
-            
-            <div class="mega-menu-panel" v-show="showProductMenu" 
-                 @mouseenter="isOverProductSubmenu = true" 
-                 @mouseleave="isOverProductSubmenu = false">
+
+            <div class="mega-menu-panel" v-show="showProductMenu" @mouseenter="isOverProductSubmenu = true"
+              @mouseleave="isOverProductSubmenu = false">
               <div class="mega-menu-inner">
                 <div class="product-list w-100">
                   <!-- 无人机产品列表 - 横向靠左展示 -->
                   <div class="product-list-menu">
                     <router-link class="product-item" to="/products/fpv">
-                      <i class="bi bi-camera-video"></i>
-                      <span>穿越无人机</span>
+                      <div class="nav-product-icon-col">
+                        <i class="bi bi-camera-video"></i>
+                      </div>
+                      <div class="nav-product-label-img-col">
+                        <span>穿越无人机</span>
+                        <img src="/images/navbar/产品系列：穿越机60X40.png" alt="穿越无人机" class="nav-product-thumb" />
+                      </div>
                     </router-link>
                     <router-link class="product-item" to="/products/multi-rotor">
-                      <i class="bi bi-hexagon"></i>
-                      <span>多旋翼无人机</span>
+                      <div class="nav-product-icon-col">
+                        <i class="bi bi-hexagon me-3"></i>
+                      </div>
+                      <div class="nav-product-label-img-col">
+                        <span>多旋翼无人机</span>
+                        <img src="/images/navbar/产品系列：多轴60X40.png" alt="穿越无人机" class="nav-product-thumb" />
+                      </div>
                     </router-link>
                     <router-link class="product-item" to="/products/fixed-wing">
-                      <i class="bi bi-airplane"></i>
-                      <span>固定翼无人机</span>
+                      <div class="nav-product-icon-col">
+                        <i class="bi bi-airplane me-3"></i>
+                      </div>
+                      <div class="nav-product-label-img-col">
+                        <span>固定翼无人机</span>
+                        <img src="/images/navbar/产品系列：固定翼60X40.png" alt="穿越无人机" class="nav-product-thumb" />
+                      </div>
                     </router-link>
                     <router-link class="product-item" to="/products/helicopter">
-                      <i class="bi bi-wind"></i>
-                      <span>无人直升机</span>
+                      <div class="nav-product-icon-col">
+                        <i class="bi bi-wind me-3"></i>
+                      </div>
+                      <div class="nav-product-label-img-col">
+                        <span>无人直升机</span>
+                        <img src="/images/navbar/产品系列：直升机60X40.png" alt="穿越无人机" class="nav-product-thumb" />
+                      </div>
                     </router-link>
                   </div>
                 </div>
               </div>
             </div>
           </li>
-          
-          <li class="nav-item mega-menu-trigger"
-              @mouseenter="handleSolutionMenuEnter" 
-              @mouseleave="handleSolutionMenuLeave">
+
+          <li class="nav-item mega-menu-trigger" @mouseenter="handleSolutionMenuEnter"
+            @mouseleave="handleSolutionMenuLeave">
             <router-link class="nav-link" to="/applications">
               {{ $t('common.applications') }}
             </router-link>
-            
-            <div class="mega-menu-panel" v-show="showSolutionMenu" 
-                 @mouseenter="isOverSolutionSubmenu = true" 
-                 @mouseleave="isOverSolutionSubmenu = false">
+
+            <div class="mega-menu-panel" v-show="showSolutionMenu" @mouseenter="isOverSolutionSubmenu = true"
+              @mouseleave="isOverSolutionSubmenu = false">
               <div class="mega-menu-inner">
                 <div class="product-list w-100">
-                  <!-- 场景化解决方案列表 - 横向靠左展示 -->
+                  <!-- 行业应用列表 - 横向靠左展示 -->
                   <div class="product-list-menu">
                     <router-link class="product-item" to="/applications/mapping">
-                      <i class="bi bi-map me-2"></i>
+                      <i class="bi bi-map me-3"></i>
                       <span>{{ $t('solutions.mapping') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/inspection">
-                      <i class="bi bi-water me-2"></i>
+                      <i class="bi bi-water me-3"></i>
                       <span>{{ $t('solutions.waterConservancy') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/delivery">
-                      <i class="bi bi-exclamation-triangle me-2"></i>
+                      <i class="bi bi-exclamation-triangle me-3"></i>
                       <span>{{ $t('solutions.emergency') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/agriculture">
-                      <i class="bi bi-tree me-2"></i>
+                      <i class="bi bi-tree me-3"></i>
                       <span>{{ $t('solutions.forestry') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/aerial">
-                      <i class="bi bi-truck me-2"></i>
+                      <i class="bi bi-truck me-3"></i>
                       <span>{{ $t('solutions.transportation') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/powerline">
-                      <i class="bi bi-lightning me-2"></i>
+                      <i class="bi bi-lightning me-3"></i>
                       <span>{{ $t('solutions.powerInspection') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/spraying">
-                      <i class="bi bi-flower1 me-2"></i>
+                      <i class="bi bi-flower1 me-3"></i>
                       <span>{{ $t('solutions.environmental') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/farming">
-                      <i class="bi bi-cloudy me-2"></i>
+                      <i class="bi bi-cloudy me-3"></i>
                       <span>{{ $t('solutions.agriculture') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/applications/integration">
-                      <i class="bi bi-box-seam me-2"></i>
+                      <i class="bi bi-box-seam me-3"></i>
                       <span>{{ $t('solutions.logistics') }}</span>
                     </router-link>
                   </div>
@@ -105,35 +123,33 @@
               </div>
             </div>
           </li>
-          
-          <li class="nav-item mega-menu-trigger"
-              @mouseenter="handleSupportMenuEnter" 
-              @mouseleave="handleSupportMenuLeave">
+
+          <li class="nav-item mega-menu-trigger" @mouseenter="handleSupportMenuEnter"
+            @mouseleave="handleSupportMenuLeave">
             <router-link class="nav-link" to="/support">
               {{ $t('common.services') }}
             </router-link>
-            
-            <div class="mega-menu-panel" v-show="showSupportMenu" 
-                 @mouseenter="isOverSupportSubmenu = true" 
-                 @mouseleave="isOverSupportSubmenu = false">
+
+            <div class="mega-menu-panel" v-show="showSupportMenu" @mouseenter="isOverSupportSubmenu = true"
+              @mouseleave="isOverSupportSubmenu = false">
               <div class="mega-menu-inner">
                 <div class="product-list w-100">
                   <!-- 服务与支持列表 - 横向靠左展示 -->
                   <div class="product-list-menu">
                     <router-link class="product-item" to="/support/downloads">
-                      <i class="bi bi-download me-2"></i>
+                      <i class="bi bi-download me-3"></i>
                       <span>{{ $t('support.downloads') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/support/policy">
-                      <i class="bi bi-shield-check me-2"></i>
+                      <i class="bi bi-shield-check me-3"></i>
                       <span>{{ $t('support.policy') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/support/faq">
-                      <i class="bi bi-question-circle me-2"></i>
+                      <i class="bi bi-question-circle me-3"></i>
                       <span>{{ $t('support.faq') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/support/hotline">
-                      <i class="bi bi-telephone me-2"></i>
+                      <i class="bi bi-telephone me-3"></i>
                       <span>{{ $t('support.hotline') }}</span>
                     </router-link>
                   </div>
@@ -141,35 +157,32 @@
               </div>
             </div>
           </li>
-          
-          <li class="nav-item mega-menu-trigger"
-              @mouseenter="handleAboutMenuEnter" 
-              @mouseleave="handleAboutMenuLeave">
+
+          <li class="nav-item mega-menu-trigger" @mouseenter="handleAboutMenuEnter" @mouseleave="handleAboutMenuLeave">
             <router-link class="nav-link" to="/about">
               {{ $t('common.about') }}
             </router-link>
-            
-            <div class="mega-menu-panel" v-show="showAboutMenu" 
-                 @mouseenter="isOverAboutSubmenu = true" 
-                 @mouseleave="isOverAboutSubmenu = false">
+
+            <div class="mega-menu-panel" v-show="showAboutMenu" @mouseenter="isOverAboutSubmenu = true"
+              @mouseleave="isOverAboutSubmenu = false">
               <div class="mega-menu-inner">
                 <div class="product-list w-100">
                   <!-- 关于我们列表 - 横向靠左展示 -->
                   <div class="product-list-menu">
                     <router-link class="product-item" to="/about/company">
-                      <i class="bi bi-building me-2"></i>
+                      <i class="bi bi-building me-3"></i>
                       <span>{{ $t('about.company') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/about/responsibility">
-                      <i class="bi bi-globe me-2"></i>
+                      <i class="bi bi-globe me-3"></i>
                       <span>{{ $t('about.responsibility') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/about/careers">
-                      <i class="bi bi-person-plus me-2"></i>
+                      <i class="bi bi-person-plus me-3"></i>
                       <span>{{ $t('about.careers') }}</span>
                     </router-link>
                     <router-link class="product-item" to="/about/contact">
-                      <i class="bi bi-envelope me-2"></i>
+                      <i class="bi bi-envelope me-3"></i>
                       <span>{{ $t('about.contact') }}</span>
                     </router-link>
                   </div>
@@ -179,7 +192,7 @@
           </li>
         </ul>
       </div>
-      
+
       <div class="d-flex align-items-center">
         <LanguageSwitcher class="me-3" />
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -343,7 +356,7 @@ export default {
   z-index: 9999;
   left: 0;
   right: 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -360,7 +373,8 @@ export default {
   margin: 0 2px;
 }
 
-.nav-link.active, .nav-link:hover {
+.nav-link.active,
+.nav-link:hover {
   color: var(--accent-color);
   border-bottom: 2px solid var(--line-color);
   background: none;
@@ -377,7 +391,7 @@ export default {
   right: 0;
   top: 100%;
   background-color: #FFFFFF;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-top: 2px solid var(--accent-color);
   z-index: 1050;
   padding: 0;
@@ -449,25 +463,25 @@ export default {
     box-shadow: none;
     border-top: none;
   }
-  
+
   .mega-menu-inner {
     flex-direction: column;
     min-height: auto;
     padding: 0.5rem;
     padding-left: 0.5rem;
   }
-  
+
   .product-list-menu {
     flex-direction: column;
   }
-  
+
   .product-item {
     padding: 0.6rem 1rem;
     font-size: 1rem;
     margin-right: 0;
     border-bottom: 1px solid #f0f0f0;
   }
-  
+
   .product-item:last-child {
     border-bottom: none;
   }
@@ -508,4 +522,41 @@ export default {
 .product-name {
   display: none;
 }
-</style> 
+
+.nav-product-label-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-product-thumb {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+.product-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.nav-product-icon-col {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.nav-product-label-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-product-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-top: 4px;
+}
+</style>

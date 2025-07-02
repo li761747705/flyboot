@@ -2,7 +2,7 @@
   <div class="company-page">
 
     <div class="company-banner">
-      <img src="/images/about/company/通用-1900X400.png" alt="公司介绍" />
+      <img src="/images/about/company/通用-11900X400.png" alt="公司介绍" />
     </div>
 
     <!-- 顶部导航 -->
@@ -355,7 +355,7 @@ export default {
 
 /* 导航栏 */
 .nav-bar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(38deg, #4483b1 0%, #102f4f 100%);
   padding: 1rem 0;
   margin-bottom: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

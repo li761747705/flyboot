@@ -484,7 +484,6 @@ export default {
 .jobs-page {
   background: #f8f9fa;
   min-height: 100vh;
-  padding: 2rem 0;
 }
 
 /* 头部区域 */

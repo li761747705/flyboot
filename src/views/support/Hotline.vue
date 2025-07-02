@@ -62,10 +62,9 @@
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="hotline-row hotline-row-center">
-          <div class="hotline-card hotline-card-large">
+
+
+          <div class="hotline-card ">
             <div class="card-header">
               <div class="card-icon">
                 <i class="bi bi-headset"></i>
@@ -96,6 +95,8 @@
             </div>
           </div>
         </div>
+        
+      
       </div>
     </div>
   </div>
@@ -113,7 +114,7 @@ export default {
 <style scoped>
 .hotline-page {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  min-height: 100vh;
+
   padding: 2rem 0;
 }
 

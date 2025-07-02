@@ -172,7 +172,7 @@ export default {
 
 /* 页面头部 */
 .page-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   position: relative;
   overflow: hidden;
 }
@@ -272,7 +272,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,12 +315,12 @@ export default {
   font-weight: 500;
   transition: all 0.3s ease;
   border: none;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #3498db, #2980b9);
 }
 
 .about-content .btn:hover {
   transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
 }
 
 /* 技术实力区域 */
@@ -367,7 +367,7 @@ export default {
 
 .stat-item:hover {
   transform: translateY(-5px);
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
 }
 
@@ -384,7 +384,7 @@ export default {
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: #667eea;
+  color: #3498db;
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
@@ -400,7 +400,7 @@ export default {
 .stat-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #3498db, #2980b9);
   border-radius: 50%;
   display: flex;
   align-items: center;

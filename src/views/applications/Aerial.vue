@@ -1,10 +1,12 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">交通</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>通过无人机搭载地高清摄像头和传感器，能够实时获取道路上车辆地行驶速度、密度、和流向等信息。</h5>
+        <h5>  相比传统地固定摄像头和地面传感器，无人机能够覆盖更广地区域，并且可以更具需要灵活调整监测位置和角度，从而更全面、准确地掌握交通流量状况。</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -59,7 +61,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .scene-section {
   max-width: 1100px;

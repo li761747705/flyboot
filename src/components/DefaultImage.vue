@@ -21,7 +21,7 @@ export default {
     },
     bgColor: {
       type: String,
-      default: '#f5f5f5'
+      default: ''
     }
   },
   computed: {
@@ -34,6 +34,24 @@ export default {
         agriculture: 'bi-flower1'
       };
       return iconMap[this.type] || 'bi-image';
+    },
+    computedBgColor() {
+      if (this.bgColor) return this.bgColor;
+      // 根据type自动适配主色调
+      switch (this.type) {
+        case 'drone':
+          return '#f8f9fa'; // 浅灰
+        case 'photography':
+          return 'linear-gradient(135deg, #e0e7ff, #f8fafc)';
+        case 'industrial':
+          return 'linear-gradient(135deg, #f5f7fa, #c3cfe2)';
+        case 'logistics':
+          return 'linear-gradient(135deg, #f9fafb, #e3e6e8)';
+        case 'agriculture':
+          return 'linear-gradient(135deg, #e0ffe0, #f8fafc)';
+        default:
+          return '#f5f5f5';
+      }
     }
   }
 };

@@ -2,9 +2,12 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">运载应用</h1>
+      <h5>随着物流和运输需求的日益增长，传统运输方式在效率、灵活性和成本方面的局限性逐渐显现。</h5>
+      <h5> 大载重无人机凭借其强大能力、高度灵活性和低成本优势，正逐渐成为物流运输、建筑材料搬运、农业运输和医疗救援领域的重要工具。</h5>
+        <h5>  未来，大载重无人机将在更多场景中发挥重要作用，推动低空经济的发展。</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -57,7 +60,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .scene-section {
   max-width: 1100px;

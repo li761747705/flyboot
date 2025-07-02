@@ -1,10 +1,11 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">测绘</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>无人机在地形测绘和三维建模领域的应用日益普及，其高效、准确的特点使其成为现代工程的重要工具</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -59,7 +60,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 .scene-section {
   max-width: 1100px;

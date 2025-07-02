@@ -1,7 +1,7 @@
 <!-- 联系我们页面 -->
 <template>
   <div class="contact-page">
-    <div class="jobs-banner">
+    <div class="contact-banner">
       <img src="/images/about/contact/通用1900X400.png" alt="招贤纳士" />
     </div>
     <!-- 联系信息区域 -->
@@ -558,5 +558,23 @@ export default {
   .contact-details h3 {
     font-size: 1.3rem;
   }
+}
+
+.contact-banner {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.contact-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 </style> 

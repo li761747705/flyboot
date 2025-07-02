@@ -1,10 +1,11 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">森林勘察</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>无人机航测技术具有高效率、高精度、非接触式测量等优势，能够在不干扰森林生态环境得情况下，快速获取森林资源的相关数据</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"

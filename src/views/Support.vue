@@ -292,9 +292,9 @@ export default {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-.clickable-banner:hover::before {
+/* .clickable-banner:hover::before {
   background: linear-gradient(135deg, rgba(179, 179, 255, 0.9), rgba(255, 255, 255, 0.9));
-}
+} */
 
 /* 动画效果 */
 @keyframes bounce {

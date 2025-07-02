@@ -1,10 +1,11 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">环保</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>在环保领域中，无人机技术能够帮助我们更好的监测环境污染、进行环境治理等任务，并为环保工作提供更有效的支持。</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -59,7 +60,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .scene-section {
   max-width: 1100px;

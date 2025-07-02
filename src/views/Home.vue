@@ -19,7 +19,7 @@
             :key="'slide-'+index"
             class="carousel-item" 
             :class="{ active: index === 0 }">
-            <div class="carousel-content" :style="`background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${slide.image}');`">
+            <div class="carousel-content" :style="`background-image: url('${slide.image}');`">
               <div class="position-relative z-2 w-100 px-5">
                 <div class="row align-items-center justify-content-center">
                   <div class="col-12 col-md-10 py-4 py-md-5 text-center">
@@ -49,7 +49,7 @@
     <section class="product-series py-5">
       <div class="container">
         <h2 class="text-center mb-5 position-relative">产品系列<span class="section-line"></span></h2>
-        
+        <h2 class="text-center mb-5 position-relative">穿越云层之巅，探索未曾触及的天际律动</h2>
         <div class="row g-4">
           <div class="col-md-6 mb-4" v-for="(product, index) in products" :key="`product-${index}`">
             <div class="product-card position-relative">
@@ -59,7 +59,7 @@
               <div class="product-overlay">
                 <div class="product-content">
                   <h3 class="product-title">{{product.title}}</h3>
-                  <a :href="product.link" class="btn btn-light rounded-pill px-4 mt-2">查看产品</a>
+                  <a :href="product.link" class="btn btn-light rounded-pill px-4 mt-2">更多</a>
                 </div>
               </div>
             </div>
@@ -68,11 +68,11 @@
       </div>
     </section>
 
-    <!-- 场景解决方案 -->
+    <!-- 行业应用 -->
     <section class="solution-series py-5">
       <div class="container">
-        <h2 class="text-center mb-5 position-relative">场景解决方案<span class="section-line"></span></h2>
-        
+        <h2 class="text-center mb-5 position-relative">行业应用<span class="section-line"></span></h2>
+        <h2 class="text-center mb-5 position-relative"> 无人机凭借着其高效便捷、灵活多变的特点，成为人们解决问题的一种新方式</h2>
         <div class="row g-4">
           <div class="col-md-4 mb-4" v-for="(solution, index) in solutions" :key="`solution-${index}`">
             <div class="solution-card position-relative">
@@ -103,6 +103,9 @@
           <h2 class="text-center text-white mb-5 position-relative">
             {{serviceSupport.title}}
           </h2>
+          <h4 class="text-center text-white mb-5 position-relative">
+            由经验丰富的技术人员组成的快速响应团队，负责接收并分析客户热线转来的维修请求，制定初步解决方案
+          </h4>
           <a :href="serviceSupport.link" class="btn btn-light rounded-pill px-5 py-2">
             {{serviceSupport.buttonText}}
           </a>
@@ -119,18 +122,18 @@ export default {
     return {
       carouselSlides: [
         {
-          image: '/images/home/RollingImage/RollingImage1.png',
+          image: '/images/home/RollingImage/RollingImage2.png',
           titleKey: 'home.carousel.rollingImage1.title',
           subtitleKey: 'home.carousel.rollingImage1.subtitle',
           buttonKey: 'home.carousel.rollingImage1.btn',
-          link: '/products/multi-rotor'
+          link: '/products/fpv'
         },
         {
-          image: '/images/home/RollingImage/RollingImage2.png',
+          image: '/images/home/RollingImage/RollingImage1.png',
           titleKey: 'home.carousel.rollingImage2.title',
           subtitleKey: 'home.carousel.rollingImage2.subtitle',
           buttonKey: 'home.carousel.rollingImage2.btn',
-          link: '/products/fpv'
+          link: '/products/multi-rotor'
         },
         {
           image: '/images/home/RollingImage/RollingImage3.png',
@@ -218,15 +221,15 @@ export default {
       ],
       serviceSupport: {
         title: '服务与支持',
-        image: '/images/home/服务与支持已选用.png',
+        image: '/images/home/01首页-服务与支持-900X400.png',
         number: 1,
         buttonText: '了解更多',
         buttonNumber: 2,
         link: '/service'
       },
       isServiceHovered: false,
-      defaultBgGradient: 'rgba(0, 0, 0, 0.4)',
-      hoverBgGradient: 'rgba(0, 0, 0, 0.3)'
+      defaultBgGradient: 'rgba(0, 0, 0, 0)',
+      hoverBgGradient: 'rgba(0, 0, 0, 0)'
     }
   },
   computed: {
@@ -268,7 +271,7 @@ export default {
   transform: translateX(-50%);
   width: 80px;
   height: 2px;
-  background-color: #d8d8d8;
+  background-color: rgb(255,0, 0);
 }
 
 .number-circle {
@@ -451,7 +454,7 @@ export default {
 .hero-bg {
   position: absolute;
   left: 0; right: 0; top: 0; bottom: 0;
-  background: radial-gradient(circle at top right, #4287FF, #2D0A81 70%);
+  background: radial-gradient(circle at top right, #fff, #fff 70%);
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -461,8 +464,8 @@ export default {
   content: '';
   position: absolute;
   left: 0; right: 0; top: 0; bottom: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
-                   linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  /* background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
+                   linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); */
   background-size: 20px 20px;
   z-index: -1;
 }

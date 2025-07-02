@@ -2,19 +2,61 @@
   <div class="products-page">
     <!-- 只在/products主页面显示主内容 -->
     <template v-if="$route.path === '/products'">
-      <section
-        v-for="(banner, idx) in allBanners"
-        :key="banner.title"
-        class="support-banner clickable-banner"
-        :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
-        @click="goTo(banner.link)"
-      >
+      <section v-for="(banner, idx) in allBanners" :key="banner.title" class="support-banner clickable-banner"
+        :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }" @click="goTo(banner.link)">
         <div class="support-banner-overlay">
           <h1 class="support-banner-title">{{ banner.title }}</h1>
           <p class="support-banner-subtitle">{{ banner.subtitle }}</p>
           <p class="support-banner-subtitle">{{ banner.subtitle2 }}</p>
-                </div>
+        </div>
       </section>
+      <div class="container mt-5">
+        <h2 class="text-center mb-5 position-relative">穿越无人机
+          <span class="section-line"></span>
+        </h2>
+        <h3 class="text-center mb-5 position-relative">翱翔天际的未来使者，带你领略前所未有的高空视角</h3>
+        <div class="row g-4">
+          <div class="col-md-6 mb-4" v-for="(drone, index) in drones" :key="`drone-${index}`">
+            <div class="product-card position-relative">
+              <div class="product-image-container">
+                <img :src="drone.image" :alt="drone.name" class="img-fluid">
+              </div>
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">{{ drone.name }}</h3>
+                  <p class="text-white mb-2">{{ drone.description }}</p>
+                  <router-link :to="`/products/${drone.type}`"
+                    class="btn btn-light rounded-pill px-4 mt-2">更多</router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <h2 class="text-center mb-5 position-relative">多旋翼无人机
+          <span class="section-line"></span>
+        </h2>
+        <h3 class="text-center mb-5 position-relative">
+          结构简单、操作便捷、适应复杂环境等特点，广泛应用于航拍、巡检、农业植保等领域</h3>
+        <div class="row g-4">
+          <div class="col-md-6 mb-4" v-for="(drone, index) in dronesFpx" :key="`drone-${index}`">
+            <div class="product-card position-relative">
+              <div class="product-image-container">
+                <img :src="drone.image" :alt="drone.name" class="img-fluid">
+              </div>
+              <div class="product-overlay">
+                <div class="product-content">
+                  <h3 class="product-title">{{ drone.name }}</h3>
+                  <p class="text-white mb-2">{{ drone.description }}</p>
+                  <router-link :to="`/products/${drone.type}`"
+                    class="btn btn-light rounded-pill px-4 mt-2">更多</router-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </template>
     <!-- 子路由页面始终渲染 -->
     <router-view />
@@ -23,7 +65,7 @@
       <img src="/images/home/scene/电力.png" alt="行业应用" class="industry-banner-img" />
       <div class="industry-banner-content">
         <span class="industry-banner-title">行业应用</span>
-        <button class="industry-banner-btn">了解更多</button>
+        <button class="industry-banner-btn" @click="$router.push('/applications')">了解更多</button>
       </div>
     </div>
     <Footer />
@@ -38,38 +80,12 @@ export default {
       activeCategory: 'all',
       searchTerm: '',
       allBanners: [
-      {
-        title: '服务与支持',
-        subtitle: '我们提供全面的技术支持与服务，确保您的问题快速解决',
-        bgImg: '/images/home/service.png',
-        height: '700px',
-        link: '/support'
-      },
         {
-          title: '下载中心',
-          bgImg: '/images/home/download.png',
-          height: '500px',
-          link: '/support/downloads'
-        },
-        {
-          title: '售后服务政策',
-          bgImg: '/images/home/after-sale.png',
-          height: '600px',
-          link: '/support/policy'
-        },
-        {
-          title: '常见问题',
-          bgImg: '/images/home/after-sale.png',
-          height: '600px',
-          link: '/support/faq'
-        },
-        {
-          title: '服务热线',
-          subtitle: '热线电话：0000000000',
-          subtitle2: '周一至周六：9：00-18：00',
-          bgImg: '/images/home/after-sale.png',
-          height: '600px',
-          link: '/support/hotline'
+          title: '产品系列',
+          subtitle: '科技新飞跃，无人机让飞行无界限',
+          bgImg: '/images/products/通用-1900X400.png',
+          height: '700px',
+          link: '/support'
         }
       ],
       drones: [
@@ -78,7 +94,7 @@ export default {
           type: 'fpv',
           name: 'SpeedRacer Pro',
           description: '专业穿越竞速无人机，极致的飞行体验',
-          image: '/images/home/product/product1.png',
+          image: '/images/products/产品系列：通用-577X577.png',
           specifications: {
             '最大起飞重量': '0.8kg',
             '续航时间': '20分钟',
@@ -124,57 +140,59 @@ export default {
             '最大飞行高度': '5000m',
             '最大抗风等级': '7级'
           }
+        }
+      ],
+      dronesFpx: [
+        {
+          id: 'fpv-01',
+          type: 'fpv',
+          name: 'SpeedRacer Pro',
+          description: '专业穿越竞速无人机，极致的飞行体验',
+          image: '/images/products/产品系列：多轴577X577.png',
+          specifications: {
+            '最大起飞重量': '0.8kg',
+            '续航时间': '20分钟',
+            '最大飞行速度': '180km/h',
+            '最大抗风等级': '5级'
+          }
         },
         {
-          id: 'fw-01',
-          type: 'fixedWing',
-          name: 'FlyWing Pro 200',
-          description: '长航时固定翼无人机，适合大面积测绘和巡检',
-          image: '/images/home/product/product3.png',
+          id: 'fpv-02',
+          type: 'fpv',
+          name: 'FreeStyle X',
+          description: '自由式特技飞行无人机，适合创意表演',
+          image: '/images/products/drones/freestyle.jpg',
           specifications: {
-            '最大起飞重量': '5.2kg',
-            '续航时间': '120分钟',
+            '最大起飞重量': '0.9kg',
+            '续航时间': '18分钟',
+            '最大飞行速度': '160km/h',
+            '最大抗风等级': '5级'
+          }
+        },
+        {
+          id: 'mr-01',
+          type: 'multiRotor',
+          name: 'QuadX 800',
+          description: '高精度多旋翼无人机，适合精细作业和复杂环境',
+          image: '/images/home/product/product2.png',
+          specifications: {
+            '最大起飞重量': '8kg',
+            '续航时间': '35分钟',
+            '最大飞行高度': '4500m',
+            '最大抗风等级': '7级'
+          }
+        },
+        {
+          id: 'mr-02',
+          type: 'multiRotor',
+          name: 'HexaCopter Pro',
+          description: '六旋翼专业航拍无人机，稳定性极佳',
+          image: '/images/products/drones/hexacopter.jpg',
+          specifications: {
+            '最大起飞重量': '10kg',
+            '续航时间': '40分钟',
             '最大飞行高度': '5000m',
-            '最大抗风等级': '6级'
-          }
-        },
-        {
-          id: 'fw-02',
-          type: 'fixedWing',
-          name: 'SurveillanceWing X3',
-          description: '专业航测固定翼，高精度摄影测量系统',
-          image: '/images/products/drones/surveillance.jpg',
-          specifications: {
-            '最大起飞重量': '6.5kg',
-            '续航时间': '150分钟',
-            '最大飞行高度': '6000m',
-            '最大抗风等级': '6级'
-          }
-        },
-        {
-          id: 'hc-01',
-          type: 'helicopter',
-          name: 'RotorOne X5',
-          description: '工业级无人直升机，适合重载和特殊任务',
-          image: '/images/home/product/product4.png',
-          specifications: {
-            '最大起飞重量': '25kg',
-            '续航时间': '60分钟',
-            '最大飞行高度': '3500m',
-            '最大抗风等级': '8级'
-          }
-        },
-        {
-          id: 'hc-02',
-          type: 'helicopter',
-          name: 'CargoLifter H8',
-          description: '重型物流无人直升机，大载重运输能力',
-          image: '/images/products/drones/cargolifter.jpg',
-          specifications: {
-            '最大起飞重量': '80kg',
-            '续航时间': '45分钟',
-            '最大飞行高度': '3000m',
-            '最大抗风等级': '9级'
+            '最大抗风等级': '7级'
           }
         }
       ]
@@ -264,7 +282,7 @@ export default {
   .page-header {
     padding: 120px 0 150px;
   }
-  
+
   .page-header h1 {
     font-size: 3.5rem;
   }
@@ -395,7 +413,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0));
+  background: linear-gradient(to top, rgba(115, 115, 115, 0.9) 20%, rgba(123, 123, 123, 0.2) 80%, rgba(0, 0, 0, 0));
   display: flex;
   align-items: flex-end;
   padding: 25px;
@@ -403,12 +421,12 @@ export default {
 }
 
 .product-card:hover .product-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 30%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 0.2));
+  background: linear-gradient(to top, rgba(210, 208, 208, 0.95) 30%, rgba(166, 165, 165, 0.5) 80%, rgba(0, 0, 0, 0.2));
 }
 
 .product-content {
   width: 100%;
-  text-align: left;
+  text-align: center;
   transform: translateY(20px);
   opacity: 0.8;
   transition: all 0.4s ease;
@@ -545,6 +563,16 @@ export default {
   font-size: 1.2rem;
   margin-right: 10px;
 }
+/* 通用样式 */
+.section-line {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background-color: rgb(255,0, 0);
+}
 
 .feature-desc {
   font-size: 0.9rem;
@@ -559,19 +587,19 @@ export default {
   .product-card {
     height: 350px;
   }
-  
+
   .product-title {
     font-size: 1.4rem;
   }
-  
+
   .product-brief {
     font-size: 0.95rem;
   }
-  
+
   .feature-list li {
     font-size: 1rem;
   }
-  
+
   .feature-desc {
     font-size: 0.85rem;
   }
@@ -582,19 +610,19 @@ export default {
     padding: 12px 15px;
     font-size: 0.9rem;
   }
-  
+
   .product-nav .nav-link i {
     font-size: 1rem;
   }
-  
+
   .product-card {
     height: 320px;
   }
-  
+
   .section-description {
     font-size: 1rem;
   }
-  
+
   .feature-subtitle {
     padding-left: 0;
   }
@@ -605,34 +633,34 @@ export default {
     margin: 0 10px;
     min-width: 80px;
   }
-  
+
   .stat-value {
     font-size: 1.5rem;
   }
-  
+
   .stat-label {
     font-size: 0.8rem;
   }
-  
+
   .product-card {
     height: 280px;
   }
-  
+
   .product-title {
     font-size: 1.3rem;
     margin-bottom: 5px;
   }
-  
+
   .product-brief {
     font-size: 0.9rem;
     margin-bottom: 10px;
     -webkit-line-clamp: 1;
   }
-  
+
   .product-overlay {
     padding: 15px;
   }
-  
+
   .product-tag {
     font-size: 0.7rem;
   }
@@ -660,59 +688,60 @@ export default {
 }
 
 .industry-banner-block {
-  width: 100vw;
-  max-width: 100%;
-  height: 240px;
-  background: #fff;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 340px;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 .industry-banner-img {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.92);
+  display: block;
 }
 
 .industry-banner-content {
   position: absolute;
-  right: 8vw;
-  bottom: 38px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.18);
 }
 
 .industry-banner-title {
+  font-size: 2.2rem;
   color: #fff;
-  font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  margin-bottom: 1.5rem;
 }
 
 .industry-banner-btn {
-  background: #fff;
-  color: #222;
-  border: none;
-  border-radius: 24px;
-  padding: 10px 32px;
+  padding: 12px 36px;
   font-size: 1.1rem;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  border-radius: 24px;
+  border: none;
+  background: linear-gradient(135deg, #919090, #d5dde3);
+  color: #fff;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 10px rgba(214, 221, 225, 0.12);
+  transition: all 0.2s;
+  margin: 0 auto;
+  display: block;
 }
 
 .industry-banner-btn:hover {
-  background: #222;
-  color: #fff;
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-2px) scale(1.04);
 }
 
 @media (max-width: 900px) {
@@ -756,6 +785,7 @@ export default {
     bottom: 10px;
   }
 }
+
 .support-banner {
   position: relative;
   width: 100%;
@@ -773,26 +803,30 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
 }
+
 .support-banner:last-of-type {
   margin-bottom: 0;
 }
+
 .support-banner-overlay {
   width: 100%;
   text-align: center;
   /* background: rgba(236, 234, 234, 0.25); */
   padding: 60px 0 40px 0;
 }
+
 .support-banner-title {
   color: #fff;
   font-size: 3rem;
   font-weight: bold;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   margin-bottom: 1rem;
 }
+
 .support-banner-subtitle {
   color: #fff;
   font-size: 1.5rem;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   margin-bottom: 0;
 }
 
@@ -800,7 +834,8 @@ export default {
   cursor: pointer;
   transition: box-shadow 0.2s;
 }
+
 .clickable-banner:hover {
-  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
 }
-</style> 
+</style>

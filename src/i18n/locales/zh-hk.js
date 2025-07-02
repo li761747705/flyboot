@@ -142,7 +142,7 @@ export default {
     integration: '系統集成'
   },
   
-  // 场景化解决方案菜单
+  // 行业应用菜单
   solutions: {
     mapping: '測繪',
     waterConservancy: '水利',

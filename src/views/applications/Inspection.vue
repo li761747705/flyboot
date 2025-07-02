@@ -1,10 +1,11 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">水利</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>随着智慧水利建设推进，无人机凭借灵活机动、高效精准得特点，已成为水里管理得新型基础设施，其通过传感器融合与智能算法，实现水利全场景数字数字化覆盖。</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -59,7 +60,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .scene-section {
   max-width: 1100px;

@@ -1,10 +1,12 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">电力巡检</h1>
+      <h1 class="scene-title">应用概述</h1>
+      <h5>利用无人机搭载高清摄像头、红外热像仪等设备，对输电线路、变电站等电力设施进行高效巡查的技术手段。</h5>
+      <h5> 通过自主飞行与智能分析，可快速发现导线损伤、绝缘子破坏、设备过热等隐患，大幅度提升巡检效率与安全性。</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">适用场景</h2>
+      <h2 class="scene-section-title">应用场景</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -59,7 +61,7 @@ export default {
   font-size: 2.5rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 .scene-section {
   max-width: 1100px;

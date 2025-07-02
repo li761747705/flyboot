@@ -129,14 +129,31 @@ export default {
   border: 2px solid #e9ecef;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.downloads-card-title,
+.downloads-card-link {
+  position: static;
+  width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+.downloads-card-title {
+  margin-bottom: 0.5rem;
+}
+
+.downloads-card-link {
+  margin-bottom: 1.2rem;
 }
 
 .card-bg-mask {
@@ -158,7 +175,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: linear-gradient(135deg, rgba(139, 148, 189, 0.1), rgba(118, 75, 162, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -166,7 +183,8 @@ export default {
 .downloads-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
-  border-color: #667eea;
+  border-color: #3d4257;
+
 }
 
 .downloads-card:hover::before {
@@ -202,7 +220,7 @@ export default {
 }
 
 .downloads-card:hover .downloads-card-link {
-  color: #0056b3;
+  color: #15191f;
 }
 
 .downloads-card-link i {

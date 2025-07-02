@@ -13,7 +13,7 @@
          </ul>
         </div>
         <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="fw-bold mb-3">场景化解决方案</h5>
+          <h5 class="fw-bold mb-3">行业应用</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><router-link to="/applications/mapping" class="text-dark text-decoration-none">测绘</router-link></li>
             <li class="mb-2"><router-link to="/applications/inspection" class="text-dark text-decoration-none">水利</router-link></li>
@@ -46,8 +46,8 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <h5 class="fw-bold mb-3">联系我们</h5>
-          <p class="mb-2">电话：028-8888-8888</p>
-          <p class="mb-0">地址：四川省成都市高新区天府五街200号菁蓉汇7号楼</p>
+          <p class="mb-2">售后邮箱：2236807538@qq.com</p>
+          <p class="mb-0">招聘邮箱：2236807538@qq.com</p>
         </div>
       </div>
       <hr class="my-4 opacity-25" style="border-color: var(--line-color);">

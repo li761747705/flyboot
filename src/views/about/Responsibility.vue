@@ -1,7 +1,7 @@
 <template>
   <div class="responsibility-page">
     <div class="responsibility-banner">
-      <img src="/images/about/company/通用-1900X400.png" alt="社会责任" />
+      <img src="/images/about/responsibility/通用-1900X400.png" alt="社会责任" />
     </div>
     <!-- 主要内容区下移 -->
     <div class="responsibility-content">

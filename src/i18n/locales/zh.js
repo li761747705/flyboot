@@ -8,7 +8,7 @@ export default {
     support: '支持',
     about: '关于我们',
     login: '登录',
-    applications: '场景化解决方案',
+    applications: '行业应用',
     services: '服务与支持',
     contact: '联系我们',
     more: '更多',
@@ -40,7 +40,7 @@ export default {
     // 轮播
     carousel: {
       rollingImage1: {
-        title: '多旋翼无人机',
+        title: '穿越无人机',
         subtitle: '多个领域有着广泛的应用、包括军事、民用和工业等',
         btn: '了解更多'
       },
@@ -49,6 +49,7 @@ export default {
         subtitle: '多个领域有着广泛的应用、包括军事、民用和工业等',
         btn: '了解更多'
       },
+
       rollingImage3: {
         title: '固定翼无人机',
         subtitle: '固定翼无人机带你领略前所未有的视野，探索未知的边界‌',
@@ -94,7 +95,7 @@ export default {
     
     // 应用
     applications: {
-      title: '场景化解决方案',
+      title: '行业应用',
       agriculture: '农业植保',
       survey: '勘探',
       mapping: '测绘',
@@ -198,7 +199,7 @@ export default {
     rights: '版权所有',
     links: '快速链接',
     products: '产品系列',
-    applications: '场景化解决方案',
+    applications: '行业应用',
     services: '服务与支持',
     news: '新闻动态',
     about: '关于我们'
@@ -246,7 +247,7 @@ export default {
 
   // 应用场景页面
   applications: {
-    title: '场景化解决方案',
+    title: '行业应用',
     defense: '防务应用',
     energy: '能源应用',
     marine: '海洋应用',
@@ -255,7 +256,7 @@ export default {
     integration: '系统集成'
   },
   
-  // 场景化解决方案菜单
+  // 行业应用菜单
   solutions: {
     mapping: '测绘',
     waterConservancy: '水利',

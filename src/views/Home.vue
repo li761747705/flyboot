@@ -124,14 +124,14 @@ export default {
           link: '/products/multi-rotor'
         },
         {
-          image: '/images/home/RollingImage/RollingImage3.png',
+          image: '/images/home/RollingImage/RollingImage4.png',
           titleKey: 'home.carousel.rollingImage3.title',
           subtitleKey: 'home.carousel.rollingImage3.subtitle',
           buttonKey: 'home.carousel.rollingImage3.btn',
           link: '/products/fixed-wing'
         },
         {
-          image: '/images/home/RollingImage/RollingImage4.png',
+          image: '/images/home/RollingImage/RollingImage3.png',
           titleKey: 'home.carousel.rollingImage4.title',
           subtitleKey: 'home.carousel.rollingImage4.subtitle',
           buttonKey: 'home.carousel.rollingImage4.btn',
@@ -159,7 +159,7 @@ export default {
         title: '服务与支持',
         image: '/images/home/01首页-服务与支持-900X400.png',
         buttonText: '了解更多',
-        link: '/service'
+        link: '/support'
       }
     }
   },

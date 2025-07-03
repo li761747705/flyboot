@@ -20,28 +20,30 @@
         </div>
       </section>
       
-      <section
-        v-for="banner in allBanners"
-        :key="banner.title"
-        class="support-banner clickable-banner"
-        :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
-        @click="goTo(banner)"
-      >
-        <div class="support-banner-overlay">
-          <div class="banner-content">
-            <div class="banner-icon">
-              <i :class="getBannerIcon(banner.title)"></i>
-            </div>
-            <h2 class="support-banner-title">{{ banner.title }}</h2>
-            <p class="support-banner-subtitle">{{ banner.subtitle }}</p>
-            <p class="support-banner-subtitle">{{ banner.subtitle2 }}</p>
-            <div class="banner-action">
-              <span class="action-text">点击查看详情</span>
-              <i class="bi bi-arrow-right"></i>
+      <div class="support-banner-outer">
+        <section
+          v-for="banner in allBanners"
+          :key="banner.title"
+          class="support-banner clickable-banner"
+          :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
+          @click="goTo(banner)"
+        >
+          <div class="support-banner-overlay">
+            <div class="banner-content">
+              <div class="banner-icon">
+                <i :class="getBannerIcon(banner.title)"></i>
+              </div>
+              <h2 class="support-banner-title">{{ banner.title }}</h2>
+              <p class="support-banner-subtitle">{{ banner.subtitle }}</p>
+              <p class="support-banner-subtitle">{{ banner.subtitle2 }}</p>
+              <div class="banner-action">
+                <span class="action-text">点击查看详情</span>
+                <i class="bi bi-arrow-right"></i>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </template>
     
     <!-- 子页面顶部banner -->
@@ -77,7 +79,7 @@ export default {
         subtitle: '我们提供全面的技术支持与服务，确保您的问题快速解决',
         subtitle2: '专业团队，7×24小时为您服务',
         bgImg: '/images/support/服务与支持1900X700.png',
-        height: '700px',
+        height: '480px',
         link: '/support'
       },
       allBanners: [
@@ -86,7 +88,7 @@ export default {
           subtitle: '获取最新的软件、固件和文档资料',
           subtitle2: '支持多种产品型号，持续更新维护',
           bgImg: '/images/support/下载中心1900X300.png',
-          height: '500px',
+          height: '480px',
           link: '/support/downloads'
         },
         {
@@ -94,7 +96,7 @@ export default {
           subtitle: '了解我们的服务承诺和保修条款',
           subtitle2: '透明政策，让您安心使用',
           bgImg: '/images/support/售后服务政策1900X300.png',
-          height: '600px',
+          height: '480px',
           link: '/support/policy'
         },
         {
@@ -102,7 +104,7 @@ export default {
           subtitle: '快速找到您需要的答案',
           subtitle2: '分类整理，便于查找',
           bgImg: '/images/support/常见问题1900X300.png',
-          height: '600px',
+          height: '480px',
           link: '/support/faq'
         },
         {
@@ -110,7 +112,7 @@ export default {
           subtitle: '热线电话：400-888-8888',
           subtitle2: '周一至周六：9:00-18:00',
           bgImg: '/images/support/服务热线1900X300.png',
-          height: '600px',
+          height: '480px',
           link: '/support/hotline'
         }
       ]
@@ -159,7 +161,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -428,6 +430,25 @@ export default {
   .timeline-content {
     margin-left: 60px;
     padding: 1rem;
+  }
+}
+
+.support-banner-outer {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+@media (max-width: 1300px) {
+  .support-banner-outer {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .support-banner-outer {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 </style> 

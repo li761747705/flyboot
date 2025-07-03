@@ -11,50 +11,51 @@
         </div>
       </section>
       <div class="container mt-5">
-        <h2 class="text-center mb-5 position-relative">穿越无人机
+        <h2 class="text-center mb-3 position-relative">无人机系统
           <span class="section-line"></span>
         </h2>
-        <h3 class="text-center mb-5 position-relative">翱翔天际的未来使者，带你领略前所未有的高空视角</h3>
-        <div class="row g-4">
-          <div class="col-md-6 mb-4" v-for="(drone, index) in drones" :key="`drone-${index}`">
-            <div class="product-card position-relative">
-              <div class="product-image-container">
-                <img :src="drone.image" :alt="drone.name" class="img-fluid">
-              </div>
-              <div class="product-overlay">
-                <div class="product-content">
-                  <h3 class="product-title">{{ drone.name }}</h3>
-                  <p class="text-white mb-2">{{ drone.description }}</p>
-                  <router-link :to="`/products/${drone.type}`"
-                    class="btn btn-light rounded-pill px-4 mt-2">更多</router-link>
-                </div>
+        <p class="text-center mb-5" style="font-size: 1.1rem; color: #333;">无人机依托先进的航空技术和电子技术，可通过遥控或自主控制自动地完成飞行任务，随着飞控技术的不断发展，无人机已成为现代航空领域的重要组成部分。</p>
+        <div v-for="(group, idx) in droneGroups" :key="group.title" class="row align-items-center mb-5 flex-wrap drone-group-row">
+          <template v-if="idx % 2 === 0">
+            <!-- 左图右文 -->
+            <div class="col-md-6 mb-3 mb-md-0">
+              <div class="drone-group-imgbox">
+                <template v-if="group.image">
+                  <img :src="group.image" :alt="group.title" class="drone-group-img" />
+                </template>
+                <template v-else>
+                  <span class="drone-group-imgtext">{{ group.imageText }}</span>
+                </template>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="container mt-5">
-        <h2 class="text-center mb-5 position-relative">多旋翼无人机
-          <span class="section-line"></span>
-        </h2>
-        <h3 class="text-center mb-5 position-relative">
-          结构简单、操作便捷、适应复杂环境等特点，广泛应用于航拍、巡检、农业植保等领域</h3>
-        <div class="row g-4">
-          <div class="col-md-6 mb-4" v-for="(drone, index) in dronesFpx" :key="`drone-${index}`">
-            <div class="product-card position-relative">
-              <div class="product-image-container">
-                <img :src="drone.image" :alt="drone.name" class="img-fluid">
-              </div>
-              <div class="product-overlay">
-                <div class="product-content">
-                  <h3 class="product-title">{{ drone.name }}</h3>
-                  <p class="text-white mb-2">{{ drone.description }}</p>
-                  <router-link :to="`/products/${drone.type}`"
-                    class="btn btn-light rounded-pill px-4 mt-2">更多</router-link>
-                </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+              <div class="mb-2 drone-group-title">{{ group.title }}</div>
+              <div class="mb-3 drone-group-desc">{{ group.desc }}</div>
+              <router-link :to="group.link" class="btn btn-outline-danger rounded-pill px-4 drone-group-btn">
+                查看产品 <span class="drone-group-btn-arrow">&gt;</span>
+              </router-link>
+            </div>
+          </template>
+          <template v-else>
+            <!-- 左文右图 -->
+            <div class="col-md-6 order-md-2 mb-3 mb-md-0">
+              <div class="drone-group-imgbox">
+                <template v-if="group.image">
+                  <img :src="group.image" :alt="group.title" class="drone-group-img" />
+                </template>
+                <template v-else>
+                  <span class="drone-group-imgtext">{{ group.imageText }}</span>
+                </template>
               </div>
             </div>
-          </div>
+            <div class="col-md-6 order-md-1 d-flex flex-column justify-content-center align-items-center text-center">
+              <div class="mb-2 drone-group-title">{{ group.title }}</div>
+              <div class="mb-3 drone-group-desc">{{ group.desc }}</div>
+              <router-link :to="group.link" class="btn btn-outline-danger rounded-pill px-4 drone-group-btn">
+                查看产品 <span class="drone-group-btn-arrow">&gt;</span>
+              </router-link>
+            </div>
+          </template>
         </div>
       </div>
     </template>
@@ -194,6 +195,32 @@ export default {
             '最大飞行高度': '5000m',
             '最大抗风等级': '7级'
           }
+        }
+      ],
+      droneGroups: [
+        {
+          title: '穿越无人机',
+          imageText: '穿越无人机图片',
+          desc: '穿越无人机作为高性能特技无人机，凭借高效的动力设计和灵活、轻盈的机身，操控体验更为极致和富有价值',
+          link: '/products/fpv'
+        },
+        {
+          title: '多旋翼无人机',
+          imageText: '多旋翼无人机图片',
+          desc: '多旋翼无人机拥有一体结构与多旋翼动力系统，具有优异的悬停能力和较强的抗风能力，适合复杂环境作业，适用领域广泛',
+          link: '/products/multi-rotor'
+        },
+        {
+          title: '固定翼无人机',
+          imageText: '固定翼无人机',
+          desc: '固定翼无人机凭借高效续航、高速性能、大载荷能力和成熟的产业解决方案，适合巡检、测绘、遥感、警用等领域拥有不可替代的价值',
+          link: '/products/fixed-wing'
+        },
+        {
+          title: '无人直升机',
+          imageText: '无人直升机',
+          desc: '无人直升机拥有一体式自控和自主规划航线行驶的优越飞行体验，具有垂直起降和悬停的能力，适合大载重及复杂环境作业，常见于农林植保和警用等领域',
+          link: '/products/helicopter'
         }
       ]
     }
@@ -569,7 +596,7 @@ export default {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 150px;
+  width: 160px;
   height: 2px;
   background-color: rgb(255,0, 0);
 }
@@ -837,5 +864,101 @@ export default {
 
 .clickable-banner:hover {
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+}
+
+.drone-group-row {
+  min-height: 320px;
+  margin-bottom: 3.5rem !important;
+}
+.drone-group-imgbox {
+  height: 280px;
+  font-size: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.drone-group-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  background: #f7f7f7;
+  display: block;
+  margin: 0 auto;
+}
+.drone-group-imgtext {
+  font-size: 1.5rem;
+  color: #222;
+  opacity: 0.7;
+}
+.drone-group-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.drone-group-desc {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 2rem !important;
+  max-width: 420px;
+}
+.drone-group-btn {
+  font-size: 1.15rem;
+  padding: 0.75rem 2.5rem;
+  margin-bottom: 1.2rem;
+}
+@media (max-width: 992px) {
+  .drone-group-row {
+    min-height: 220px;
+  }
+  .drone-group-imgbox {
+    height: 160px;
+    font-size: 1.2rem;
+  }
+  .drone-group-title {
+    font-size: 1.3rem;
+  }
+  .drone-group-desc {
+    font-size: 1rem;
+    max-width: 90vw;
+  }
+  .drone-group-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .drone-group-row {
+    min-height: 120px;
+  }
+  .drone-group-imgbox {
+    height: 80px;
+    font-size: 1rem;
+  }
+  .drone-group-title {
+    font-size: 1.1rem;
+  }
+  .drone-group-desc {
+    font-size: 0.95rem;
+  }
+  .drone-group-btn {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+  }
+}
+.drone-group-btn-arrow {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.drone-group-btn:hover .drone-group-btn-arrow {
+  transform: translateX(4px);
 }
 </style>

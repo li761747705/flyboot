@@ -69,7 +69,7 @@ export default {
             { to: '/about/contact', text: '联系我们' },
             { to: '/about/company', text: '公司介绍' },
             { to: '/about/responsibility', text: '社会责任' },
-            { to: '/about/join', text: '招贤纳士' }
+            { to: '/about/careers', text: '招贤纳士' }
           ]
         },
         {

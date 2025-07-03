@@ -104,7 +104,7 @@ export default {
 <style scoped>
 .faq-wrapper {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 2rem 0;
 }
 
@@ -153,7 +153,7 @@ export default {
 
 .faq-sidebar {
   width: 320px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #fff;
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
@@ -165,24 +165,43 @@ export default {
   padding: 1rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-left: 4px solid transparent;
+  border-left: none;
   margin: 0.25rem 0;
+  background: transparent;
+  color: rgb(0,0,0);
+  position: relative;
+  z-index: 1;
 }
 
-.faq-category:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-left-color: rgba(255, 255, 255, 0.5);
+.faq-category .category-title {
+  color: rgb(0,0,0);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.faq-category.active {
-  background: rgba(255, 255, 255, 0.2);
-  border-left-color: #fff;
+.faq-category:hover, .faq-category.active {
+  background: #f3f3f3;
+  color: #000 !important;
+}
+
+.faq-category:hover .category-title, .faq-category.active .category-title {
+  color: #000 !important;
+}
+
+.faq-category .category-arrow {
+  color: rgba(0,0,0,0.7);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.faq-category:hover .category-arrow, .faq-category.active .category-arrow {
+  color: #000;
 }
 
 .category-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #f3f3f3;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -191,25 +210,8 @@ export default {
 }
 
 .category-icon i {
-  color: white;
+  color: #888;
   font-size: 1.2rem;
-}
-
-.category-title {
-  flex: 1;
-  color: white;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.category-arrow {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.faq-category.active .category-arrow {
-  transform: rotate(90deg);
 }
 
 .faq-content-area {
@@ -246,7 +248,7 @@ export default {
   padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 12px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #ff4d4f;
   transition: all 0.3s ease;
 }
 
@@ -258,12 +260,12 @@ export default {
 .question-number {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ff4d4f, #ff7875);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
   margin-right: 1rem;

@@ -1,114 +1,235 @@
 <template>
-  <footer class="text-dark py-5">
+  <footer class="footer-modern">
     <div class="container">
-      <div class="row gy-4">
-   
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="fw-bold mb-3">产品系列</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/products/fpv" class="text-dark text-decoration-none">穿越无人机</router-link></li>
-            <li class="mb-2"><router-link to="/products/multi-rotor" class="text-dark text-decoration-none">多旋翼无人机</router-link></li>
-            <li class="mb-2"><router-link to="/products/fixed-wing" class="text-dark text-decoration-none">固定翼无人机</router-link></li>
-            <li class="mb-2"><router-link to="/products/helicopter" class="text-dark text-decoration-none">无人直升机</router-link></li>
-         </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="fw-bold mb-3">行业应用</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/applications/mapping" class="text-dark text-decoration-none">测绘</router-link></li>
-            <li class="mb-2"><router-link to="/applications/inspection" class="text-dark text-decoration-none">水利</router-link></li>
-            <li><router-link to="/applications/delivery" class="text-dark text-decoration-none">应急</router-link></li>
-            <li><router-link to="/applications/agriculture" class="text-dark text-decoration-none">森林勘察</router-link></li>
-            <li><router-link to="/applications/aerial" class="text-dark text-decoration-none">交通</router-link></li>
-            <li><router-link to="/applications/powerline" class="text-dark text-decoration-none">电力巡检</router-link></li>
-            <li><router-link to="/applications/spraying" class="text-dark text-decoration-none">环保</router-link></li>
-            <li><router-link to="/applications/farming" class="text-dark text-decoration-none">农业应用</router-link></li>
-            <li><router-link to="/applications/integration" class="text-dark text-decoration-none">运载应用</router-link></li>
+      <div class="footer-content">
+        <div v-for="section in footerSections" :key="section.title" 
+             :class="['footer-section', section.class]">
+          <h5 class="footer-title">{{ section.title }}</h5>
+          <ul v-if="section.links" class="footer-links">
+            <li v-for="link in section.links" :key="link.to">
+              <router-link :to="link.to">{{ link.text }}</router-link>
+            </li>
           </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="fw-bold mb-3">服务与支持</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/support/downloads" class="text-dark text-decoration-none">下载中心</router-link></li>
-            <li><router-link to="/support/policy" class="text-dark text-decoration-none">售后服务政策</router-link></li>
-            <li><router-link to="/support/faq" class="text-dark text-decoration-none">常见问题</router-link></li>
-            <li><router-link to="/support/hotline" class="text-dark text-decoration-none">服务热线</router-link></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 col-6">
-          <h5 class="fw-bold mb-3">关于我们</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><router-link to="/about/contact" class="text-dark text-decoration-none">联系我们</router-link></li>
-            <li class="mb-2"><router-link to="/about/company" class="text-dark text-decoration-none">公司介绍</router-link></li>
-            <li class="mb-2"><router-link to="/about/responsibility" class="text-dark text-decoration-none">社会责任</router-link></li>
-            <li><router-link to="/about/join" class="text-dark text-decoration-none">招贤纳士</router-link></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h5 class="fw-bold mb-3">联系我们</h5>
-          <p class="mb-2">售后邮箱：2236807538@qq.com</p>
-          <p class="mb-0">招聘邮箱：2236807538@qq.com</p>
+          <div v-if="section.contact" class="contact-info">
+            <div v-for="contact in section.contact" :key="contact.text" class="contact-item">
+              <i :class="contact.icon"></i>
+              <span>{{ contact.text }}</span>
+            </div>
+          </div>
         </div>
       </div>
-      <hr class="my-4 opacity-25" style="border-color: var(--line-color);">
-      <div class="text-center">
-        <p class="mb-0 small">© 2024 麒风智能科技有限公司. 保留所有权利.</p>
-      </div>
+      
+      <div class="footer-divider"></div>
+      <p class="copyright">© 2024 麒风智能科技有限公司. 保留所有权利.</p>
     </div>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'AppFooter'
+  name: 'AppFooter',
+  data() {
+    return {
+      footerSections: [
+        {
+          title: '产品系列',
+          links: [
+            { to: '/products/fpv', text: '穿越无人机' },
+            { to: '/products/multi-rotor', text: '多旋翼无人机' },
+            { to: '/products/fixed-wing', text: '固定翼无人机' },
+            { to: '/products/helicopter', text: '无人直升机' }
+          ]
+        },
+        {
+          title: '行业应用',
+          links: [
+            { to: '/applications/mapping', text: '测绘' },
+            { to: '/applications/inspection', text: '水利' },
+            { to: '/applications/delivery', text: '应急' },
+            { to: '/applications/agriculture', text: '森林勘察' },
+            { to: '/applications/aerial', text: '交通' },
+            { to: '/applications/powerline', text: '电力巡检' },
+            { to: '/applications/spraying', text: '环保' },
+            { to: '/applications/farming', text: '农业应用' },
+            { to: '/applications/integration', text: '运载应用' }
+          ]
+        },
+        {
+          title: '服务与支持',
+          links: [
+            { to: '/support/downloads', text: '下载中心' },
+            { to: '/support/policy', text: '售后服务政策' },
+            { to: '/support/faq', text: '常见问题' },
+            { to: '/support/hotline', text: '服务热线' }
+          ]
+        },
+        {
+          title: '关于我们',
+          links: [
+            { to: '/about/contact', text: '联系我们' },
+            { to: '/about/company', text: '公司介绍' },
+            { to: '/about/responsibility', text: '社会责任' },
+            { to: '/about/join', text: '招贤纳士' }
+          ]
+        },
+        {
+          title: '联系我们',
+          class: 'contact-section',
+          contact: [
+            { icon: 'bi bi-envelope', text: '售后邮箱：2236807538@qq.com' },
+            { icon: 'bi bi-person-plus', text: '招聘邮箱：2236807538@qq.com' }
+          ]
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped>
-footer {
-  background-color: #FFFFFF;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+.footer-modern {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 3rem 0 1.5rem;
   border-top: 1px solid var(--line-color);
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
 }
 
-footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-footer a:hover {
-  color: var(--accent-color) !important;
+.footer-section {
+  flex: 1;
+  min-width: 200px;
 }
 
-footer h5 {
-  font-size: 1rem;
+.contact-section {
+  flex: 2;
+  min-width: 250px;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
   margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-footer ul li {
-  margin-bottom: 0.5rem;
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  padding-left: 8px;
+}
+
+.footer-links a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.footer-links a:hover::before {
+  width: 6px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c757d;
   font-size: 0.9rem;
 }
 
+.contact-item i {
+  color: var(--accent-color);
+  font-size: 1rem;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-color), transparent);
+  margin: 2rem 0;
+}
+
+.copyright {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin: 0;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
-  footer p, footer a {
-    font-size: 0.9rem;
+  .footer-modern {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer-section {
+    min-width: 150px;
+  }
+  
+  .footer-title {
+    font-size: 1rem;
+  }
+  
+  .footer-links a,
+  .contact-item {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 576px) {
-  footer h5 {
-    font-size: 1rem;
+  .footer-title {
+    margin-bottom: 0.8rem;
   }
   
-  footer .row > div {
-    margin-bottom: 1.5rem;
+  .footer-links li {
+    margin-bottom: 0.5rem;
   }
 }
 </style> 

@@ -31,9 +31,6 @@
 <script>
 export default {
   name: 'Downloads',
-  metaInfo: {
-    title: '下载中心 - 麒风智能无人机'
-  },
   data() {
     return {
       series: [
@@ -55,15 +52,6 @@ export default {
   methods: {
     goTo(link) {
       this.$router.push(link)
-    },
-    getCardIcon(title) {
-      const iconMap = {
-        '穿越无人机系列': 'bi bi-lightning',
-        '固定翼无人机系列': 'bi bi-airplane',
-        '多旋翼无人机系列': 'bi bi-hexagon',
-        '无人直升机系列': 'bi bi-fan'
-      }
-      return iconMap[title] || 'bi bi-download'
     }
   }
 }

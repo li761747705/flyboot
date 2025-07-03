@@ -184,9 +184,30 @@ export default {
   min-height: 100vh;
 }
 
-/* 联系信息区域 */
-.contact-info-section {
+.contact-banner {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+.contact-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.contact-info-section, .contact-form-section {
   padding: 3rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .contact-header {
@@ -201,7 +222,6 @@ export default {
   margin-bottom: 1rem;
   position: relative;
 }
-
 .contact-title::after {
   content: '';
   position: absolute;
@@ -213,90 +233,12 @@ export default {
   background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 2px;
 }
-
 .contact-subtitle {
   color: #6c757d;
   font-size: 1.1rem;
   margin-top: 1rem;
 }
 
-/* 搜索区域 */
-.search-card {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.search-controls {
-  display: grid;
-  grid-template-columns: 1fr 2fr auto;
-  gap: 1.5rem;
-  align-items: end;
-}
-
-.search-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.search-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  color: #2c3e50;
-  font-size: 0.95rem;
-}
-
-.search-group label i {
-  color: #667eea;
-  font-size: 1rem;
-}
-
-.search-select,
-.search-input {
-  padding: 0.75rem 1rem;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: #f8f9fa;
-}
-
-.search-select:focus,
-.search-input:focus {
-  outline: none;
-  border-color: #667eea;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.search-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
-
-.search-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-/* 联系信息卡片 */
 .contact-info-card {
   background: white;
   border-radius: 16px;
@@ -308,19 +250,16 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .contact-info-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .contact-info-main {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
 }
-
 .contact-icon {
   width: 60px;
   height: 60px;
@@ -333,14 +272,12 @@ export default {
   font-size: 1.5rem;
   flex-shrink: 0;
 }
-
 .contact-details h3 {
   font-size: 1.5rem;
   font-weight: 600;
   color: #2c3e50;
   margin-bottom: 1.5rem;
 }
-
 .contact-item {
   display: flex;
   align-items: center;
@@ -349,20 +286,17 @@ export default {
   color: #2c3e50;
   font-size: 1rem;
 }
-
 .contact-item i {
   color: #667eea;
   font-size: 1.1rem;
   width: 20px;
   text-align: center;
 }
-
 .contact-qr-section {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .qr-card {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   border-radius: 12px;
@@ -372,28 +306,20 @@ export default {
   width: 100%;
   max-width: 200px;
 }
-
 .qr-icon {
   font-size: 3rem;
   color: #667eea;
   margin-bottom: 1rem;
 }
-
 .qr-text h4 {
   font-size: 1.2rem;
   font-weight: 600;
   color: #2c3e50;
   margin-bottom: 0.5rem;
 }
-
 .qr-text p {
   color: #6c757d;
   font-size: 0.9rem;
-}
-
-/* 联系表单区域 */
-.contact-form-section {
-  padding: 3rem 0;
 }
 
 .form-card {
@@ -404,42 +330,35 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .form-header {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .form-header h3 {
   font-size: 1.8rem;
   font-weight: 600;
   color: #2c3e50;
   margin-bottom: 0.5rem;
 }
-
 .form-header p {
   color: #6c757d;
   font-size: 1rem;
 }
-
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .form-group label {
   display: flex;
   align-items: center;
@@ -448,12 +367,10 @@ export default {
   color: #2c3e50;
   font-size: 0.95rem;
 }
-
 .form-group label i {
   color: #667eea;
   font-size: 1rem;
 }
-
 .form-input,
 .form-textarea {
   padding: 0.75rem 1rem;
@@ -463,7 +380,6 @@ export default {
   transition: all 0.3s ease;
   background: #f8f9fa;
 }
-
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
@@ -471,19 +387,16 @@ export default {
   background: white;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
-
 .form-textarea {
   resize: vertical;
   min-height: 120px;
   font-family: inherit;
 }
-
 .form-actions {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
-
 .submit-btn {
   display: flex;
   align-items: center;
@@ -499,24 +412,20 @@ export default {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
-
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
-
 .submit-btn:active {
   transform: translateY(0);
 }
 
-/* 响应式设计 */
 @media (max-width: 1200px) {
   .contact-info-card,
   .form-card {
     max-width: 95%;
   }
 }
-
 @media (max-width: 768px) {
   .contact-info-card {
     grid-template-columns: 1fr;
@@ -524,57 +433,32 @@ export default {
     padding: 2rem;
     max-width: 90%;
   }
-  
   .contact-info-main {
     flex-direction: column;
     text-align: center;
   }
-  
   .form-row {
     grid-template-columns: 1fr;
   }
-  
   .form-card {
     padding: 2rem;
     max-width: 90%;
   }
-  
   .contact-title {
     font-size: 2rem;
   }
 }
-
 @media (max-width: 576px) {
   .contact-info-card,
   .form-card {
     padding: 1.5rem;
     max-width: 98%;
   }
-  
   .contact-title {
     font-size: 1.8rem;
   }
-  
   .contact-details h3 {
     font-size: 1.3rem;
   }
-}
-
-.contact-banner {
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
-}
-
-.contact-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
 }
 </style> 

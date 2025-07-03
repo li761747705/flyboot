@@ -42,9 +42,6 @@
 <script>
 export default {
   name: 'FAQ',
-  metaInfo: {
-    title: '常见问题 - 麒风智能无人机'
-  },
   data() {
     return {
       activeIndex: 0,

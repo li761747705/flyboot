@@ -24,86 +24,33 @@
       <section class="about-main-section">
         <div class="container">
       
-          <!-- 公司厂房大图及简介 -->
-          <div class="about-factory-section mb-5">
+          <!-- 公司厂房大图及简介（用数组渲染） -->
+          <div
+            v-for="(item, idx) in factoryList"
+            :key="idx"
+            class="about-factory-section mb-5"
+          >
             <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
-            <div class="about-factory-desc">
-              XX无人机科技是全球领先的智能飞行系统解决方案商，专注于工业级无人机研发与人工智能应用。自2015年成立以来，我们始终以「让天空成为人类的新生产力」为使命，通过自主创新的飞控技术、高精度传感系统和云端智能平台，为农业、测绘、安防等20+行业提供革命性的空中作业方案。
-            </div>
-          </div>
-             <div class="about-factory-section mb-5">
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
-            <div class="about-factory-desc">
-              我们采用全自动化生产线，结合高精度装配工艺，确保每架无人机性能稳定、质量可靠。核心部件误差控制在0.01mm级，并通过AI视觉检测，不良率低于0.3%。
-            </div>
-          </div>
-          <div class="about-factory-section mb-5">
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
-            <div class="about-factory-desc">
-              <h2 style="font-size:1.3rem;margin-bottom:0.7em;">1. 核心团队</h2>
-              <p>我们的团队由人工智能、工业设计等领域组成，核心成员平均拥有15年以上行业经验，曾主导多个国家级无人机项目研发。</p>
-              <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">2. 技术团队</h2>
-              <p>60+人的专职研发团队，涵盖飞控系统、动力系统、传感器融合等关键技术方向，已申请200+项技术专利，其中发明专利占比超40%。</p>
-              <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">3. 生产团队</h2>
-              <p>20000㎡现代化生产基地，配备SMT贴片机、六轴机械臂等智能设备，通过ISO9001质量管理体系认证，月产能达5000+台。</p>
-            </div>
+            <div v-if="item.desc" class="about-factory-desc" v-html="item.desc"></div>
           </div>
           <div class="about-factory-section mb-5">
             <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
           </div>
           <!-- 公司介绍卡片 -->
           <div class="row mb-5">
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" v-for="card in aboutCards" :key="card.title">
               <div class="about-card">
                 <div class="about-image">
-                  <img src="/images/about/company.jpg" alt="麒风智能简介" class="img-fluid">
+                  <img :src="card.img" :alt="card.title" class="img-fluid">
                   <div class="image-overlay">
-                    <i class="bi bi-building"></i>
+                    <i :class="card.icon"></i>
                   </div>
                 </div>
                 <div class="about-content">
-                  <h3>公司简介</h3>
-                  <p>了解麒风智能的发展历程、企业使命和我们的技术优势</p>
-                  <router-link to="/about/company" class="btn btn-primary">
-                    <span>了解更多</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-      
-            <div class="col-md-4 mb-4">
-              <div class="about-card">
-                <div class="about-image">
-                  <img src="/images/about/contact.jpg" alt="联系方式" class="img-fluid">
-                  <div class="image-overlay">
-                    <i class="bi bi-telephone"  ></i>
-                  </div>
-                </div>
-                <div class="about-content">
-                  <h3>联系我们</h3>
-                  <p>获取我们的联系信息，包括电话、邮箱、地址以及在线咨询方式</p>
-                  <router-link to="/about/contact" class="btn btn-primary">
-                    <span>联系我们</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-              <div class="about-card">
-                <div class="about-image">
-                  <img src="/images/about/jobs.jpg" alt="人才招聘" class="img-fluid">
-                  <div class="image-overlay">
-                    <i class="bi bi-people"></i>
-                  </div>
-                </div>
-                <div class="about-content">
-                  <h3>加入我们</h3>
-                  <p>查看麒风智能的职位空缺，加入我们的团队，一起推动无人机技术的未来</p>
-                  <router-link to="/about/jobs" class="btn btn-primary">
-                    <span>查看职位</span>
+                  <h3>{{ card.title }}</h3>
+                  <p>{{ card.desc }}</p>
+                  <router-link :to="card.link" class="btn btn-primary">
+                    <span>{{ card.btn }}</span>
                     <i class="bi bi-arrow-right"></i>
                   </router-link>
                 </div>
@@ -120,32 +67,11 @@
                   <p>扎实的基本功：复杂环境下，稳定飞行，高效执行任务</p>
                 </div>
                 <div class="stats-grid">
-                  <div class="stat-item">
-                    <div class="stat-number">51</div>
-                    <div class="stat-label">发明专利</div>
+                  <div class="stat-item" v-for="stat in stats" :key="stat.label">
+                    <div class="stat-number">{{ stat.number }}</div>
+                    <div class="stat-label">{{ stat.label }}</div>
                     <div class="stat-icon">
-                      <i class="bi bi-lightbulb"></i>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">64</div>
-                    <div class="stat-label">实用新型专利</div>
-                    <div class="stat-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">19</div>
-                    <div class="stat-label">外观专利</div>
-                    <div class="stat-icon">
-                      <i class="bi bi-palette"></i>
-                    </div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">29</div>
-                    <div class="stat-label">软件著作权</div>
-                    <div class="stat-icon">
-                      <i class="bi bi-code-square"></i>
+                      <i :class="stat.icon"></i>
                     </div>
                   </div>
                 </div>
@@ -160,7 +86,60 @@
 
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  data() {
+    return {
+      factoryList: [
+        {
+          desc: 'XX无人机科技是全球领先的智能飞行系统解决方案商，专注于工业级无人机研发与人工智能应用。自2015年成立以来，我们始终以「让天空成为人类的新生产力」为使命，通过自主创新的飞控技术、高精度传感系统和云端智能平台，为农业、测绘、安防等20+行业提供革命性的空中作业方案。'
+        },
+        {
+          desc: '我们采用全自动化生产线，结合高精度装配工艺，确保每架无人机性能稳定、质量可靠。核心部件误差控制在0.01mm级，并通过AI视觉检测，不良率低于0.3%。'
+        },
+        {
+          desc: `<h2 style="font-size:1.3rem;margin-bottom:0.7em;">1. 核心团队</h2>
+            <p>我们的团队由人工智能、工业设计等领域组成，核心成员平均拥有15年以上行业经验，曾主导多个国家级无人机项目研发。</p>
+            <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">2. 技术团队</h2>
+            <p>60+人的专职研发团队，涵盖飞控系统、动力系统、传感器融合等关键技术方向，已申请200+项技术专利，其中发明专利占比超40%。</p>
+            <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">3. 生产团队</h2>
+            <p>20000㎡现代化生产基地，配备SMT贴片机、六轴机械臂等智能设备，通过ISO9001质量管理体系认证，月产能达5000+台。</p>`
+        },
+        { desc: '' }
+      ],
+      aboutCards: [
+        {
+          title: '公司简介',
+          desc: '了解麒风智能的发展历程、企业使命和我们的技术优势',
+          img: '/images/about/company.jpg',
+          icon: 'bi bi-building',
+          link: '/about/company',
+          btn: '了解更多'
+        },
+        {
+          title: '联系我们',
+          desc: '获取我们的联系信息，包括电话、邮箱、地址以及在线咨询方式',
+          img: '/images/about/contact.jpg',
+          icon: 'bi bi-telephone',
+          link: '/about/contact',
+          btn: '联系我们'
+        },
+        {
+          title: '加入我们',
+          desc: '查看麒风智能的职位空缺，加入我们的团队，一起推动无人机技术的未来',
+          img: '/images/about/jobs.jpg',
+          icon: 'bi bi-people',
+          link: '/about/jobs',
+          btn: '查看职位'
+        }
+      ],
+      stats: [
+        { number: 51, label: '发明专利', icon: 'bi bi-lightbulb' },
+        { number: 64, label: '实用新型专利', icon: 'bi bi-gear' },
+        { number: 19, label: '外观专利', icon: 'bi bi-palette' },
+        { number: 29, label: '软件著作权', icon: 'bi bi-code-square' }
+      ]
+    }
+  }
 }
 </script>
 

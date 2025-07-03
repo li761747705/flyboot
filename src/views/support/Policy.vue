@@ -102,9 +102,6 @@
 <script>
 export default {
   name: 'Policy',
-  metaInfo: {
-    title: '服务政策 - 麒风智能无人机'
-  },
   data() {
     return {
       activeIndex: 0,

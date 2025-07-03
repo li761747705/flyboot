@@ -12,23 +12,17 @@
   
     <!-- 应用展示区 -->
     <div class="applications-section" v-if="$route.path === '/applications'">
-      <div class="container mt-1">
-      <h2 class="text-center mb-5 position-relative">行业应用
-        <span class="section-line"></span>
-      </h2>
-      <h3 class="text-center mb-1 position-relative">
-        无人机在多个领域都有广泛的应用
-      </h3>
-    </div>
+      <div class="container mt-4">
+        <h2 class="text-center mb-5 position-relative">行业应用<span class="section-line"></span></h2>
+        <h3 class="text-center mb-1">无人机在多个领域都有广泛的应用</h3>
+      </div>
       <div class="container">
-        <div class="applications-grid-3">
+        <div class="applications-grid">
           <div v-for="app in applications" :key="app.id" class="application-card" @click="goToApplication(app.link)"
             :style="{ backgroundImage: 'url(' + app.image + ')' }">
-            <div class="card-overlay">
-              <h3>{{ app.title }}</h3>
-              <h6>{{ app.remake }}</h6>
-               <a :href="app.link" class="btn btn-light rounded-pill px-4 mt-2" @click.stop>更多</a>
-            </div>
+            <h3>{{ app.title }}</h3>
+            <h6>{{ app.remake }}</h6>
+            <a :href="app.link" class="btn btn-light rounded-pill px-4" @click.stop>更多</a>
           </div>
         </div>
       </div>
@@ -49,9 +43,8 @@ export default {
           id: 1,
           title: '测绘',
           path: 'mapping',
-          remake:'无人机测绘凭借高效快速的数据采集、高精度成果输出、灵活作业模式、成本效益显著以及强大的环境适应能力，已成为现代测绘领域的核心技术手段。',
+          remake: '无人机测绘凭借高效快速的数据采集、高精度成果输出、灵活作业模式、成本效益显著以及强大的环境适应能力，已成为现代测绘领域的核心技术手段。',
           image: '/images/applications/测绘400X620.png',
-          icon: '/images/applications/mapping.png',
           link: '/applications/mapping',
           desc: '灵活机动、精细准确、作业成本低、生产周期短'
         },
@@ -59,9 +52,8 @@ export default {
           id: 2,
           title: '水利',
           path: 'inspection',
-          remake:'提高监测效率、增强监测精度、提升应急响应能力、降低成本和提高安全性等方面。',
+          remake: '提高监测效率、增强监测精度、提升应急响应能力、降低成本和提高安全性等方面。',
           image: '/images/applications/水利400X620.png',
-          icon: '/images/applications/inspection.png',
           link: '/applications/inspection',
           desc: '督察手段现代化，提高工作效率，提升整体监管能力'
         },
@@ -69,9 +61,8 @@ export default {
           id: 3,
           title: '应急',
           path: 'delivery',
-          remake:'无人机可突破地面交通限制，在复杂地形中快速抵达灾区，实时监测灾情并制定救援方案，缩短响应时间。',
+          remake: '无人机可突破地面交通限制，在复杂地形中快速抵达灾区，实时监测灾情并制定救援方案，缩短响应时间。',
           image: '/images/applications/应急400X620.png',
-          icon: '/images/applications/delivery.png',
           link: '/applications/delivery',
           desc: '利用快速灵活机动得特性，实现长时空中监测、实时多维动态呈现，创新应急管理体系。'
         },
@@ -79,9 +70,8 @@ export default {
           id: 4,
           title: '交通',
           path: 'aerial',
-          remake:'无人机航测技术在森林资源调查中的应用随着科技的不断发展，无人机航测技术逐渐应用于森林资源调查中，其高效、精准的特点在森林勘察中展现得淋漓尽致。',
+          remake: '无人机航测技术在森林资源调查中的应用随着科技的不断发展，无人机航测技术逐渐应用于森林资源调查中，其高效、精准的特点在森林勘察中展现得淋漓尽致。',
           image: '/images/applications/交通400X620.png',
-          icon: '/images/applications/aerial.png',
           link: '/applications/aerial',
           desc: '更准更快速地获取有效信息，复杂情况下迅速作出决策'
         },
@@ -89,9 +79,8 @@ export default {
           id: 5,
           title: '环保',
           path: 'spraying',
-          remake:'具备广域视野和快速机动能力，可实时监控交通状况，发现违规行为或拥堵情况后立即通过空中喊话提醒驾驶员，配合地面警力精准处置。',
+          remake: '具备广域视野和快速机动能力，可实时监控交通状况，发现违规行为或拥堵情况后立即通过空中喊话提醒驾驶员，配合地面警力精准处置。',
           image: '/images/applications/环保400X620.png',
-          icon: '/images/applications/spraying.png',
           link: '/applications/spraying',
           desc: '凭借高效、精准和环境适应性强的技术优势'
         },
@@ -99,9 +88,8 @@ export default {
           id: 6,
           title: '森林勘察',
           path: 'agriculture',
-          remake:'利用无人机搭载高清摄像设备、倾斜摄影测量技术等设备对电力线路、杆塔等元器件进行快速、高效的巡检。',
+          remake: '利用无人机搭载高清摄像设备、倾斜摄影测量技术等设备对电力线路、杆塔等元器件进行快速、高效的巡检。',
           image: '/images/applications/森林400X620.png',
-          icon: '/images/applications/agriculture.png',
           link: '/applications/agriculture',
           desc: '监测森林资源、提供高效、安全的解决方案'
         },
@@ -109,9 +97,8 @@ export default {
           id: 7,
           title: '电力巡检',
           path: 'powerline',
-          remake:'无人机遥感系统可按需迅速查明环境现状，在建设项目环境保护管理、环境监测、环境监察、环境应急和生态保护等方面能够发挥极其重要的作用。',
+          remake: '无人机遥感系统可按需迅速查明环境现状，在建设项目环境保护管理、环境监测、环境监察、环境应急和生态保护等方面能够发挥极其重要的作用。',
           image: '/images/applications/电力400X620.png',
-          icon: '/images/applications/firefighting.png',
           link: '/applications/powerline',
           desc: '安全、可靠、准确、高效的执行电力运维'
         },
@@ -119,9 +106,8 @@ export default {
           id: 8,
           title: '农业应用',
           path: 'farming',
-          remake:'无人机在农业领域的应用主要通过集成导航系统、传感器和自动化技术实现全流程智能化管理，主要涵盖植保作业、作物监测、精准施肥及收割等场景，显著提升农业生产效率并降低人力成本。',
+          remake: '无人机在农业领域的应用主要通过集成导航系统、传感器和自动化技术实现全流程智能化管理，主要涵盖植保作业、作物监测、精准施肥及收割等场景，显著提升农业生产效率并降低人力成本。',
           image: '/images/applications/农业400X620.png',
-          icon: '/images/applications/farming.png',
           link: '/applications/farming',
           desc: '精准、高效、单人植保作业神器'
         },
@@ -129,9 +115,8 @@ export default {
           id: 9,
           title: '运载应用',
           path: 'integration',
-          remake:'无人机运载具有高效、灵活、成本低等优势，特别适用于偏远地区、复杂地形和紧急情况下的物流和运输需求。',
+          remake: '无人机运载具有高效、灵活、成本低等优势，特别适用于偏远地区、复杂地形和紧急情况下的物流和运输需求。',
           image: '/images/applications/运载400X620.png',
-          icon: '/images/applications/powerline.png',
           link: '/applications/integration',
           desc: '提高运输效率、减少碳排放和人力成本'
         }
@@ -144,25 +129,25 @@ export default {
     }
   },
   computed: {
-     currentTitle() {
-       const path = this.$route.path;
-       const match = path.match(/^\/applications\/(\w+)/);
-       if (match) {
-         const found = this.applications.find(app => app.path === match[1]);
-         return found ? found.title : '行业应用';
-       }
-       return '行业应用';
-     },
-     currentDesc() {
-       const path = this.$route.path;
-       const match = path.match(/^\/applications\/(\w+)/);
-       if (match) {
-         const found = this.applications.find(app => app.path === match[1]);
-         return found ? ( found.desc || '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。') : '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。';
-       }
-       return '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。';
-     }
-   }
+    currentTitle() {
+      const path = this.$route.path;
+      const match = path.match(/^\/applications\/(\w+)/);
+      if (match) {
+        const found = this.applications.find(app => app.path === match[1]);
+        return found ? found.title : '行业应用';
+      }
+      return '行业应用';
+    },
+    currentDesc() {
+      const path = this.$route.path;
+      const match = path.match(/^\/applications\/(\w+)/);
+      if (match) {
+        const found = this.applications.find(app => app.path === match[1]);
+        return found ? (found.desc || '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。') : '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。';
+      }
+      return '广泛应用于测绘与地理信息、巡检、安防监控、应急等领域的多种应用场景。';
+    }
+  }
 }
 </script>
 
@@ -213,10 +198,10 @@ export default {
 }
 
 .applications-section {
-  padding: 0 0 50px 0px;
+  padding: 0 0 50px 0;
 }
 
-.applications-grid-3 {
+.applications-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
@@ -226,7 +211,6 @@ export default {
 .application-card {
   background: #eee;
   border-radius: 8px;
-  padding: 0;
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -235,8 +219,6 @@ export default {
   background-position: center;
   position: relative;
   height: 320px;
-  display: flex;
-  align-items: flex-end;
   overflow: hidden;
 }
 
@@ -245,31 +227,25 @@ export default {
   transform: translateY(-5px);
 }
 
-.card-overlay {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
 .application-card h3 {
-  margin: 0 0 10px 0;
+  margin: 0;
   width: 100%;
   text-align: center;
   position: absolute;
   top: 32px;
   left: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 .application-card h6 {
-  margin: 0 0 10px 0;
+  margin: 0;
   width: 100%;
   text-align: center;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  color: #ffffff;
+  color: #fff;
 }
 
 .application-card .btn {
@@ -279,8 +255,18 @@ export default {
   transform: translateX(-50%);
 }
 
+.section-line {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background-color: rgb(255,0, 0);
+}
+
 @media (max-width: 992px) {
-  .applications-grid-3 {
+  .applications-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -293,35 +279,15 @@ export default {
   .application-card h3 {
     font-size: 1.3rem;
   }
-
-  .card-overlay {
-    padding: 15px;
-  }
-
-  .banner {
-    min-height: 120px;
-    height: 38vw;
-    max-height: 220px;
-  }
 }
 
 @media (max-width: 600px) {
-  .applications-grid-3 {
+  .applications-grid {
     grid-template-columns: 1fr;
   }
 
   .application-card {
     height: 220px;
   }
-}
-/* 通用样式 */
-.section-line {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 2px;
-  background-color: rgb(255,0, 0);
 }
 </style>

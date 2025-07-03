@@ -15,46 +15,29 @@ import AppFooter from './components/Footer.vue'
 
 export default {
   name: 'App',
-  components: {
-    NavBar,
-    AppFooter
-  },
+  components: { NavBar, AppFooter },
   data() {
-    return {
-      isRTL: false
-    }
+    return { isRTL: false }
   },
   created() {
-    // 监听语言变化事件
     this.emitter = getCurrentInstance().appContext.config.globalProperties.emitter;
     this.emitter.on('language-changed', this.handleLanguageChange);
   },
   unmounted() {
-    // 清理事件监听
     this.emitter.off('language-changed', this.handleLanguageChange);
   },
   methods: {
     handleLanguageChange(newLocale) {
-      // 手动更新RTL状态
       this.isRTL = newLocale === 'ar';
     }
   },
   watch: {
-    // 监听语言变化
     '$i18n.locale': {
       immediate: true,
       handler(newLocale) {
         this.isRTL = newLocale === 'ar';
-        
-        if (newLocale === 'ar') {
-          document.documentElement.setAttribute('dir', 'rtl');
-          document.documentElement.classList.add('rtl');
-        } else {
-          document.documentElement.setAttribute('dir', 'ltr');
-          document.documentElement.classList.remove('rtl');
-        }
-        
-        // 设置文档语言
+        document.documentElement.setAttribute('dir', newLocale === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.classList.toggle('rtl', newLocale === 'ar');
         document.documentElement.setAttribute('lang', newLocale);
       }
     }
@@ -75,47 +58,24 @@ export default {
   --line-color: #d8d8d8;
 }
 
-/* 响应式字体大小设置 */
 html {
   font-size: 16px;
   overflow-y: overlay;
 }
 
-@media (max-width: 1200px) {
-  html {
-    font-size: 15px;
-  }
+@media (max-width: 1200px) { html { font-size: 15px; } }
+@media (max-width: 992px) { 
+  html { font-size: 14px; }
+  :root { --section-padding: 3rem 0; }
 }
-
-@media (max-width: 992px) {
-  html {
-    font-size: 14px;
-  }
-  :root {
-    --section-padding: 3rem 0;
-  }
+@media (max-width: 768px) { 
+  html { font-size: 14px; }
+  :root { --section-padding: 2.5rem 0; }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
 }
-
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-  :root {
-    --section-padding: 2.5rem 0;
-  }
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-}
-
-@media (max-width: 576px) {
-  html {
-    font-size: 13px;
-  }
-  :root {
-    --section-padding: 2rem 0;
-  }
+@media (max-width: 576px) { 
+  html { font-size: 13px; }
+  :root { --section-padding: 2rem 0; }
 }
 
 body {
@@ -131,6 +91,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* RTL样式支持 */
@@ -212,6 +177,7 @@ html[dir="rtl"] .text-start {
 .main-content {
   padding-top: 68px;
   min-height: calc(100vh - 300px);
+  flex: 1;
 }
 
 @media (max-width: 576px) {
@@ -275,27 +241,15 @@ html[dir="rtl"] .text-start {
 }
 
 @media (max-width: 768px) {
-  .display-1 {
-    font-size: calc(1.8rem + 1.5vw);
-  }
-  .display-2 {
-    font-size: calc(1.7rem + 1.3vw);
-  }
-  .display-3 {
-    font-size: calc(1.6rem + 1.1vw);
-  }
-  .display-4 {
-    font-size: calc(1.5rem + 0.9vw);
-  }
+  .display-1 { font-size: calc(1.8rem + 1.5vw); }
+  .display-2 { font-size: calc(1.7rem + 1.3vw); }
+  .display-3 { font-size: calc(1.6rem + 1.1vw); }
+  .display-4 { font-size: calc(1.5rem + 0.9vw); }
 }
 
 @media (max-width: 576px) {
-  h1, .h1 {
-    font-size: 1.75rem;
-  }
-  h2, .h2 {
-    font-size: 1.5rem;
-  }
+  h1, .h1 { font-size: 1.75rem; }
+  h2, .h2 { font-size: 1.5rem; }
 }
 
 .dropdown-menu.mega-menu {
@@ -346,21 +300,10 @@ html[dir="rtl"] .text-start {
 }
 
 /* 多语言字体支持 */
-[lang="ar"] {
-  font-family: 'Noto Sans Arabic', 'Arial', sans-serif;
-}
-
-[lang="hi"], [lang="bn"] {
-  font-family: 'Noto Sans', 'Arial', sans-serif;
-}
-
-[lang="ru"] {
-  font-family: 'Noto Sans', 'Arial', sans-serif;
-}
-
-[lang="zh"], [lang="zh-hk"] {
-  font-family: 'Microsoft YaHei', 'SimSun', 'Noto Sans SC', sans-serif;
-}
+[lang="ar"] { font-family: 'Noto Sans Arabic', 'Arial', sans-serif; }
+[lang="hi"], [lang="bn"] { font-family: 'Noto Sans', 'Arial', sans-serif; }
+[lang="ru"] { font-family: 'Noto Sans', 'Arial', sans-serif; }
+[lang="zh"], [lang="zh-hk"] { font-family: 'Microsoft YaHei', 'SimSun', 'Noto Sans SC', sans-serif; }
 
 footer {
   background-color: var(--primary-color);
@@ -419,7 +362,7 @@ footer {
   }
 }
 
-/* 自定义滚动条样式 - 置于最上层 */
+/* 自定义滚动条样式 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -448,14 +391,6 @@ footer {
   scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
 }
 
-/* 隐藏移动设备上的滚动条 */
-@media (max-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-}
-
 /* 不让滚动条影响内容布局 */
 html, body {
   overflow-x: hidden;
@@ -464,18 +399,5 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-/* 确保内容铺满屏幕 */
-#app {
-  min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
 }
 </style>

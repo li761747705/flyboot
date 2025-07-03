@@ -19,102 +19,42 @@
       <section class="responsibility-projects">
         <div class="container">
           <div class="projects-container">
-            <!-- 无人机救援行动 -->
-            <div class="project-item">
+            <div
+              class="project-item"
+              :class="{ reverse: idx % 2 === 1 }"
+              v-for="(item, idx) in projects"
+              :key="item.title"
+            >
               <div class="project-image">
                 <div class="image-placeholder">
-                  <img  src="/images/about/responsibility/通用430X420.png" alt="2025年相关图片" />
-                  </div>
+                  <img :src="item.img" :alt="item.title" />
+                </div>
               </div>
               <div class="project-content">
                 <div class="project-header">
                   <div class="project-icon">
-                    <i class="bi bi-heart-pulse"></i>
+                    <i :class="item.icon"></i>
                   </div>
-                  <h3 class="project-title">无人机救援行动</h3>
+                  <h3 class="project-title">{{ item.title }}</h3>
                 </div>
                 <div class="project-description">
-                  <p>无人机在救援行动中发挥了重要作用，特别是在复杂环境的紧急情况下，无人机的高空视角和远程操作使其成为有效的救援工具。</p>
-                  <div class="project-features">
-                    <div class="feature-item">
-                      <i class="bi bi-eye"></i>
-                      <span>高空视角监控</span>
-                    </div>
-                    <div class="feature-item">
-                      <i class="bi bi-wifi"></i>
-                      <span>远程实时操作</span>
-                    </div>
-                    <div class="feature-item">
-                      <i class="bi bi-shield-check"></i>
-                      <span>安全救援保障</span>
+                  <p>{{ item.desc }}</p>
+                  <div v-if="item.features" class="project-features">
+                    <div class="feature-item" v-for="f in item.features" :key="f.text">
+                      <i :class="f.icon"></i>
+                      <span>{{ f.text }}</span>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 无人机农作物喷洒作业示范 -->
-            <div class="project-item reverse">
-              <div class="project-content">
-                <div class="project-header">
-                  <div class="project-icon">
-                    <i class="bi bi-droplet"></i>
-                  </div>
-                  <h3 class="project-title">无人机农作物喷洒作业示范</h3>
-                </div>
-                <div class="project-description">
-                  <p>无人机喷洒农药的效率极高，单机每小时作业面积可达100亩以上，是传统人工喷洒的数倍。搭载AI技术和厘米级导航系统，能够实现精准感知，减少重喷和漏喷现象，提高农药利用率至90%以上。</p>
-                  <div class="project-stats">
-                    <div class="stat-item">
-                      <div class="stat-number">100+</div>
-                      <div class="stat-label">亩/小时作业面积</div>
-                    </div>
-                    <div class="stat-item">
-                      <div class="stat-number">90%+</div>
-                      <div class="stat-label">农药利用率</div>
-                    </div>
-                    <div class="stat-item">
-                      <div class="stat-number">AI</div>
-                      <div class="stat-label">智能导航系统</div>
+                  <div v-if="item.stats" class="project-stats">
+                    <div class="stat-item" v-for="s in item.stats" :key="s.label">
+                      <div class="stat-number">{{ s.number }}</div>
+                      <div class="stat-label">{{ s.label }}</div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="project-image">
-                <div class="image-placeholder">
-                  <img  src="/images/about/responsibility/通用430X420.png" alt="2025年相关图片" />
-                  </div>
-              </div>
-            </div>
-
-            <!-- 2022年泸定县地震救援 -->
-            <div class="project-item">
-              <div class="project-image">
-                <div class="image-placeholder">
-                  <img  src="/images/about/responsibility/通用430X420.png" alt="2025年相关图片" />
-                  </div>
-              </div>
-              <div class="project-content">
-                <div class="project-header">
-                  <div class="project-icon">
-                    <i class="bi bi-telephone"></i>
-                  </div>
-                  <h3 class="project-title">2022年泸定县地震救援</h3>
-                </div>
-                <div class="project-description">
-                  <p>无人机在地震灾区建立专网通信，协助应急管理部构建应急指挥通信网络，保障应急救援工作的顺利进行。通过实时传输的画面帮助救援人员发现被困群众，并通过喊话器与他们取得联系，指导设置醒目标志。</p>
-                  <div class="project-highlights">
-                    <div class="highlight-item">
-                      <i class="bi bi-broadcast"></i>
-                      <span>专网通信建立</span>
-                    </div>
-                    <div class="highlight-item">
-                      <i class="bi bi-camera-video"></i>
-                      <span>实时画面传输</span>
-                    </div>
-                    <div class="highlight-item">
-                      <i class="bi bi-megaphone"></i>
-                      <span>远程喊话指导</span>
+                  <div v-if="item.highlights" class="project-highlights">
+                    <div class="highlight-item" v-for="h in item.highlights" :key="h.text">
+                      <i :class="h.icon"></i>
+                      <span>{{ h.text }}</span>
                     </div>
                   </div>
                 </div>
@@ -133,25 +73,11 @@
               <p class="summary-subtitle">持续用科技创新服务社会，承担更多社会责任</p>
             </div>
             <div class="summary-content">
-              <div class="commitment-item">
-                <i class="bi bi-lightbulb"></i>
+              <div class="commitment-item" v-for="c in commitments" :key="c.title">
+                <i :class="c.icon"></i>
                 <div class="commitment-text">
-                  <h4>技术创新</h4>
-                  <p>持续投入研发，推动无人机技术在更多领域的应用</p>
-                </div>
-              </div>
-              <div class="commitment-item">
-                <i class="bi bi-people"></i>
-                <div class="commitment-text">
-                  <h4>社会服务</h4>
-                  <p>积极参与应急救援、农业现代化等社会公益事业</p>
-                </div>
-              </div>
-              <div class="commitment-item">
-                <i class="bi bi-globe"></i>
-                <div class="commitment-text">
-                  <h4>环境保护</h4>
-                  <p>通过精准农业技术，减少农药使用，保护生态环境</p>
+                  <h4>{{ c.title }}</h4>
+                  <p>{{ c.desc }}</p>
                 </div>
               </div>
             </div>
@@ -164,7 +90,63 @@
 
 <script>
 export default {
-  name: 'Responsibility'
+  name: 'Responsibility',
+  data() {
+    return {
+      projects: [
+        {
+          title: '无人机救援行动',
+          img: '/images/about/responsibility/通用430X420.png',
+          icon: 'bi bi-heart-pulse',
+          desc: '无人机在救援行动中发挥了重要作用，特别是在复杂环境的紧急情况下，无人机的高空视角和远程操作使其成为有效的救援工具。',
+          features: [
+            { icon: 'bi bi-eye', text: '高空视角监控' },
+            { icon: 'bi bi-wifi', text: '远程实时操作' },
+            { icon: 'bi bi-shield-check', text: '安全救援保障' }
+          ]
+        },
+        {
+          title: '无人机农作物喷洒作业示范',
+          img: '/images/about/responsibility/通用430X420.png',
+          icon: 'bi bi-droplet',
+          desc: '无人机喷洒农药的效率极高，单机每小时作业面积可达100亩以上，是传统人工喷洒的数倍。搭载AI技术和厘米级导航系统，能够实现精准感知，减少重喷和漏喷现象，提高农药利用率至90%以上。',
+          stats: [
+            { number: '100+', label: '亩/小时作业面积' },
+            { number: '90%+', label: '农药利用率' },
+            { number: 'AI', label: '智能导航系统' }
+          ]
+        },
+        {
+          title: '2022年泸定县地震救援',
+          img: '/images/about/responsibility/通用430X420.png',
+          icon: 'bi bi-telephone',
+          desc: '无人机在地震灾区建立专网通信，协助应急管理部构建应急指挥通信网络，保障应急救援工作的顺利进行。通过实时传输的画面帮助救援人员发现被困群众，并通过喊话器与他们取得联系，指导设置醒目标志。',
+          highlights: [
+            { icon: 'bi bi-broadcast', text: '专网通信建立' },
+            { icon: 'bi bi-camera-video', text: '实时画面传输' },
+            { icon: 'bi bi-megaphone', text: '远程喊话指导' }
+          ]
+        }
+      ],
+      commitments: [
+        {
+          icon: 'bi bi-lightbulb',
+          title: '技术创新',
+          desc: '持续投入研发，推动无人机技术在更多领域的应用'
+        },
+        {
+          icon: 'bi bi-people',
+          title: '社会服务',
+          desc: '积极参与应急救援、农业现代化等社会公益事业'
+        },
+        {
+          icon: 'bi bi-globe',
+          title: '环境保护',
+          desc: '通过精准农业技术，减少农药使用，保护生态环境'
+        }
+      ]
+    }
+  }
 }
 </script>
 

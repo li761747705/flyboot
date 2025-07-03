@@ -24,9 +24,7 @@
                 class="search-select"
               >
                 <option value="">全部类别</option>
-                <option value="研发类">研发类</option>
-                <option value="销售类">销售类</option>
-                <option value="客户类">客户类</option>
+                <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
               </select>
             </div>
             
@@ -263,12 +261,7 @@
                 required
               >
                 <option value="">请选择工作地点</option>
-                <option value="珠海">珠海</option>
-                <option value="上海">上海</option>
-                <option value="深圳">深圳</option>
-                <option value="广州">广州</option>
-                <option value="成都">成都</option>
-                <option value="其他">其他</option>
+                <option v-for="loc in locations" :key="loc" :value="loc">{{ loc }}</option>
               </select>
             </div>
             
@@ -283,11 +276,6 @@
       </div>
     </section>
 
-    <section class="training-section">
-      <h2 class="training-title">员工培训</h2>
-      <img class="about-section-img" src="/images/about/通用620X420.png" alt="员工培训" />
-      <!-- 可在此处补充培训相关介绍内容 -->
-    </section>
   </div>
 </template>
 
@@ -307,6 +295,8 @@ export default {
         email: '',
         location: ''
       },
+      categories: ['研发类', '销售类', '客户类'],
+      locations: ['珠海', '上海', '深圳', '广州', '成都', '其他'],
       jobs: [
         {
           id: 1,
@@ -422,59 +412,40 @@ export default {
   computed: {
     filteredJobs() {
       let filtered = this.jobs;
-      
-      if (this.category) {
-        filtered = filtered.filter(job => job.type === this.category);
-      }
-      
+      if (this.category) filtered = filtered.filter(job => job.type === this.category);
       if (this.search) {
-        const searchLower = this.search.toLowerCase();
-        filtered = filtered.filter(job => 
-          job.title.toLowerCase().includes(searchLower) ||
-          job.location.toLowerCase().includes(searchLower)
+        const s = this.search.toLowerCase();
+        filtered = filtered.filter(job =>
+          job.title.toLowerCase().includes(s) ||
+          job.location.toLowerCase().includes(s)
         );
       }
-      
       return filtered;
     }
   },
   methods: {
-    doSearch() {
-      // 搜索逻辑已在computed中处理
-    },
     showJobDetail(job) {
       this.selectedJob = job;
       this.showDetail = true;
     },
     getTypeClass(type) {
-      const classMap = {
+      return {
         '研发类': 'type-dev',
         '销售类': 'type-sales',
         '客户类': 'type-service'
-      };
-      return classMap[type] || '';
+      }[type] || '';
     },
     submitApply() {
-      if (!this.applyForm.name || !this.applyForm.phone || !this.applyForm.position || !this.applyForm.email || !this.applyForm.location) {
+      if (Object.values(this.applyForm).some(v => !v)) {
         alert('请完整填写所有信息');
         return;
       }
-      
       const subject = encodeURIComponent('麒风智能职位应聘申请');
       const body = encodeURIComponent(
         `姓名：${this.applyForm.name}\n联系电话：${this.applyForm.phone}\n应聘岗位：${this.applyForm.position}\n邮箱：${this.applyForm.email}\n期望工作地点：${this.applyForm.location}`
       );
-      
       window.location.href = `mailto:hr@ziyanuav.cn?subject=${subject}&body=${body}`;
-      
-      // 清空表单
-      this.applyForm = {
-        name: '',
-        phone: '',
-        position: '',
-        email: '',
-        location: ''
-      };
+      this.applyForm = { name: '', phone: '', position: '', email: '', location: '' };
     }
   }
 }

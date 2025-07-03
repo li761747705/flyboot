@@ -1,27 +1,27 @@
 <template>
   <div class="support-page">
-
-     <!-- 只在/support主页面展示所有子banners -->
-     <template v-if="$route.path === '/support'">
-    <!-- 固定顶部banner -->
-    <section
-      class="support-banner clickable-banner"
-      :style="{ backgroundImage: `url('${fixedBanner.bgImg}')`, height: fixedBanner.height }"
-      @click="goTo(fixedBanner)"
-    >
-      <div class="support-banner-overlay">
-        <div class="banner-content">
-          <h1 class="support-banner-title">{{ fixedBanner.title }}</h1>
-          <p class="support-banner-subtitle">{{ fixedBanner.subtitle }}</p>
-          <p class="support-banner-subtitle">{{ fixedBanner.subtitle2 }}</p>
-          <div class="banner-arrow">
-            <i class="bi bi-arrow-down"></i>
+    <!-- 只在/support主页面展示所有子banners -->
+    <template v-if="$route.path === '/support'">
+      <!-- 固定顶部banner -->
+      <section
+        class="support-banner clickable-banner"
+        :style="{ backgroundImage: `url('${fixedBanner.bgImg}')`, height: fixedBanner.height }"
+        @click="goTo(fixedBanner)"
+      >
+        <div class="support-banner-overlay">
+          <div class="banner-content">
+            <h1 class="support-banner-title">{{ fixedBanner.title }}</h1>
+            <p class="support-banner-subtitle">{{ fixedBanner.subtitle }}</p>
+            <p class="support-banner-subtitle">{{ fixedBanner.subtitle2 }}</p>
+            <div class="banner-arrow">
+              <i class="bi bi-arrow-down"></i>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
       <section
-        v-for="(banner, idx) in allBanners"
+        v-for="banner in allBanners"
         :key="banner.title"
         class="support-banner clickable-banner"
         :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
@@ -113,15 +113,13 @@ export default {
           height: '600px',
           link: '/support/hotline'
         }
-      ],
+      ]
     }
   },
   computed: {
     currentBanner() {
       if (this.$route.path === '/support') return null;
-      // 用path和allBanners的link字段匹配
       const banner = this.allBanners.find(b => b.link === this.$route.path);
-      // 没有匹配时默认第一个
       return banner || this.allBanners[0];
     }
   },
@@ -152,7 +150,6 @@ export default {
   min-height: 100vh;
 }
 
-/* Banner样式 */
 .support-banner {
   position: relative;
   width: 100%;
@@ -163,25 +160,12 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
-  border-radius: 0;
-  box-sizing: border-box;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .support-banner:last-of-type {
   margin-bottom: 0;
-}
-
-.support-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)); */
-  z-index: 1;
 }
 
 .support-banner-overlay {
@@ -281,10 +265,8 @@ export default {
   transform: translateX(3px);
 }
 
-/* 点击效果 */
 .clickable-banner {
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .clickable-banner:hover {
@@ -292,11 +274,6 @@ export default {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* .clickable-banner:hover::before {
-  background: linear-gradient(135deg, rgba(179, 179, 255, 0.9), rgba(255, 255, 255, 0.9));
-} */
-
-/* 动画效果 */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -309,7 +286,6 @@ export default {
   }
 }
 
-/* 响应式设计 */
 @media (max-width: 1200px) {
   .banner-content {
     max-width: 95%;
@@ -382,7 +358,6 @@ export default {
   }
 }
 
-/* 时间线样式（保留原有样式） */
 .text-accent {
   color: var(--accent-color);
 }

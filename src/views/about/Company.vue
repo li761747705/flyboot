@@ -9,28 +9,14 @@
     <div class="nav-bar">
       <div class="nav-container">
         <div 
-          class="nav-item" 
-          :class="{ 'active': activeTab === 'company' }"
-          @click="activeTab = 'company'"
+          v-for="tab in tabs"
+          :key="tab.key"
+          class="nav-item"
+          :class="{ 'active': activeTab === tab.key }"
+          @click="activeTab = tab.key"
         >
-          <i class="bi bi-building"></i>
-          公司介绍
-        </div>
-        <div 
-          class="nav-item" 
-          :class="{ 'active': activeTab === 'history' }"
-          @click="activeTab = 'history'"
-        >
-          <i class="bi bi-clock-history"></i>
-          发展历程
-        </div>
-        <div 
-          class="nav-item" 
-          :class="{ 'active': activeTab === 'culture' }"
-          @click="activeTab = 'culture'"
-        >
-          <i class="bi bi-heart"></i>
-          企业文化
+          <i :class="tab.icon"></i>
+          {{ tab.label }}
         </div>
       </div>
     </div>
@@ -50,25 +36,11 @@
         <!-- 核心数据 -->
         <div class="stats-section">
           <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-number">2021年</div>
-              <div class="stat-label">正式成立</div>
+            <div class="stat-card" v-for="stat in stats" :key="stat.label">
+              <div class="stat-number">{{ stat.number }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
               <div class="stat-icon">
-                <i class="bi bi-calendar-check"></i>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">10</div>
-              <div class="stat-label">服务国家/地区</div>
-              <div class="stat-icon">
-                <i class="bi bi-globe"></i>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">合作伙伴</div>
-              <div class="stat-icon">
-                <i class="bi bi-people"></i>
+                <i :class="stat.icon"></i>
               </div>
             </div>
           </div>
@@ -79,42 +51,14 @@
           <div class="map-container">
             <div class="map-placeholder">
               <span class="map-text">全球业务布局</span>
-              <!-- 城市标记点 -->
-              <div class="city-marker" style="left: 12%; top: 38%;">
+              <div
+                v-for="city in cities"
+                :key="city.name"
+                class="city-marker"
+                :style="{ left: city.left, top: city.top }"
+              >
                 <div class="marker-dot"></div>
-                <span class="city-name">SILICON VALLEY</span>
-              </div>
-              <div class="city-marker" style="left: 18%; top: 45%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">WASHINGTON DC</span>
-              </div>
-              <div class="city-marker" style="left: 22%; top: 33%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">NEW YORK</span>
-              </div>
-              <div class="city-marker" style="left: 44%; top: 38%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">BILBAO</span>
-              </div>
-              <div class="city-marker" style="left: 54%; top: 44%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">TEL AVIV</span>
-              </div>
-              <div class="city-marker" style="left: 60%; top: 70%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">TANZANIA</span>
-              </div>
-              <div class="city-marker" style="left: 70%; top: 60%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">BOMBAY / BANGALORE</span>
-              </div>
-              <div class="city-marker" style="left: 80%; top: 28%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">BEIJING</span>
-              </div>
-              <div class="city-marker" style="left: 85%; top: 38%;">
-                <div class="marker-dot"></div>
-                <span class="city-name">SHANGHAI</span>
+                <span class="city-name">{{ city.name }}</span>
               </div>
             </div>
           </div>
@@ -125,17 +69,9 @@
           <div class="partnership-content">
             <p class="partnership-intro">我们的无人机解决方案已获得欧盟CE、美国FAA等国际认证，现与全球10个国家建立深度合作，包括：</p>
             <div class="region-list">
-              <div class="region-item">
-                <span class="region-name">欧洲：</span>
-                <span class="region-countries">德国、法国</span>
-              </div>
-              <div class="region-item">
-                <span class="region-name">新兴市场：</span>
-                <span class="region-countries">阿联酋、巴西、南非、以色列、土耳其</span>
-              </div>
-              <div class="region-item">
-                <span class="region-name">亚太：</span>
-                <span class="region-countries">新加坡、澳大利亚、菲律宾</span>
+              <div class="region-item" v-for="region in regions" :key="region.name">
+                <span class="region-name">{{ region.name }}</span>
+                <span class="region-countries">{{ region.countries }}</span>
               </div>
             </div>
             <p class="partnership-summary">凭借卓越飞行性能与完善的售后体系，符合全球市场的航空法规要求，确保顺利出口欧洲、新兴市场、亚太等10+国家和地区。</p>
@@ -148,107 +84,20 @@
     <section v-if="activeTab === 'history'" class="history-section">
       <div class="container">
         <div class="timeline-container">
-          <!-- 2025年 -->
-          <div class="timeline-item">
+          <div class="timeline-item" v-for="item in history" :key="item.year">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
+                <img :src="item.img" :alt="item.year + '相关图片'" />
               </div>
             </div>
             <div class="timeline-marker">
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <div class="timeline-year">2025年｜未来探索</div>
+              <div class="timeline-year">{{ item.year }}｜{{ item.title }}</div>
               <div class="timeline-description">
                 <ul>
-                  <li>启动城市空中物流（UAM）项目，推动无人机智慧城市应用</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2024年 -->
-          <div class="timeline-item">
-        
-            <div class="timeline-image">
-              <div class="image-placeholder">
-                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
-            
-              </div>
-            </div>
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-year">2024年｜行业标杆</div>
-              <div class="timeline-description">
-                <ul>
-                  <li>入选"中国无人机企业TOP15"</li>
-                  <li>年交付量超5万台，成为农业植保领域选择品牌之一</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2023年 -->
-          <div class="timeline-item">
-            <div class="timeline-image">
-              <div class="image-placeholder">
-                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
-            
-              </div>
-            </div>
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-year">2023年｜技术革命</div>
-              <div class="timeline-description">
-                <ul>
-                  <li>自主研发"超长续航电池"技术获得国际专利，续航时间突破120分钟</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2022年 -->
-          <div class="timeline-item">
-            <div class="timeline-image">
-              <div class="image-placeholder">
-                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
-            
-              </div>
-            </div>
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-year">2022年｜首款无人机发布</div>
-              <div class="timeline-description">
-                <ul>
-                  <li>首款无人机产品发布，年交付量超5万台，成为农业植保领域选择品牌之一</li>
-                </ul>
-              </div>
-            </div> 
-          </div>
-
-          <!-- 2021年 -->
-          <div class="timeline-item">
-            <div class="timeline-image">
-              <div class="image-placeholder">
-                <img  src="/images/about/company/通用410X240.png" alt="2025年相关图片" />
-            
-              </div>
-            </div>
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-year">2021年｜品牌诞生</div>
-              <div class="timeline-description">
-                <ul>
-                  <li>成立研发团队、专注于无人机自主飞控技术、奠定核心技术</li>
+                  <li v-for="desc in item.desc" :key="desc">{{ desc }}</li>
                 </ul>
               </div>
             </div>
@@ -261,73 +110,24 @@
     <section v-if="activeTab === 'culture'" class="culture-section">
       <div class="container">
         <div class="culture-container">
-          <!-- 核心价值观 -->
-          <div class="culture-item">
-            <div class="culture-image">
-              <img class="about-section-img" src="/images/about/company/通用620X420.png" alt="核心价值观" />
+          <div class="culture-item" v-for="(item, idx) in culture" :key="item.title">
+            <div class="culture-image" v-if="idx % 2 === 0">
+              <img class="about-section-img" :src="item.img" :alt="item.title" />
             </div>
             <div class="culture-content">
               <div class="culture-title">
-                <i class="bi bi-heart-fill"></i>
-                核心价值观
+                <i :class="item.icon"></i>
+                {{ item.title }}
               </div>
               <div class="culture-list">
-                <div class="culture-point">
+                <div class="culture-point" v-for="point in item.points" :key="point">
                   <i class="bi bi-check-circle"></i>
-                  <span><strong>客户至上：</strong>将客户的需求和满意度放在首位，提供专业的服务和高品质的无人机产品。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>创新驱动：</strong>鼓励技术和管理的双重创新，推动无人机技术发展。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>团队协作：</strong>强调团队合作，鼓励员工之间的互助与共享。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>诚信担当：</strong>遵守法律法规和道德规范，保持诚信经营。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>学习与进步：</strong>持续提升知识和技能，鼓励员工不断学习和提升。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>共荣共进：</strong>鼓励员工之间的共同进步，建立和谐的团队关系。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>社会责任：</strong>关注社会责任，积极参与社会活动。</span>
+                  <span v-html="point"></span>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- 员工培训 -->
-          <div class="culture-item">
-            <div class="culture-content">
-              <div class="culture-title">
-                <i class="bi bi-mortarboard"></i>
-                员工培训
-              </div>
-              <div class="culture-list">
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>岗位技能培训：</strong>根据员工的岗位需求，提供必要的技能培训，增强员工胜任岗位本职工作的能力。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>安全培训：</strong>培训员工的安全操作规程和应急处置流程，确保员工工作中的安全和企业的正常运营。</span>
-                </div>
-                <div class="culture-point">
-                  <i class="bi bi-check-circle"></i>
-                  <span><strong>团队协作和沟通技巧：</strong>通过培训提升员工的团队协作能力和沟通协调技巧，促进员工之间的合作和交流。</span>
-                </div>
-              </div>
-            </div>
-            <div class="culture-image">
-              <img class="about-section-img" src="/images/about/company/通用620X420.png" alt="员工培训" />
+            <div class="culture-image" v-if="idx % 2 === 1">
+              <img class="about-section-img" :src="item.img" :alt="item.title" />
             </div>
           </div>
         </div>
@@ -341,7 +141,91 @@ export default {
   name: 'Company',
   data() {
     return {
-      activeTab: 'company'
+      activeTab: 'company',
+      tabs: [
+        { key: 'company', label: '公司介绍', icon: 'bi bi-building' },
+        { key: 'history', label: '发展历程', icon: 'bi bi-clock-history' },
+        { key: 'culture', label: '企业文化', icon: 'bi bi-heart' }
+      ],
+      stats: [
+        { number: '2021年', label: '正式成立', icon: 'bi bi-calendar-check' },
+        { number: 10, label: '服务国家/地区', icon: 'bi bi-globe' },
+        { number: '500+', label: '合作伙伴', icon: 'bi bi-people' }
+      ],
+      cities: [
+        { name: 'SILICON VALLEY', left: '12%', top: '38%' },
+        { name: 'WASHINGTON DC', left: '18%', top: '45%' },
+        { name: 'NEW YORK', left: '22%', top: '33%' },
+        { name: 'BILBAO', left: '44%', top: '38%' },
+        { name: 'TEL AVIV', left: '54%', top: '44%' },
+        { name: 'TANZANIA', left: '60%', top: '70%' },
+        { name: 'BOMBAY / BANGALORE', left: '70%', top: '60%' },
+        { name: 'BEIJING', left: '80%', top: '28%' },
+        { name: 'SHANGHAI', left: '85%', top: '38%' }
+      ],
+      regions: [
+        { name: '欧洲：', countries: '德国、法国' },
+        { name: '新兴市场：', countries: '阿联酋、巴西、南非、以色列、土耳其' },
+        { name: '亚太：', countries: '新加坡、澳大利亚、菲律宾' }
+      ],
+      history: [
+        {
+          year: '2025年',
+          title: '未来探索',
+          img: '/images/about/company/通用410X240.png',
+          desc: ['启动城市空中物流（UAM）项目，推动无人机智慧城市应用']
+        },
+        {
+          year: '2024年',
+          title: '行业标杆',
+          img: '/images/about/company/通用410X240.png',
+          desc: ['入选\"中国无人机企业TOP15\"', '年交付量超5万台，成为农业植保领域选择品牌之一']
+        },
+        {
+          year: '2023年',
+          title: '技术革命',
+          img: '/images/about/company/通用410X240.png',
+          desc: ['自主研发\"超长续航电池\"技术获得国际专利，续航时间突破120分钟']
+        },
+        {
+          year: '2022年',
+          title: '首款无人机发布',
+          img: '/images/about/company/通用410X240.png',
+          desc: ['首款无人机产品发布，年交付量超5万台，成为农业植保领域选择品牌之一']
+        },
+        {
+          year: '2021年',
+          title: '品牌诞生',
+          img: '/images/about/company/通用410X240.png',
+          desc: ['成立研发团队、专注于无人机自主飞控技术、奠定核心技术']
+        }
+      ],
+      culture: [
+        {
+          title: '核心价值观',
+          icon: 'bi bi-heart-fill',
+          img: '/images/about/company/通用620X420.png',
+          points: [
+            '<strong>客户至上：</strong>将客户的需求和满意度放在首位，提供专业的服务和高品质的无人机产品。',
+            '<strong>创新驱动：</strong>鼓励技术和管理的双重创新，推动无人机技术发展。',
+            '<strong>团队协作：</strong>强调团队合作，鼓励员工之间的互助与共享。',
+            '<strong>诚信担当：</strong>遵守法律法规和道德规范，保持诚信经营。',
+            '<strong>学习与进步：</strong>持续提升知识和技能，鼓励员工不断学习和提升。',
+            '<strong>共荣共进：</strong>鼓励员工之间的共同进步，建立和谐的团队关系。',
+            '<strong>社会责任：</strong>关注社会责任，积极参与社会活动。'
+          ]
+        },
+        {
+          title: '员工培训',
+          icon: 'bi bi-mortarboard',
+          img: '/images/about/company/通用620X420.png',
+          points: [
+            '<strong>岗位技能培训：</strong>根据员工的岗位需求，提供必要的技能培训，增强员工胜任岗位本职工作的能力。',
+            '<strong>安全培训：</strong>培训员工的安全操作规程和应急处置流程，确保员工工作中的安全和企业的正常运营。',
+            '<strong>团队协作和沟通技巧：</strong>通过培训提升员工的团队协作能力和沟通协调技巧，促进员工之间的合作和交流。'
+          ]
+        }
+      ]
     }
   }
 }

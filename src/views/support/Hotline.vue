@@ -9,94 +9,21 @@
       
       <div class="hotline-cards">
         <div class="hotline-row">
-          <div class="hotline-card">
+          <div class="hotline-card" v-for="card in cards" :key="card.title">
             <div class="card-header">
               <div class="card-icon">
-                <i class="bi bi-person-check"></i>
+                <i :class="card.icon"></i>
               </div>
-              <h3 class="hotline-card-title">销售咨询</h3>
+              <h3 class="hotline-card-title">{{ card.title }}</h3>
             </div>
             <div class="hotline-card-body">
-              <div class="contact-item">
-                <i class="bi bi-building"></i>
-                <span>麒风智能科技有限公司</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-telephone"></i>
-                <span>联系电话：150-0000-0000（李经理）</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-envelope"></i>
-                <span>邮箱：sales@qifeng.com</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-wechat"></i>
-                <span>微信服务号：手机号同步</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="hotline-card">
-            <div class="card-header">
-              <div class="card-icon">
-                <i class="bi bi-tools"></i>
-              </div>
-              <h3 class="hotline-card-title">技术顾问</h3>
-            </div>
-            <div class="hotline-card-body">
-              <div class="contact-item">
-                <i class="bi bi-building"></i>
-                <span>麒风智能科技有限公司</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-telephone"></i>
-                <span>联系电话：139-0000-0000（张师傅）</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-envelope"></i>
-                <span>邮箱：tech@qifeng.com</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-wechat"></i>
-                <span>微信服务号：手机号同步</span>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="hotline-card ">
-            <div class="card-header">
-              <div class="card-icon">
-                <i class="bi bi-headset"></i>
-              </div>
-              <h3 class="hotline-card-title">客户服务热线</h3>
-            </div>
-            <div class="hotline-card-body">
-              <div class="contact-item">
-                <i class="bi bi-building"></i>
-                <span>麒风智能科技有限公司</span>
-              </div>
-              <div class="contact-item highlight">
-                <i class="bi bi-telephone-fill"></i>
-                <span>服务热线：400-888-8888</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-envelope"></i>
-                <span>邮箱：service@qifeng.com</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-clock"></i>
-                <span>工作时间：周一至周六 9:00-18:00</span>
-              </div>
-              <div class="contact-item">
-                <i class="bi bi-geo-alt"></i>
-                <span>地址：深圳市南山区科技园</span>
+              <div class="contact-item" v-for="item in card.contacts" :key="item.text" :class="{ highlight: item.highlight }">
+                <i :class="item.icon"></i>
+                <span v-html="item.text"></span>
               </div>
             </div>
           </div>
         </div>
-        
-      
       </div>
     </div>
   </div>
@@ -105,8 +32,42 @@
 <script>
 export default {
   name: 'Hotline',
-  metaInfo: {
-    title: '服务热线 - 麒风智能无人机'
+  data() {
+    return {
+      cards: [
+        {
+          title: '销售咨询',
+          icon: 'bi bi-person-check',
+          contacts: [
+            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
+            { icon: 'bi bi-telephone', text: '联系电话：150-0000-0000（李经理）' },
+            { icon: 'bi bi-envelope', text: '邮箱：sales@qifeng.com' },
+            { icon: 'bi bi-wechat', text: '微信服务号：手机号同步' }
+          ]
+        },
+        {
+          title: '技术顾问',
+          icon: 'bi bi-tools',
+          contacts: [
+            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
+            { icon: 'bi bi-telephone', text: '联系电话：139-0000-0000（张师傅）' },
+            { icon: 'bi bi-envelope', text: '邮箱：tech@qifeng.com' },
+            { icon: 'bi bi-wechat', text: '微信服务号：手机号同步' }
+          ]
+        },
+        {
+          title: '客户服务热线',
+          icon: 'bi bi-headset',
+          contacts: [
+            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
+            { icon: 'bi bi-telephone-fill', text: '服务热线：400-888-8888', highlight: true },
+            { icon: 'bi bi-envelope', text: '邮箱：service@qifeng.com' },
+            { icon: 'bi bi-clock', text: '工作时间：周一至周六 9:00-18:00' },
+            { icon: 'bi bi-geo-alt', text: '地址：深圳市南山区科技园' }
+          ]
+        }
+      ]
+    }
   }
 }
 </script>

@@ -80,7 +80,7 @@ export default {
 }
 
 .hotline-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -98,7 +98,7 @@ export default {
 }
 
 .hotline-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 2rem;
 }
 
@@ -142,13 +142,13 @@ export default {
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
 }
 
 .hotline-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(102, 126, 234, 0.15);
-  border-color: #667eea;
+  box-shadow: 0 16px 48px rgba(178, 0, 0, 0.15);
+  /* border-color: rgb(178,0,0); */
 }
 
 .hotline-card-large {
@@ -168,7 +168,7 @@ export default {
 .card-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -204,7 +204,7 @@ export default {
 }
 
 .contact-item i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1.1rem;
   width: 20px;
   text-align: center;
@@ -217,7 +217,7 @@ export default {
 }
 
 .contact-item.highlight i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1.2rem;
 }
 
@@ -359,4 +359,4 @@ export default {
     font-size: 0.95rem;
   }
 }
-</style> 
+</style>

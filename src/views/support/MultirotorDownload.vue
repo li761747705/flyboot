@@ -128,7 +128,7 @@ export default {
 }
 
 .download-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -143,7 +143,7 @@ export default {
   gap: 0.5rem;
   margin-bottom: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: rgb(178, 0, 0);
   color: white;
   border: none;
   border-radius: 8px;
@@ -151,16 +151,17 @@ export default {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(178, 0, 0, 0.18);
 }
 
 .back-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(178, 0, 0, 0.28);
 }
 
 .back-btn i {
   font-size: 1.1rem;
+  color: rgb(178, 0, 0);
 }
 
 .download-detail-title {
@@ -174,7 +175,7 @@ export default {
 }
 
 .download-detail-title i {
-  color: #667eea;
+  color: rgb(178, 0, 0);
   font-size: 1.8rem;
 }
 
@@ -217,13 +218,13 @@ export default {
 }
 
 .tab-btn:hover {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
+  background: rgba(178, 0, 0, 0.08);
+  color: rgb(178, 0, 0);
 }
 
 .tab-btn.active {
   background: white;
-  color: #667eea;
+  color: rgb(178, 0, 0);
   font-weight: 600;
 }
 
@@ -234,11 +235,12 @@ export default {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: rgb(178, 0, 0);
 }
 
 .tab-btn i {
   font-size: 1.2rem;
+  color: rgb(178, 0, 0);
 }
 
 .tab-content {
@@ -256,7 +258,7 @@ export default {
 }
 
 .download-table th {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: rgb(178, 0, 0);
   color: white;
   font-weight: 600;
   text-align: left;
@@ -294,7 +296,7 @@ export default {
 }
 
 .doc-version {
-  color: #667eea;
+  color: rgb(178, 0, 0);
   font-weight: 600;
   font-family: 'Courier New', monospace;
 }
@@ -318,23 +320,24 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #667eea;
+  color: rgb(178, 0, 0);
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  background: rgba(102, 126, 234, 0.1);
+  background: rgba(178, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .download-link:hover {
-  background: rgba(102, 126, 234, 0.2);
-  color: #5a67d8;
+  background: rgba(178, 0, 0, 0.18);
+  color: #fff;
   transform: translateY(-1px);
 }
 
 .download-link i {
   font-size: 1.1rem;
+  color: rgb(178, 0, 0);
 }
 
 .download-icon {
@@ -343,7 +346,7 @@ export default {
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: rgb(178, 0, 0);
   color: white;
   border-radius: 50%;
   text-decoration: none;
@@ -352,11 +355,12 @@ export default {
 
 .download-icon:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(178, 0, 0, 0.28);
 }
 
 .download-icon i {
   font-size: 1.1rem;
+  color: white;
 }
 
 /* 响应式设计 */

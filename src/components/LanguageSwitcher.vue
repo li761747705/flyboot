@@ -104,14 +104,67 @@ export default {
   padding: 8px 16px;
 }
 
-.dropdown-item.active {
-  background-color: #f1f3f6;
-  color: var(--accent-color);
+/* 语言切换按钮统一样式 */
+.btn,
+.btn-outline-dark,
+.btn-sm {
+  color: #111 !important;
+  background: #fff !important;
+  border: 1.5px solid rgb(178,0,0) !important;
+  box-shadow: none !important;
   font-weight: 500;
+  transition: none !important;
+}
+.btn:hover,
+.btn-outline-dark:hover,
+.btn-sm:hover {
+  background: rgb(178,0,0) !important;
+  color: #fff !important;
+  border: 1.5px solid rgb(178,0,0) !important;
+  box-shadow: none !important;
+  transition: none !important;
 }
 
+/* 下拉菜单选中和hover颜色 */
+.dropdown-item.active {
+  background-color: rgb(178,0,0) !important;
+  color: #fff !important;
+}
 .dropdown-item:hover {
-  background-color: #f8f9fa;
+  background-color: rgb(178,0,0) !important;
+  color: #fff !important;
+}
+
+/* 下划线颜色统一 */
+.language-name {
+  border-bottom: 2px solid rgb(178,0,0);
+  padding-bottom: 1px;
+  display: inline-block;
+}
+
+/* 若有卡片，宽高自适应图片 */
+.card-item,
+.product-card,
+.solution-card {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-shadow: none;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.image-container {
+  width: 100%;
+  position: relative;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .flag-icon {

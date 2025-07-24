@@ -109,7 +109,7 @@ export default {
 }
 
 .faq-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -127,7 +127,7 @@ export default {
 }
 
 .faq-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 2rem;
 }
 
@@ -165,12 +165,25 @@ export default {
   padding: 1rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-left: none;
+  border-left: 4px solid #fff;
   margin: 0.25rem 0;
-  background: transparent;
+  background: #fff;
   color: rgb(0,0,0);
   position: relative;
   z-index: 1;
+}
+
+.faq-category:hover {
+  color: rgb(178,0,0);
+  border-left: 4px solid rgb(178,0,0);
+}
+
+.faq-category:hover .category-title {
+  color: rgb(178,0,0);
+}
+
+.faq-category:hover .category-arrow {
+  color: rgb(178,0,0);
 }
 
 .faq-category .category-title {
@@ -180,22 +193,16 @@ export default {
   transition: color 0.3s;
 }
 
-.faq-category:hover, .faq-category.active {
-  background: #f3f3f3;
-  color: #000 !important;
+.faq-category.active {
+  background: #fff;
+  color: rgb(178,0,0) !important;
+  border-left: 4px solid rgb(178,0,0);
 }
-
-.faq-category:hover .category-title, .faq-category.active .category-title {
-  color: #000 !important;
+.faq-category.active .category-title {
+  color: rgb(178,0,0) !important;
 }
-
-.faq-category .category-arrow {
-  color: rgba(0,0,0,0.7);
-  transition: color 0.3s, transform 0.3s;
-}
-
-.faq-category:hover .category-arrow, .faq-category.active .category-arrow {
-  color: #000;
+.faq-category.active .category-arrow {
+  color: rgb(178,0,0) !important;
 }
 
 .category-icon {
@@ -210,7 +217,7 @@ export default {
 }
 
 .category-icon i {
-  color: #888;
+  color: rgb(178,0,0);
   font-size: 1.2rem;
 }
 
@@ -231,7 +238,7 @@ export default {
 }
 
 .faq-content-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1.3rem;
 }
 
@@ -248,7 +255,7 @@ export default {
   padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 12px;
-  border-left: 4px solid #ff4d4f;
+  border-left: 4px solid rgb(178,0,0);
   transition: all 0.3s ease;
 }
 
@@ -260,7 +267,7 @@ export default {
 .question-number {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #ff4d4f, #ff7875);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -275,6 +282,25 @@ export default {
 .question-content {
   flex: 1;
   line-height: 1.7;
+}
+
+.faq-content-area .btn, .faq-content-area button, .faq-content-area a.btn {
+  color: rgb(178,0,0) !important;
+  background: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+.faq-content-area .btn:hover, .faq-content-area button:hover, .faq-content-area a.btn:hover {
+  background: rgb(178,0,0) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.section-line {
+  background: rgb(178,0,0) !important;
 }
 
 /* 响应式设计 */
@@ -392,4 +418,4 @@ export default {
     font-size: 0.95rem;
   }
 }
-</style> 
+</style>

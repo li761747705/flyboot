@@ -13,14 +13,14 @@
           <div v-if="section.contact" class="contact-info">
             <div v-for="contact in section.contact" :key="contact.text" class="contact-item">
               <i :class="contact.icon"></i>
-              <span>{{ contact.text }}</span>
-            </div>
-          </div>
+              <span>{{ formatEmail(contact.text) }}</span>
+        </div>
+        </div>
         </div>
       </div>
       
       <div class="footer-divider"></div>
-      <p class="copyright">© 2024 麒风智能科技有限公司. 保留所有权利.</p>
+      <p class="copyright">{{ $t('footer.copyrightInfo') }}</p>
     </div>
   </footer>
 </template>
@@ -28,56 +28,61 @@
 <script>
 export default {
   name: 'AppFooter',
+  methods: {
+    formatEmail(text) {
+      return text.replace('{at}', '@');
+    }
+  },
   data() {
     return {
       footerSections: [
         {
-          title: '产品系列',
+          title: this.$t('footer.products'),
           links: [
-            { to: '/products/fpv', text: '穿越无人机' },
-            { to: '/products/multi-rotor', text: '多旋翼无人机' },
-            { to: '/products/fixed-wing', text: '固定翼无人机' },
-            { to: '/products/helicopter', text: '无人直升机' }
+            { to: '/products/fpv', text: this.$t('footer.productLinks.fpv') },
+            { to: '/products/multi-rotor', text: this.$t('footer.productLinks.multiRotor') },
+            { to: '/products/fixed-wing', text: this.$t('footer.productLinks.fixedWing') },
+            { to: '/products/helicopter', text: this.$t('footer.productLinks.helicopter') }
           ]
         },
         {
-          title: '行业应用',
+          title: this.$t('footer.applications'),
           links: [
-            { to: '/applications/mapping', text: '测绘' },
-            { to: '/applications/inspection', text: '水利' },
-            { to: '/applications/delivery', text: '应急' },
-            { to: '/applications/agriculture', text: '森林勘察' },
-            { to: '/applications/aerial', text: '交通' },
-            { to: '/applications/powerline', text: '电力巡检' },
-            { to: '/applications/spraying', text: '环保' },
-            { to: '/applications/farming', text: '农业应用' },
-            { to: '/applications/integration', text: '运载应用' }
+            { to: '/applications/mapping', text: this.$t('footer.applicationLinks.mapping') },
+            { to: '/applications/inspection', text: this.$t('footer.applicationLinks.waterConservancy') },
+            { to: '/applications/delivery', text: this.$t('footer.applicationLinks.emergency') },
+            { to: '/applications/agriculture', text: this.$t('footer.applicationLinks.forestry') },
+            { to: '/applications/aerial', text: this.$t('footer.applicationLinks.transportation') },
+            { to: '/applications/powerline', text: this.$t('footer.applicationLinks.powerInspection') },
+            { to: '/applications/spraying', text: this.$t('footer.applicationLinks.environmental') },
+            { to: '/applications/farming', text: this.$t('footer.applicationLinks.agriculture') },
+            { to: '/applications/integration', text: this.$t('footer.applicationLinks.logistics') }
           ]
         },
         {
-          title: '服务与支持',
+          title: this.$t('footer.services'),
           links: [
-            { to: '/support/downloads', text: '下载中心' },
-            { to: '/support/policy', text: '售后服务政策' },
-            { to: '/support/faq', text: '常见问题' },
-            { to: '/support/hotline', text: '服务热线' }
+            { to: '/support/downloads', text: this.$t('footer.supportLinks.downloads') },
+            { to: '/support/policy', text: this.$t('footer.supportLinks.policy') },
+            { to: '/support/faq', text: this.$t('footer.supportLinks.faq') },
+            { to: '/support/hotline', text: this.$t('footer.supportLinks.hotline') }
           ]
         },
         {
-          title: '关于我们',
+          title: this.$t('footer.about'),
           links: [
-            { to: '/about/contact', text: '联系我们' },
-            { to: '/about/company', text: '公司介绍' },
-            { to: '/about/responsibility', text: '社会责任' },
-            { to: '/about/careers', text: '招贤纳士' }
+            { to: '/about/contact', text: this.$t('footer.aboutLinks.contactUs') },
+            { to: '/about/company', text: this.$t('footer.aboutLinks.company') },
+            { to: '/about/responsibility', text: this.$t('footer.aboutLinks.responsibility') },
+            { to: '/about/careers', text: this.$t('footer.aboutLinks.careers') }
           ]
         },
         {
-          title: '联系我们',
+          title: this.$t('footer.contact'),
           class: 'contact-section',
           contact: [
-            { icon: 'bi bi-envelope', text: '售后邮箱：2236807538@qq.com' },
-            { icon: 'bi bi-person-plus', text: '招聘邮箱：2236807538@qq.com' }
+            { icon: 'bi bi-envelope', text: this.$t('footer.contactInfo.salesEmail') },
+            { icon: 'bi bi-person-plus', text: this.$t('footer.contactInfo.recruitEmail') }
           ]
         }
       ]
@@ -120,16 +125,37 @@ export default {
   margin-bottom: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
+  display: inline-block; /* 关键：让下划线宽度随文字 */
 }
 
+/* 按钮统一样式 */
+.btn,
+.btn-light {
+  color: rgb(178,0,0) !important;
+  background: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  transition: none !important;
+}
+.btn:hover,
+.btn-light:hover {
+  background: rgb(178,0,0) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* 页脚下划线颜色统一 */
 .footer-title::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 70px;
+  width: 100%; /* 这里width:100%会随inline-block宽度变化 */
   height: 2px;
-  background: var(--accent-color);
+  background: rgb(178,0,0) !important;
 }
 
 .footer-links {
@@ -156,6 +182,7 @@ export default {
   padding-left: 8px;
 }
 
+/* 页脚链接hover下划线颜色 */
 .footer-links a::before {
   content: '';
   position: absolute;
@@ -163,7 +190,7 @@ export default {
   top: 50%;
   width: 0;
   height: 1px;
-  background: var(--accent-color);
+  background: rgb(178,0,0) !important;
   transition: width 0.3s ease;
   transform: translateY(-50%);
 }
@@ -187,8 +214,33 @@ export default {
 }
 
 .contact-item i {
-  color: var(--accent-color);
+  color: rgb(178,0,0) !important;
   font-size: 1rem;
+}
+
+/* 若有卡片，宽高自适应图片 */
+.card-item,
+.product-card,
+.solution-card {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-shadow: none;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.image-container {
+  width: 100%;
+  position: relative;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .footer-divider {
@@ -232,4 +284,4 @@ export default {
     margin-bottom: 0.5rem;
   }
 }
-</style> 
+</style>

@@ -17,7 +17,8 @@
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <span class="scene-card-default-icon">+</span>
+            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <span v-else class="scene-card-default-icon">+</span>
           </div>
           <div class="scene-card-title">{{ item.title }}</div>
         </div>
@@ -32,14 +33,14 @@ export default {
   data() {
     return {
       cards: [
-        { title: '快递配送' },
-        { title: '货物运输' },
-        { title: '紧急救援物质运输' }
+        { title: '快递配送', image: '/images/applications/integration/01（600X350）.png' },
+        { title: '货物运输', image: '/images/applications/integration/01（600X350）.png' },
+        { title: '紧急救援物质运输', image: '/images/applications/integration/01（600X350）.png' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }
@@ -85,7 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 320px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,22 +94,26 @@ export default {
   padding: 0;
   border: none;
   outline: none;
+  overflow: hidden;
 }
 .scene-card:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transform: translateY(-5px);
 }
 .scene-card-img-wrapper {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 100%;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
+}
+
+.scene-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .scene-card-default-icon {
   font-size: 2.5rem;
@@ -120,8 +125,11 @@ export default {
   color: #222;
   font-weight: 600;
   text-align: center;
-  margin-top: 6px;
+  margin-top: auto;
   letter-spacing: 0.5px;
+  padding: 8px 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 @media (max-width: 900px) {
   .scene-card-grid {
@@ -143,4 +151,4 @@ export default {
     height: 280px;
   }
 }
-</style> 
+</style>

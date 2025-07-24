@@ -15,7 +15,8 @@
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <span class="scene-card-default-icon">+</span>
+            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <span v-else class="scene-card-default-icon">+</span>
           </div>
           <div class="scene-card-title">{{ item.title }}</div>
         </div>
@@ -30,16 +31,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '森林资源调查' },
-        { title: '森林资源监测' },
-        { title: '森林火灾监测' },
-        { title: '林业执法管理' },
-        { title: '野生动物监测' }
+        { title: '森林资源调查', image: '/images/applications/agriculture/01（600X350）.png' },
+        { title: '森林资源监测', image: '/images/applications/agriculture/02(900X500).png' },
+        { title: '森林火灾监测', image: '/images/applications/森林400X620.png' },
+        { title: '林业执法管理', image: '/images/applications/森林400X620.png' },
+        { title: '野生动物监测', image: '/images/applications/森林400X620.png' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }
@@ -85,7 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 320px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,22 +94,26 @@ export default {
   padding: 0;
   border: none;
   outline: none;
+  overflow: hidden;
 }
 .scene-card:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transform: translateY(-5px);
 }
 .scene-card-img-wrapper {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+  width: 100%;
+  height: 180px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
+}
+.scene-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .scene-card-default-icon {
   font-size: 2.5rem;
@@ -122,6 +127,9 @@ export default {
   text-align: center;
   margin-top: 6px;
   letter-spacing: 0.5px;
+  padding: 8px 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 @media (max-width: 900px) {
   .scene-card-grid {
@@ -143,4 +151,4 @@ export default {
     height: 280px;
   }
 }
-</style> 
+</style>

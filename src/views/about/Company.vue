@@ -2,7 +2,7 @@
   <div class="company-page">
 
     <div class="company-banner">
-      <img src="/images/about/company/通用-11900X400.png" alt="公司介绍" />
+      <img src="/images/about/company/通用-11900X400.png" alt="公司介绍" loading="lazy" />
     </div>
 
     <!-- 顶部导航 -->
@@ -11,7 +11,7 @@
         <div 
           v-for="tab in tabs"
           :key="tab.key"
-          class="nav-item"
+          class="nav-item" 
           :class="{ 'active': activeTab === tab.key }"
           @click="activeTab = tab.key"
         >
@@ -60,7 +60,7 @@
                 <div class="marker-dot"></div>
                 <span class="city-name">{{ city.name }}</span>
               </div>
-            </div>
+              </div>
           </div>
         </div>
 
@@ -87,7 +87,7 @@
           <div class="timeline-item" v-for="item in history" :key="item.year">
             <div class="timeline-image">
               <div class="image-placeholder">
-                <img :src="item.img" :alt="item.year + '相关图片'" />
+                <img :src="item.img" :alt="item.year + '相关图片'" loading="lazy" />
               </div>
             </div>
             <div class="timeline-marker">
@@ -112,7 +112,7 @@
         <div class="culture-container">
           <div class="culture-item" v-for="(item, idx) in culture" :key="item.title">
             <div class="culture-image" v-if="idx % 2 === 0">
-              <img class="about-section-img" :src="item.img" :alt="item.title" />
+              <img class="about-section-img" :src="item.img" :alt="item.title" loading="lazy" />
             </div>
             <div class="culture-content">
               <div class="culture-title">
@@ -124,12 +124,12 @@
                   <i class="bi bi-check-circle"></i>
                   <span v-html="point"></span>
                 </div>
-              </div>
-            </div>
+                </div>
+                </div>
             <div class="culture-image" v-if="idx % 2 === 1">
-              <img class="about-section-img" :src="item.img" :alt="item.title" />
-            </div>
-          </div>
+              <img class="about-section-img" :src="item.img" :alt="item.title" loading="lazy" />
+                </div>
+                </div>
         </div>
       </div>
     </section>
@@ -179,13 +179,13 @@ export default {
           year: '2024年',
           title: '行业标杆',
           img: '/images/about/company/通用410X240.png',
-          desc: ['入选\"中国无人机企业TOP15\"', '年交付量超5万台，成为农业植保领域选择品牌之一']
+          desc: ['入选"中国无人机企业TOP15"', '年交付量超5万台，成为农业植保领域选择品牌之一']
         },
         {
           year: '2023年',
           title: '技术革命',
           img: '/images/about/company/通用410X240.png',
-          desc: ['自主研发\"超长续航电池\"技术获得国际专利，续航时间突破120分钟']
+          desc: ['自主研发"超长续航电池"技术获得国际专利，续航时间突破120分钟']
         },
         {
           year: '2022年',
@@ -249,7 +249,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 0;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
@@ -275,7 +275,7 @@ export default {
 
 .nav-item.active {
   background: white;
-  color: #667eea;
+  color: rgb(178,0,0);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -294,7 +294,7 @@ export default {
   padding: 3rem;
   margin-bottom: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -314,7 +314,7 @@ export default {
 /* 统计数据 */
 .stats-section {
   margin-bottom: 3rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -343,7 +343,7 @@ export default {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
 }
 
 .stat-card:hover {
@@ -354,7 +354,7 @@ export default {
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 0.5rem;
 }
 
@@ -368,7 +368,7 @@ export default {
 .stat-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -381,13 +381,16 @@ export default {
 /* 地图区域 */
 .map-section {
   margin-bottom: 3rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .map-container {
   background: white;
+  background-image: url('/public/images/about/company/01.png');
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -395,17 +398,14 @@ export default {
 
 .map-placeholder {
   height: 400px;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 2px dashed #dee2e6;
 }
 
 .map-text {
-  color: #6c757d;
+  color: #192b3a;
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -420,7 +420,7 @@ export default {
 .marker-dot {
   width: 12px;
   height: 12px;
-  background: #667eea;
+  background: rgb(178,0,0);
   border-radius: 50%;
   border: 2px solid white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -442,7 +442,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -466,7 +466,7 @@ export default {
 
 .region-name {
   font-weight: 600;
-  color: #667eea;
+  color: rgb(178,0,0);
   min-width: 100px;
 }
 
@@ -487,7 +487,7 @@ export default {
 
 .timeline-container {
   position: relative;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem 0;
 }
@@ -499,10 +499,10 @@ export default {
   top: 0;
   bottom: 0;
   width: 6px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   transform: translateX(-50%);
   border-radius: 3px;
-  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 2px 10px rgba(178, 0, 0, 0.3);
 }
 
 .timeline-item {
@@ -546,7 +546,7 @@ export default {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(178, 0, 0, 0.1);
 }
 
 .timeline-content::before {
@@ -556,7 +556,7 @@ export default {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 20px 20px 0 0;
 }
 
@@ -588,7 +588,7 @@ export default {
 .timeline-year {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -599,7 +599,7 @@ export default {
   content: '';
   width: 20px;
   height: 3px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 2px;
 }
 
@@ -622,7 +622,7 @@ export default {
   content: '▶';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: rgb(178,0,0);
   font-weight: bold;
   font-size: 0.8rem;
   top: 0.2rem;
@@ -650,9 +650,9 @@ export default {
   width: 24px;
   height: 24px;
   background: white;
-  border: 5px solid #667eea;
+  border: 5px solid rgb(178,0,0);
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 20px rgba(178, 0, 0, 0.4);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -665,13 +665,13 @@ export default {
   transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
-  background: #667eea;
+  background: rgb(178,0,0);
   border-radius: 50%;
 }
 
 .timeline-item:hover .timeline-dot {
   transform: scale(1.2);
-  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 6px 25px rgba(178, 0, 0, 0.6);
 }
 
 .timeline-image {
@@ -704,7 +704,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  background: linear-gradient(135deg, rgba(178, 0, 0, 0.1), rgba(220, 0, 0, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -716,7 +716,7 @@ export default {
 .image-placeholder i {
   font-size: 2.5rem;
   margin-bottom: 0.8rem;
-  color: #667eea;
+  color: rgb(178,0,0);
   transition: all 0.3s ease;
   z-index: 1;
   position: relative;
@@ -724,7 +724,7 @@ export default {
 
 .timeline-item:hover .image-placeholder i {
   transform: scale(1.1);
-  color: #5a67d8;
+  color: rgb(220,0,0);
 }
 
 .image-placeholder span {
@@ -741,7 +741,7 @@ export default {
 }
 
 .culture-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -775,12 +775,12 @@ export default {
   gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 2rem;
 }
 
 .culture-title i {
-  color: #e74c3c;
+  color: rgb(178,0,0);
 }
 
 .culture-list {
@@ -797,7 +797,7 @@ export default {
 }
 
 .culture-point i {
-  color: #28a745;
+  color: rgb(178,0,0);
   font-size: 1.1rem;
   margin-top: 0.2rem;
   flex-shrink: 0;
@@ -818,7 +818,7 @@ export default {
 }
 
 /* 响应式设计 */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .company-intro,
   .stats-section,
   .map-section,

@@ -1,7 +1,7 @@
 <template>
   <div class="jobs-page">
     <div class="jobs-banner">
-      <img src="/images/about/careers/通用1900X400.png" alt="招贤纳士" />
+      <img src="/images/about/careers/通用1900X400.png" alt="招贤纳士" loading="lazy" />
     </div>
     <!-- 职位搜索区域 -->
     <section class="jobs-header-section">
@@ -66,7 +66,7 @@
           
           <div class="table-body">
             <div
-              v-for="(job, idx) in filteredJobs"
+              v-for="job in filteredJobs"
               :key="job.id"
               class="table-row"
               @click="showJobDetail(job)"
@@ -130,7 +130,7 @@
               公司介绍
             </h4>
             <p class="section-content">
-              麒风智能是一家专注于工业级无人机研发、生产与应用的高科技企业，致力于为测绘、农业、安防等行业提供高效智能的无人机解决方案。
+              麒风智能是一家专注于工业级无人机研发、生产与应用的高科技企业，致力于为测绘、农业、安防行業提供高效智能的无人机解决方案。
             </p>
           </div>
           
@@ -481,9 +481,9 @@ export default {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 155px; /* 修改宽度，使其与文字等长 */
   height: 3px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 2px;
 }
 
@@ -499,7 +499,7 @@ export default {
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -526,7 +526,7 @@ export default {
 }
 
 .search-group label i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1rem;
 }
 
@@ -543,9 +543,9 @@ export default {
 .search-select:focus,
 .search-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: rgb(178,0,0);
   background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(178, 0, 0, 0.1);
 }
 
 .search-btn {
@@ -553,7 +553,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
   border: none;
   border-radius: 8px;
@@ -561,12 +561,12 @@ export default {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.3);
 }
 
 .search-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(178, 0, 0, 0.4);
 }
 
 /* 职位列表 */
@@ -579,14 +579,14 @@ export default {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .table-header {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
   padding: 1rem;
   font-weight: 600;
@@ -641,7 +641,7 @@ export default {
 }
 
 .job-location i {
-  color: #667eea;
+  color: rgb(178,0,0);
 }
 
 .type-badge {
@@ -680,7 +680,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
   border: none;
   border-radius: 6px;
@@ -691,7 +691,7 @@ export default {
 
 .detail-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(178, 0, 0, 0.3);
 }
 
 /* 弹窗样式 */
@@ -712,7 +712,7 @@ export default {
 .modal-content {
   background: white;
   border-radius: 16px;
-  max-width: 1200px;
+  max-width: 1600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -753,7 +753,7 @@ export default {
 }
 
 .meta-item i {
-  color: #667eea;
+  color: rgb(178,0,0);
 }
 
 .modal-close {
@@ -791,7 +791,7 @@ export default {
 }
 
 .section-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
 }
 
 .section-content {
@@ -818,7 +818,7 @@ export default {
   content: '•';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: rgb(178,0,0);
   font-weight: bold;
 }
 
@@ -832,7 +832,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -881,7 +881,7 @@ export default {
 }
 
 .form-group label i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1rem;
 }
 
@@ -896,9 +896,9 @@ export default {
 
 .form-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: rgb(178,0,0);
   background: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  box-shadow: 0 0 0 3px rgba(178, 0, 0, 0.1);
 }
 
 .form-actions {
@@ -912,7 +912,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -920,16 +920,16 @@ export default {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.3);
 }
 
 .apply-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(178, 0, 0, 0.4);
 }
 
 /* 响应式设计 */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .search-card,
   .jobs-table-card,
   .modal-content,
@@ -1010,7 +1010,7 @@ export default {
 
 .jobs-banner {
   width: 100%;
-  height: 400px;
+  height: 700px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -1036,4 +1036,4 @@ export default {
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   object-fit: cover;
 }
-</style> 
+</style>

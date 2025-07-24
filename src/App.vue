@@ -12,6 +12,8 @@
 import { getCurrentInstance } from 'vue'
 import NavBar from './components/NavBar.vue'
 import AppFooter from './components/Footer.vue'
+import { watch, onMounted, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'App',
@@ -41,6 +43,16 @@ export default {
         document.documentElement.setAttribute('lang', newLocale);
       }
     }
+  },
+  setup() {
+    const route = useRoute();
+    const scrollToTop = () => {
+      nextTick(() => {
+        window.scrollTo(0, 0);
+      });
+    };
+    watch(() => route.fullPath, scrollToTop);
+    onMounted(scrollToTop);
   }
 }
 </script>
@@ -64,16 +76,16 @@ html {
 }
 
 @media (max-width: 1200px) { html { font-size: 15px; } }
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
   html { font-size: 14px; }
   :root { --section-padding: 3rem 0; }
 }
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   html { font-size: 14px; }
   :root { --section-padding: 2.5rem 0; }
   ::-webkit-scrollbar { width: 4px; height: 4px; }
 }
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
   html { font-size: 13px; }
   :root { --section-padding: 2rem 0; }
 }

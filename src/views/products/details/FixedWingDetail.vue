@@ -1,18 +1,9 @@
 <template>
   <div class="product-detail-page fixedwing-detail">
-    <!-- 返回导航 -->
-    <nav class="back-navigation">
-      <div class="container">
-        <button class="back-btn" @click="goBack">
-          <i class="bi bi-arrow-left"></i>
-          <span>返回产品列表</span>
-        </button>
-      </div>
-    </nav>
-
     <!-- 产品英雄区域 -->
     <section class="hero-section">
-      <div class="hero-background">
+      <div class="hero-background"
+        :style="{ backgroundImage: `url('${current && current.bannerImg ? current.bannerImg : ''}')`, backgroundSize: 'cover', backgroundPosition: 'center' }">
         <div class="hero-pattern"></div>
         <div class="hero-overlay">
           <div class="container">
@@ -50,8 +41,8 @@
         <div class="feature-section">
           <div class="feature-grid">
             <div class="feature-image">
-              <div class="image-placeholder" :style="{background: getGradient(0)}">
-                <i class="bi bi-airplane"></i>
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
             <div class="feature-content">
@@ -62,7 +53,7 @@
                 </div>
               </div>
               <p class="feature-description">
-                固定翼无人机具备长航时、高效率的飞行能力，适合大面积测绘、巡检等任务。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现高效的大面积作业覆盖。
+                固定翼无人机是一种类似飞机气动布局的无人机，依靠机翼与空气的相对运动产生升力，具有超长续航、高速高效、载荷能力强等特点。
               </p>
               <div class="feature-list">
                 <div class="feature-item">
@@ -97,7 +88,7 @@
                 </div>
               </div>
               <p class="feature-description">
-                采用碳纤维复合材料，机身轻量化且强度高，适应复杂环境，保障飞行安全。碳纤维复合材料的高比强度和比刚度特性使得无人机在保证结构强度的同时，重量大大减轻，具有良好的抗疲劳性和耐久性。
+                固定翼无人机主要由机翼、机身、尾翼、起落装置和动力五大核心结构组成，各部件协同实现飞行、稳定性和操控功能。
               </p>
               <div class="feature-list">
                 <div class="feature-item">
@@ -119,43 +110,70 @@
               </div>
             </div>
             <div class="feature-image">
-              <div class="image-placeholder" :style="{background: getGradient(1)}">
-                <i class="bi bi-gear-wide-connected"></i>
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
           </div>
         </div>
 
+        <!-- 优势展示（可选） -->
+        <div class="feature-section">
+          <div class="feature-grid">
+            <div class="feature-image">
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
+              </div>
+            </div>
+            <div class="feature-content">
+              <div class="feature-header">
+                <h2 class="feature-title">优势</h2>
+                <div class="feature-icon">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+              </div>
+              <p class="feature-description">
+                固定翼无人机具备长航时、高效率的飞行能力，适合大面积测绘、巡检等任务。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现高效的大面积作业覆盖。
+              </p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>长航时作业能力</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>高速高效飞行</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>大面积覆盖作业</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>优秀的续航性能</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
             <h2 class="specs-title">产品参数</h2>
             <p class="specs-subtitle">详细的技术规格和配置信息</p>
           </div>
-          
+
           <div class="specs-tabs">
             <div class="tab-buttons">
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'basic' }"
-                @click="activeTab = 'basic'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
                 基本参数
               </button>
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'tech' }"
-                @click="activeTab = 'tech'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
                 技术参数
               </button>
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'package' }"
-                @click="activeTab = 'package'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
                 包装清单
               </button>
@@ -164,20 +182,36 @@
             <div class="tab-content">
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
-                <div class="specs-grid">
-                  <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                    <div class="spec-label">{{ key }}</div>
-                    <div class="spec-value">{{ value }}</div>
+                <div v-if="!current" style="color: red; padding: 1rem;">
+                  调试信息：current对象为空
+                </div>
+                <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
+                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                </div>
+                <div v-else>
+                  <div class="specs-grid">
+                    <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
+                      <div class="spec-label">{{ key }}</div>
+                      <div class="spec-value">{{ value }}</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
-                <div class="specs-grid">
-                  <div class="spec-item" v-for="(value, key) in current.tech" :key="key">
-                    <div class="spec-label">{{ key }}</div>
-                    <div class="spec-value">{{ value }}</div>
+                <div class="package-content">
+                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                    <h3 class="package-title">
+                      <i class="bi bi-box-seam"></i>
+                      {{ key }}
+                    </h3>
+                    <div class="package-list">
+                      <div class="package-item" v-for="(value, key) in value" key="key">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>{{ key }} {{ value }}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -191,33 +225,9 @@
                       标配清单
                     </h3>
                     <div class="package-list">
-                      <div class="package-item">
+                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>飞行器机身 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>机翼 × 2</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>智能飞控 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>螺旋桨 × 2</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>动力电池 × 2</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>充电器 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>遥控器 × 1</span>
+                        <span>{{ key }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -226,22 +236,10 @@
                       <i class="bi bi-file-text"></i>
                       随机文件
                     </h3>
-                    <div class="package-list">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>产品说明书</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>快速入门指南</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>免责声明</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>合格证</span>
+                        <span>{{ key }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -302,91 +300,268 @@ export default {
         'fixed-f1800': {
           name: 'F1800 测绘型固定翼',
           banner: 'F1800 测绘型固定翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fixedwing/01.png',
+          featureImg: '/images/products/fixedwing/01.png',
+          //基本参数
           basic: {
             '翼展': '1800 mm',
             '机身长度': '1200 mm',
             '最大起飞重量': '5.2 kg',
             '最大载重': '1.5 kg',
             '机身材质': '碳纤维',
-            '动力系统': '无刷电机'
-          },
-          tech: {
-            '最大飞行速度': '120 km/h',
-            '巡航速度': '80 km/h',
-            '最大航程': '150 km',
-            '最大飞行高度': '5000 m',
+            '动力系统': '无刷电机',
+            '最大速度': '120 km/h',
             '续航时间': '120 分钟',
-            '抗风能力': '6级'
+            '控制距离': '20 km',
+            '工作环境温度': '-10℃ ~ 50℃'
+          },
+          //技术参数
+          tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fixed-s2000': {
           name: 'S2000 监控型固定翼',
           banner: 'S2000 监控型固定翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fixedwing/01.png',
+          featureImg: '/images/products/fixedwing/01.png',
           basic: {
             '翼展': '2000 mm',
             '机身长度': '1400 mm',
             '最大起飞重量': '6.5 kg',
             '最大载重': '2.0 kg',
             '机身材质': '碳纤维',
-            '动力系统': '无刷电机'
-          },
-          tech: {
-            '最大飞行速度': '140 km/h',
-            '巡航速度': '90 km/h',
-            '最大航程': '200 km',
-            '最大飞行高度': '6000 m',
+            '动力系统': '无刷电机',
+            '最大速度': '140 km/h',
             '续航时间': '150 分钟',
-            '抗风能力': '6级'
+            '控制距离': '25 km',
+            '工作环境温度': '-15℃ ~ 55℃'
+          },
+            //技术参数
+            tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fixed-v1500': {
           name: 'V1500 垂直起降固定翼',
           banner: 'V1500 垂直起降固定翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fixedwing/01.png',
+          featureImg: '/images/products/fixedwing/01.png',
           basic: {
             '翼展': '1500 mm',
             '机身长度': '1000 mm',
             '最大起飞重量': '4.8 kg',
             '最大载重': '1.2 kg',
             '机身材质': '碳纤维',
-            '动力系统': '混合动力'
-          },
-          tech: {
-            '最大飞行速度': '100 km/h',
-            '巡航速度': '70 km/h',
-            '最大航程': '120 km',
-            '最大飞行高度': '4000 m',
+            '动力系统': '混合动力',
+            '最大速度': '100 km/h',
             '续航时间': '90 分钟',
-            '抗风能力': '5级'
+            '控制距离': '15 km',
+            '工作环境温度': '-8℃ ~ 45℃'
+          },
+         //技术参数
+         tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fixed-m3000': {
           name: 'M3000 大型测绘固定翼',
           banner: 'M3000 大型测绘固定翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fixedwing/01.png',
+          featureImg: '/images/products/fixedwing/01.png',
           basic: {
             '翼展': '3000 mm',
             '机身长度': '2000 mm',
             '最大起飞重量': '12 kg',
             '最大载重': '3.5 kg',
             '机身材质': '碳纤维',
-            '动力系统': '无刷电机'
-          },
-          tech: {
-            '最大飞行速度': '160 km/h',
-            '巡航速度': '100 km/h',
-            '最大航程': '300 km',
-            '最大飞行高度': '8000 m',
+            '动力系统': '无刷电机',
+            '最大速度': '160 km/h',
             '续航时间': '240 分钟',
-            '抗风能力': '7级'
+            '控制距离': '30 km',
+            '工作环境温度': '-20℃ ~ 60℃'
+          },
+        //技术参数
+        tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         }
+      },
+      //包装清单-标配清单
+      packaging_list: {
+        "飞行器机身": "×1",
+        "机翼": "×2",
+        "智能飞控": "x1",
+        "螺旋桨": "x2",
+        "动力电池": "x2",
+        "充电器": "x1",
+        "遥控器": "x1"
+      },
+      packaging_documents: {
+        "产品说明书": "x1",
+        "快速入门指南": "x1",
+        "免责声明": "x1",
+        "合格证": "x1"
       },
       current: null
     }
@@ -398,13 +573,6 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/products/fixed-wing')
-    },
-    getGradient(index) {
-      const gradients = [
-        'linear-gradient(135deg, #667eea, #764ba2)',
-        'linear-gradient(135deg, #f093fb, #f5576c)'
-      ]
-      return gradients[index % gradients.length]
     }
   }
 }
@@ -450,13 +618,13 @@ export default {
 /* 英雄区域 */
 .hero-section {
   position: relative;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
 }
 
 .hero-background {
   height: 100%;
-  background: linear-gradient(135deg, #2980b9 0%, #27ae60 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
 }
 
@@ -466,9 +634,9 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   animation: patternMove 20s ease-in-out infinite;
 }
 
@@ -478,7 +646,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   z-index: 1;
@@ -495,7 +663,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -508,7 +676,7 @@ export default {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .product-subtitle {
@@ -531,7 +699,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -541,7 +709,7 @@ export default {
 }
 
 .highlight-item:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
@@ -571,7 +739,8 @@ export default {
 }
 
 .image-placeholder {
-  height: 300px;
+  height: 380px;
+  width: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -607,7 +776,7 @@ export default {
 .feature-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #2980b9, #27ae60);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -638,7 +807,7 @@ export default {
 }
 
 .feature-item i {
-  color: #28a745;
+  color: rgba(178, 0, 0, 1);
   font-size: 1.2rem;
 }
 
@@ -648,7 +817,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   margin-bottom: 4rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .specs-header {
@@ -699,10 +868,10 @@ export default {
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, #2980b9, #27ae60);
+  background: linear-gradient(135deg, #B20000, #B20000);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(41, 128, 185, 0.4);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.4);
 }
 
 .tab-content {
@@ -729,7 +898,7 @@ export default {
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .spec-label {
@@ -755,7 +924,7 @@ export default {
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .package-title {
@@ -769,7 +938,7 @@ export default {
 }
 
 .package-title i {
-  color: #2980b9;
+  color: #667eea;
 }
 
 .package-list {
@@ -796,7 +965,7 @@ export default {
   background: #fff;
   border-radius: 16px;
   padding: 3rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .warranty-header {
@@ -833,13 +1002,13 @@ export default {
 
 .warranty-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .warranty-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #2980b9, #27ae60);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -863,8 +1032,15 @@ export default {
 }
 
 @keyframes patternMove {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-10px, -10px); }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-10px, -10px);
+  }
 }
 
 /* 响应式设计 */
@@ -872,53 +1048,53 @@ export default {
   .hero-section {
     height: 400px;
   }
-  
+
   .product-title {
     font-size: 2.5rem;
   }
-  
+
   .product-highlights {
     gap: 1rem;
   }
-  
+
   .highlight-item {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   .feature-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .feature-section.reverse .feature-grid {
     flex-direction: column;
   }
-  
+
   .feature-list {
     grid-template-columns: 1fr;
   }
-  
+
   .specs-section {
     padding: 2rem 1rem;
   }
-  
+
   .tab-buttons {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .package-content {
     grid-template-columns: 1fr;
   }
-  
+
   .warranty-content {
     grid-template-columns: 1fr;
   }
-  
+
   .warranty-item {
     flex-direction: column;
     text-align: center;
   }
 }
-</style> 
+</style>

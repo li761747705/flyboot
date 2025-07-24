@@ -216,7 +216,20 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 }
+    // 1. 如果有锚点(hash)，滚动到锚点
+    if (to.hash) {
+      return {
+        el: to.hash,
+        top: 0,
+        behavior: 'smooth',
+      };
+    }
+    // 2. 如果有保存的滚动位置（如浏览器前进后退），返回该位置
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // 3. 默认滚动到顶部
+    return { left: 0, top: 0 };
   }
 })
 

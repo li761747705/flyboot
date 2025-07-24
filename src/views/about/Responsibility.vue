@@ -1,7 +1,7 @@
 <template>
   <div class="responsibility-page">
     <div class="responsibility-banner">
-      <img src="/images/about/responsibility/通用-1900X400.png" alt="社会责任" />
+      <img src="/images/about/responsibility/通用-1900X400.png" alt="社会责任" loading="lazy" />
     </div>
     <!-- 主要内容区下移 -->
     <div class="responsibility-content">
@@ -27,8 +27,8 @@
             >
               <div class="project-image">
                 <div class="image-placeholder">
-                  <img :src="item.img" :alt="item.title" />
-                </div>
+                  <img :src="item.img" :alt="item.title" loading="lazy" />
+                  </div>
               </div>
               <div class="project-content">
                 <div class="project-header">
@@ -158,7 +158,7 @@ export default {
 
 .responsibility-banner {
   width: 100%;
-  height: 400px;
+  height: 700px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -175,7 +175,7 @@ export default {
   display: block;
 }
 .responsibility-content {
-  max-width: 1100px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 40px 16px 60px 16px;
 }
@@ -202,9 +202,9 @@ export default {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 155px; /* 修改宽度，使其与文字等长 */
   height: 3px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(178,0,0);
   border-radius: 2px;
 }
 
@@ -220,7 +220,7 @@ export default {
 }
 
 .projects-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -276,13 +276,13 @@ export default {
 }
 
 .image-placeholder:hover {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f0f2ff, #e8ecff);
+  border-color: rgb(178,0,0);
+  background: linear-gradient(135deg, #fff0f0, #ffe0e0);
 }
 
 .image-placeholder i {
   font-size: 3rem;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 1rem;
 }
 
@@ -315,7 +315,7 @@ export default {
 .project-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -361,7 +361,7 @@ export default {
 
 .feature-item i,
 .highlight-item i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1rem;
 }
 
@@ -381,7 +381,7 @@ export default {
 .stat-number {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 0.25rem;
 }
 
@@ -401,7 +401,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -439,13 +439,13 @@ export default {
 }
 
 .commitment-item:hover {
-  background: linear-gradient(135deg, #f0f2ff, #e8ecff);
+  background: linear-gradient(135deg, #fff0f0, #ffe0e0);
   transform: translateY(-2px);
 }
 
 .commitment-item i {
   font-size: 2rem;
-  color: #667eea;
+  color: rgb(178,0,0);
   flex-shrink: 0;
   margin-top: 0.25rem;
 }
@@ -464,7 +464,7 @@ export default {
 }
 
 /* 响应式设计 */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .projects-container,
   .summary-card {
     max-width: 95%;
@@ -542,4 +542,4 @@ export default {
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   object-fit: cover;
 }
-</style> 
+</style>

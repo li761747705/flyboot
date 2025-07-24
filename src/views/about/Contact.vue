@@ -2,7 +2,7 @@
 <template>
   <div class="contact-page">
     <div class="contact-banner">
-      <img src="/images/about/contact/通用1900X400.png" alt="招贤纳士" />
+      <img src="/images/about/contact/通用1900X400.png" alt="招贤纳士" loading="lazy" />
     </div>
     <!-- 联系信息区域 -->
     <section class="contact-info-section">
@@ -186,7 +186,7 @@ export default {
 
 .contact-banner {
   width: 100%;
-  height: 400px;
+  height: 700px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -206,7 +206,7 @@ export default {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -228,9 +228,9 @@ export default {
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 155px; /* 增加宽度，使其与文字等长 */
   height: 3px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 2px;
 }
 .contact-subtitle {
@@ -247,7 +247,7 @@ export default {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 3rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 .contact-info-content {
@@ -263,7 +263,7 @@ export default {
 .contact-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -287,7 +287,7 @@ export default {
   font-size: 1rem;
 }
 .contact-item i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1.1rem;
   width: 20px;
   text-align: center;
@@ -308,7 +308,7 @@ export default {
 }
 .qr-icon {
   font-size: 3rem;
-  color: #667eea;
+  color: rgb(178,0,0);
   margin-bottom: 1rem;
 }
 .qr-text h4 {
@@ -327,7 +327,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 .form-header {
@@ -368,7 +368,7 @@ export default {
   font-size: 0.95rem;
 }
 .form-group label i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1rem;
 }
 .form-input,
@@ -402,7 +402,7 @@ export default {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
   border: none;
   border-radius: 50px;
@@ -410,17 +410,17 @@ export default {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.3);
 }
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(178, 0, 0, 0.4);
 }
 .submit-btn:active {
   transform: translateY(0);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .contact-info-card,
   .form-card {
     max-width: 95%;
@@ -445,7 +445,7 @@ export default {
     max-width: 90%;
   }
   .contact-title {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 @media (max-width: 576px) {
@@ -461,4 +461,4 @@ export default {
     font-size: 1.3rem;
   }
 }
-</style> 
+</style>

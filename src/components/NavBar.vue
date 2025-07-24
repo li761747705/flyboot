@@ -2,20 +2,20 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid px-md-4 px-2">
       <router-link class="navbar-brand d-flex align-items-center py-2" to="/">
-        <img src="/images/logo.jpg" alt="麒风智能" height="60" class="logo-img d-none d-md-block me-3" />
-        <img src="/images/logo.jpg" alt="麒风智能" height="40" class="logo-img d-block d-md-none me-3" />
+        <img src="/images/logo.jpg" alt="麒风智能" height="60" class="logo-img d-none d-md-block me-3" loading="lazy" />
+        <img src="/images/logo.jpg" alt="麒风智能" height="40" class="logo-img d-block d-md-none me-3" loading="lazy" />
       </router-link>
-
+      
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item">
             <router-link class="nav-link" to="/">{{ $t('common.home') }}</router-link>
           </li>
-
+          
           <li v-for="menu in menus" :key="menu.key" class="nav-item mega-menu-trigger" 
               @mouseenter="showMenu(menu.key)" @mouseleave="startHideTimer">
             <router-link class="nav-link" :to="menu.route">{{ $t(menu.label) }}</router-link>
-
+            
             <div class="mega-menu-panel" v-show="activeMenu === menu.key" 
                  @mouseenter="cancelHideTimer" @mouseleave="startHideTimer">
               <div class="mega-menu-inner">
@@ -24,21 +24,21 @@
                   <div v-if="item.image" class="product-item-content">
                     <div class="product-item-header">
                       <i :class="item.icon" class="me-3"></i>
-                      <span>{{ item.text }}</span>
-                    </div>
-                    <img :src="item.image" :alt="item.text" class="nav-product-thumb" />
+                      <span>{{ $t(item.text) }}</span>
+                  </div>
+                    <img :src="item.image" :alt="$t(item.text)" class="nav-product-thumb" loading="lazy" />
                   </div>
                   <template v-else>
                     <i :class="item.icon" class="me-3"></i>
                     <span>{{ $t(item.text) }}</span>
                   </template>
-                </router-link>
+                    </router-link>
               </div>
             </div>
           </li>
         </ul>
       </div>
-
+      
       <div class="d-flex align-items-center">
         <LanguageSwitcher class="me-3" />
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -62,51 +62,51 @@ export default {
       menus: [
         {
           key: 'products',
-          label: 'common.products',
+          label: 'navBar.products',
           route: '/products',
           items: [
-            { route: '/products/fpv', text: '穿越无人机', icon: 'bi bi-camera-video', image: '/images/navbar/产品系列：穿越机60X40.png' },
-            { route: '/products/multi-rotor', text: '多旋翼无人机', icon: 'bi bi-hexagon', image: '/images/navbar/产品系列：多轴60X40.png' },
-            { route: '/products/fixed-wing', text: '固定翼无人机', icon: 'bi bi-airplane', image: '/images/navbar/产品系列：固定翼60X40.png' },
-            { route: '/products/helicopter', text: '无人直升机', icon: 'bi bi-wind', image: '/images/navbar/产品系列：直升机60X40.png' }
+            { route: '/products/fpv', text: 'navBar.subsetProducts.fpv', icon: 'bi bi-camera-video', image: '/images/navbar/产品系列：穿越机60X40.png' },
+            { route: '/products/multi-rotor', text: 'navBar.subsetProducts.multiRotor', icon: 'bi bi-hexagon', image: '/images/navbar/产品系列：多轴60X40.png' },
+            { route: '/products/fixed-wing', text: 'navBar.subsetProducts.fixedWing', icon: 'bi bi-airplane', image: '/images/navbar/产品系列：固定翼60X40.png' },
+            { route: '/products/helicopter', text: 'navBar.subsetProducts.helicopter', icon: 'bi bi-wind', image: '/images/navbar/产品系列：直升机60X40.png' }
           ]
         },
         {
           key: 'applications',
-          label: 'common.applications',
+          label: 'navBar.applications',
           route: '/applications',
           items: [
-            { route: '/applications/mapping', text: 'solutions.mapping', icon: 'bi bi-map' },
-            { route: '/applications/inspection', text: 'solutions.waterConservancy', icon: 'bi bi-water' },
-            { route: '/applications/delivery', text: 'solutions.emergency', icon: 'bi bi-exclamation-triangle' },
-            { route: '/applications/agriculture', text: 'solutions.forestry', icon: 'bi bi-tree' },
-            { route: '/applications/aerial', text: 'solutions.transportation', icon: 'bi bi-truck' },
-            { route: '/applications/powerline', text: 'solutions.powerInspection', icon: 'bi bi-lightning' },
-            { route: '/applications/spraying', text: 'solutions.environmental', icon: 'bi bi-flower1' },
-            { route: '/applications/farming', text: 'solutions.agriculture', icon: 'bi bi-cloudy' },
-            { route: '/applications/integration', text: 'solutions.logistics', icon: 'bi bi-box-seam' }
+            { route: '/applications/mapping', text: 'navBar.subsetSolutions.mapping', icon: 'bi bi-map' },
+            { route: '/applications/inspection', text: 'navBar.subsetSolutions.waterConservancy', icon: 'bi bi-water' },
+            { route: '/applications/delivery', text: 'navBar.subsetSolutions.emergency', icon: 'bi bi-exclamation-triangle' },
+            { route: '/applications/agriculture', text: 'navBar.subsetSolutions.forestry', icon: 'bi bi-tree' },
+            { route: '/applications/aerial', text: 'navBar.subsetSolutions.transportation', icon: 'bi bi-truck' },
+            { route: '/applications/powerline', text: 'navBar.subsetSolutions.powerInspection', icon: 'bi bi-lightning' },
+            { route: '/applications/spraying', text: 'navBar.subsetSolutions.environmental', icon: 'bi bi-flower1' },
+            { route: '/applications/farming', text: 'navBar.subsetSolutions.agriculture', icon: 'bi bi-cloudy' },
+            { route: '/applications/integration', text: 'navBar.subsetSolutions.logistics', icon: 'bi bi-box-seam' }
           ]
         },
         {
           key: 'support',
-          label: 'common.services',
+          label: 'navBar.support',
           route: '/support',
           items: [
-            { route: '/support/downloads', text: 'support.downloads', icon: 'bi bi-download' },
-            { route: '/support/policy', text: 'support.policy', icon: 'bi bi-shield-check' },
-            { route: '/support/faq', text: 'support.faq', icon: 'bi bi-question-circle' },
-            { route: '/support/hotline', text: 'support.hotline', icon: 'bi bi-telephone' }
+            { route: '/support/downloads', text: 'navBar.subsetSupport.downloads', icon: 'bi bi-download' },
+            { route: '/support/policy', text: 'navBar.subsetSupport.policy', icon: 'bi bi-shield-check' },
+            { route: '/support/faq', text: 'navBar.subsetSupport.faq', icon: 'bi bi-question-circle' },
+            { route: '/support/hotline', text: 'navBar.subsetSupport.hotline', icon: 'bi bi-telephone' }
           ]
         },
         {
           key: 'about',
-          label: 'common.about',
+          label: 'navBar.about',
           route: '/about',
           items: [
-            { route: '/about/company', text: 'about.company', icon: 'bi bi-building' },
-            { route: '/about/responsibility', text: 'about.responsibility', icon: 'bi bi-globe' },
-            { route: '/about/careers', text: 'about.careers', icon: 'bi bi-person-plus' },
-            { route: '/about/contact', text: 'about.contact', icon: 'bi bi-envelope' }
+            { route: '/about/company', text: 'navBar.subsetAbout.company', icon: 'bi bi-building' },
+            { route: '/about/responsibility', text: 'navBar.subsetAbout.responsibility', icon: 'bi bi-globe' },
+            { route: '/about/careers', text: 'navBar.subsetAbout.careers', icon: 'bi bi-person-plus' },
+            { route: '/about/contact', text: 'navBar.subsetAbout.contact', icon: 'bi bi-envelope' }
           ]
         }
       ]
@@ -165,8 +165,8 @@ export default {
 
 .nav-link.active,
 .nav-link:hover {
-  color: var(--accent-color);
-  border-bottom: 2px solid #ff0000 !important;
+  color: rgb(178,0,0) !important;
+  border-bottom: 2px solid rgb(178,0,0) !important;
   background: none;
 }
 
@@ -208,7 +208,7 @@ export default {
 
 .product-item:hover {
   background-color: #f8f9fa;
-  color: var(--accent-color, #cc0000);
+  color: rgb(178,0,0) !important;
 }
 
 .product-item i {
@@ -248,19 +248,19 @@ export default {
     box-shadow: none;
     border-top: none;
   }
-
+  
   .mega-menu-inner {
     flex-direction: column;
     padding: 0.5rem;
   }
-
+  
   .product-item {
     padding: 0.6rem 1rem;
     font-size: 1rem;
     margin-right: 0;
     border-bottom: 1px solid #f0f0f0;
   }
-
+  
   .product-item:last-child {
     border-bottom: none;
   }

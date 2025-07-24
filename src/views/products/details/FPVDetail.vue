@@ -1,18 +1,9 @@
 <template>
   <div class="product-detail-page fpv-detail">
-    <!-- 返回导航 -->
-    <nav class="back-navigation">
-      <div class="container">
-        <button class="back-btn" @click="goBack">
-          <i class="bi bi-arrow-left"></i>
-          <span>返回产品列表</span>
-        </button>
-      </div>
-    </nav>
-
     <!-- 产品英雄区域 -->
     <section class="hero-section">
-      <div class="hero-background">
+      <div class="hero-background"
+        :style="{ backgroundImage: `url('${current && current.bannerImg ? current.bannerImg : ''}')`, backgroundSize: 'cover', backgroundPosition: 'center' }">
         <div class="hero-pattern"></div>
         <div class="hero-overlay">
           <div class="container">
@@ -50,8 +41,8 @@
         <div class="feature-section">
           <div class="feature-grid">
             <div class="feature-image">
-              <div class="image-placeholder" :style="{ background: getGradient(0) }">
-                <i class="bi bi-airplane"></i>
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
             <div class="feature-content">
@@ -119,13 +110,52 @@
               </div>
             </div>
             <div class="feature-image">
-              <div class="image-placeholder" :style="{ background: getGradient(1) }">
-                <i class="bi bi-gear-wide-connected"></i>
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
           </div>
         </div>
 
+        <!-- 优势 -->
+        <div class="feature-section">
+          <div class="feature-grid">
+            <div class="feature-image">
+              <div class="image-placeholder"
+                :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
+              </div>
+            </div>
+            <div class="feature-content">
+              <div class="feature-header">
+                <h2 class="feature-title">优势</h2>
+                <div class="feature-icon">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+              </div>
+              <p class="feature-description">
+                FPV穿越无人机具备高速、灵活的飞行能力，适合竞速、特技飞行和航拍创作。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行。
+              </p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>高速穿越能力</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>低延迟图传系统</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>灵活精准操控</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>优秀的机动性能</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
@@ -159,9 +189,6 @@
                   调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
                 </div>
                 <div v-else>
-                  <div style="color: blue; padding: 1rem; margin-bottom: 1rem;">
-                    调试信息：找到 {{ Object.keys(current.basic).length }} 个基本参数
-                  </div>
                   <div class="specs-grid">
                     <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
                       <div class="spec-label">{{ key }}</div>
@@ -173,10 +200,18 @@
 
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
-                <div class="specs-grid">
-                  <div class="spec-item" v-for="(value, key) in current.tech" :key="key">
-                    <div class="spec-label">{{ key }}</div>
-                    <div class="spec-value">{{ value }}</div>
+                <div class="package-content">
+                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                    <h3 class="package-title">
+                      <i class="bi bi-box-seam"></i>
+                      {{ key }}
+                    </h3>
+                    <div class="package-list">
+                      <div class="package-item" v-for="(value, key) in value" key="key">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>{{ key }} {{ value }}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -190,29 +225,9 @@
                       标配清单
                     </h3>
                     <div class="package-list">
-                      <div class="package-item">
+                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>飞行器机身 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>螺旋桨 × 4</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>智能飞控 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>动力电池 × 2</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>充电器 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>遥控器 × 1</span>
+                        <span>{{ key }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -221,22 +236,10 @@
                       <i class="bi bi-file-text"></i>
                       随机文件
                     </h3>
-                    <div class="package-list">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>产品说明书</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>快速入门指南</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>免责声明</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>合格证</span>
+                        <span>{{ key }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -297,30 +300,73 @@ export default {
         'fpv-p1': {
           name: 'P1 竞速穿越机',
           banner: 'P1 竞速穿越机',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fpv/01.png',
+          featureImg: '/images/products/fpv/02.png',
+          //基本参数
           basic: {
             '机身尺寸': '220 mm',
             '重量(不含电池)': '350 g',
             '机架材质': '碳纤维',
             '动力系统': '无刷电机',
             '螺旋桨尺寸': '5寸',
-            '电池容量': '1500mAh'
-          },
-          tech: {
+            '电池容量': '1500mAh',
             '最大速度': '160 km/h',
-            '续航时间': '8 分钟',
-            '图传系统': 'HD低延迟',
-            '控制距离': '2 km',
+            '续航时间': '',
+            '图传系统': '',
+            '控制距离': '',
             '悬停精度': '±0.3m',
             '工作环境温度': '-10℃ ~ 40℃'
+          },
+          //技术参数
+          tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fpv-p2x': {
           name: 'P2X 特技穿越机',
           banner: 'P2X 特技穿越机',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fpv/01.png',
+          featureImg: '/images/products/fpv/02.png',
           basic: {
             '机身尺寸': '250 mm',
             '重量(不含电池)': '380 g',
@@ -329,20 +375,56 @@ export default {
             '螺旋桨尺寸': '6寸',
             '电池容量': '1800mAh'
           },
+          //技术参数
           tech: {
-            '最大速度': '140 km/h',
-            '续航时间': '10 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '3 km',
-            '悬停精度': '±0.5m',
-            '工作环境温度': '-15℃ ~ 45℃'
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fpv-c1': {
           name: 'C1 电影穿越机',
           banner: 'C1 电影穿越机',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fpv/01.png',
+          featureImg: '/images/products/fpv/02.png',
           basic: {
             '机身尺寸': '95 mm',
             '重量(不含电池)': '280 g',
@@ -351,20 +433,56 @@ export default {
             '螺旋桨尺寸': '3寸',
             '电池容量': '1200mAh'
           },
+          //技术参数
           tech: {
-            '最大速度': '80 km/h',
-            '续航时间': '6 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '1 km',
-            '悬停精度': '±0.2m',
-            '工作环境温度': '-5℃ ~ 35℃'
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'fpv-x4': {
           name: 'X4 四轴穿越机',
           banner: 'X4 四轴穿越机',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/fpv/01.png',
+          featureImg: '/images/products/fpv/02.png',
           basic: {
             '机身尺寸': '210 mm',
             '重量(不含电池)': '320 g',
@@ -373,38 +491,82 @@ export default {
             '螺旋桨尺寸': '4.5寸',
             '电池容量': '1400mAh'
           },
+          //技术参数
           tech: {
-            '最大速度': '120 km/h',
-            '续航时间': '7 分钟',
-            '图传系统': 'HD低延迟',
-            '控制距离': '1.5 km',
-            '悬停精度': '±0.4m',
-            '工作环境温度': '-8℃ ~ 42℃'
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         }
+      },
+      //包装清单-标配清单
+      packaging_list: {
+        "主机": "×1",
+        "电机": "×6",
+        "电池": "x1",
+        "飞控": "x1",
+        "电调": "x1",
+        "螺旋桨": "x6",
+        "遥控器": "x1",
+        "摄像头": "x1",
+        "连接杆": "x6",
+        "天线": "x1",
+        "螺丝/包": "x1",
+      },
+      packaging_documents: {
+        "产品说明书": "x1",
+        "快速入门指南": "x1",
+        "免责声明": "x1",
+        "合格证": "x1"
       },
       current: null
     }
   },
   created() {
     const id = this.$route.params.id
-    console.log('Route ID:', id)
-    console.log('Available products:', Object.keys(this.products))
     this.current = this.products[id] || this.products['fpv-p1']
-    console.log('Current product:', this.current)
-    console.log('Basic specs:', this.current.basic)
-    console.log('Tech specs:', this.current.tech)
   },
   methods: {
     goBack() {
       this.$router.push('/products/fpv')
-    },
-    getGradient(index) {
-      const gradients = [
-        'linear-gradient(135deg, #ff6b6b, #ee5a24)',
-        'linear-gradient(135deg, #4834d4, #686de0)'
-      ]
-      return gradients[index % gradients.length]
     }
   }
 }
@@ -450,7 +612,7 @@ export default {
 /* 英雄区域 */
 .hero-section {
   position: relative;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
 }
 
@@ -571,7 +733,8 @@ export default {
 }
 
 .image-placeholder {
-  height: 300px;
+  height: 380px;
+  width: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -607,7 +770,7 @@ export default {
 .feature-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -638,7 +801,7 @@ export default {
 }
 
 .feature-item i {
-  color: #28a745;
+  color: rgba(178, 0, 0, 1);
   font-size: 1.2rem;
 }
 
@@ -699,10 +862,10 @@ export default {
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #B20000, #B20000);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.4);
 }
 
 .tab-content {
@@ -839,7 +1002,7 @@ export default {
 .warranty-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -863,6 +1026,7 @@ export default {
 }
 
 @keyframes patternMove {
+
   0%,
   100% {
     transform: translate(0, 0);

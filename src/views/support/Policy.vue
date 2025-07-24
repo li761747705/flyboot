@@ -146,7 +146,7 @@ export default {
 }
 
 .policy-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -164,7 +164,7 @@ export default {
 }
 
 .policy-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 2rem;
 }
 
@@ -202,12 +202,25 @@ export default {
   padding: 1rem 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border-left: none;
+  border-left: 4px solid #fff;
   margin: 0.25rem 0;
-  background: transparent;
+  background: #fff;
   color: rgb(0,0,0);
   position: relative;
   z-index: 1;
+}
+
+.policy-category:hover {
+  color: rgb(178,0,0);
+  border-left: 4px solid rgb(178,0,0);
+}
+
+.policy-category:hover .category-title {
+  color: rgb(178,0,0);
+}
+
+.policy-category:hover .category-arrow {
+  color: rgb(178,0,0);
 }
 
 .policy-category .category-title {
@@ -215,32 +228,16 @@ export default {
   transition: color 0.3s;
 }
 
-.policy-category:hover, .policy-category.active {
-  background: #f3f3f3;
-  color: #000 !important;
+.policy-category.active {
+  background: #fff;
+  color: rgb(178,0,0) !important;
+  border-left: 4px solid rgb(178,0,0);
 }
-
-.policy-category:hover .category-title, .policy-category.active .category-title {
-  color: #000 !important;
+.policy-category.active .category-title {
+  color: rgb(178,0,0) !important;
 }
-
-.policy-category .category-arrow {
-  color: rgba(0,0,0,0.7);
-  transition: color 0.3s, transform 0.3s;
-}
-
-.policy-category:hover .category-arrow, .policy-category.active .category-arrow {
-  color: #000;
-}
-
-/* ①数字样式 */
-.policy-main-card .policy-table-wrapper th:first-child::before {
-  content: '①';
-  display: inline-block;
-  margin-right: 0.5em;
-  color: #000;
-  font-weight: bold;
-  font-size: 1.1em;
+.policy-category.active .category-arrow {
+  color: rgb(178,0,0) !important;
 }
 
 /* 取消边框色，边框为白色 */
@@ -265,7 +262,7 @@ export default {
 }
 
 .policy-content-title i {
-  color: #667eea;
+  color: rgb(178,0,0);
   font-size: 1.3rem;
 }
 
@@ -325,15 +322,15 @@ export default {
 }
 
 .type-circle.return {
-  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
 }
 
 .type-circle.exchange {
-  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
 }
 
 .type-circle.repair {
-  background: linear-gradient(135deg, #45b7d1, #96c93d);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
 }
 
 .conditions-cell {
@@ -349,7 +346,7 @@ export default {
   padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 12px;
-  border-left: 4px solid #ff4d4f;
+  border-left: 4px solid rgb(178,0,0);
   transition: all 0.3s ease;
 }
 
@@ -361,7 +358,7 @@ export default {
 .desc-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #ff4d4f, #ff7875);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -378,6 +375,25 @@ export default {
 .desc-content {
   flex: 1;
   line-height: 1.7;
+}
+
+.policy-content-area .btn, .policy-content-area button, .policy-content-area a.btn {
+  color: rgb(178,0,0) !important;
+  background: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+.policy-content-area .btn:hover, .policy-content-area button:hover, .policy-content-area a.btn:hover {
+  background: rgb(178,0,0) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+.section-line {
+  background: rgb(178,0,0) !important;
 }
 
 /* 响应式设计 */
@@ -535,7 +551,7 @@ export default {
 }
 
 .category-icon i {
-  color: #888;
+  color: rgb(178,0,0);
   font-size: 1.2rem;
 }
-</style> 
+</style>

@@ -16,7 +16,8 @@
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <span class="scene-card-default-icon">+</span>
+            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <span v-else class="scene-card-default-icon">+</span>
           </div>
           <div class="scene-card-title">{{ item.title }}</div>
         </div>
@@ -31,16 +32,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '违法抓拍与执法' },
-        { title: '事故快速处置' },
-        { title: '现场测绘与勘察' },
-        { title: '路况监测与引导' },
-        { title: '设施巡查与隐患排查' }
+        { title: '违法抓拍与执法', image: '/images/applications/aerial/01（600X350）.png' },
+        { title: '事故快速处置', image: '/images/applications/aerial/02(900X500).png' },
+        { title: '现场测绘与勘察', image: '/images/applications/交通400X620.png' },
+        { title: '路况监测与引导', image: '/images/applications/交通400X620.png' },
+        { title: '设施巡查与隐患排查', image: '/images/applications/交通400X620.png' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }
@@ -86,7 +87,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 320px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -94,22 +95,26 @@ export default {
   padding: 0;
   border: none;
   outline: none;
+  overflow: hidden;
 }
 .scene-card:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transform: translateY(-5px);
 }
 .scene-card-img-wrapper {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+  width: 100%;
+  height: 180px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
+}
+.scene-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .scene-card-default-icon {
   font-size: 2.5rem;
@@ -123,6 +128,9 @@ export default {
   text-align: center;
   margin-top: 6px;
   letter-spacing: 0.5px;
+  padding: 8px 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 @media (max-width: 900px) {
   .scene-card-grid {
@@ -144,4 +152,4 @@ export default {
     height: 280px;
   }
 }
-</style> 
+</style>

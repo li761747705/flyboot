@@ -47,18 +47,18 @@
     <!-- 产品系列展示 -->
     <section class="product-series py-5">
       <div class="container">
-        <h2 class="text-center mb-5 position-relative">产品系列<span class="section-line"></span></h2>
-        <h2 class="text-center mb-5 position-relative">穿越云层之巅，探索未曾触及的天际律动</h2>
+        <h2 class="text-center mb-5 position-relative">{{$t('home.products.title')}}<span class="section-line"></span></h2>
+        <h2 class="text-center mb-5 position-relative">{{$t('home.products.desc')}}</h2>
         <div class="row g-4">
           <div class="col-md-6 mb-4" v-for="(product, index) in products" :key="`product-${index}`">
             <div class="card-item product-card">
               <div class="image-container">
-                <img :src="product.image" :alt="product.title" class="img-fluid">
+                <img :src="product.image" :alt="product.title" class="img-fluid" loading="lazy">
               </div>
               <div class="overlay">
                 <div class="content">
                   <h3 class="title">{{product.title}}</h3>
-                  <a :href="product.link" class="btn btn-light rounded-pill px-4 mt-2">更多</a>
+                  <a :href="product.link" class="btn btn-light rounded-pill px-4 mt-2">{{$t('common.more')}}</a>
                 </div>
               </div>
             </div>
@@ -70,18 +70,19 @@
     <!-- 行业应用 -->
     <section class="solution-series py-5">
       <div class="container">
-        <h2 class="text-center mb-5 position-relative">行业应用<span class="section-line"></span></h2>
-        <h2 class="text-center mb-5 position-relative">无人机凭借着其高效便捷、灵活多变的特点，成为人们解决问题的一种新方式</h2>
+        <h2 class="text-center mb-5 position-relative">{{$t('home.applications.title')}}<span class="section-line"></span></h2>
+        <h2 class="text-center mb-5 position-relative">
+          {{ $t('home.applications.desc') }}</h2>
         <div class="row g-4">
           <div class="col-md-4 mb-4" v-for="(solution, index) in solutions" :key="`solution-${index}`">
             <div class="card-item solution-card">
               <div class="image-container">
-                <img :src="solution.image" :alt="solution.title" class="img-fluid">
+                <img :src="solution.image" :alt="solution.title" class="img-fluid" loading="lazy">
               </div>
               <div class="overlay">
                 <div class="content">
                   <h3 class="title">{{solution.title}}</h3>
-                  <a :href="solution.link" class="btn btn-light rounded-pill px-4 mt-2">了解更多</a>
+                  <a :href="solution.link" class="btn btn-light rounded-pill px-4 mt-2">{{$t('common.learnMore')}}</a>
                 </div>
               </div>
             </div>
@@ -89,13 +90,12 @@
         </div>
       </div>
     </section>
-
     <!-- 服务与支持 -->
     <section class="service-support">
       <div class="service-bg" :style="serviceBgStyle">
         <div class="container d-flex flex-column align-items-center justify-content-center">
           <h2 class="text-center text-white mb-5 position-relative">{{serviceSupport.title}}</h2>
-          <h4 class="text-center text-white mb-5 position-relative">由经验丰富的技术人员组成的快速响应团队，负责接收并分析客户热线转来的维修请求，制定初步解决方案</h4>
+          <h4 class="text-center text-white mb-5 position-relative">{{ serviceSupport.description }}</h4>
           <a :href="serviceSupport.link" class="btn btn-light rounded-pill px-5 py-2">{{serviceSupport.buttonText}}</a>
         </div>
       </div>
@@ -139,26 +139,27 @@ export default {
         }
       ],
       products: [
-        { title: '穿越无人机', image: '/images/home/product/product1.png', link: '/products/fpv' },
-        { title: '多旋翼无人机', image: '/images/home/product/product2.png', link: '/products/multi-rotor' },
-        { title: '固定翼无人机', image: '/images/home/product/product3.png', link: '/products/fixed-wing' },
-        { title: '无人直升机', image: '/images/home/product/product4.png', link: '/products/helicopter' }
+        { title: this.$t('home.products.f15'), image: '/images/home/product/product1.png', link: '/products/fpv' },
+        { title: this.$t('home.products.multiRotor'), image: '/images/home/product/product2.png', link: '/products/multi-rotor' },
+        { title: this.$t('home.products.fixedWing'), image: '/images/home/product/product3.png', link: '/products/fixed-wing' },
+        { title: this.$t('home.products.helicopter'), image: '/images/home/product/product4.png', link: '/products/helicopter' }
       ],
       solutions: [
-        { title: '测绘', image: '/images/home/scene/测绘.png', link: '/applications/mapping' },
-        { title: '水利', image: '/images/home/scene/水利.png', link: '/applications/inspection' },
-        { title: '应急', image: '/images/home/scene/应急.png', link: '/applications/delivery' },
-        { title: '交通', image: '/images/home/scene/交通.png', link: '/applications/aerial' },
-        { title: '环保', image: '/images/home/scene/环保.png', link: '/applications/spraying' },
-        { title: '森林勘察', image: '/images/home/scene/森林.png', link: '/applications/agriculture' },
-        { title: '电力巡检', image: '/images/home/scene/电力.png', link: '/applications/firefighting' },
-        { title: '农业应用', image: '/images/home/scene/农业.png', link: '/applications/farming' },
-        { title: '运载应用', image: '/images/home/scene/运载.png', link: '/applications/powerline' }
+        { title: this.$t('home.applications.mapping'), image: '/images/home/scene/测绘.png', link: '/applications/mapping' },
+        { title: this.$t('home.applications.inspection'), image: '/images/home/scene/水利.png', link: '/applications/inspection' },
+        { title: this.$t('home.applications.delivery'), image: '/images/home/scene/应急.png', link: '/applications/delivery' },
+        { title: this.$t('home.applications.aerial'), image: '/images/home/scene/交通.png', link: '/applications/aerial' },
+        { title: this.$t('home.applications.spraying'), image: '/images/home/scene/环保.png', link: '/applications/spraying' },
+        { title: this.$t('home.applications.agriculture'), image: '/images/home/scene/森林.png', link: '/applications/agriculture' },
+        { title: this.$t('home.applications.firefighting'), image: '/images/home/scene/电力.png', link: '/applications/firefighting' },
+        { title: this.$t('home.applications.farming'), image: '/images/home/scene/农业.png', link: '/applications/farming' },
+        { title: this.$t('home.applications.integration'), image: '/images/home/scene/运载.png', link: '/applications/integration' }
       ],
       serviceSupport: {
-        title: '服务与支持',
+        title: this.$t('home.serviceSupport.title'),
+        description: this.$t('home.serviceSupport.description'),
         image: '/images/home/01首页-服务与支持-900X400.png',
-        buttonText: '了解更多',
+        buttonText: this.$t('home.serviceSupport.title'),
         link: '/support'
       }
     }
@@ -197,52 +198,126 @@ export default {
   transform: translateX(-50%);
   width: 130px;
   height: 2px;
-  background-color: rgb(255,0, 0);
+  background-color: rgb(178,0,0) !important;
 }
 
-/* 通用卡片样式 */
-.card-item {
+/* 按钮统一样式 */
+.btn,
+.btn-light {
+  color: rgb(178,0,0) !important;
+  background: #fff !important;
+  padding: 0.75rem 2.5rem !important;
+  border: none !important;
+  font-size: 1.15rem !important;
+  box-shadow: none !important;
+  font-weight: 500;
+  transition: none !important;
+}
+.btn:hover,
+.btn-light:hover {
+  background: rgb(178,0,0) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* 卡片宽高自适应图片，去除所有限制 */
+.card-item,
+.product-card,
+.solution-card {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-shadow: none;
+  background: #fff;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.card-item:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
 }
 
 .image-container {
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 移除媒体查询下的卡片高度限制 */
+@media (max-width: 992px) {
+  .product-card {
+    height: auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .product-card {
+    height: auto !important;
+  }
+  .solution-card {
+    height: auto !important;
+  }
+}
+@media (max-width: 576px) {
+  .product-card {
+    height: auto !important;
+  }
+  .solution-card {
+    height: auto !important;
+  }
+}
+
+/* 通用卡片样式 */
+.card-item {
+  position: relative;
+  width: 100%;
+  /* 不要设置height */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: none;
+  transition: none;
+}
+
+.card-item:hover {
+  /* 无hover阴影和移动效果 */
+}
+
+.image-container {
+  width: 100%;
+  /* height: auto; */
+  position: relative; /* 不是absolute */
 }
 
 .image-container img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
 .card-item:hover .image-container img {
-  transform: scale(1.1);
+  /* 无hover缩放效果 */
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
   display: flex;
   align-items: flex-end;
   padding: 25px;
+  pointer-events: none;
+}
+.overlay .content {
+  width: 100%;
+  text-align: center;
+  pointer-events: auto;
 }
 
 .content {
@@ -251,25 +326,37 @@ export default {
 }
 
 .title {
-  font-weight: 600;
+  font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
   color: #fff;
   margin-bottom: 15px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .overlay .btn {
-  transition: all 0.3s ease;
-  font-weight: 500;
+  color: rgb(178,0,0);
+  background-color: #fff;
+  border: none;
+  transition: none;
 }
-
 .overlay .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(178,0,0);
+  color: #fff;
+  border: none;
+  transition: none;
 }
 
 /* 产品卡片特定样式 */
 .product-card {
-  height: 380px;
+  width: 580px !important;
+  height: 580px !important;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: rgb(255,255,255);
+  box-shadow: none;
+  transition: none;
 }
 
 .product-card .title {
@@ -278,7 +365,7 @@ export default {
 
 /* 解决方案卡片特定样式 */
 .solution-card {
-  height: 320px;
+  /* height: 320px; */
 }
 
 .solution-card .title {
@@ -289,7 +376,7 @@ export default {
 .hero-section {
   position: relative;
   padding: 0;
-  height: 650px;
+  height: 700px;
   width: 100vw;
   left: 50%;
   right: 50%;
@@ -299,7 +386,7 @@ export default {
 }
 
 #heroCarousel, .carousel-inner, .carousel-item, .carousel-content {
-  height: 650px;
+  height: 700px;
   width: 100%;
   max-width: 100%;
 }
@@ -395,7 +482,17 @@ export default {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.service-bg {
+  height: 400px !important;
+}
+
 /* 响应式调整 */
+@media (max-width: 992px) {
+  .product-card {
+    height: 320px;
+    width: 100%;
+  }
+}
 @media (max-width: 768px) {
   .hero-section, #heroCarousel, .carousel-inner, .carousel-item, .carousel-content {
     height: 500px;

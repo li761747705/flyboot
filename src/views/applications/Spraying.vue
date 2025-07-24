@@ -15,7 +15,8 @@
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <span class="scene-card-default-icon">+</span>
+            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <span v-else class="scene-card-default-icon">+</span>
           </div>
           <div class="scene-card-title">{{ item.title }}</div>
         </div>
@@ -30,16 +31,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '环境监测' },
-        { title: '水质检测' },
-        { title: '生态保护' },
-        { title: '应急响应' },
-        { title: '环境执法' }
+        { title: '环境监测', image: '/images/applications/spraying/01（600X350）.png' },
+        { title: '水质检测', image: '/images/applications/spraying/01（600X350）.png' },
+        { title: '生态保护', image: '/images/applications/spraying/01（600X350）.png' },
+        { title: '应急响应', image: '/images/applications/spraying/01（600X350）.png' },
+        { title: '环境执法', image: '/images/applications/spraying/01（600X350）.png' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }
@@ -85,7 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 320px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,22 +94,26 @@ export default {
   padding: 0;
   border: 1px solid #e0e0e0;
   outline: none;
+  overflow: hidden;
 }
 .scene-card:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transform: translateY(-5px);
 }
 .scene-card-img-wrapper {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 100%;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
+}
+
+.scene-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .scene-card-default-icon {
   font-size: 2.5rem;
@@ -120,8 +125,11 @@ export default {
   color: #222;
   font-weight: 600;
   text-align: center;
-  margin-top: 6px;
+  margin-top: auto;
   letter-spacing: 0.5px;
+  padding: 8px 12px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 @media (max-width: 900px) {
   .scene-card-grid {
@@ -143,4 +151,4 @@ export default {
     height: 280px;
   }
 }
-</style> 
+</style>

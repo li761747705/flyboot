@@ -15,7 +15,8 @@
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <span class="scene-card-default-icon">+</span>
+            <img v-if="item.image" :src="item.image" class="scene-card-img" alt="" />
+            <span v-else class="scene-card-default-icon">+</span>
           </div>
           <div class="scene-card-title">{{ item.title }}</div>
         </div>
@@ -30,16 +31,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '地形测量' },
-        { title: '实景三维' },
-        { title: '土地利用规划' },
-        { title: '勘察设计' },
-        { title: '古建筑三维测绘' }
+        { title: '地形测量', image: '/images/applications/mapping/01（600X350）.png' },
+        { title: '实景三维', image: '/images/applications/mapping/02（900X500）.png' },
+        { title: '土地利用规划', image: '/images/applications/测绘400X620.png' },
+        { title: '勘察设计', image: '/images/applications/测绘400X620.png' },
+        { title: '古建筑三维测绘', image: '/images/applications/测绘400X620.png' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }
@@ -85,7 +86,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 320px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,6 +94,8 @@ export default {
   padding: 0;
   border: none;
   outline: none;
+  overflow: hidden;
+  background-color: #fff;
 }
 .scene-card:active,
 .scene-card:focus {
@@ -105,22 +108,20 @@ export default {
   transform: translateY(-5px);
 }
 .scene-card-img-wrapper {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+  width: 100%;
+  height: 180px;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
+  position: relative;
 }
 .scene-card-img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 .scene-card-default-icon {
@@ -135,6 +136,9 @@ export default {
   text-align: center;
   margin-top: 6px;
   letter-spacing: 0.5px;
+  padding: 0 15px 15px;
+  width: 100%;
+  background-color: #fff;
 }
 @media (max-width: 900px) {
   .scene-card-grid {
@@ -159,4 +163,4 @@ export default {
     height: 280px;
   }
 }
-</style> 
+</style>

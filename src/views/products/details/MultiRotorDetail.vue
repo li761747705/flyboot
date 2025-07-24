@@ -1,18 +1,8 @@
 <template>
   <div class="product-detail-page multirotor-detail">
-    <!-- 返回导航 -->
-    <nav class="back-navigation">
-      <div class="container">
-        <button class="back-btn" @click="goBack">
-          <i class="bi bi-arrow-left"></i>
-          <span>返回产品列表</span>
-        </button>
-      </div>
-    </nav>
-
     <!-- 产品英雄区域 -->
     <section class="hero-section">
-      <div class="hero-background">
+      <div class="hero-background" :style="{ backgroundImage: `url('${current && current.bannerImg ? current.bannerImg : ''}')`, backgroundSize: 'cover', backgroundPosition: 'center' }">
         <div class="hero-pattern"></div>
         <div class="hero-overlay">
           <div class="container">
@@ -50,8 +40,7 @@
         <div class="feature-section">
           <div class="feature-grid">
             <div class="feature-image">
-              <div class="image-placeholder" :style="{background: getGradient(0)}">
-                <i class="bi bi-grid-3x3"></i>
+              <div class="image-placeholder" :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
             <div class="feature-content">
@@ -62,7 +51,7 @@
                 </div>
               </div>
               <p class="feature-description">
-                多旋翼无人机具备稳定悬停、精准控制的飞行能力，适合航拍、测绘、巡检等多种应用场景。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现精准的作业控制。
+                六轴设计使得无人机具有更好的平衡性和稳定性，这种设计可以提供更强的抗风能力和更稳定的飞行表现，适合在复杂环境中使用
               </p>
               <div class="feature-list">
                 <div class="feature-item">
@@ -97,7 +86,7 @@
                 </div>
               </div>
               <p class="feature-description">
-                采用高强度碳纤维和铝合金材料，机身结构坚固且轻量化，适应各种环境，保障飞行安全。先进的材料工艺和结构设计使得无人机在保证结构强度的同时，具有良好的抗疲劳性和耐久性。
+                轻小便携，操作简单易上手，利于单人部署高效执行作业任务，碳纤维复合材料的高比强度和比刚度特性使得无人机在保证结构强度的同时，重量大大减轻，具有良好的的抗疲劳性和耐久性，能够适应长时间的飞行任务，确保无人机的稳定性和可靠性。
               </p>
               <div class="feature-list">
                 <div class="feature-item">
@@ -119,43 +108,68 @@
               </div>
             </div>
             <div class="feature-image">
-              <div class="image-placeholder" :style="{background: getGradient(1)}">
-                <i class="bi bi-gear-wide-connected"></i>
+              <div class="image-placeholder" :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
               </div>
             </div>
           </div>
         </div>
 
+        <!-- 优势展示（可选） -->
+        <div class="feature-section">
+          <div class="feature-grid">
+            <div class="feature-image">
+              <div class="image-placeholder" :style="{ background: `url('${current && current.featureImg ? current.featureImg : ''}') center/cover no-repeat` }">
+              </div>
+            </div>
+            <div class="feature-content">
+              <div class="feature-header">
+                <h2 class="feature-title">优势</h2>
+                <div class="feature-icon">
+                  <i class="bi bi-speedometer2"></i>
+                </div>
+              </div>
+              <p class="feature-description">
+                六轴无人机在飞行作业具有多种功能和优势。通常采用六个旋翼作为动力源，这种设计使得无人机具备垂直降落、悬停、灵活飞行等特点，适用于多种作业环境。
+              </p>
+              <div class="feature-list">
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>稳定悬停能力</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>精准飞行控制</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>多种应用场景</span>
+                </div>
+                <div class="feature-item">
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>优秀的机动性能</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
             <h2 class="specs-title">产品参数</h2>
             <p class="specs-subtitle">详细的技术规格和配置信息</p>
           </div>
-          
+
           <div class="specs-tabs">
             <div class="tab-buttons">
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'basic' }"
-                @click="activeTab = 'basic'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
                 基本参数
               </button>
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'tech' }"
-                @click="activeTab = 'tech'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
                 技术参数
               </button>
-              <button 
-                class="tab-btn" 
-                :class="{ active: activeTab === 'package' }"
-                @click="activeTab = 'package'"
-              >
+              <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
                 包装清单
               </button>
@@ -164,20 +178,36 @@
             <div class="tab-content">
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
-                <div class="specs-grid">
-                  <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                    <div class="spec-label">{{ key }}</div>
-                    <div class="spec-value">{{ value }}</div>
+                <div v-if="!current" style="color: red; padding: 1rem;">
+                  调试信息：current对象为空
+                </div>
+                <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
+                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                </div>
+                <div v-else>
+                  <div class="specs-grid">
+                    <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
+                      <div class="spec-label">{{ key }}</div>
+                      <div class="spec-value">{{ value }}</div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
-                <div class="specs-grid">
-                  <div class="spec-item" v-for="(value, key) in current.tech" :key="key">
-                    <div class="spec-label">{{ key }}</div>
-                    <div class="spec-value">{{ value }}</div>
+                <div class="package-content">
+                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                    <h3 class="package-title">
+                      <i class="bi bi-box-seam"></i>
+                     {{key}}
+                    </h3>
+                    <div class="package-list">
+                      <div class="package-item" v-for="(value, key) in value" key="key">
+                        <i class="bi bi-check2-circle"></i>
+                        <span>{{ key }} {{value}}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -191,29 +221,9 @@
                       标配清单
                     </h3>
                     <div class="package-list">
-                      <div class="package-item">
+                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>飞行器机身 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>螺旋桨 × 4</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>智能飞控 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>动力电池 × 2</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>充电器 × 1</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-check2-circle"></i>
-                        <span>遥控器 × 1</span>
+                        <span>{{ key }} {{value}}</span>
                       </div>
                     </div>
                   </div>
@@ -222,22 +232,10 @@
                       <i class="bi bi-file-text"></i>
                       随机文件
                     </h3>
-                    <div class="package-list">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>产品说明书</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>快速入门指南</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>免责声明</span>
-                      </div>
-                      <div class="package-item">
-                        <i class="bi bi-file-text"></i>
-                        <span>合格证</span>
+                        <span>{{ key }} {{value}}</span>
                       </div>
                     </div>
                   </div>
@@ -298,8 +296,8 @@ export default {
         'multirotor-m600': {
           name: 'M600 专业多旋翼',
           banner: 'M600 专业多旋翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/multirotor/01.png',
+          featureImg: '/images/products/multirotor/02.png',
           basic: {
             '机身尺寸': '600 mm',
             '重量(不含电池)': '2.8 kg',
@@ -308,20 +306,56 @@ export default {
             '螺旋桨尺寸': '13寸',
             '电池容量': '6000mAh'
           },
+          //技术参数
           tech: {
-            '最大速度': '65 km/h',
-            '续航时间': '35 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '7 km',
-            '悬停精度': '±0.1m',
-            '工作环境温度': '-10℃ ~ 50℃'
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {           
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'multirotor-m800': {
           name: 'M800 大型多旋翼',
           banner: 'M800 大型多旋翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/multirotor/01.png',
+          featureImg: '/images/products/multirotor/02.png',
           basic: {
             '机身尺寸': '800 mm',
             '重量(不含电池)': '4.2 kg',
@@ -330,20 +364,56 @@ export default {
             '螺旋桨尺寸': '15寸',
             '电池容量': '8000mAh'
           },
-          tech: {
-            '最大速度': '70 km/h',
-            '续航时间': '45 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '10 km',
-            '悬停精度': '±0.1m',
-            '工作环境温度': '-15℃ ~ 55℃'
+            //技术参数
+            tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {           
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'multirotor-m400': {
           name: 'M400 轻型多旋翼',
           banner: 'M400 轻型多旋翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/multirotor/01.png',
+          featureImg: '/images/products/multirotor/02.png',
           basic: {
             '机身尺寸': '400 mm',
             '重量(不含电池)': '1.8 kg',
@@ -352,20 +422,56 @@ export default {
             '螺旋桨尺寸': '10寸',
             '电池容量': '4000mAh'
           },
-          tech: {
-            '最大速度': '55 km/h',
-            '续航时间': '25 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '5 km',
-            '悬停精度': '±0.2m',
-            '工作环境温度': '-5℃ ~ 45℃'
+             //技术参数
+             tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {           
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         },
         'multirotor-m1000': {
           name: 'M1000 重型多旋翼',
           banner: 'M1000 重型多旋翼',
-          flyingImg: '/images/placeholder.svg',
-          structureImg: '/images/placeholder.svg',
+          bannerImg: '/images/products/multirotor/01.png',
+          featureImg: '/images/products/multirotor/02.png',
           basic: {
             '机身尺寸': '1000 mm',
             '重量(不含电池)': '6.5 kg',
@@ -374,16 +480,67 @@ export default {
             '螺旋桨尺寸': '18寸',
             '电池容量': '12000mAh'
           },
-          tech: {
-            '最大速度': '75 km/h',
-            '续航时间': '60 分钟',
-            '图传系统': '数字高清',
-            '控制距离': '15 km',
-            '悬停精度': '±0.1m',
-            '工作环境温度': '-20℃ ~ 60℃'
+             //技术参数
+             tech: {
+            '飞行器': {
+              '起飞重量': '',
+              '尺寸': '',
+              '最大上升速度': '',
+              '最大下降速度': '',
+              '最大水平飞行速度': '',
+              '最大起飞海拔': '',
+              '最长飞行时间': '',
+              '最长悬停时间': '',
+              '最大续航历程': '',
+              '最大抗风速度': '',
+              '最大可倾斜角度': '',
+              '工作环境温度': '',
+              '卫星导航系统': '',
+              '悬停精度': ''
+            },
+            '电池': {
+              '容量': '',
+              '重量': '',
+              '标称电压': '',
+              '充电限制电压': '',
+              '电池类型': '',
+              '能量': '',
+              '充电环境': '',
+              '充电耗时': '',
+              '电池尺寸': ''
+            },
+            '充电器': {
+              '输入': '',
+              '输出': ''
+            },
+            '遥控器': {           
+              '最长续航时间': '',
+              '工作环境温度': '',
+              '充电环境温度': '',
+              '充电时间': '',
+              '充电方式': '',
+              '电池容量': '',
+              '重量': '',
+              '尺寸': ''
+            }
           }
         }
       },
+      //包装清单-标配清单
+      packaging_list:{
+            "飞行器机身":"×1",
+            "螺旋桨":"×4",
+            "智能飞控":"x1",
+            "动力电池":"x2",
+            "充电器":"x1",
+            "遥控器":"x1"
+          },
+      packaging_documents:{
+          "产品说明书":"x1",
+          "快速入门指南":"x1",
+          "免责声明":"x1",
+          "合格证":"x1"
+      },  
       current: null
     }
   },
@@ -394,13 +551,6 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/products/multi-rotor')
-    },
-    getGradient(index) {
-      const gradients = [
-        'linear-gradient(135deg, #2ecc71, #27ae60)',
-        'linear-gradient(135deg, #3498db, #2980b9)'
-      ]
-      return gradients[index % gradients.length]
     }
   }
 }
@@ -446,13 +596,13 @@ export default {
 /* 英雄区域 */
 .hero-section {
   position: relative;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
 }
 
 .hero-background {
   height: 100%;
-  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
 }
 
@@ -462,9 +612,9 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
   animation: patternMove 20s ease-in-out infinite;
 }
 
@@ -474,7 +624,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   z-index: 1;
@@ -491,7 +641,7 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1rem;
   border-radius: 50px;
@@ -504,7 +654,7 @@ export default {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .product-subtitle {
@@ -527,7 +677,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -537,7 +687,7 @@ export default {
 }
 
 .highlight-item:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
@@ -567,7 +717,8 @@ export default {
 }
 
 .image-placeholder {
-  height: 300px;
+  height: 380px;
+  width: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -603,7 +754,7 @@ export default {
 .feature-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -634,7 +785,7 @@ export default {
 }
 
 .feature-item i {
-  color: #28a745;
+  color: rgba(178, 0,0, 1);
   font-size: 1.2rem;
 }
 
@@ -644,7 +795,7 @@ export default {
   border-radius: 16px;
   padding: 3rem;
   margin-bottom: 4rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .specs-header {
@@ -695,10 +846,10 @@ export default {
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: linear-gradient(135deg, #B20000,#B20000);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+  box-shadow: 0 4px 15px rgba(178, 0, 0, 0.4);
 }
 
 .tab-content {
@@ -725,7 +876,7 @@ export default {
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .spec-label {
@@ -751,7 +902,7 @@ export default {
   background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .package-title {
@@ -765,7 +916,7 @@ export default {
 }
 
 .package-title i {
-  color: #2ecc71;
+  color: #667eea;
 }
 
 .package-list {
@@ -792,7 +943,7 @@ export default {
   background: #fff;
   border-radius: 16px;
   padding: 3rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .warranty-header {
@@ -829,13 +980,13 @@ export default {
 
 .warranty-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .warranty-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: linear-gradient(135deg, #B20000, #B20000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -859,8 +1010,14 @@ export default {
 }
 
 @keyframes patternMove {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-10px, -10px); }
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-10px, -10px);
+  }
 }
 
 /* 响应式设计 */
@@ -868,50 +1025,50 @@ export default {
   .hero-section {
     height: 400px;
   }
-  
+
   .product-title {
     font-size: 2.5rem;
   }
-  
+
   .product-highlights {
     gap: 1rem;
   }
-  
+
   .highlight-item {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   .feature-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .feature-section.reverse .feature-grid {
     flex-direction: column;
   }
-  
+
   .feature-list {
     grid-template-columns: 1fr;
   }
-  
+
   .specs-section {
     padding: 2rem 1rem;
   }
-  
+
   .tab-buttons {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .package-content {
     grid-template-columns: 1fr;
   }
-  
+
   .warranty-content {
     grid-template-columns: 1fr;
   }
-  
+
   .warranty-item {
     flex-direction: column;
     text-align: center;

@@ -13,7 +13,7 @@
     <section class="page-header">
       <!-- 顶部 Banner -->
       <div class="banner">
-        <img class="banner-bg" src="/images/about/通用图片1900X300.png" alt="banner" />
+        <img class="banner-bg" src="/images/about/通用图片1900X300.png" alt="banner" loading="lazy" />
         <div class="banner-overlay"></div>
         <div class="banner-content">
           <h1>关于麒风智能</h1>
@@ -30,18 +30,18 @@
             :key="idx"
             class="about-factory-section mb-5"
           >
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" loading="lazy" />
             <div v-if="item.desc" class="about-factory-desc" v-html="item.desc"></div>
           </div>
           <div class="about-factory-section mb-5">
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" />
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" loading="lazy" />
           </div>
           <!-- 公司介绍卡片 -->
           <div class="row mb-5">
             <div class="col-md-4 mb-4" v-for="card in aboutCards" :key="card.title">
               <div class="about-card">
                 <div class="about-image">
-                  <img :src="card.img" :alt="card.title" class="img-fluid">
+                  <img :src="card.img" :alt="card.title" class="img-fluid" loading="lazy">
                   <div class="image-overlay">
                     <i :class="card.icon"></i>
                   </div>
@@ -151,13 +151,13 @@ export default {
 
 /* 页面头部 */
 .page-header {
-  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  background: linear-gradient(135deg, rgb(178,0,0) 0%, rgb(220,0,0) 100%);
   position: relative;
   overflow: hidden;
 }
 
 .banner {
-  height: 400px;
+  height: 700px;
   position: relative;
   display: flex;
   align-items: center;
@@ -251,7 +251,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+  background: linear-gradient(135deg, rgba(178, 0, 0, 0.8), rgba(220, 0, 0, 0.8));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,20 +286,20 @@ export default {
 }
 
 .about-content .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  color: rgb(178,0,0);
+  background: #fff;
   border: none;
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  transition: none;
+}
+.about-content .btn:hover {
+  background: rgb(178,0,0);
+  color: #fff;
+  box-shadow: none;
+  transform: none;
 }
 
-.about-content .btn:hover {
-  transform: translateX(5px);
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+.section-line {
+  background: rgb(178,0,0) !important;
 }
 
 /* 技术实力区域 */
@@ -346,7 +346,7 @@ export default {
 
 .stat-item:hover {
   transform: translateY(-5px);
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   color: white;
 }
 
@@ -363,7 +363,7 @@ export default {
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: #3498db;
+  color: rgb(178,0,0);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
@@ -379,7 +379,7 @@ export default {
 .stat-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, rgb(178,0,0), rgb(220,0,0));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -509,4 +509,4 @@ export default {
   object-fit: cover;
   display: block;
 }
-</style> 
+</style>

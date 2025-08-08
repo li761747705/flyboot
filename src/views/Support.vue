@@ -29,8 +29,8 @@
         >
           <div class="support-banner-overlay">
             <div class="banner-content">
-              <div class="banner-icon">
-                <i :class="getBannerIcon(banner.title)"></i>
+              <div class="banner-icon"  >
+                <img :src="banner.icon" alt="banner icon">
               </div>
               <h2 class="support-banner-title">{{ banner.title }}</h2>
               <p class="support-banner-subtitle">{{ banner.subtitle }}</p>
@@ -52,7 +52,7 @@
         <div class="support-banner-overlay">
           <div class="banner-content">
             <div class="banner-icon">
-              <i :class="getBannerIcon(currentBanner.title)"></i>
+              <img :class="getBannerIcon(currentBanner.title)"/>
             </div>
             <h2 class="support-banner-title">{{ currentBanner.title }}</h2>
             <p class="support-banner-subtitle">{{ currentBanner.subtitle }}</p>
@@ -85,28 +85,32 @@ export default {
           subtitle: '驱动/文档/工具，一键便捷获取',
           bgImg: '/images/support/下载中心1900X300.png',
           height: '700px',
-          link: '/support/downloads'
+          link: '/support/downloads',
+          icon: '/images/support/download/02.png'
         },
         {
           title: '售后服务政策',
           subtitle: '透明保障，让您后顾无忧',
           bgImg: '/images/support/售后服务政策1900X300.png',
           height: '700px',
-          link: '/support/policy'
+          link: '/support/policy',
+          icon: '/images/support/download/03.png'    
         },
         {
           title: '常见问题',
           subtitle: '高频疑问，速查速解',
           bgImg: '/images/support/常见问题1900X300.png',
           height: '700px',
-          link: '/support/faq'
+          link: '/support/faq',
+          icon: '/images/support/download/04.png'
         },
         {
           title: '服务热线',
           subtitle: '快速响应，专业支持，直达专家',
           bgImg: '/images/support/服务热线1900X300.png',
           height: '700px',
-          link: '/support/hotline'
+          link: '/support/hotline',
+          icon: '/images/support/download/05.png'
         }
       ]
     }
@@ -128,10 +132,10 @@ export default {
     },
     getBannerIcon(title) {
       const iconMap = {
-        '下载中心': 'bi bi-download',
-        '售后服务政策': 'bi bi-shield-check',
-        '常见问题': 'bi bi-question-circle',
-        '服务热线': 'bi bi-telephone'
+        '下载中心': '/public/images/support/download/02.png',
+        '售后服务政策': '/public/images/support/download/03.png',
+        '常见问题': '/public/images/support/download/04.png',
+        '服务热线': '/public/images/support/download/05.png'
       }
       return iconMap[title] || 'bi bi-arrow-right'
     }
@@ -183,19 +187,20 @@ export default {
 .banner-icon {
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* border-radius: 50%; */
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgb(255, 255, 255);
+  /* backdrop-filter: blur(10px); */
+  /* border: 2px solid rgba(255, 255, 255, 0.3); */
   margin-bottom: 1rem;
 }
 
 .banner-icon i {
   font-size: 2rem;
-  color: white;
+  color: rgb(248, 248, 248);
 }
 
 .support-banner-title {

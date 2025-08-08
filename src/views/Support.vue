@@ -12,7 +12,6 @@
           <div class="banner-content">
             <h1 class="support-banner-title">{{ fixedBanner.title }}</h1>
             <p class="support-banner-subtitle">{{ fixedBanner.subtitle }}</p>
-            <p class="support-banner-subtitle">{{ fixedBanner.subtitle2 }}</p>
             <div class="banner-arrow">
               <i class="bi bi-arrow-down"></i>
             </div>
@@ -57,7 +56,6 @@
             </div>
             <h2 class="support-banner-title">{{ currentBanner.title }}</h2>
             <p class="support-banner-subtitle">{{ currentBanner.subtitle }}</p>
-            <p class="support-banner-subtitle">{{ currentBanner.subtitle2 }}</p>
           </div>
         </div>
       </section>
@@ -76,8 +74,7 @@ export default {
     return {
       fixedBanner: {
         title: '服务与支持',
-        subtitle: '我们提供全面的技术支持与服务，确保您的问题快速解决',
-        subtitle2: '专业团队，7×24小时为您服务',
+        subtitle: '全程无忧守护，助您高效翱翔',
         bgImg: '/images/support/服务与支持1900X700.png',
         height: '700px',
         link: '/support'
@@ -85,32 +82,28 @@ export default {
       allBanners: [
         {
           title: '下载中心',
-          subtitle: '获取最新的软件、固件和文档资料',
-          subtitle2: '支持多种产品型号，持续更新维护',
+          subtitle: '驱动/文档/工具，一键便捷获取',
           bgImg: '/images/support/下载中心1900X300.png',
           height: '700px',
           link: '/support/downloads'
         },
         {
           title: '售后服务政策',
-          subtitle: '了解我们的服务承诺和保修条款',
-          subtitle2: '透明政策，让您安心使用',
+          subtitle: '透明保障，让您后顾无忧',
           bgImg: '/images/support/售后服务政策1900X300.png',
           height: '700px',
           link: '/support/policy'
         },
         {
           title: '常见问题',
-          subtitle: '快速找到您需要的答案',
-          subtitle2: '分类整理，便于查找',
+          subtitle: '高频疑问，速查速解',
           bgImg: '/images/support/常见问题1900X300.png',
           height: '700px',
           link: '/support/faq'
         },
         {
           title: '服务热线',
-          subtitle: '热线电话：400-888-8888',
-          subtitle2: '周一至周六：9:00-18:00',
+          subtitle: '快速响应，专业支持，直达专家',
           bgImg: '/images/support/服务热线1900X300.png',
           height: '700px',
           link: '/support/hotline'
@@ -434,8 +427,8 @@ export default {
 }
 
 .support-banner-outer {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  /* padding-left: 4rem;
+  padding-right: 4rem; */
 }
 
 @media (max-width: 1300px) {

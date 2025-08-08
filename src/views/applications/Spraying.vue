@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>在环保领域中，无人机技术能够帮助我们更好的监测环境污染、进行环境治理等任务，并为环保工作提供更有效的支持。</h5>
+      <h5>无人机机动巡查，实时监测大气污染物扩散、水体富营养化、固废堆放及生态破坏行为。搭载气体、水质传感器，快速溯源污染，辅助环境执法与生态评估，构建高效、精准的立体化环境监测网络。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

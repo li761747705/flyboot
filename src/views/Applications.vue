@@ -220,6 +220,7 @@ export default {
   position: relative;
   height: 320px;
   overflow: hidden;
+   white-space: pre-wrap; /* 保留空格和换行 */
 }
 
 .application-card:hover {

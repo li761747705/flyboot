@@ -13,7 +13,7 @@
                 <span>固定翼无人机</span>
               </div>
               <h1 class="hero-title">固定翼无人机</h1>
-              <p class="hero-subtitle">长航时高效飞行，专业级测绘与巡检解决方案</p>
+              <p class="hero-subtitle">长空翱翔，使命必达</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-clock"></i>

@@ -17,7 +17,7 @@
         <div class="banner-overlay"></div>
         <div class="banner-content">
           <h1>关于麒风智能</h1>
-          <p>引领无人机技术创新，驱动行业数字化转型</p>
+          <p>不止于飞行，更关乎使命与愿景</p>
         </div>
       </div>
     </section>
@@ -25,16 +25,9 @@
         <div class="container">
       
           <!-- 公司厂房大图及简介（用数组渲染） -->
-          <div
-            v-for="(item, idx) in factoryList"
-            :key="idx"
-            class="about-factory-section mb-5"
-          >
+          <div v-for="(item, idx) in factoryList" :key="idx" class="about-factory-section mb-5"  >
             <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" loading="lazy" />
             <div v-if="item.desc" class="about-factory-desc" v-html="item.desc"></div>
-          </div>
-          <div class="about-factory-section mb-5">
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" loading="lazy" />
           </div>
           <!-- 公司介绍卡片 -->
           <div class="row mb-5">
@@ -57,7 +50,6 @@
               </div>
             </div>
           </div>
-          
           <!-- 技术实力展示 -->
           <div class="row mt-5">
             <div class="col-12">
@@ -91,10 +83,13 @@ export default {
     return {
       factoryList: [
         {
-          desc: 'XX无人机科技是全球领先的智能飞行系统解决方案商，专注于工业级无人机研发与人工智能应用。自2015年成立以来，我们始终以「让天空成为人类的新生产力」为使命，通过自主创新的飞控技术、高精度传感系统和云端智能平台，为农业、测绘、安防等20+行业提供革命性的空中作业方案。'
+          desc: '麒风智能专注于工业级无人机系统研发与创新应用，以尖端飞行控制、智能感知与集群协同技术为核心，致力于为全球客户提供安全、高效、可靠的全场景空中解决方案。+行业提供革命性的空中作业方案。'
         },
         {
-          desc: '我们采用全自动化生产线，结合高精度装配工艺，确保每架无人机性能稳定、质量可靠。核心部件误差控制在0.01mm级，并通过AI视觉检测，不良率低于0.3%。'
+          desc: '深耕行业十年，我们已构建覆盖测绘勘探、应急救援、能源巡检、智慧农业、物流运输等领域的完整产品矩阵。从厘米级精准定位的航测无人机，到复杂环境全天候作业的无人直升机，每一款产品都承载着对极致性能与用户价值的执着追求。'
+        },
+          {
+          desc: '我们不仅提供硬件，更打造“端到端”服务体系——从定制化需求对接、专业飞手培训，到7×24小时全生命周期技术支持，始终以客户成功为航标，让科技之力真正赋能千行百业。以创新为翼，以责任为舵'
         },
         {
           desc: `<h2 style="font-size:1.3rem;margin-bottom:0.7em;">1. 核心团队</h2>
@@ -103,8 +98,7 @@ export default {
             <p>60+人的专职研发团队，涵盖飞控系统、动力系统、传感器融合等关键技术方向，已申请200+项技术专利，其中发明专利占比超40%。</p>
             <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">3. 生产团队</h2>
             <p>20000㎡现代化生产基地，配备SMT贴片机、六轴机械臂等智能设备，通过ISO9001质量管理体系认证，月产能达5000+台。</p>`
-        },
-        { desc: '' }
+        }
       ],
       aboutCards: [
         {

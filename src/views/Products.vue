@@ -15,12 +15,9 @@
           {{$t('products.titleCase')}}
           <span class="section-line"></span>
         </h2>
-        <p class="text-center mb-3" style="font-size: 1.1rem; color: #333;">
+        <p class="text-center mb-5" style="font-size: 1.1rem; color: #333;white-space: pre-wrap;">
           {{$t('products.titleCaseDes1')}}
          </p>
-        <p class="text-center mb-5" style="font-size: 1.1rem; color: #333;">
-          {{$t('products.titleCaseDes2')}}
-        </p>
         <div v-for="(group, idx) in droneGroups" :key="group.title" class="row align-items-center mb-5 flex-wrap drone-group-row">
           <template v-if="idx % 2 === 0">
             <!-- 左图右文 -->
@@ -218,6 +215,7 @@ export default {
   color: #555;
   margin-bottom: 2rem !important;
   max-width: 420px;
+  white-space: pre-wrap;
 }
 .drone-group-btn {
   font-size: 1.15rem;

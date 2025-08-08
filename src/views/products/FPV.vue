@@ -13,7 +13,7 @@
                 <span>FPV穿越无人机</span>
               </div>
               <h1 class="hero-title">穿越无人机</h1>
-              <p class="hero-subtitle">体验极速穿越的激情，感受第一人称视角的震撼</p>
+              <p class="hero-subtitle">极速穿越，征服每个弯道</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-speedometer2"></i>

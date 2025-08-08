@@ -13,7 +13,7 @@
                 <span>无人直升机</span>
               </div>
               <h1 class="hero-title">无人直升机</h1>
-              <p class="hero-subtitle">工业级重载直升机，专业级作业能力与可靠性</p>
+              <p class="hero-subtitle">垂直天地，重任随行</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-shield-check"></i>

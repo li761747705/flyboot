@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>随着智慧水利建设推进，无人机凭借灵活机动、高效精准得特点，已成为水里管理得新型基础设施，其通过传感器融合与智能算法，实现水利全场景数字数字化覆盖。</h5>
+      <h5>无人机高效巡查水库大坝、河湖堤岸、灌区渠道，实时监测水位、渗漏、淤积及非法采砂等隐患。非接触式作业覆盖人力难及区域，提升巡检频次与质量，为防汛抗旱、水资源管理提供动态决策支持。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

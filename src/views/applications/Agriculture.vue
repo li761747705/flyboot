@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>无人机航测技术具有高效率、高精度、非接触式测量等优势，能够在不干扰森林生态环境得情况下，快速获取森林资源的相关数据</h5>
+      <h5>无人机高效巡航广袤林区，精准监测林木蓄积量、病虫害、火灾隐患及盗伐迹地。多光谱分析助力森林健康评估与碳汇计量，替代艰苦人工踏查，实现森林资源动态、精准、智能化管理。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

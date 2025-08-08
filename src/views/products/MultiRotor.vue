@@ -13,7 +13,7 @@
                 <span>多旋翼无人机</span>
               </div>
               <h1 class="hero-title">多旋翼无人机</h1>
-              <p class="hero-subtitle">专业级多旋翼无人机，高精度稳定飞行，可靠耐用</p>
+              <p class="hero-subtitle">稳如磐石，视角由你掌控</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-shield-check"></i>

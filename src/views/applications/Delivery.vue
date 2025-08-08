@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>无人机应急应用已成为应急救援体系得重要组成部分，其高效、灵活特点在各类突发事件处置中发挥着关键作用。</h5>
+      <h5>灾害现场瞬息万变，无人机快速抵达，穿透烟雾、夜障，实时回传高清影像与热力图。精准评估灾情、定位受困人员、规划救援路线、监测次生风险，为指挥决策提供“空中之眼”，大幅提升黄金救援时效。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

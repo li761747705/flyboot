@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>无人机在地形测绘和三维建模领域的应用日益普及，其高效、准确的特点使其成为现代工程的重要工具</h5>
+      <h5>无人机搭载高精度航测设备，快速获取大范围地表高清影像与激光点云数据，构建厘米级精度的三维实景模型。大幅缩短外业周期，降低人力成本与安全风险，为城市规划、土地管理、工程建设提供坚实数据基底。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

@@ -2,7 +2,7 @@
   <div class="scene-page">
     <div class="scene-title-wrapper">
       <h1 class="scene-title">应用概述</h1>
-      <h5>无人机在农业领域中，通过高精度的遥感技术和其他相关技术的结合，为提高农业生产效率和农作物品质、降低农业生产成本，提供了一种全新、高效的途径。</h5>
+      <h5>无人机高效完成农田测绘、作物长势监测、病虫害预警及变量施肥施药。多光谱分析指导精准农业决策，大幅提升作业效率，减少农化品使用，降低投入成本，实现增产增收与可持续发展。</h5>
     </div>
     <div class="scene-section">
       <h2 class="scene-section-title">应用场景</h2>

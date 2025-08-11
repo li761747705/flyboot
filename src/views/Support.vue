@@ -48,7 +48,7 @@
     <!-- 子页面顶部banner -->
     <template v-else>
       <section v-if="currentBanner" class="support-banner"
-        :style="{ backgroundImage: `url('${currentBanner.bgImg}')`, height: currentBanner.height }">
+        :style="{ backgroundImage: `url('/images/support/01.png')`, height: currentBanner.height }">
         <div class="support-banner-overlay">
           <div class="banner-content">
             <div class="banner-icon">
@@ -75,7 +75,7 @@ export default {
       fixedBanner: {
         title: '服务与支持',
         subtitle: '全程无忧守护，助您高效翱翔',
-        bgImg: '/images/support/服务与支持1900X700.png',
+        bgImg: '/images/support/01.png',
         height: '700px',
         link: '/support'
       },
@@ -83,7 +83,7 @@ export default {
         {
           title: '下载中心',
           subtitle: '驱动/文档/工具，一键便捷获取',
-          bgImg: '/images/support/下载中心1900X300.png',
+          // bgImg: '/images/support/下载中心1900X300.png',
           height: '700px',
           link: '/support/downloads',
           icon: '/images/support/download/02.png'
@@ -91,7 +91,7 @@ export default {
         {
           title: '售后服务政策',
           subtitle: '透明保障，让您后顾无忧',
-          bgImg: '/images/support/售后服务政策1900X300.png',
+          // bgImg: '/images/support/售后服务政策1900X300.png',
           height: '700px',
           link: '/support/policy',
           icon: '/images/support/download/03.png'    
@@ -99,7 +99,7 @@ export default {
         {
           title: '常见问题',
           subtitle: '高频疑问，速查速解',
-          bgImg: '/images/support/常见问题1900X300.png',
+          // bgImg: '/images/support/常见问题1900X300.png',
           height: '700px',
           link: '/support/faq',
           icon: '/images/support/download/04.png'
@@ -107,7 +107,7 @@ export default {
         {
           title: '服务热线',
           subtitle: '快速响应，专业支持，直达专家',
-          bgImg: '/images/support/服务热线1900X300.png',
+          // bgImg: '/images/support/服务热线1900X300.png',
           height: '700px',
           link: '/support/hotline',
           icon: '/images/support/download/05.png'
@@ -150,6 +150,8 @@ export default {
 }
 
 .support-banner {
+  opacity: 1;
+    transition: opacity 0.5s ease; /* 设置过渡效果 */
   position: relative;
   width: 100%;
   background-size: cover;
@@ -161,6 +163,7 @@ export default {
   margin-bottom: 2rem !important;
   overflow: hidden;
   transition: all 0.3s ease;
+   background-color: rgba(181, 181, 181, 1); 
 }
 
 .support-banner:last-of-type {

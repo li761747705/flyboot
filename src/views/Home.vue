@@ -106,6 +106,15 @@
 <script>
 export default {
   name: 'Home',
+  metaInfo() {
+    return {
+      title: this.$t('meta.home.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.home.description') },
+        { name: 'keywords', content: this.$t('meta.home.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       carouselSlides: [
@@ -137,34 +146,44 @@ export default {
           buttonKey: 'home.carousel.rollingImage4.btn',
           link: '/products/helicopter'
         }
-      ],
-      products: [
-        { title: this.$t('home.products.f15'), image: '/images/home/product/product1.png', link: '/products/fpv' },
-        { title: this.$t('home.products.multiRotor'), image: '/images/home/product/product2.png', link: '/products/multi-rotor' },
-        { title: this.$t('home.products.fixedWing'), image: '/images/home/product/product3.png', link: '/products/fixed-wing' },
-        { title: this.$t('home.products.helicopter'), image: '/images/home/product/product4.png', link: '/products/helicopter' }
-      ],
-      solutions: [
-        { title: this.$t('home.applications.mapping'), image: '/images/home/scene/测绘.png', link: '/applications/mapping' },
-        { title: this.$t('home.applications.inspection'), image: '/images/home/scene/水利.png', link: '/applications/inspection' },
-        { title: this.$t('home.applications.delivery'), image: '/images/home/scene/应急.png', link: '/applications/delivery' },
-        { title: this.$t('home.applications.aerial'), image: '/images/home/scene/交通.png', link: '/applications/aerial' },
-        { title: this.$t('home.applications.spraying'), image: '/images/home/scene/环保.png', link: '/applications/spraying' },
-        { title: this.$t('home.applications.agriculture'), image: '/images/home/scene/森林.png', link: '/applications/agriculture' },
-        { title: this.$t('home.applications.firefighting'), image: '/images/home/scene/电力.png', link: '/applications/firefighting' },
-        { title: this.$t('home.applications.farming'), image: '/images/home/scene/农业.png', link: '/applications/farming' },
-        { title: this.$t('home.applications.integration'), image: '/images/home/scene/运载.png', link: '/applications/integration' }
-      ],
-      serviceSupport: {
-        title: this.$t('home.serviceSupport.title'),
-        description: this.$t('home.serviceSupport.description'),
-        image: '/images/home/01首页-服务与支持-900X400.png',
-        buttonText: this.$t('home.serviceSupport.title'),
-        link: '/support'
-      }
+      ]
     }
   },
   computed: {
+    products() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
+        { title: this.$t('home.products.f15'), image: '/images/home/product/product1.png', link: '/products/fpv', __locale: locale },
+        { title: this.$t('home.products.multiRotor'), image: '/images/home/product/product2.png', link: '/products/multi-rotor', __locale: locale },
+        { title: this.$t('home.products.fixedWing'), image: '/images/home/product/product3.png', link: '/products/fixed-wing', __locale: locale },
+        { title: this.$t('home.products.helicopter'), image: '/images/home/product/product4.png', link: '/products/helicopter', __locale: locale }
+      ]
+    },
+    solutions() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
+        { title: this.$t('home.applications.mapping'), image: '/images/home/scene/测绘.png', link: '/applications/mapping', __locale: locale },
+        { title: this.$t('home.applications.inspection'), image: '/images/home/scene/水利.png', link: '/applications/inspection', __locale: locale },
+        { title: this.$t('home.applications.delivery'), image: '/images/home/scene/应急.png', link: '/applications/delivery', __locale: locale },
+        { title: this.$t('home.applications.aerial'), image: '/images/home/scene/交通.png', link: '/applications/aerial', __locale: locale },
+        { title: this.$t('home.applications.spraying'), image: '/images/home/scene/环保.png', link: '/applications/spraying', __locale: locale },
+        { title: this.$t('home.applications.agriculture'), image: '/images/home/scene/森林.png', link: '/applications/agriculture', __locale: locale },
+        { title: this.$t('home.applications.firefighting'), image: '/images/home/scene/电力.png', link: '/applications/firefighting', __locale: locale },
+        { title: this.$t('home.applications.farming'), image: '/images/home/scene/农业.png', link: '/applications/farming', __locale: locale },
+        { title: this.$t('home.applications.integration'), image: '/images/home/scene/运载.png', link: '/applications/integration', __locale: locale }
+      ]
+    },
+    serviceSupport() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return {
+        title: this.$t('home.serviceSupport.title'),
+        description: this.$t('home.serviceSupport.description'),
+        image: '/images/home/01首页-服务与支持-900X400.png',
+        buttonText: this.$t('home.serviceSupport.buttonText'),
+        link: '/support',
+        __locale: locale
+      }
+    },
     serviceBgStyle() {
       return {
         backgroundImage: `url('${this.serviceSupport.image}')`,

@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机高效完成农田测绘、作物长势监测、病虫害预警及变量施肥施药。多光谱分析指导精准农业决策，大幅提升作业效率，减少农化品使用，降低投入成本，实现增产增收与可持续发展。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.farming.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.farming.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '种植与植保作业', image: '/images/applications/farming/01（600X350）.png' },
-        { title: '监测与数据采集', image: '/images/applications/farming/01（600X350）.png' },
-        { title: '辅助作业与物流', image: '/images/applications/farming/01（600X350）.png' },
-        { title: '规划与资源管理', image: '/images/applications/farming/01（600X350）.png' },
-        { title: '技术创新与规范', image: '/images/applications/farming/01（600X350）.png' }
+        { titleKey: 'applicationsDetail.farming.cards.item1', image: '/images/applications/farming/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.farming.cards.item2', image: '/images/applications/farming/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.farming.cards.item3', image: '/images/applications/farming/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.farming.cards.item4', image: '/images/applications/farming/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.farming.cards.item5', image: '/images/applications/farming/01（600X350）.png' }
       ]
     }
   },

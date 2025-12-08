@@ -3,9 +3,9 @@
     <div class="faq-container">
       <h1 class="faq-title">
         <i class="bi bi-question-circle"></i>
-        常见问题
+        {{ $t('support.faqPage.title') }}
       </h1>
-      <p class="faq-subtitle">快速找到您需要的答案，分类整理，便于查找</p>
+      <p class="faq-subtitle">{{ $t('support.faqPage.subtitle') }}</p>
       
       <div class="faq-main-card">
         <div class="faq-sidebar">
@@ -16,21 +16,21 @@
             @click="activeIndex = idx"
           >
             <div class="category-icon">
-              <i :class="getCategoryIcon(item.title)"></i>
+              <i :class="item.icon"></i>
             </div>
-            <span class="category-title">{{ item.title }}</span>
+            <span class="category-title">{{ $t(item.titleKey) }}</span>
             <i class="bi bi-chevron-right category-arrow"></i>
           </div>
         </div>
         <div class="faq-content-area">
           <h2 class="faq-content-title">
             <i class="bi bi-info-circle"></i>
-            {{ categories[activeIndex].title }}
+            {{ $t(categories[activeIndex].titleKey) }}
           </h2>
           <div class="faq-content-detail">
-            <div v-for="(q, i) in categories[activeIndex].content" :key="i" class="faq-q-item">
+            <div v-for="(qKey, i) in categories[activeIndex].contentKeys" :key="qKey" class="faq-q-item">
               <div class="question-number">{{ i + 1 }}</div>
-              <div class="question-content">{{ q }}</div>
+              <div class="question-content">{{ $t(qKey) }}</div>
             </div>
           </div>
         </div>
@@ -42,62 +42,65 @@
 <script>
 export default {
   name: 'FAQ',
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.faq.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.faq.description') },
+        { name: 'keywords', content: this.$t('meta.support.faq.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       activeIndex: 0,
       categories: [
         {
-          title: '连接问题',
-          content: [
-            '用户可能会遇到遥控器信号受干扰或无法连接无人机的问题。这有可能是由软件或硬件问题导致的，可以尝试重启设备、更新固件或者检查硬件连接是否牢固。'
+          titleKey: 'support.faqPage.categories.connection.title',
+          icon: 'bi bi-wifi',
+          contentKeys: [
+            'support.faqPage.categories.connection.items.item1'
           ]
         },
         {
-          title: '故障识别与处理',
-          content: [
-            '遇到设备异常时，建议首先查看指示灯状态，根据说明书判断故障类型，并按步骤排查。必要时联系售后支持。'
+          titleKey: 'support.faqPage.categories.troubleshooting.title',
+          icon: 'bi bi-tools',
+          contentKeys: [
+            'support.faqPage.categories.troubleshooting.items.item1'
           ]
         },
         {
-          title: '动力系统异常',
-          content: [
-            '动力系统异常可能表现为电机不转、转速不稳等。请检查电池电量、接线和电调状态。'
+          titleKey: 'support.faqPage.categories.power.title',
+          icon: 'bi bi-lightning',
+          contentKeys: [
+            'support.faqPage.categories.power.items.item1'
           ]
         },
         {
-          title: '电子系统故障',
-          content: [
-            '电子系统故障常见于飞控、传感器等模块。可尝试断电重启，或恢复出厂设置。'
+          titleKey: 'support.faqPage.categories.electronics.title',
+          icon: 'bi bi-cpu',
+          contentKeys: [
+            'support.faqPage.categories.electronics.items.item1'
           ]
         },
         {
-          title: '导航与控制系统故障',
-          content: [
-            '导航与控制系统故障可能导致飞行异常。请检查GPS模块、指南针校准情况。'
+          titleKey: 'support.faqPage.categories.navigation.title',
+          icon: 'bi bi-compass',
+          contentKeys: [
+            'support.faqPage.categories.navigation.items.item1'
           ]
         },
         {
-          title: '摄像头和信号传输系统故障',
-          content: [
-            '摄像头或信号传输异常时，建议检查连接线、模块插拔，或更换相关配件。'
+          titleKey: 'support.faqPage.categories.camera.title',
+          icon: 'bi bi-camera',
+          contentKeys: [
+            'support.faqPage.categories.camera.items.item1'
           ]
         }
       ]
     }
   },
-  methods: {
-    getCategoryIcon(title) {
-      const iconMap = {
-        '连接问题': 'bi bi-wifi',
-        '故障识别与处理': 'bi bi-tools',
-        '动力系统异常': 'bi bi-lightning',
-        '电子系统故障': 'bi bi-cpu',
-        '导航与控制系统故障': 'bi bi-compass',
-        '摄像头和信号传输系统故障': 'bi bi-camera'
-      }
-      return iconMap[title] || 'bi bi-question-circle'
-    }
-  }
+  methods: {}
 }
 </script>
 

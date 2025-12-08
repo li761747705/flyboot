@@ -1,10 +1,11 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">消防应用</h1>
+      <h1 class="scene-title">{{ $t('applicationsDetail.firefighting.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.firefighting.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
@@ -16,7 +17,7 @@
           <div class="scene-card-img-wrapper">
             <span class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -29,16 +30,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '火灾监测' },
-        { title: '应急救援' },
-        { title: '森林防火' },
-        { title: '高层灭火' },
-        { title: '消防巡查' }
+        { titleKey: 'applicationsDetail.firefighting.cards.item1' },
+        { titleKey: 'applicationsDetail.firefighting.cards.item2' },
+        { titleKey: 'applicationsDetail.firefighting.cards.item3' },
+        { titleKey: 'applicationsDetail.firefighting.cards.item4' },
+        { titleKey: 'applicationsDetail.firefighting.cards.item5' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }

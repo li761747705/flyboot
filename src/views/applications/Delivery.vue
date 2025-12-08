@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>灾害现场瞬息万变，无人机快速抵达，穿透烟雾、夜障，实时回传高清影像与热力图。精准评估灾情、定位受困人员、规划救援路线、监测次生风险，为指挥决策提供“空中之眼”，大幅提升黄金救援时效。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.delivery.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.delivery.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '火灾救援', image: '/images/applications/delivery/01（600X350）.png' },
-        { title: '地震救援', image: '/images/applications/delivery/02（900X500）.png' },
-        { title: '水灾救援', image: '/images/applications/应急400X620.png' },
-        { title: '交通事故救援', image: '/images/applications/应急400X620.png' },
-        { title: '物质运输投放', image: '/images/applications/应急400X620.png' }
+        { titleKey: 'applicationsDetail.delivery.cards.item1', image: '/images/applications/delivery/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.delivery.cards.item2', image: '/images/applications/delivery/02（900X500）.png' },
+        { titleKey: 'applicationsDetail.delivery.cards.item3', image: '/images/applications/应急400X620.png' },
+        { titleKey: 'applicationsDetail.delivery.cards.item4', image: '/images/applications/应急400X620.png' },
+        { titleKey: 'applicationsDetail.delivery.cards.item5', image: '/images/applications/应急400X620.png' }
       ]
     }
   },

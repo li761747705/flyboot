@@ -2,7 +2,7 @@
   <div class="company-page">
 
     <div class="company-banner">
-      <img src="/images/about/company/通用-11900X400.png" alt="公司介绍" loading="lazy" />
+      <img src="/images/about/company/通用-11900X400.png" :alt="$t('about.companyPage.bannerAlt')" loading="lazy" />
     </div>
 
     <!-- 顶部导航 -->
@@ -16,7 +16,7 @@
           @click="activeTab = tab.key"
         >
           <i :class="tab.icon"></i>
-          {{ tab.label }}
+          {{ $t(tab.labelKey) }}
         </div>
       </div>
     </div>
@@ -27,18 +27,18 @@
         <!-- 公司简介 -->
         <div class="company-intro">
           <div class="intro-text">
-            <p>麒风智能科技有限公司成立于2021年，专注于工业级无人机系统研发与生产。</p>
-            <p>致力于测绘、农业、安防等领域提供高效、安全的智能飞行解决方案。</p>
-            <p>凭借自主研发的高精度导航系统和AI处理平台，我们的产品已服务全球10个国家，成为行业数字化转型的核心推动者。</p>
+            <p>{{ $t('about.companyPage.intro.p1') }}</p>
+            <p>{{ $t('about.companyPage.intro.p2') }}</p>
+            <p>{{ $t('about.companyPage.intro.p3') }}</p>
           </div>
         </div>
 
         <!-- 核心数据 -->
         <div class="stats-section">
           <div class="stats-grid">
-            <div class="stat-card" v-for="stat in stats" :key="stat.label">
+            <div class="stat-card" v-for="stat in stats" :key="stat.labelKey">
               <div class="stat-number">{{ stat.number }}</div>
-              <div class="stat-label">{{ stat.label }}</div>
+              <div class="stat-label">{{ $t(stat.labelKey) }}</div>
               <div class="stat-icon">
                 <i :class="stat.icon"></i>
               </div>
@@ -50,7 +50,7 @@
         <div class="map-section">
           <div class="map-container">
             <div class="map-placeholder">
-              <span class="map-text">全球业务布局</span>
+              <span class="map-text">{{ $t('about.companyPage.map.title') }}</span>
               <div
                 v-for="city in cities"
                 :key="city.name"
@@ -67,14 +67,14 @@
         <!-- 合作国家说明 -->
         <div class="partnership-section">
           <div class="partnership-content">
-            <p class="partnership-intro">我们的无人机解决方案已获得欧盟CE、美国FAA等国际认证，现与全球10个国家建立深度合作，包括：</p>
+            <p class="partnership-intro">{{ $t('about.companyPage.partnership.intro') }}</p>
             <div class="region-list">
-              <div class="region-item" v-for="region in regions" :key="region.name">
-                <span class="region-name">{{ region.name }}</span>
-                <span class="region-countries">{{ region.countries }}</span>
+              <div class="region-item" v-for="region in regions" :key="region.nameKey">
+                <span class="region-name">{{ $t(region.nameKey) }}</span>
+                <span class="region-countries">{{ $t(region.countriesKey) }}</span>
               </div>
             </div>
-            <p class="partnership-summary">凭借卓越飞行性能与完善的售后体系，符合全球市场的航空法规要求，确保顺利出口欧洲、新兴市场、亚太等10+国家和地区。</p>
+            <p class="partnership-summary">{{ $t('about.companyPage.partnership.summary') }}</p>
           </div>
         </div>
       </div>
@@ -85,19 +85,19 @@
       <div class="container">
         <div class="timeline-container">
           <div class="timeline-item" v-for="item in history" :key="item.year">
-            <div class="timeline-image">
-              <div class="image-placeholder">
-                <img :src="item.img" :alt="item.year + '相关图片'" loading="lazy" />
+              <div class="timeline-image">
+                <div class="image-placeholder">
+                <img :src="item.img" :alt="$t('about.companyPage.history.imageAlt', { year: item.year })" loading="lazy" />
+                </div>
               </div>
-            </div>
             <div class="timeline-marker">
               <div class="timeline-dot"></div>
             </div>
             <div class="timeline-content">
-              <div class="timeline-year">{{ item.year }}｜{{ item.title }}</div>
+              <div class="timeline-year">{{ item.year }}｜{{ $t(item.titleKey) }}</div>
               <div class="timeline-description">
                 <ul>
-                  <li v-for="desc in item.desc" :key="desc">{{ desc }}</li>
+                  <li v-for="descKey in item.descKeys" :key="descKey">{{ $t(descKey) }}</li>
                 </ul>
               </div>
             </div>
@@ -110,26 +110,26 @@
     <section v-if="activeTab === 'culture'" class="culture-section">
       <div class="container">
         <div class="culture-container">
-          <div class="culture-item" v-for="(item, idx) in culture" :key="item.title">
+          <div class="culture-item" v-for="(item, idx) in culture" :key="item.titleKey">
             <div class="culture-image" v-if="idx % 2 === 0">
-              <img class="about-section-img" :src="item.img" :alt="item.title" loading="lazy" />
+              <img class="about-section-img" :src="item.img" :alt="$t(item.titleKey)" loading="lazy" />
             </div>
             <div class="culture-content">
               <div class="culture-title">
                 <i :class="item.icon"></i>
-                {{ item.title }}
+                {{ $t(item.titleKey) }}
               </div>
               <div class="culture-list">
-                <div class="culture-point" v-for="point in item.points" :key="point">
+                <div class="culture-point" v-for="pointKey in item.pointsKeys" :key="pointKey">
                   <i class="bi bi-check-circle"></i>
-                  <span v-html="point"></span>
+                  <span v-html="$t(pointKey)"></span>
                 </div>
-                </div>
-                </div>
+              </div>
+              </div>
             <div class="culture-image" v-if="idx % 2 === 1">
-              <img class="about-section-img" :src="item.img" :alt="item.title" loading="lazy" />
-                </div>
-                </div>
+              <img class="about-section-img" :src="item.img" :alt="$t(item.titleKey)" loading="lazy" />
+              </div>
+              </div>
         </div>
       </div>
     </section>
@@ -143,14 +143,14 @@ export default {
     return {
       activeTab: 'company',
       tabs: [
-        { key: 'company', label: '公司介绍', icon: 'bi bi-building' },
-        { key: 'history', label: '发展历程', icon: 'bi bi-clock-history' },
-        { key: 'culture', label: '企业文化', icon: 'bi bi-heart' }
+        { key: 'company', labelKey: 'about.companyPage.tabs.company', icon: 'bi bi-building' },
+        { key: 'history', labelKey: 'about.companyPage.tabs.history', icon: 'bi bi-clock-history' },
+        { key: 'culture', labelKey: 'about.companyPage.tabs.culture', icon: 'bi bi-heart' }
       ],
       stats: [
-        { number: '2021年', label: '正式成立', icon: 'bi bi-calendar-check' },
-        { number: 10, label: '服务国家/地区', icon: 'bi bi-globe' },
-        { number: '500+', label: '合作伙伴', icon: 'bi bi-people' }
+        { number: '2021年', labelKey: 'about.companyPage.stats.established', icon: 'bi bi-calendar-check' },
+        { number: 10, labelKey: 'about.companyPage.stats.servedRegions', icon: 'bi bi-globe' },
+        { number: '500+', labelKey: 'about.companyPage.stats.partners', icon: 'bi bi-people' }
       ],
       cities: [
         { name: 'SILICON VALLEY', left: '12%', top: '38%' },
@@ -164,65 +164,65 @@ export default {
         { name: 'SHANGHAI', left: '85%', top: '38%' }
       ],
       regions: [
-        { name: '欧洲：', countries: '德国、法国' },
-        { name: '新兴市场：', countries: '阿联酋、巴西、南非、以色列、土耳其' },
-        { name: '亚太：', countries: '新加坡、澳大利亚、菲律宾' }
+        { nameKey: 'about.companyPage.partnership.regions.eu.name', countriesKey: 'about.companyPage.partnership.regions.eu.countries' },
+        { nameKey: 'about.companyPage.partnership.regions.em.name', countriesKey: 'about.companyPage.partnership.regions.em.countries' },
+        { nameKey: 'about.companyPage.partnership.regions.ap.name', countriesKey: 'about.companyPage.partnership.regions.ap.countries' }
       ],
       history: [
         {
           year: '2025年',
-          title: '未来探索',
+          titleKey: 'about.companyPage.history.items.y2025.title',
           img: '/images/about/company/通用410X240.png',
-          desc: ['启动城市空中物流（UAM）项目，推动无人机智慧城市应用']
+          descKeys: ['about.companyPage.history.items.y2025.desc.item1']
         },
         {
           year: '2024年',
-          title: '行业标杆',
+          titleKey: 'about.companyPage.history.items.y2024.title',
           img: '/images/about/company/通用410X240.png',
-          desc: ['入选"中国无人机企业TOP15"', '年交付量超5万台，成为农业植保领域选择品牌之一']
+          descKeys: ['about.companyPage.history.items.y2024.desc.item1', 'about.companyPage.history.items.y2024.desc.item2']
         },
         {
           year: '2023年',
-          title: '技术革命',
+          titleKey: 'about.companyPage.history.items.y2023.title',
           img: '/images/about/company/通用410X240.png',
-          desc: ['自主研发"超长续航电池"技术获得国际专利，续航时间突破120分钟']
+          descKeys: ['about.companyPage.history.items.y2023.desc.item1']
         },
         {
           year: '2022年',
-          title: '首款无人机发布',
+          titleKey: 'about.companyPage.history.items.y2022.title',
           img: '/images/about/company/通用410X240.png',
-          desc: ['首款无人机产品发布，年交付量超5万台，成为农业植保领域选择品牌之一']
+          descKeys: ['about.companyPage.history.items.y2022.desc.item1']
         },
         {
           year: '2021年',
-          title: '品牌诞生',
+          titleKey: 'about.companyPage.history.items.y2021.title',
           img: '/images/about/company/通用410X240.png',
-          desc: ['成立研发团队、专注于无人机自主飞控技术、奠定核心技术']
+          descKeys: ['about.companyPage.history.items.y2021.desc.item1']
         }
       ],
       culture: [
         {
-          title: '核心价值观',
+          titleKey: 'about.companyPage.culture.values.title',
           icon: 'bi bi-heart-fill',
           img: '/images/about/company/通用620X420.png',
-          points: [
-            '<strong>客户至上：</strong>将客户的需求和满意度放在首位，提供专业的服务和高品质的无人机产品。',
-            '<strong>创新驱动：</strong>鼓励技术和管理的双重创新，推动无人机技术发展。',
-            '<strong>团队协作：</strong>强调团队合作，鼓励员工之间的互助与共享。',
-            '<strong>诚信担当：</strong>遵守法律法规和道德规范，保持诚信经营。',
-            '<strong>学习与进步：</strong>持续提升知识和技能，鼓励员工不断学习和提升。',
-            '<strong>共荣共进：</strong>鼓励员工之间的共同进步，建立和谐的团队关系。',
-            '<strong>社会责任：</strong>关注社会责任，积极参与社会活动。'
+          pointsKeys: [
+            'about.companyPage.culture.values.points.item1',
+            'about.companyPage.culture.values.points.item2',
+            'about.companyPage.culture.values.points.item3',
+            'about.companyPage.culture.values.points.item4',
+            'about.companyPage.culture.values.points.item5',
+            'about.companyPage.culture.values.points.item6',
+            'about.companyPage.culture.values.points.item7'
           ]
         },
         {
-          title: '员工培训',
+          titleKey: 'about.companyPage.culture.training.title',
           icon: 'bi bi-mortarboard',
           img: '/images/about/company/通用620X420.png',
-          points: [
-            '<strong>岗位技能培训：</strong>根据员工的岗位需求，提供必要的技能培训，增强员工胜任岗位本职工作的能力。',
-            '<strong>安全培训：</strong>培训员工的安全操作规程和应急处置流程，确保员工工作中的安全和企业的正常运营。',
-            '<strong>团队协作和沟通技巧：</strong>通过培训提升员工的团队协作能力和沟通协调技巧，促进员工之间的合作和交流。'
+          pointsKeys: [
+            'about.companyPage.culture.training.points.item1',
+            'about.companyPage.culture.training.points.item2',
+            'about.companyPage.culture.training.points.item3'
           ]
         }
       ]

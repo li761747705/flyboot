@@ -10,26 +10,26 @@
             <div class="hero-content text-center">
               <div class="hero-badge">
                 <i class="bi bi-wind"></i>
-                <span>无人直升机</span>
+                <span>{{ $t('products.helicopterPage.heroBadge') }}</span>
               </div>
-              <h1 class="hero-title">无人直升机</h1>
-              <p class="hero-subtitle">垂直天地，重任随行</p>
+              <h1 class="hero-title">{{ $t('products.helicopterPage.heroTitle') }}</h1>
+              <p class="hero-subtitle">{{ $t('products.helicopterPage.heroSubtitle') }}</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-shield-check"></i>
-                  <span>工业级</span>
+                  <span>{{ $t('products.helicopterPage.features.industrial') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-box-seam"></i>
-                  <span>大载荷</span>
+                  <span>{{ $t('products.helicopterPage.features.payload') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-clock"></i>
-                  <span>长航时</span>
+                  <span>{{ $t('products.helicopterPage.features.endurance') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-gear-wide-connected"></i>
-                  <span>高可靠性</span>
+                  <span>{{ $t('products.helicopterPage.features.reliability') }}</span>
                 </div>
               </div>
             </div>
@@ -42,15 +42,15 @@
     <section class="products-section">
       <div class="container">
         <div class="section-header text-center mb-5">
-          <h2 class="section-title section-line">产品系列</h2>
-          <p class="section-subtitle">专业级无人直升机，适用于重载运输、应急救援等场景</p>
+          <h2 class="section-title section-line">{{ $t('products.helicopterPage.sectionTitle') }}</h2>
+          <p class="section-subtitle">{{ $t('products.helicopterPage.sectionSubtitle') }}</p>
         </div>
         <div class="product-grid">
           <div class="product-card" v-for="(drone, index) in drones" :key="drone.id" @click="goToDetail(drone.id)">
             <div class="card-bg" :style="{backgroundImage: `url('${drone.image}')`, backgroundSize: 'cover'}">
               <div class="card-overlay"></div>
               <div class="card-content">
-                <div class="product-badge" :class="getBadgeClass(index)">{{ drone.category }}</div>
+                <div class="product-badge" :class="getBadgeClass(index)">{{ $t('products.helicopterDrones.' + getIdKey(drone.id) + '.category') }}</div>
 <!-- 
                 <p class="product-description">{{ drone.description }}</p>
                 <div class="product-specs">
@@ -59,8 +59,8 @@
                     <span class="spec-value">{{ spec }}</span>
                   </div>
                 </div> -->
-                <h5 class="product-name">{{ drone.name }}</h5>
-                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">查看详情</button>
+                <h5 class="product-name">{{ $t('products.helicopterDrones.' + getIdKey(drone.id) + '.name') }}</h5>
+                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">{{ $t('products.helicopterPage.buttonDetail') }}</button>
               </div>
             </div>
           </div>
@@ -73,6 +73,15 @@
 <script>
 export default {
   name: 'HelicopterDrone',
+  metaInfo() {
+    return {
+      title: this.$t('meta.helicopter.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.helicopter.description') },
+        { name: 'keywords', content: this.$t('meta.helicopter.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       drones: [
@@ -131,25 +140,29 @@ export default {
       ]
     }
   },
-  methods: {
-    getGradient(index) {
-      const gradients = [
-        'linear-gradient(135deg, #e74c3c, #c0392b)',
-        'linear-gradient(135deg, #9b59b6, #8e44ad)',
-        'linear-gradient(135deg, #3498db, #2980b9)',
-        'linear-gradient(135deg, #e67e22, #d35400)'
-      ]
-      return gradients[index % gradients.length]
-    },
-    getBadgeClass(index) {
-      const classes = ['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning']
-      return classes[index % classes.length]
-    },
-    goToDetail(droneId) {
-      this.$router.push(`/products/details/helicopter/${droneId}`)
+    methods: {
+      getGradient(index) {
+        const gradients = [
+          'linear-gradient(135deg, #e74c3c, #c0392b)',
+          'linear-gradient(135deg, #9b59b6, #8e44ad)',
+          'linear-gradient(135deg, #3498db, #2980b9)',
+          'linear-gradient(135deg, #e67e22, #d35400)'
+        ]
+        return gradients[index % gradients.length]
+      },
+      getBadgeClass(index) {
+        const classes = ['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning']
+        return classes[index % classes.length]
+      },
+      getIdKey(id) {
+        const parts = String(id).split('-')
+        return parts.length > 1 ? parts[1] : parts[0]
+      },
+      goToDetail(droneId) {
+        this.$router.push(`/products/details/helicopter/${droneId}`)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
@@ -433,5 +446,3 @@ export default {
   }
 }
 </style>
-
-

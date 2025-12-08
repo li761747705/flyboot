@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机高效巡查水库大坝、河湖堤岸、灌区渠道，实时监测水位、渗漏、淤积及非法采砂等隐患。非接触式作业覆盖人力难及区域，提升巡检频次与质量，为防汛抗旱、水资源管理提供动态决策支持。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.inspection.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.inspection.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '排污巡查', image: '/images/applications/inspection/01（600X350）.png' },
-        { title: '水本采样', image: '/images/applications/inspection/02（900X500）.png' },
-        { title: '水质检测', image: '/images/applications/水利400X620.png' },
-        { title: '智能巡检', image: '/images/applications/水利400X620.png' },
-        { title: '科学防汛', image: '/images/applications/水利400X620.png' }
+        { titleKey: 'applicationsDetail.inspection.cards.item1', image: '/images/applications/inspection/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.inspection.cards.item2', image: '/images/applications/inspection/02（900X500）.png' },
+        { titleKey: 'applicationsDetail.inspection.cards.item3', image: '/images/applications/水利400X620.png' },
+        { titleKey: 'applicationsDetail.inspection.cards.item4', image: '/images/applications/水利400X620.png' },
+        { titleKey: 'applicationsDetail.inspection.cards.item5', image: '/images/applications/水利400X620.png' }
       ]
     }
   },

@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">运载应用</h1>
-      <h5>无人机（尤其多旋翼、直升机）实现小批量、高时效、点对点精准运输。突破地形限制，直达偏远地区、岛屿、山区或交通拥堵区，高效运送医疗急救物资、精密仪器、电商包裹等，重塑末端配送格局。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.integration.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.integration.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,9 +31,9 @@ export default {
   data() {
     return {
       cards: [
-        { title: '快递配送', image: '/images/applications/integration/01（600X350）.png' },
-        { title: '货物运输', image: '/images/applications/integration/01（600X350）.png' },
-        { title: '紧急救援物质运输', image: '/images/applications/integration/01（600X350）.png' }
+        { titleKey: 'applicationsDetail.integration.cards.item1', image: '/images/applications/integration/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.integration.cards.item2', image: '/images/applications/integration/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.integration.cards.item3', image: '/images/applications/integration/01（600X350）.png' }
       ]
     }
   },

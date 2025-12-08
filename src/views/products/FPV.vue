@@ -1,4 +1,4 @@
-﻿<!-- FPV穿越无人机页面 -->
+<!-- FPV穿越无人机页面 -->
 <template>
   <div class="product-page fpv-page">
     <!-- 顶部英雄区域 -->
@@ -10,26 +10,26 @@
             <div class="hero-content text-center">
               <div class="hero-badge">
                 <i class="bi bi-camera-video"></i>
-                <span>FPV穿越无人机</span>
+                <span>{{ $t('products.fpvPage.heroBadge') }}</span>
               </div>
-              <h1 class="hero-title">穿越无人机</h1>
-              <p class="hero-subtitle">极速穿越，征服每个弯道</p>
+              <h1 class="hero-title">{{ $t('products.fpvPage.heroTitle') }}</h1>
+              <p class="hero-subtitle">{{ $t('products.fpvPage.heroSubtitle') }}</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-speedometer2"></i>
-                  <span>高速穿越</span>
+                  <span>{{ $t('products.fpvPage.features.speed') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-camera-video-fill"></i>
-                  <span>高清FPV</span>
+                  <span>{{ $t('products.fpvPage.features.hdFpv') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-stars"></i>
-                  <span>竞速特技</span>
+                  <span>{{ $t('products.fpvPage.features.stunt') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-film"></i>
-                  <span>航拍创作</span>
+                  <span>{{ $t('products.fpvPage.features.filming') }}</span>
                 </div>
               </div>
             </div>
@@ -42,17 +42,17 @@
     <section class="products-section">
       <div class="container">
         <div class="section-header text-center mb-5">
-          <h2 class="section-title section-line">产品系列</h2>
-          <p class="section-subtitle">专业级FPV穿越无人机，满足不同场景需求</p>
+          <h2 class="section-title section-line">{{ $t('products.fpvPage.sectionTitle') }}</h2>
+          <p class="section-subtitle">{{ $t('products.fpvPage.sectionSubtitle') }}</p>
         </div>
         <div class="product-grid">
           <div class="product-card" v-for="(drone, index) in drones" :key="drone.id" @click="goToDetail(drone.id)">
             <div class="card-bg" :style="{ backgroundImage: `url('${drone.image}')`, backgroundSize: 'cover' }">
               <div class="card-overlay"></div>
               <div class="card-content">
-                <div class="product-badge" :class="getBadgeClass(index)">{{ drone.category }}</div>
-                <h3 class="product-name">{{ drone.name }}</h3>
-                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">查看详情</button>
+                <div class="product-badge" :class="getBadgeClass(index)">{{ $t('products.fpvDrones.' + (drone.id.split('-')[1]) + '.category') }}</div>
+                <h3 class="product-name">{{ $t('products.fpvDrones.' + (drone.id.split('-')[1]) + '.name') }}</h3>
+                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">{{ $t('products.fpvPage.buttonDetail') }}</button>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
     <div class="loading-overlay" v-if="isLoading">
       <div class="loading-content">
         <div class="loading-spinner"></div>
-        <p>正在加载产品信息...</p>
+        <p>{{ $t('products.fpvPage.loadingText') }}</p>
       </div>
     </div>
   </div>
@@ -73,6 +73,15 @@
 <script>
 export default {
   name: 'FPVDrone',
+  metaInfo() {
+    return {
+      title: this.$t('meta.fpv.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.fpv.description') },
+        { name: 'keywords', content: this.$t('meta.fpv.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       drones: [

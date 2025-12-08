@@ -4,21 +4,21 @@
     <div class="downloads-container">
       <h2 class="downloads-title">
         <i class="bi bi-download"></i>
-        固件与文档下载
+        {{ $t('support.downloadsPage.title') }}
       </h2>
-      <p class="downloads-subtitle">获取最新的软件、固件和文档资料，支持多种产品型号</p>
+      <p class="downloads-subtitle">{{ $t('support.downloadsPage.subtitle') }}</p>
       <div class="downloads-grid">
         <div
           v-for="item in series"
-          :key="item.title"
+          :key="item.titleKey"
           class="downloads-card"
           @click="goTo(item.link)"
           :style="{ backgroundImage: `url('${item.img}')` }"
         >
           <div class="card-bg-mask"></div>
-          <div class="downloads-card-title">{{ item.title }}</div>
+          <div class="downloads-card-title">{{ $t(item.titleKey) }}</div>
           <div class="downloads-card-link">
-            <span>固件与文档</span>
+            <span>{{ $t('support.downloadsPage.cardLinkText') }}</span>
             <i class="bi bi-arrow-right"></i>
           </div>
         </div>
@@ -30,13 +30,22 @@
 <script>
 export default {
   name: 'Downloads',
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.downloads.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.downloads.description') },
+        { name: 'keywords', content: this.$t('meta.support.downloads.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       series: [
-        { title: '穿越无人机系列', link: '/download/fpv', img: '/images/support/download/产品系列：穿越机400X400.png' },    
-        { title: '多旋翼无人机系列', link: '/download/multirotor', img: '/images/support/download/产品系列：多轴400X400.png' },
-        { title: '固定翼无人机系列', link: '/download/fixedwing', img: '/images/support/download/产品系列：固定翼400X400.png' },
-        { title: '无人直升机系列', link: '/download/helicopter', img: '/images/support/download/产品系列：直升机400X400.png' }
+        { titleKey: 'support.downloadsPage.series.fpv', link: '/download/fpv', img: '/images/support/download/产品系列：穿越机400X400.png' },    
+        { titleKey: 'support.downloadsPage.series.multiRotor', link: '/download/multirotor', img: '/images/support/download/产品系列：多轴400X400.png' },
+        { titleKey: 'support.downloadsPage.series.fixedWing', link: '/download/fixedwing', img: '/images/support/download/产品系列：固定翼400X400.png' },
+        { titleKey: 'support.downloadsPage.series.helicopter', link: '/download/helicopter', img: '/images/support/download/产品系列：直升机400X400.png' }
       ]
     }
   },

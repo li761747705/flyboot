@@ -9,22 +9,22 @@
             <div class="hero-content">
               <div class="product-badge">
                 <i class="bi bi-grid-3x3"></i>
-                <span>多旋翼无人机</span>
+                <span>{{ $t('products.multiRotorDetail.badge') }}</span>
               </div>
-              <h1 class="product-title">{{ current.name }}</h1>
-              <p class="product-subtitle">专业级多旋翼无人机，稳定悬停，精准控制，广泛应用</p>
+              <h1 class="product-title">{{ translateBanner() }}</h1>
+              <p class="product-subtitle">{{ $t('products.multiRotorDetail.subtitle') }}</p>
               <div class="product-highlights">
                 <div class="highlight-item">
                   <i class="bi bi-pause-circle"></i>
-                  <span>稳定悬停</span>
+                  <span>{{ $t('products.multiRotorDetail.highlights.stableHover') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-gear-wide"></i>
-                  <span>精准控制</span>
+                  <span>{{ $t('products.multiRotorDetail.highlights.preciseControl') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-camera"></i>
-                  <span>广泛应用</span>
+                  <span>{{ $t('products.multiRotorDetail.highlights.broadUse') }}</span>
                 </div>
               </div>
             </div>
@@ -45,30 +45,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">飞行性能</h2>
+                <h2 class="feature-title">{{ $t('products.multiRotorDetail.sections.flightPerformance.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                六轴设计使得无人机具有更好的平衡性和稳定性，这种设计可以提供更强的抗风能力和更稳定的飞行表现，适合在复杂环境中使用
-              </p>
+              <p class="feature-description">{{ $t('products.multiRotorDetail.sections.flightPerformance.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>稳定悬停能力</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.flightPerformance.items.stableHover') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>精准飞行控制</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.flightPerformance.items.preciseControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>多种应用场景</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.flightPerformance.items.multiScene') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的机动性能</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.flightPerformance.items.maneuverability') }}</span>
                 </div>
               </div>
             </div>
@@ -80,30 +78,28 @@
           <div class="feature-grid">
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">高强结构</h2>
+                <h2 class="feature-title">{{ $t('products.multiRotorDetail.sections.strongStructure.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-shield-check"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                轻小便携，操作简单易上手，利于单人部署高效执行作业任务，碳纤维复合材料的高比强度和比刚度特性使得无人机在保证结构强度的同时，重量大大减轻，具有良好的的抗疲劳性和耐久性，能够适应长时间的飞行任务，确保无人机的稳定性和可靠性。
-              </p>
+              <p class="feature-description">{{ $t('products.multiRotorDetail.sections.strongStructure.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>碳纤维机架设计</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.strongStructure.items.carbonFiberFrame') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>铝合金结构件</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.strongStructure.items.aluminumParts') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>轻量化高强度</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.strongStructure.items.lightweightHighStrength') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的抗疲劳性</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.strongStructure.items.fatigueResistance') }}</span>
                 </div>
               </div>
             </div>
@@ -123,30 +119,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">优势</h2>
+                <h2 class="feature-title">{{ $t('products.multiRotorDetail.sections.advantages.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                六轴无人机在飞行作业具有多种功能和优势。通常采用六个旋翼作为动力源，这种设计使得无人机具备垂直降落、悬停、灵活飞行等特点，适用于多种作业环境。
-              </p>
+              <p class="feature-description">{{ $t('products.multiRotorDetail.sections.advantages.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>稳定悬停能力</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.advantages.items.stableHover') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>精准飞行控制</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.advantages.items.preciseControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>多种应用场景</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.advantages.items.multiScene') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的机动性能</span>
+                  <span>{{ $t('products.multiRotorDetail.sections.advantages.items.maneuverability') }}</span>
                 </div>
               </div>
             </div>
@@ -155,23 +149,23 @@
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
-            <h2 class="specs-title">产品参数</h2>
-            <p class="specs-subtitle">详细的技术规格和配置信息</p>
+            <h2 class="specs-title">{{ $t('products.multiRotorDetail.specs.title') }}</h2>
+            <p class="specs-subtitle">{{ $t('products.multiRotorDetail.specs.subtitle') }}</p>
           </div>
 
           <div class="specs-tabs">
             <div class="tab-buttons">
               <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
-                基本参数
+                {{ $t('products.multiRotorDetail.specs.tabs.basic') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
-                技术参数
+                {{ $t('products.multiRotorDetail.specs.tabs.tech') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
-                包装清单
+                {{ $t('products.multiRotorDetail.specs.tabs.package') }}
               </button>
             </div>
 
@@ -179,16 +173,16 @@
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
                 <div v-if="!current" style="color: red; padding: 1rem;">
-                  调试信息：current对象为空
+                  {{ $t('products.multiRotorDetail.debug.currentEmpty') }}
                 </div>
                 <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
-                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                  {{ $t('products.multiRotorDetail.debug.basicEmpty') }} {{ JSON.stringify(current) }}
                 </div>
                 <div v-else>
                   <div class="specs-grid">
                     <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                      <div class="spec-label">{{ key }}</div>
-                      <div class="spec-value">{{ value }}</div>
+                      <div class="spec-label">{{ translateBasicKey(key) }}</div>
+                      <div class="spec-value">{{ translateBasicValue(value) }}</div>
                     </div>
                   </div>
                 </div>
@@ -197,15 +191,15 @@
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
                 <div class="package-content">
-                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                  <div class="package-section" v-for="(value, key) in current.tech" :key="key">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                     {{key}}
+                      {{ translateTechGroup(key) }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in value" key="key">
+                      <div class="package-item" v-for="(value, key) in value" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{value}}</span>
+                        <span>{{ translateTechItemKey(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -218,24 +212,24 @@
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      标配清单
+                      {{ $t('products.multiRotorDetail.specs.package.standardList') }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
+                      <div class="package-item" v-for="(value, key) in packaging_list" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{value}}</span>
+                        <span>{{ translatePackageItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-file-text"></i>
-                      随机文件
+                      {{ $t('products.multiRotorDetail.specs.package.documents') }}
                     </h3>
-                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" :key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>{{ key }} {{value}}</span>
+                        <span>{{ translateDocumentItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -248,8 +242,8 @@
         <!-- 保修服务 -->
         <div class="warranty-section">
           <div class="warranty-header">
-            <h2 class="warranty-title">保修服务</h2>
-            <p class="warranty-subtitle">专业的售后保障，让您使用无忧</p>
+            <h2 class="warranty-title">{{ $t('products.multiRotorDetail.warranty.title') }}</h2>
+            <p class="warranty-subtitle">{{ $t('products.multiRotorDetail.warranty.subtitle') }}</p>
           </div>
           <div class="warranty-content">
             <div class="warranty-item">
@@ -257,8 +251,8 @@
                 <i class="bi bi-shield-check"></i>
               </div>
               <div class="warranty-text">
-                <h3>保修期限</h3>
-                <p>我们承诺对提供的产品给予一年保修期限，在这期间，客户可以享受到全方位保修服务。从产品交付之日起计算，无论是产品硬件故障，还是因产品质量问题导致性能异常等情况，我们将负责解决。</p>
+                <h3>{{ $t('products.multiRotorDetail.warranty.items.period.title') }}</h3>
+                <p>{{ $t('products.multiRotorDetail.warranty.items.period.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -266,8 +260,8 @@
                 <i class="bi bi-tools"></i>
               </div>
               <div class="warranty-text">
-                <h3>硬件维修与更换</h3>
-                <p>涵盖产品的各个零部件，如主板、显示屏、硬盘、电源等，若这些硬件出现非人为损坏故障，我们将免费进行维修或更换。</p>
+                <h3>{{ $t('products.multiRotorDetail.warranty.items.hardware.title') }}</h3>
+                <p>{{ $t('products.multiRotorDetail.warranty.items.hardware.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -275,8 +269,8 @@
                 <i class="bi bi-headset"></i>
               </div>
               <div class="warranty-text">
-                <h3>快速响应</h3>
-                <p>对于一般故障，客户可通过电话、邮件等方式向我们反馈，我们的客服人员会在接到反馈后2小时回复客户，确认已收到问题，然后，根据故障具体情况，在24小时内为客户提供解决方案。</p>
+                <h3>{{ $t('products.multiRotorDetail.warranty.items.response.title') }}</h3>
+                <p>{{ $t('products.multiRotorDetail.warranty.items.response.desc') }}</p>
               </div>
             </div>
           </div>
@@ -546,11 +540,172 @@ export default {
   },
   created() {
     const id = this.$route.params.id
-    this.current = this.products[id] || this.products['multirotor-m600']
+    // 兼容列表页使用的占位 id（drone1/drone2）与详情页真实型号 id（multirotor-m600/m800）
+    const productIdMap = {
+      'drone1': 'multirotor-m600',
+      'drone2': 'multirotor-m800'
+      // 如后续新增数据，可继续映射：'drone3': 'multirotor-m400', 'drone4': 'multirotor-m1000'
+    }
+    const resolvedProductId = productIdMap[id] || (id && id.startsWith('multirotor-') ? id : 'multirotor-m600')
+    this.current = this.products[resolvedProductId] || this.products['multirotor-m600']
   },
   methods: {
     goBack() {
       this.$router.push('/products/multi-rotor')
+    },
+    translateProductName() {
+      try {
+        const id = this.$route?.params?.id || ''
+        const idMap = {
+          'multirotor-m600': 'm600',
+          'multirotor-m800': 'm800',
+          'multirotor-m400': 'm400',
+          'multirotor-m1000': 'm1000',
+          // 兼容列表页占位 id
+          'drone1': 'm600',
+          'drone2': 'm800'
+        }
+        let key = idMap[id] || ''
+        if (!key && id.startsWith('multirotor-')) {
+          key = id.split('multirotor-')[1]
+        }
+        if (key) {
+          const path = `products.multiRotorDrones.${key}.name`
+          const translated = this.$t(path)
+          if (translated && typeof translated === 'string' && translated !== path) {
+            return translated
+          }
+        }
+        return this.current?.name || ''
+      } catch (e) {
+        return this.current?.name || ''
+      }
+    },
+    translateBanner() {
+      try {
+        const id = this.$route?.params?.id || ''
+        const idMap = {
+          'multirotor-m600': 'm600',
+          'multirotor-m800': 'm800',
+          'multirotor-m400': 'm400',
+          'multirotor-m1000': 'm1000',
+          // 兼容列表页占位 id
+          'drone1': 'm600',
+          'drone2': 'm800'
+        }
+        let key = idMap[id] || ''
+        if (!key && id.startsWith('multirotor-')) {
+          key = id.split('multirotor-')[1]
+        }
+        if (key) {
+          const path = `products.multiRotorDrones.${key}.banner`
+          const translated = this.$t(path)
+          if (translated && typeof translated === 'string' && translated !== path) {
+            return translated
+          }
+        }
+        // 回退到当前产品对象中的 banner 或 name
+        return this.current?.banner || this.current?.name || ''
+      } catch (e) {
+        return this.current?.banner || this.current?.name || ''
+      }
+    },
+    translateBasicKey(key) {
+      const map = {
+        '机身尺寸': 'size',
+        '重量(不含电池)': 'weightWithoutBattery',
+        '机架材质': 'frameMaterial',
+        '动力系统': 'powerSystem',
+        '螺旋桨尺寸': 'propellerSize',
+        '电池容量': 'batteryCapacity'
+      }
+      const code = map[key]
+      return code ? this.$t('products.multiRotorDetail.specs.basicLabels.' + code) : key
+    },
+    translateBasicValue(value) {
+      const map = {
+        '碳纤维': 'carbonFiber',
+        '无刷电机': 'brushlessMotor',
+        '10寸': 'prop10in',
+        '13寸': 'prop13in',
+        '15寸': 'prop15in',
+        '18寸': 'prop18in'
+      }
+      const code = map[value]
+      return code ? this.$t('products.multiRotorDetail.specs.values.' + code) : value
+    },
+    translateTechGroup(key) {
+      const map = {
+        '飞行器': 'aircraft',
+        '电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'rc'
+      }
+      const code = map[key]
+      return code ? this.$t('products.multiRotorDetail.specs.techSections.' + code) : key
+    },
+    translateTechItemKey(key) {
+      const map = {
+        // 通用
+        '尺寸': 'size',
+        '重量': 'weight',
+        // 飞行器
+        '起飞重量': 'takeoffWeight',
+        '最大上升速度': 'maxClimbSpeed',
+        '最大下降速度': 'maxDescendSpeed',
+        '最大水平飞行速度': 'maxHorizontalSpeed',
+        '最大起飞海拔': 'maxAltitude',
+        '最长飞行时间': 'maxFlightTime',
+        '最长悬停时间': 'maxHoverTime',
+        '最大续航历程': 'maxRange',
+        '最大抗风速度': 'maxWindResistance',
+        '最大可倾斜角度': 'maxTiltAngle',
+        '工作环境温度': 'workTemp',
+        '卫星导航系统': 'gnss',
+        '悬停精度': 'hoverAccuracy',
+        // 电池
+        '容量': 'capacity',
+        '标称电压': 'nominalVoltage',
+        '充电限制电压': 'chargeLimitVoltage',
+        '电池类型': 'type',
+        '能量': 'energy',
+        '充电环境': 'chargeEnv',
+        '充电耗时': 'chargeTime',
+        '电池尺寸': 'batteryDimensions',
+        // 充电器
+        '输入': 'input',
+        '输出': 'output',
+        // 遥控器
+        '最长续航时间': 'batteryEndurance',
+        '充电环境温度': 'chargeTemp',
+        '充电时间': 'chargeTime',
+        '充电方式': 'chargeMethod',
+        '电池容量': 'batteryCapacity'
+      }
+      const code = map[key]
+      return code ? this.$t('products.multiRotorDetail.specs.techLabels.' + code) : key
+    },
+    translatePackageItem(key) {
+      const map = {
+        '飞行器机身': 'host',
+        '螺旋桨': 'propellers',
+        '智能飞控': 'flightController',
+        '动力电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'rc'
+      }
+      const code = map[key]
+      return code ? this.$t('products.multiRotorDetail.specs.package.items.' + code) : key
+    },
+    translateDocumentItem(key) {
+      const map = {
+        '产品说明书': 'manual',
+        '快速入门指南': 'quickGuide',
+        '免责声明': 'disclaimer',
+        '合格证': 'certificate'
+      }
+      const code = map[key]
+      return code ? this.$t('products.multiRotorDetail.specs.package.documentsMap.' + code) : key
     }
   }
 }

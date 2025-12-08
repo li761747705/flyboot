@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机高效巡航广袤林区，精准监测林木蓄积量、病虫害、火灾隐患及盗伐迹地。多光谱分析助力森林健康评估与碳汇计量，替代艰苦人工踏查，实现森林资源动态、精准、智能化管理。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.agriculture.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.agriculture.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '森林资源调查', image: '/images/applications/agriculture/01（600X350）.png' },
-        { title: '森林资源监测', image: '/images/applications/agriculture/02(900X500).png' },
-        { title: '森林火灾监测', image: '/images/applications/森林400X620.png' },
-        { title: '林业执法管理', image: '/images/applications/森林400X620.png' },
-        { title: '野生动物监测', image: '/images/applications/森林400X620.png' }
+        { titleKey: 'applicationsDetail.agriculture.cards.item1', image: '/images/applications/agriculture/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.agriculture.cards.item2', image: '/images/applications/agriculture/02(900X500).png' },
+        { titleKey: 'applicationsDetail.agriculture.cards.item3', image: '/images/applications/森林400X620.png' },
+        { titleKey: 'applicationsDetail.agriculture.cards.item4', image: '/images/applications/森林400X620.png' },
+        { titleKey: 'applicationsDetail.agriculture.cards.item5', image: '/images/applications/森林400X620.png' }
       ]
     }
   },

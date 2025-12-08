@@ -3,23 +3,23 @@
     <div class="hotline-container">
       <h2 class="hotline-title">
         <i class="bi bi-telephone"></i>
-        热线服务
+        {{ $t('support.banners.hotline.title') }}
       </h2>
-      <p class="hotline-subtitle">专业团队，7×24小时为您服务，快速响应您的需求</p>
+      <p class="hotline-subtitle">{{ $t('support.banners.hotline.subtitle') }}</p>
       
       <div class="hotline-cards">
         <div class="hotline-row">
-          <div class="hotline-card" v-for="card in cards" :key="card.title">
+          <div class="hotline-card" v-for="card in cards" :key="card.titleKey">
             <div class="card-header">
               <div class="card-icon">
                 <i :class="card.icon"></i>
               </div>
-              <h3 class="hotline-card-title">{{ card.title }}</h3>
+              <h3 class="hotline-card-title">{{ $t(card.titleKey) }}</h3>
             </div>
             <div class="hotline-card-body">
-              <div class="contact-item" v-for="item in card.contacts" :key="item.text" :class="{ highlight: item.highlight }">
+              <div class="contact-item" v-for="item in card.contacts" :key="item.textKey" :class="{ highlight: item.highlight }">
                 <i :class="item.icon"></i>
-                <span v-html="item.text"></span>
+                <span v-html="$t(item.textKey)"></span>
               </div>
             </div>
           </div>
@@ -32,38 +32,47 @@
 <script>
 export default {
   name: 'Hotline',
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.hotline.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.hotline.description') },
+        { name: 'keywords', content: this.$t('meta.support.hotline.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       cards: [
         {
-          title: '销售咨询',
+          titleKey: 'support.hotlinePage.cards.sales.title',
           icon: 'bi bi-person-check',
           contacts: [
-            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
-            { icon: 'bi bi-telephone', text: '联系电话：150-0000-0000（李经理）' },
-            { icon: 'bi bi-envelope', text: '邮箱：sales@qifeng.com' },
-            { icon: 'bi bi-wechat', text: '微信服务号：手机号同步' }
+            { icon: 'bi bi-building', textKey: 'support.hotlinePage.cards.sales.company' },
+            { icon: 'bi bi-telephone', textKey: 'support.hotlinePage.cards.sales.phone' },
+            { icon: 'bi bi-envelope', textKey: 'support.hotlinePage.cards.sales.email' },
+            { icon: 'bi bi-wechat', textKey: 'support.hotlinePage.cards.sales.wechat' }
           ]
         },
         {
-          title: '技术顾问',
+          titleKey: 'support.hotlinePage.cards.tech.title',
           icon: 'bi bi-tools',
           contacts: [
-            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
-            { icon: 'bi bi-telephone', text: '联系电话：139-0000-0000（张师傅）' },
-            { icon: 'bi bi-envelope', text: '邮箱：tech@qifeng.com' },
-            { icon: 'bi bi-wechat', text: '微信服务号：手机号同步' }
+            { icon: 'bi bi-building', textKey: 'support.hotlinePage.cards.tech.company' },
+            { icon: 'bi bi-telephone', textKey: 'support.hotlinePage.cards.tech.phone' },
+            { icon: 'bi bi-envelope', textKey: 'support.hotlinePage.cards.tech.email' },
+            { icon: 'bi bi-wechat', textKey: 'support.hotlinePage.cards.tech.wechat' }
           ]
         },
         {
-          title: '客户服务热线',
+          titleKey: 'support.hotlinePage.cards.service.title',
           icon: 'bi bi-headset',
           contacts: [
-            { icon: 'bi bi-building', text: '麒风智能科技有限公司' },
-            { icon: 'bi bi-telephone-fill', text: '服务热线：400-888-8888', highlight: true },
-            { icon: 'bi bi-envelope', text: '邮箱：service@qifeng.com' },
-            { icon: 'bi bi-clock', text: '工作时间：周一至周六 9:00-18:00' },
-            { icon: 'bi bi-geo-alt', text: '地址：深圳市南山区科技园' }
+            { icon: 'bi bi-building', textKey: 'support.hotlinePage.cards.service.company' },
+            { icon: 'bi bi-telephone-fill', textKey: 'support.hotlinePage.cards.service.hotline', highlight: true },
+            { icon: 'bi bi-envelope', textKey: 'support.hotlinePage.cards.service.email' },
+            { icon: 'bi bi-clock', textKey: 'support.hotlinePage.cards.service.worktime' },
+            { icon: 'bi bi-geo-alt', textKey: 'support.hotlinePage.cards.service.address' }
           ]
         }
       ]

@@ -2,7 +2,7 @@
   <footer class="footer-modern">
     <div class="container">
       <div class="footer-content">
-        <div v-for="section in footerSections" :key="section.title" 
+        <div v-for="section in footerSections" :key="section.key" 
              :class="['footer-section', section.class]">
           <h5 class="footer-title">{{ section.title }}</h5>
           <ul v-if="section.links" class="footer-links">
@@ -33,10 +33,13 @@ export default {
       return text.replace('{at}', '@');
     }
   },
-  data() {
-    return {
-      footerSections: [
+  computed: {
+    // 使用计算属性生成文案，依赖 $i18n.locale 实现语言切换时的自动更新
+    footerSections() {
+      const locale = this.$i18n.locale;
+      return [
         {
+          key: `products-${locale}`,
           title: this.$t('footer.products'),
           links: [
             { to: '/products/fpv', text: this.$t('footer.productLinks.fpv') },
@@ -46,6 +49,7 @@ export default {
           ]
         },
         {
+          key: `applications-${locale}`,
           title: this.$t('footer.applications'),
           links: [
             { to: '/applications/mapping', text: this.$t('footer.applicationLinks.mapping') },
@@ -60,6 +64,7 @@ export default {
           ]
         },
         {
+          key: `services-${locale}`,
           title: this.$t('footer.services'),
           links: [
             { to: '/support/downloads', text: this.$t('footer.supportLinks.downloads') },
@@ -69,6 +74,7 @@ export default {
           ]
         },
         {
+          key: `about-${locale}`,
           title: this.$t('footer.about'),
           links: [
             { to: '/about/contact', text: this.$t('footer.aboutLinks.contactUs') },
@@ -78,6 +84,7 @@ export default {
           ]
         },
         {
+          key: `contact-${locale}`,
           title: this.$t('footer.contact'),
           class: 'contact-section',
           contact: [

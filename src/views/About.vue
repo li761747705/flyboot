@@ -13,11 +13,11 @@
     <section class="page-header">
       <!-- 顶部 Banner -->
       <div class="banner">
-        <img class="banner-bg" src="/images/about/通用图片1900X300.png" alt="banner" loading="lazy" />
+        <img class="banner-bg" src="/images/about/通用图片1900X300.png" :alt="$t('aboutPage.heroTitle')" loading="lazy" />
         <div class="banner-overlay"></div>
         <div class="banner-content">
-          <h1>关于麒风智能</h1>
-          <p>不止于飞行，更关乎使命与愿景</p>
+          <h1>{{ $t('aboutPage.heroTitle') }}</h1>
+          <p>{{ $t('aboutPage.heroSubtitle') }}</p>
         </div>
       </div>
     </section>
@@ -26,7 +26,7 @@
       
           <!-- 公司厂房大图及简介（用数组渲染） -->
           <div v-for="(item, idx) in factoryList" :key="idx" class="about-factory-section mb-5"  >
-            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" alt="公司厂房" loading="lazy" />
+            <img class="about-factory-img" src="/images/about/通用图片1900X640.png" :alt="$t('aboutPage.heroTitle')" loading="lazy" />
             <div v-if="item.desc" class="about-factory-desc" v-html="item.desc"></div>
           </div>
           <!-- 公司介绍卡片 -->
@@ -55,8 +55,8 @@
             <div class="col-12">
               <div class="tech-stats-section">
                 <div class="stats-header">
-                  <h2>技术实力</h2>
-                  <p>扎实的基本功：复杂环境下，稳定飞行，高效执行任务</p>
+                  <h2>{{ $t('aboutPage.tech.title') }}</h2>
+                  <p>{{ $t('aboutPage.tech.subtitle') }}</p>
                 </div>
                 <div class="stats-grid">
                   <div class="stat-item" v-for="stat in stats" :key="stat.label">
@@ -79,58 +79,67 @@
 <script>
 export default {
   name: 'About',
-  data() {
+  metaInfo() {
     return {
-      factoryList: [
+      title: this.$t('meta.about.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.about.description') },
+        { name: 'keywords', content: this.$t('meta.about.keywords') }
+      ]
+    }
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    factoryList() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
+        { desc: this.$t('aboutPage.factoryList.item1'), __locale: locale },
+        { desc: this.$t('aboutPage.factoryList.item2'), __locale: locale },
+        { desc: this.$t('aboutPage.factoryList.item3'), __locale: locale },
+        { desc: this.$t('aboutPage.factoryList.item4'), __locale: locale }
+      ]
+    },
+    aboutCards() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
         {
-          desc: '麒风智能专注于工业级无人机系统研发与创新应用，以尖端飞行控制、智能感知与集群协同技术为核心，致力于为全球客户提供安全、高效、可靠的全场景空中解决方案。+行业提供革命性的空中作业方案。'
-        },
-        {
-          desc: '深耕行业十年，我们已构建覆盖测绘勘探、应急救援、能源巡检、智慧农业、物流运输等领域的完整产品矩阵。从厘米级精准定位的航测无人机，到复杂环境全天候作业的无人直升机，每一款产品都承载着对极致性能与用户价值的执着追求。'
-        },
-          {
-          desc: '我们不仅提供硬件，更打造“端到端”服务体系——从定制化需求对接、专业飞手培训，到7×24小时全生命周期技术支持，始终以客户成功为航标，让科技之力真正赋能千行百业。以创新为翼，以责任为舵'
-        },
-        {
-          desc: `<h2 style="font-size:1.3rem;margin-bottom:0.7em;">1. 核心团队</h2>
-            <p>我们的团队由人工智能、工业设计等领域组成，核心成员平均拥有15年以上行业经验，曾主导多个国家级无人机项目研发。</p>
-            <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">2. 技术团队</h2>
-            <p>60+人的专职研发团队，涵盖飞控系统、动力系统、传感器融合等关键技术方向，已申请200+项技术专利，其中发明专利占比超40%。</p>
-            <h2 style="font-size:1.3rem;margin:1.5em 0 0.7em 0;">3. 生产团队</h2>
-            <p>20000㎡现代化生产基地，配备SMT贴片机、六轴机械臂等智能设备，通过ISO9001质量管理体系认证，月产能达5000+台。</p>`
-        }
-      ],
-      aboutCards: [
-        {
-          title: '公司简介',
-          desc: '了解麒风智能的发展历程、企业使命和我们的技术优势',
+          title: this.$t('aboutPage.cards.company.title'),
+          desc: this.$t('aboutPage.cards.company.desc'),
           img: '/images/about/company.jpg',
           icon: 'bi bi-building',
           link: '/about/company',
-          btn: '了解更多'
+          btn: this.$t('aboutPage.cards.company.btn'),
+          __locale: locale
         },
         {
-          title: '联系我们',
-          desc: '获取我们的联系信息，包括电话、邮箱、地址以及在线咨询方式',
+          title: this.$t('aboutPage.cards.contact.title'),
+          desc: this.$t('aboutPage.cards.contact.desc'),
           img: '/images/about/contact.jpg',
           icon: 'bi bi-telephone',
           link: '/about/contact',
-          btn: '联系我们'
+          btn: this.$t('aboutPage.cards.contact.btn'),
+          __locale: locale
         },
         {
-          title: '加入我们',
-          desc: '查看麒风智能的职位空缺，加入我们的团队，一起推动无人机技术的未来',
+          title: this.$t('aboutPage.cards.jobs.title'),
+          desc: this.$t('aboutPage.cards.jobs.desc'),
           img: '/images/about/jobs.jpg',
           icon: 'bi bi-people',
           link: '/about/jobs',
-          btn: '查看职位'
+          btn: this.$t('aboutPage.cards.jobs.btn'),
+          __locale: locale
         }
-      ],
-      stats: [
-        { number: 51, label: '发明专利', icon: 'bi bi-lightbulb' },
-        { number: 64, label: '实用新型专利', icon: 'bi bi-gear' },
-        { number: 19, label: '外观专利', icon: 'bi bi-palette' },
-        { number: 29, label: '软件著作权', icon: 'bi bi-code-square' }
+      ]
+    },
+    stats() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
+        { number: 51, label: this.$t('aboutPage.stats.labels.invention'), icon: 'bi bi-lightbulb', __locale: locale },
+        { number: 64, label: this.$t('aboutPage.stats.labels.utility'), icon: 'bi bi-gear', __locale: locale },
+        { number: 19, label: this.$t('aboutPage.stats.labels.design'), icon: 'bi bi-palette', __locale: locale },
+        { number: 29, label: this.$t('aboutPage.stats.labels.softwareCopyright'), icon: 'bi bi-code-square', __locale: locale }
       ]
     }
   }

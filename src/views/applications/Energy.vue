@@ -1,23 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">能源应用</h1>
+      <h1 class="scene-title">{{ $t('applicationsDetail.energy.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.energy.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -30,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '风电巡检', image: '/images/applications/powerline/01（600X350）.png' },
-        { title: '光伏检测', image: '/images/applications/powerline/02(900X500).png' },
-        { title: '油气管道巡检', image: '/images/applications/电力400X620.png' },
-        { title: '能源监控', image: '/images/applications/电力400X620.png' },
-        { title: '设备维护', image: '/images/applications/电力400X620.png' }
+        { titleKey: 'applicationsDetail.energy.cards.item1', image: '/images/applications/powerline/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.energy.cards.item2', image: '/images/applications/powerline/02(900X500).png' },
+        { titleKey: 'applicationsDetail.energy.cards.item3', image: '/images/applications/电力400X620.png' },
+        { titleKey: 'applicationsDetail.energy.cards.item4', image: '/images/applications/电力400X620.png' },
+        { titleKey: 'applicationsDetail.energy.cards.item5', image: '/images/applications/电力400X620.png' }
       ]
     }
   },

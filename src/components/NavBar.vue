@@ -2,8 +2,8 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid px-md-4 px-2">
       <router-link class="navbar-brand d-flex align-items-center py-2" to="/">
-        <img src="/images/logo.jpg" alt="麒风智能" height="60" class="logo-img d-none d-md-block me-3" loading="lazy" />
-        <img src="/images/logo.jpg" alt="麒风智能" height="40" class="logo-img d-block d-md-none me-3" loading="lazy" />
+        <img src="/images/logo.jpg" :alt="$t('common.brandAlt')" height="60" class="logo-img d-none d-md-block me-3" loading="lazy" />
+        <img src="/images/logo.jpg" :alt="$t('common.brandAlt')" height="40" class="logo-img d-block d-md-none me-3" loading="lazy" />
       </router-link>
       
       <div class="collapse navbar-collapse" id="mainNavbar">

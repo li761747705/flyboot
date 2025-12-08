@@ -4,13 +4,13 @@
       <div class="page-header">
         <button class="back-btn" @click="goBack">
           <i class="bi bi-arrow-left"></i>
-          返回
+          {{ $t('support.downloadDetail.back') }}
         </button>
         <h2 class="download-detail-title">
           <i class="bi bi-lightning"></i>
-          穿越无人机系列相关文档
+          {{ $t('support.downloadDetail.titles.fpv') }}
         </h2>
-        <p class="download-subtitle">获取最新的软件、固件和文档资料，支持多种产品型号</p>
+        <p class="download-subtitle">{{ $t('support.downloadDetail.subtitles.common') }}</p>
       </div>
       
       <!-- 标签页切换 -->
@@ -23,7 +23,7 @@
             @click="activeTab = tab.id"
           >
             <i :class="tab.icon"></i>
-            {{ tab.name }}
+            {{ tab.id === 'docs' ? $t('support.downloadDetail.tabs.docs') : $t('support.downloadDetail.tabs.firmware') }}
           </button>
         </div>
         
@@ -32,16 +32,16 @@
             <table class="download-table">
               <thead>
                 <tr>
-                  <th>文档名称</th>
-                  <th>版本</th>
-                  <th>日期</th>
-                  <th>格式</th>
-                  <th>下载</th>
+                  <th>{{ $t('support.downloadDetail.tableHeaders.name') }}</th>
+                  <th>{{ $t('support.downloadDetail.tableHeaders.version') }}</th>
+                  <th>{{ $t('support.downloadDetail.tableHeaders.date') }}</th>
+                  <th>{{ $t('support.downloadDetail.tableHeaders.format') }}</th>
+                  <th>{{ $t('support.downloadDetail.tableHeaders.download') }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in currentDocs" :key="item.name" class="download-row">
-                  <td class="doc-name">{{ item.name }}</td>
+                <tr v-for="item in currentDocs" :key="item.nameKey" class="download-row">
+                  <td class="doc-name">{{ $t(item.nameKey) }}</td>
                   <td class="doc-version">{{ item.version }}</td>
                   <td class="doc-date">{{ item.date }}</td>
                   <td class="doc-format">{{ item.format }}</td>
@@ -67,31 +67,37 @@
 <script>
 export default {
   name: 'FpvDownload',
-  metaInfo: {
-    title: '穿越无人机系列下载 - 麒风智能无人机'
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.downloads.fpv.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.downloads.fpv.description') },
+        { name: 'keywords', content: this.$t('meta.support.downloads.fpv.keywords') }
+      ]
+    }
   },
   data() {
     return {
       activeTab: 'docs',
       tabs: [
-        { id: 'docs', name: '文档资料', icon: 'bi bi-file-earmark-text' },
-        { id: 'firmware', name: '固件更新', icon: 'bi bi-cpu' }
+        { id: 'docs', icon: 'bi bi-file-earmark-text' },
+        { id: 'firmware', icon: 'bi bi-cpu' }
       ],
       docsData: {
         docs: [
-          { name: '穿越无人机系列_用户手册', version: 'V1.0.3', date: '2024-01', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_快速指南', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_技术规格书', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_安全手册', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_维护手册', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_产品清单', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' }
+          { nameKey: 'support.downloadDetail.docNames.fpvUserManual', version: 'V1.0.3', date: '2024-01', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvQuickGuide', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvTechSpecs', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvSafetyManual', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvMaintenanceManual', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvPackingList', version: 'V1.0', date: '2024-01', format: 'PDF', url: '#' }
         ],
         firmware: [
-          { name: '穿越无人机系列_固件更新说明', version: 'V1.0.3.71', date: '2024-06', format: 'PDF', url: '#' },
-          { name: '穿越无人机系列_固件包_V1.0.3.71', version: 'V1.0.3.71', date: '2024-06', format: 'BIN', url: '#' },
-          { name: '穿越无人机系列_固件升级工具', version: 'V1.0.2', date: '2024-05', format: 'EXE', url: '#' },
-          { name: '穿越无人机系列_固件回退包_V1.0.2', version: 'V1.0.2', date: '2024-05', format: 'BIN', url: '#' },
-          { name: '穿越无人机系列_固件校验工具', version: 'V1.0.1', date: '2024-04', format: 'EXE', url: '#' }
+          { nameKey: 'support.downloadDetail.docNames.fpvFirmwareNotes', version: 'V1.0.3.71', date: '2024-06', format: 'PDF', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvFirmwarePackage', version: 'V1.0.3.71', date: '2024-06', format: 'BIN', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvFirmwareUpgradeTool', version: 'V1.0.2', date: '2024-05', format: 'EXE', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvFirmwareRollbackPackage', version: 'V1.0.2', date: '2024-05', format: 'BIN', url: '#' },
+          { nameKey: 'support.downloadDetail.docNames.fpvFirmwareVerifyTool', version: 'V1.0.1', date: '2024-04', format: 'EXE', url: '#' }
         ]
       }
     }

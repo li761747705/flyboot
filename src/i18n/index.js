@@ -29,7 +29,18 @@ const i18n = createI18n({
   legacy: true, // 使用传统API模式
   globalInjection: true, // 全局注册$t方法
   locale: localStorage.getItem('locale') || 'zh', // 默认语言为简体中文
-  fallbackLocale: 'zh', // 后备语言
+  fallbackLocale: {
+    'zh-hk': 'zh',
+    en: 'en',
+    fr: 'en',
+    es: 'en',
+    hi: 'en',
+    ru: 'en',
+    pt: 'en',
+    ar: 'en',
+    bn: 'en',
+    default: 'zh'
+  },
   messages
 })
 

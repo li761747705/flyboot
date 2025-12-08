@@ -10,26 +10,26 @@
             <div class="hero-content text-center">
               <div class="hero-badge">
                 <i class="bi bi-hexagon"></i>
-                <span>多旋翼无人机</span>
+                <span>{{ $t('products.multiRotorPage.heroBadge') }}</span>
               </div>
-              <h1 class="hero-title">多旋翼无人机</h1>
-              <p class="hero-subtitle">稳如磐石，视角由你掌控</p>
+              <h1 class="hero-title">{{ $t('products.multiRotorPage.heroTitle') }}</h1>
+              <p class="hero-subtitle">{{ $t('products.multiRotorPage.heroSubtitle') }}</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-shield-check"></i>
-                  <span>专业级</span>
+                  <span>{{ $t('products.multiRotorPage.features.professional') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-bullseye"></i>
-                  <span>高精度</span>
+                  <span>{{ $t('products.multiRotorPage.features.precision') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-gear-wide-connected"></i>
-                  <span>稳定性强</span>
+                  <span>{{ $t('products.multiRotorPage.features.stability') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-shield-check"></i>
-                  <span>可靠耐用</span>
+                  <span>{{ $t('products.multiRotorPage.features.reliable') }}</span>
                 </div>
               </div>
             </div>
@@ -42,17 +42,17 @@
     <section class="products-section">
       <div class="container">
         <div class="section-header text-center mb-5">
-          <h2 class="section-title section-line">产品系列</h2>
-          <p class="section-subtitle">专业级多旋翼无人机，适用于航拍、测绘、巡检等场景</p>
+          <h2 class="section-title section-line">{{ $t('products.multiRotorPage.sectionTitle') }}</h2>
+          <p class="section-subtitle">{{ $t('products.multiRotorPage.sectionSubtitle') }}</p>
         </div>
         <div class="product-grid">
           <div class="product-card" v-for="(drone, index) in drones" :key="drone.id" @click="goToDetail(drone.id)">
             <div class="card-bg" :style="{backgroundImage: `url('${drone.image}')`, backgroundSize: 'cover'}">
               <div class="card-overlay"></div>
               <div class="card-content">
-                <div class="product-badge" :class="getBadgeClass(index)">{{ drone.category }}</div>
-                <h3 class="product-name">{{ drone.name }}</h3>
-                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">查看详情</button>
+                <div class="product-badge" :class="getBadgeClass(index)">{{ $t('products.multiRotorDrones.' + drone.id + '.category') }}</div>
+                <h3 class="product-name">{{ $t('products.multiRotorDrones.' + drone.id + '.name') }}</h3>
+                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">{{ $t('products.multiRotorPage.buttonDetail') }}</button>
               </div>
             </div>
           </div>
@@ -65,6 +65,15 @@
 <script>
 export default {
   name: 'MultiRotorDrone',
+  metaInfo() {
+    return {
+      title: this.$t('meta.multiRotor.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.multiRotor.description') },
+        { name: 'keywords', content: this.$t('meta.multiRotor.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       drones: [

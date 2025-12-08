@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机搭载高精度航测设备，快速获取大范围地表高清影像与激光点云数据，构建厘米级精度的三维实景模型。大幅缩短外业周期，降低人力成本与安全风险，为城市规划、土地管理、工程建设提供坚实数据基底。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.mapping.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.mapping.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" class="scene-card-img" alt="" />
+            <img v-if="item.image" :src="item.image" class="scene-card-img" :alt="$t(item.titleKey)" />
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '地形测量', image: '/images/applications/mapping/01（600X350）.png' },
-        { title: '实景三维', image: '/images/applications/mapping/02（900X500）.png' },
-        { title: '土地利用规划', image: '/images/applications/测绘400X620.png' },
-        { title: '勘察设计', image: '/images/applications/测绘400X620.png' },
-        { title: '古建筑三维测绘', image: '/images/applications/测绘400X620.png' }
+        { titleKey: 'applicationsDetail.mapping.cards.item1', image: '/images/applications/mapping/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.mapping.cards.item2', image: '/images/applications/mapping/02（900X500）.png' },
+        { titleKey: 'applicationsDetail.mapping.cards.item3', image: '/images/applications/测绘400X620.png' },
+        { titleKey: 'applicationsDetail.mapping.cards.item4', image: '/images/applications/测绘400X620.png' },
+        { titleKey: 'applicationsDetail.mapping.cards.item5', image: '/images/applications/测绘400X620.png' }
       ]
     }
   },

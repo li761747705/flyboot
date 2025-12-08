@@ -3,29 +3,29 @@
     <div class="policy-container">
       <h1 class="policy-title">
         <i class="bi bi-shield-check"></i>
-        服务政策
+        {{ $t('support.policyPage.title') }}
       </h1>
-      <p class="policy-subtitle">了解我们的服务承诺和保修条款，透明政策，让您安心使用</p>
+      <p class="policy-subtitle">{{ $t('support.policyPage.subtitle') }}</p>
       
       <div class="policy-main-card">
         <div class="policy-sidebar">
           <div
             v-for="(item, idx) in categories"
-            :key="item.title"
+            :key="item.titleKey"
             :class="['policy-category', { active: idx === activeIndex }]"
             @click="activeIndex = idx"
           >
             <div class="category-icon">
-              <i :class="getCategoryIcon(item.title)"></i>
+              <i :class="item.icon"></i>
             </div>
-            <span class="category-title">{{ item.title }}</span>
+            <span class="category-title">{{ $t(item.titleKey) }}</span>
             <i class="bi bi-chevron-right category-arrow"></i>
           </div>
         </div>
         <div class="policy-content-area">
           <h2 class="policy-content-title">
             <i class="bi bi-info-circle"></i>
-            {{ categories[activeIndex].title }}
+            {{ $t(categories[activeIndex].titleKey) }}
           </h2>
           <div class="policy-content-detail">
             <template v-if="activeIndex === 0">
@@ -34,50 +34,50 @@
                 <table class="policy-table">
                   <thead>
                     <tr>
-                      <th style="width: 120px;">售后类型</th>
-                      <th>明细</th>
-                      <th>以下条件不满足退换，终止条件</th>
+                      <th style="width: 120px;">{{ $t('support.policyPage.tableHeaders.type') }}</th>
+                      <th>{{ $t('support.policyPage.tableHeaders.detail') }}</th>
+                      <th>{{ $t('support.policyPage.tableHeaders.terminationConditions') }}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td class="type-cell">
-                        <div class="type-circle return">退</div>
+                        <div class="type-circle return">{{ $t('support.policyPage.labels.return') }}</div>
                       </td>
                       <td>
-                        产品签收后15个自然日内：<br>
-                        1. 质量问题/人为损坏的非功能故障，且无使用痕迹；<br>
-                        2. 运输过程中产生产品瑕疵，且运输公司提供损坏凭证
+                        {{ $t('support.policyPage.return.detailTitle') }}<br>
+                        1. {{ $t('support.policyPage.return.detailItems.item1') }}<br>
+                        2. {{ $t('support.policyPage.return.detailItems.item2') }}
                       </td>
                       <td rowspan="3" class="conditions-cell">
-                        ×自收货日起超过十五（15）个自然日后提出退换要求。<br>
-                        ×退货不全，外包装、附件、赠品、说明书不完整或有私人原因导致受损。<br>
-                        ×退换时无法提供原始购买凭证或单据，或事前未进行登记、验收。<br>
-                        ×发生非产品本身质量问题导致的损坏、挤压，以及人为的损坏造成。非因物（如：进水、摔落），不在保修范围。未经检测判断非功能性故障的商品谢绝退换。<br>
-                        ×拆解、涂改或丢失、机身序列号、防水标记、防伪标记等。<br>
-                        ×因不可抗力造成损坏，如火灾、水灾、地震、交通事故等不可抗力造成损坏的产品。
+                        {{ $t('support.policyPage.conditions.items.item1') }}<br>
+                        {{ $t('support.policyPage.conditions.items.item2') }}<br>
+                        {{ $t('support.policyPage.conditions.items.item3') }}<br>
+                        {{ $t('support.policyPage.conditions.items.item4') }}<br>
+                        {{ $t('support.policyPage.conditions.items.item5') }}<br>
+                        {{ $t('support.policyPage.conditions.items.item6') }}
                       </td>
                     </tr>
                     <tr>
                       <td class="type-cell">
-                        <div class="type-circle exchange">换</div>
+                        <div class="type-circle exchange">{{ $t('support.policyPage.labels.exchange') }}</div>
                       </td>
                       <td>
-                        1. 自购买之日起产品本身质量问题影响用户正常使用，出现非人为的性能故障；<br>
-                        2. 无任何使用痕迹，无法开机等非用户损坏的故障或其他无人为引起的退换要求；<br>
-                        3. 提供有效的购买凭证、购机发票号。
+                        1. {{ $t('support.policyPage.exchange.items.item1') }}<br>
+                        2. {{ $t('support.policyPage.exchange.items.item2') }}<br>
+                        3. {{ $t('support.policyPage.exchange.items.item3') }}
                       </td>
                     </tr>
                     <tr>
                       <td class="type-cell">
-                        <div class="type-circle repair">修</div>
+                        <div class="type-circle repair">{{ $t('support.policyPage.labels.repair') }}</div>
                       </td>
                       <td>
-                        <strong>特殊说明</strong><br>
-                        (a)免费维修：维修件终身免费维修期限累计90天，取货寄件计费；<br>
-                        (b)付费维修：维修件终身付费维修计算；<br>
-                        (c)拒绝维修：进水、火灾、地震等；<br>
-                        (d)折扣维修：保修期外，维修件折扣计算
+                        <strong>{{ $t('support.policyPage.repair.title') }}</strong><br>
+                        {{ $t('support.policyPage.repair.items.itemA') }}<br>
+                        {{ $t('support.policyPage.repair.items.itemB') }}<br>
+                        {{ $t('support.policyPage.repair.items.itemC') }}<br>
+                        {{ $t('support.policyPage.repair.items.itemD') }}
                       </td>
                     </tr>
                   </tbody>
@@ -85,11 +85,11 @@
               </div>
             </template>
             <template v-else>
-              <div v-for="(p, i) in categories[activeIndex].content" :key="i" class="policy-desc-block">
+              <div v-for="pKey in categories[activeIndex].contentKeys" :key="pKey" class="policy-desc-block">
                 <div class="desc-icon">
                   <i class="bi bi-check-circle"></i>
                 </div>
-                <div class="desc-content">{{ p }}</div>
+                <div class="desc-content">{{ $t(pKey) }}</div>
               </div>
             </template>
           </div>
@@ -102,39 +102,42 @@
 <script>
 export default {
   name: 'Policy',
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.policy.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.policy.description') },
+        { name: 'keywords', content: this.$t('meta.support.policy.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       activeIndex: 0,
       categories: [
         {
-          title: '保修期',
-          content: []
+          titleKey: 'support.policyPage.categories.warranty',
+          icon: 'bi bi-calendar-check',
+          contentKeys: []
         },
         {
-          title: '服务范围',
-          content: [
-            '本服务政策适用于本公司销售的所有无人机及配件产品。具体服务内容及流程请咨询官方客服。'
+          titleKey: 'support.policyPage.categories.scope',
+          icon: 'bi bi-gear',
+          contentKeys: [
+            'support.policyPage.contents.scope.item1'
           ]
         },
         {
-          title: '免责声明',
-          content: [
-            '本公司对因用户操作不当、擅自拆解、改装等原因造成的损坏不承担保修责任。详情请参阅产品说明书及相关政策。'
+          titleKey: 'support.policyPage.categories.disclaimer',
+          icon: 'bi bi-exclamation-triangle',
+          contentKeys: [
+            'support.policyPage.contents.disclaimer.item1'
           ]
         }
       ]
     }
   },
-  methods: {
-    getCategoryIcon(title) {
-      const iconMap = {
-        '保修期': 'bi bi-calendar-check',
-        '服务范围': 'bi bi-gear',
-        '免责声明': 'bi bi-exclamation-triangle'
-      }
-      return iconMap[title] || 'bi bi-shield-check'
-    }
-  }
+  methods: {}
 }
 </script>
 

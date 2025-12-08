@@ -1,14 +1,15 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">测绘应用</h1>
+      <h1 class="scene-title">{{ $t('applicationsDetail.surveying.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.surveying.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
@@ -16,7 +17,7 @@
           <div class="scene-card-img-wrapper">
             <span class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -29,16 +30,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '地形测量' },
-        { title: '地籍调查' },
-        { title: '工程测量' },
-        { title: '三维建模' },
-        { title: '地图制作' }
+        { titleKey: 'applicationsDetail.surveying.cards.item1' },
+        { titleKey: 'applicationsDetail.surveying.cards.item2' },
+        { titleKey: 'applicationsDetail.surveying.cards.item3' },
+        { titleKey: 'applicationsDetail.surveying.cards.item4' },
+        { titleKey: 'applicationsDetail.surveying.cards.item5' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }

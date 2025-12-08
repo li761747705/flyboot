@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机机动巡查，实时监测大气污染物扩散、水体富营养化、固废堆放及生态破坏行为。搭载气体、水质传感器，快速溯源污染，辅助环境执法与生态评估，构建高效、精准的立体化环境监测网络。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.spraying.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.spraying.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '环境监测', image: '/images/applications/spraying/01（600X350）.png' },
-        { title: '水质检测', image: '/images/applications/spraying/01（600X350）.png' },
-        { title: '生态保护', image: '/images/applications/spraying/01（600X350）.png' },
-        { title: '应急响应', image: '/images/applications/spraying/01（600X350）.png' },
-        { title: '环境执法', image: '/images/applications/spraying/01（600X350）.png' }
+        { titleKey: 'applicationsDetail.spraying.cards.item1', image: '/images/applications/spraying/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.spraying.cards.item2', image: '/images/applications/spraying/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.spraying.cards.item3', image: '/images/applications/spraying/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.spraying.cards.item4', image: '/images/applications/spraying/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.spraying.cards.item5', image: '/images/applications/spraying/01（600X350）.png' }
       ]
     }
   },

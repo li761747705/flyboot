@@ -10,8 +10,8 @@
       >
         <div class="support-banner-overlay">
           <div class="banner-content">
-            <h1 class="support-banner-title">{{ fixedBanner.title }}</h1>
-            <p class="support-banner-subtitle">{{ fixedBanner.subtitle }}</p>
+            <h1 class="support-banner-title">{{ $t('support.pageTitle') }}</h1>
+            <p class="support-banner-subtitle">{{ $t('support.pageDescription') }}</p>
             <div class="banner-arrow">
               <i class="bi bi-arrow-down"></i>
             </div>
@@ -22,7 +22,7 @@
       <div class="support-banner-outer">
         <section
           v-for="banner in allBanners"
-          :key="banner.title"
+          :key="banner.id"
           class="support-banner clickable-banner"
           :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }"
           @click="goTo(banner)"
@@ -30,13 +30,12 @@
           <div class="support-banner-overlay">
             <div class="banner-content">
               <div class="banner-icon"  >
-                <img :src="banner.icon" alt="banner icon">
+                <img :src="banner.icon" :alt="$t(`support.banners.${banner.id}.title`)">
               </div>
-              <h2 class="support-banner-title">{{ banner.title }}</h2>
-              <p class="support-banner-subtitle">{{ banner.subtitle }}</p>
-              <p class="support-banner-subtitle">{{ banner.subtitle2 }}</p>
+              <h2 class="support-banner-title">{{ $t(`support.banners.${banner.id}.title`) }}</h2>
+              <p class="support-banner-subtitle">{{ $t(`support.banners.${banner.id}.subtitle`) }}</p>
               <div class="banner-action">
-                <span class="action-text">点击查看详情</span>
+                <span class="action-text">{{ $t(`support.banners.${banner.id}.actionText`) }}</span>
                 <i class="bi bi-arrow-right"></i>
               </div>
             </div>
@@ -52,10 +51,10 @@
         <div class="support-banner-overlay">
           <div class="banner-content">
             <div class="banner-icon">
-              <img :class="getBannerIcon(currentBanner.title)"/>
+              <img :src="getBannerIcon(currentBanner.id)" :alt="$t(`support.banners.${currentBanner.id}.title`)"/>
             </div>
-            <h2 class="support-banner-title">{{ currentBanner.title }}</h2>
-            <p class="support-banner-subtitle">{{ currentBanner.subtitle }}</p>
+            <h2 class="support-banner-title">{{ $t(`support.banners.${currentBanner.id}.title`) }}</h2>
+            <p class="support-banner-subtitle">{{ $t(`support.banners.${currentBanner.id}.subtitle`) }}</p>
           </div>
         </div>
       </section>
@@ -67,46 +66,46 @@
 <script>
 export default {
   name: 'Support',
-  metaInfo: {
-    title: '技术支持 - 麒风智能无人机'
+  metaInfo() {
+    return {
+      title: this.$t('meta.support.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.support.description') },
+        { name: 'keywords', content: this.$t('meta.support.keywords') }
+      ]
+    }
   },
   data() {
     return {
       fixedBanner: {
-        title: '服务与支持',
-        subtitle: '全程无忧守护，助您高效翱翔',
         bgImg: '/images/support/01.png',
         height: '700px',
         link: '/support'
       },
       allBanners: [
         {
-          title: '下载中心',
-          subtitle: '驱动/文档/工具，一键便捷获取',
+          id: 'downloads',
           // bgImg: '/images/support/下载中心1900X300.png',
           height: '700px',
           link: '/support/downloads',
           icon: '/images/support/download/02.png'
         },
         {
-          title: '售后服务政策',
-          subtitle: '透明保障，让您后顾无忧',
+          id: 'policy',
           // bgImg: '/images/support/售后服务政策1900X300.png',
           height: '700px',
           link: '/support/policy',
           icon: '/images/support/download/03.png'    
         },
         {
-          title: '常见问题',
-          subtitle: '高频疑问，速查速解',
+          id: 'faq',
           // bgImg: '/images/support/常见问题1900X300.png',
           height: '700px',
           link: '/support/faq',
           icon: '/images/support/download/04.png'
         },
         {
-          title: '服务热线',
-          subtitle: '快速响应，专业支持，直达专家',
+          id: 'hotline',
           // bgImg: '/images/support/服务热线1900X300.png',
           height: '700px',
           link: '/support/hotline',
@@ -127,17 +126,17 @@ export default {
       if (banner.link === '/support') {
         this.$router.push(banner.link)
       } else {
-        this.$router.push({ path: banner.link, query: { banner: banner.title } })
+        this.$router.push({ path: banner.link, query: { banner: banner.id } })
       }
     },
-    getBannerIcon(title) {
+    getBannerIcon(id) {
       const iconMap = {
-        '下载中心': '/public/images/support/download/02.png',
-        '售后服务政策': '/public/images/support/download/03.png',
-        '常见问题': '/public/images/support/download/04.png',
-        '服务热线': '/public/images/support/download/05.png'
+        downloads: '/images/support/download/02.png',
+        policy: '/images/support/download/03.png',
+        faq: '/images/support/download/04.png',
+        hotline: '/images/support/download/05.png'
       }
-      return iconMap[title] || 'bi bi-arrow-right'
+      return iconMap[id] || '/images/support/download/02.png'
     }
   }
 }

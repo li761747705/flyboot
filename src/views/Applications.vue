@@ -3,7 +3,7 @@
   <div class="applications-page">
     <!-- 顶部 Banner -->
     <div class="banner-img-wrapper">
-     <img src="/images/applications/行业应用1900X700.png" alt="{{ $t('applications.pageTitle') }}" class="banner-img" loading="lazy" />
+     <img src="/images/applications/行业应用1900X700.png" :alt="$t('applications.pageTitle')" class="banner-img" loading="lazy" />
       <div class="banner-content">
        <h1>{{ currentTitle }}</h1>
        <h3>{{ currentDesc }}</h3>
@@ -36,9 +36,28 @@
 <script>
 export default {
   name: 'Applications',
-  data() {
+  metaInfo() {
     return {
-      applications: [
+      title: this.$t('meta.applications.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.applications.description') },
+        { name: 'keywords', content: this.$t('meta.applications.keywords') }
+      ]
+    }
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    goToApplication(route) {
+      this.$router.push(route)
+    }
+  },
+  computed: {
+    applications() {
+      // 依赖语言切换，确保文案更新
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
         {
           id: 1,
           title: this.$t('applications.cards.mapping.title'),
@@ -46,7 +65,8 @@ export default {
           remake: this.$t('applications.cards.mapping.description'),
           image: '/images/applications/测绘400X620.png',
           link: '/applications/mapping',
-          desc: this.$t('applications.cards.mapping.shortDesc')
+          desc: this.$t('applications.cards.mapping.shortDesc'),
+          __locale: locale
         },
         {
           id: 2,
@@ -55,7 +75,8 @@ export default {
           remake: this.$t('applications.cards.inspection.description'),
           image: '/images/applications/水利400X620.png',
           link: '/applications/inspection',
-          desc: this.$t('applications.cards.inspection.shortDesc')
+          desc: this.$t('applications.cards.inspection.shortDesc'),
+          __locale: locale
         },
         {
           id: 3,
@@ -64,7 +85,8 @@ export default {
           remake: this.$t('applications.cards.delivery.description'),
           image: '/images/applications/应急400X620.png',
           link: '/applications/delivery',
-          desc: this.$t('applications.cards.delivery.shortDesc')
+          desc: this.$t('applications.cards.delivery.shortDesc'),
+          __locale: locale
         },
         {
           id: 4,
@@ -73,7 +95,8 @@ export default {
           remake: this.$t('applications.cards.aerial.description'),
           image: '/images/applications/交通400X620.png',
           link: '/applications/aerial',
-          desc: this.$t('applications.cards.aerial.shortDesc')
+          desc: this.$t('applications.cards.aerial.shortDesc'),
+          __locale: locale
         },
         {
           id: 5,
@@ -82,7 +105,8 @@ export default {
           remake: this.$t('applications.cards.spraying.description'),
           image: '/images/applications/环保400X620.png',
           link: '/applications/spraying',
-          desc: this.$t('applications.cards.spraying.shortDesc')
+          desc: this.$t('applications.cards.spraying.shortDesc'),
+          __locale: locale
         },
         {
           id: 6,
@@ -91,7 +115,8 @@ export default {
           remake: this.$t('applications.cards.agriculture.description'),
           image: '/images/applications/森林400X620.png',
           link: '/applications/agriculture',
-          desc: this.$t('applications.cards.agriculture.shortDesc')
+          desc: this.$t('applications.cards.agriculture.shortDesc'),
+          __locale: locale
         },
         {
           id: 7,
@@ -100,7 +125,8 @@ export default {
           remake: this.$t('applications.cards.powerline.description'),
           image: '/images/applications/电力400X620.png',
           link: '/applications/powerline',
-          desc: this.$t('applications.cards.powerline.shortDesc')
+          desc: this.$t('applications.cards.powerline.shortDesc'),
+          __locale: locale
         },
         {
           id: 8,
@@ -109,7 +135,8 @@ export default {
           remake: this.$t('applications.cards.farming.description'),
           image: '/images/applications/农业400X620.png',
           link: '/applications/farming',
-          desc: this.$t('applications.cards.farming.shortDesc')
+          desc: this.$t('applications.cards.farming.shortDesc'),
+          __locale: locale
         },
         {
           id: 9,
@@ -118,17 +145,11 @@ export default {
           remake: this.$t('applications.cards.integration.description'),
           image: '/images/applications/运载400X620.png',
           link: '/applications/integration',
-          desc: this.$t('applications.cards.integration.shortDesc')
+          desc: this.$t('applications.cards.integration.shortDesc'),
+          __locale: locale
         }
       ]
-    }
-  },
-  methods: {
-    goToApplication(route) {
-      this.$router.push(route)
-    }
-  },
-  computed: {
+    },
     currentTitle() {
       const path = this.$route.path;
       const match = path.match(/^\/applications\/(\w+)/);

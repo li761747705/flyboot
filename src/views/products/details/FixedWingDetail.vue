@@ -10,22 +10,22 @@
             <div class="hero-content">
               <div class="product-badge">
                 <i class="bi bi-airplane"></i>
-                <span>固定翼无人机</span>
+                <span>{{ $t('products.fixedWingDetail.badge') }}</span>
               </div>
-              <h1 class="product-title">{{ current.name }}</h1>
-              <p class="product-subtitle">专业级固定翼无人机，长航时高效飞行，大面积覆盖</p>
+              <h1 class="product-title">{{ translateProductName() }}</h1>
+              <p class="product-subtitle">{{ $t('products.fixedWingDetail.subtitle') }}</p>
               <div class="product-highlights">
                 <div class="highlight-item">
                   <i class="bi bi-clock"></i>
-                  <span>长航时</span>
+                  <span>{{ $t('products.fixedWingDetail.highlights.endurance') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-speedometer2"></i>
-                  <span>高效飞行</span>
+                  <span>{{ $t('products.fixedWingDetail.highlights.efficient') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-grid-3x3"></i>
-                  <span>大面积覆盖</span>
+                  <span>{{ $t('products.fixedWingDetail.highlights.coverage') }}</span>
                 </div>
               </div>
             </div>
@@ -47,30 +47,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">飞行性能</h2>
+                <h2 class="feature-title">{{ $t('products.fixedWingDetail.sections.flightPerformance.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                固定翼无人机是一种类似飞机气动布局的无人机，依靠机翼与空气的相对运动产生升力，具有超长续航、高速高效、载荷能力强等特点。
-              </p>
+              <p class="feature-description">{{ $t('products.fixedWingDetail.sections.flightPerformance.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>长航时作业能力</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.flightPerformance.items.longEndurance') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高速高效飞行</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.flightPerformance.items.efficientFlight') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>大面积覆盖作业</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.flightPerformance.items.wideCoverage') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的续航性能</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.flightPerformance.items.excellentEndurance') }}</span>
                 </div>
               </div>
             </div>
@@ -82,30 +80,28 @@
           <div class="feature-grid">
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">高强结构</h2>
+                <h2 class="feature-title">{{ $t('products.fixedWingDetail.sections.strongStructure.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-shield-check"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                固定翼无人机主要由机翼、机身、尾翼、起落装置和动力五大核心结构组成，各部件协同实现飞行、稳定性和操控功能。
-              </p>
+              <p class="feature-description">{{ $t('products.fixedWingDetail.sections.strongStructure.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>碳纤维复合材料制造</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.strongStructure.items.carbonFiber') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>轻量化结构设计</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.strongStructure.items.lightweightDesign') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高强度耐用性能</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.strongStructure.items.highStrengthDurability') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的抗疲劳性</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.strongStructure.items.fatigueResistance') }}</span>
                 </div>
               </div>
             </div>
@@ -127,30 +123,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">优势</h2>
+                <h2 class="feature-title">{{ $t('products.fixedWingDetail.sections.advantages.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                固定翼无人机具备长航时、高效率的飞行能力，适合大面积测绘、巡检等任务。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现高效的大面积作业覆盖。
-              </p>
+              <p class="feature-description">{{ $t('products.fixedWingDetail.sections.advantages.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>长航时作业能力</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.advantages.items.longEndurance') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高速高效飞行</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.advantages.items.efficientFlight') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>大面积覆盖作业</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.advantages.items.wideCoverage') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的续航性能</span>
+                  <span>{{ $t('products.fixedWingDetail.sections.advantages.items.excellentEndurance') }}</span>
                 </div>
               </div>
             </div>
@@ -159,23 +153,23 @@
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
-            <h2 class="specs-title">产品参数</h2>
-            <p class="specs-subtitle">详细的技术规格和配置信息</p>
+            <h2 class="specs-title">{{ $t('products.fixedWingDetail.specs.title') }}</h2>
+            <p class="specs-subtitle">{{ $t('products.fixedWingDetail.specs.subtitle') }}</p>
           </div>
 
           <div class="specs-tabs">
             <div class="tab-buttons">
               <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
-                基本参数
+                {{ $t('products.fixedWingDetail.specs.tabs.basic') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
-                技术参数
+                {{ $t('products.fixedWingDetail.specs.tabs.tech') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
-                包装清单
+                {{ $t('products.fixedWingDetail.specs.tabs.package') }}
               </button>
             </div>
 
@@ -183,16 +177,16 @@
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
                 <div v-if="!current" style="color: red; padding: 1rem;">
-                  调试信息：current对象为空
+                  {{ $t('products.fixedWingDetail.debug.currentEmpty') }}
                 </div>
                 <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
-                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                  {{ $t('products.fixedWingDetail.debug.basicEmpty') }} {{ JSON.stringify(current) }}
                 </div>
                 <div v-else>
                   <div class="specs-grid">
                     <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                      <div class="spec-label">{{ key }}</div>
-                      <div class="spec-value">{{ value }}</div>
+                      <div class="spec-label">{{ translateBasicKey(key) }}</div>
+                      <div class="spec-value">{{ translateBasicValue(value) }}</div>
                     </div>
                   </div>
                 </div>
@@ -201,15 +195,15 @@
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
                 <div class="package-content">
-                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                  <div class="package-section" v-for="(value, key) in current.tech" :key="key">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      {{ key }}
+                      {{ translateTechGroup(key) }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in value" key="key">
+                      <div class="package-item" v-for="(value, key) in value" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateTechItemKey(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -222,24 +216,24 @@
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      标配清单
+                      {{ $t('products.fixedWingDetail.specs.package.standardList') }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
+                      <div class="package-item" v-for="(value, key) in packaging_list" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translatePackageItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-file-text"></i>
-                      随机文件
+                      {{ $t('products.fixedWingDetail.specs.package.documents') }}
                     </h3>
-                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" :key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateDocumentItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -252,8 +246,8 @@
         <!-- 保修服务 -->
         <div class="warranty-section">
           <div class="warranty-header">
-            <h2 class="warranty-title">保修服务</h2>
-            <p class="warranty-subtitle">专业的售后保障，让您使用无忧</p>
+            <h2 class="warranty-title">{{ $t('products.fixedWingDetail.warranty.title') }}</h2>
+            <p class="warranty-subtitle">{{ $t('products.fixedWingDetail.warranty.subtitle') }}</p>
           </div>
           <div class="warranty-content">
             <div class="warranty-item">
@@ -261,8 +255,8 @@
                 <i class="bi bi-shield-check"></i>
               </div>
               <div class="warranty-text">
-                <h3>保修期限</h3>
-                <p>我们承诺对提供的产品给予一年保修期限，在这期间，客户可以享受到全方位保修服务。从产品交付之日起计算，无论是产品硬件故障，还是因产品质量问题导致性能异常等情况，我们将负责解决。</p>
+                <h3>{{ $t('products.fixedWingDetail.warranty.items.period.title') }}</h3>
+                <p>{{ $t('products.fixedWingDetail.warranty.items.period.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -270,8 +264,8 @@
                 <i class="bi bi-tools"></i>
               </div>
               <div class="warranty-text">
-                <h3>硬件维修与更换</h3>
-                <p>涵盖产品的各个零部件，如主板、显示屏、硬盘、电源等，若这些硬件出现非人为损坏故障，我们将免费进行维修或更换。</p>
+                <h3>{{ $t('products.fixedWingDetail.warranty.items.hardware.title') }}</h3>
+                <p>{{ $t('products.fixedWingDetail.warranty.items.hardware.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -279,8 +273,8 @@
                 <i class="bi bi-headset"></i>
               </div>
               <div class="warranty-text">
-                <h3>快速响应</h3>
-                <p>对于一般故障，客户可通过电话、邮件等方式向我们反馈，我们的客服人员会在接到反馈后2小时回复客户，确认已收到问题，然后，根据故障具体情况，在24小时内为客户提供解决方案。</p>
+                <h3>{{ $t('products.fixedWingDetail.warranty.items.response.title') }}</h3>
+                <p>{{ $t('products.fixedWingDetail.warranty.items.response.desc') }}</p>
               </div>
             </div>
           </div>
@@ -573,6 +567,122 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/products/fixed-wing')
+    },
+    translateProductName() {
+      const id = this.$route.params.id || ''
+      const map = {
+        'fixed-f1800': 'f1800',
+        'fixed-s2000': 's2000',
+        'fixed-v1500': 'v1500',
+        'fixed-m3000': 'm3000'
+      }
+      const key = map[id] || (id.includes('-') ? id.split('-').pop() : '')
+      if (key) {
+        const path = `products.fixedWingDrones.${key}.name`
+        const result = this.$t(path)
+        if (result && typeof result === 'string' && result !== path) {
+          return result
+        }
+      }
+      return this.current && this.current.name ? this.current.name : ''
+    },
+    translateBasicKey(key) {
+      const map = {
+        '翼展': 'wingspan',
+        '机身长度': 'fuselageLength',
+        '最大起飞重量': 'maxTakeoffWeight',
+        '最大载重': 'maxPayload',
+        '机身材质': 'bodyMaterial',
+        '动力系统': 'powerSystem',
+        '最大速度': 'maxSpeed',
+        '续航时间': 'flightTime',
+        '控制距离': 'controlRange',
+        '工作环境温度': 'operatingTemp'
+      }
+      const code = map[key]
+      return code ? this.$t('products.fixedWingDetail.specs.basicLabels.' + code) : key
+    },
+    translateBasicValue(value) {
+      const map = {
+        '碳纤维': 'carbonFiber',
+        '无刷电机': 'brushlessMotor',
+        '混合动力': 'hybridPower'
+      }
+      const code = map[value]
+      return code ? this.$t('products.fixedWingDetail.specs.values.' + code) : value
+    },
+    translateTechGroup(key) {
+      const map = {
+        '飞行器': 'aircraft',
+        '电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'remoteController'
+      }
+      const code = map[key]
+      return code ? this.$t('products.fixedWingDetail.specs.techSections.' + code) : key
+    },
+    translateTechItemKey(key) {
+      const map = {
+        // 通用/飞行器
+        '起飞重量': 'takeoffWeight',
+        '尺寸': 'dimensions',
+        '最大上升速度': 'maxAscentSpeed',
+        '最大下降速度': 'maxDescentSpeed',
+        '最大水平飞行速度': 'maxHorizontalSpeed',
+        '最大起飞海拔': 'maxTakeoffAltitude',
+        '最长飞行时间': 'maxFlightTime',
+        '最长悬停时间': 'maxHoverTime',
+        '最大续航历程': 'maxRange',
+        '最大抗风速度': 'maxWindResistance',
+        '最大可倾斜角度': 'maxTiltAngle',
+        '工作环境温度': 'operatingTemp',
+        '卫星导航系统': 'gnss',
+        '悬停精度': 'hoverAccuracy',
+        // 电池
+        '容量': 'capacity',
+        '重量': 'weight',
+        '标称电压': 'nominalVoltage',
+        '充电限制电压': 'chargeLimitVoltage',
+        '电池类型': 'batteryType',
+        '能量': 'energy',
+        '充电环境': 'chargeEnv',
+        '充电耗时': 'chargeTime',
+        '电池尺寸': 'batteryDimensions',
+        // 充电器
+        '输入': 'input',
+        '输出': 'output',
+        // 遥控器
+        '最长续航时间': 'batteryEndurance',
+        '充电环境温度': 'chargeTemp',
+        '充电时间': 'chargeTime',
+        '充电方式': 'chargeMethod',
+        '电池容量': 'batteryCapacity'
+      }
+      const code = map[key]
+      return code ? this.$t('products.fixedWingDetail.specs.techLabels.' + code) : key
+    },
+    translatePackageItem(key) {
+      const map = {
+        '飞行器机身': 'host',
+        '机翼': 'wings',
+        '智能飞控': 'flightController',
+        '螺旋桨': 'propellers',
+        '动力电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'rc'
+      }
+      const code = map[key]
+      return code ? this.$t('products.fixedWingDetail.specs.package.items.' + code) : key
+    },
+    translateDocumentItem(key) {
+      const map = {
+        '产品说明书': 'manual',
+        '快速入门指南': 'quickGuide',
+        '免责声明': 'disclaimer',
+        '合格证': 'certificate'
+      }
+      const code = map[key]
+      return code ? this.$t('products.fixedWingDetail.specs.package.documentsMap.' + code) : key
     }
   }
 }

@@ -10,22 +10,22 @@
             <div class="hero-content">
               <div class="product-badge">
                 <i class="bi bi-camera-video"></i>
-                <span>FPV穿越无人机</span>
+                <span>{{ $t('products.fpvDetail.badge') }}</span>
               </div>
-              <h1 class="product-title">{{ current.name }}</h1>
-              <p class="product-subtitle">专业级FPV穿越无人机，极速体验，精准操控</p>
+              <h1 class="product-title">{{ $t('products.fpvDrones.' + getIdKey($route.params.id) + '.name') }}</h1>
+              <p class="product-subtitle">{{ $t('products.fpvDetail.subtitle') }}</p>
               <div class="product-highlights">
                 <div class="highlight-item">
                   <i class="bi bi-speedometer2"></i>
-                  <span>高速穿越</span>
+                  <span>{{ $t('products.fpvDetail.highlights.speed') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-camera-video-fill"></i>
-                  <span>高清图传</span>
+                  <span>{{ $t('products.fpvDetail.highlights.hdVideo') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-stars"></i>
-                  <span>特技飞行</span>
+                  <span>{{ $t('products.fpvDetail.highlights.stuntFlight') }}</span>
                 </div>
               </div>
             </div>
@@ -47,30 +47,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">飞行性能</h2>
+                <h2 class="feature-title">{{ $t('products.fpvDetail.sections.flightPerformance.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                FPV穿越无人机具备高速、灵活的飞行能力，适合竞速、特技飞行和航拍创作。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行。
-              </p>
+              <p class="feature-description">{{ $t('products.fpvDetail.sections.flightPerformance.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高速穿越能力</span>
+                  <span>{{ $t('products.fpvDetail.sections.flightPerformance.items.highSpeed') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>低延迟图传系统</span>
+                  <span>{{ $t('products.fpvDetail.sections.flightPerformance.items.lowLatencyVideo') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>灵活精准操控</span>
+                  <span>{{ $t('products.fpvDetail.sections.flightPerformance.items.agileControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的机动性能</span>
+                  <span>{{ $t('products.fpvDetail.sections.flightPerformance.items.maneuverability') }}</span>
                 </div>
               </div>
             </div>
@@ -82,30 +80,28 @@
           <div class="feature-grid">
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">高强结构</h2>
+                <h2 class="feature-title">{{ $t('products.fpvDetail.sections.strongStructure.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-shield-check"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                采用碳纤维机架，整机轻量化且坚固，适合高强度飞行和复杂动作。碳纤维复合材料的高比强度和比刚度特性使得无人机在保证结构强度的同时，重量大大减轻，具有良好的抗疲劳性和耐久性。
-              </p>
+              <p class="feature-description">{{ $t('products.fpvDetail.sections.strongStructure.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>碳纤维机架设计</span>
+                  <span>{{ $t('products.fpvDetail.sections.strongStructure.items.carbonFiberFrame') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>轻量化结构优化</span>
+                  <span>{{ $t('products.fpvDetail.sections.strongStructure.items.lightweightOptimized') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高强度耐摔性能</span>
+                  <span>{{ $t('products.fpvDetail.sections.strongStructure.items.highStrengthImpact') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的抗疲劳性</span>
+                  <span>{{ $t('products.fpvDetail.sections.strongStructure.items.fatigueResistance') }}</span>
                 </div>
               </div>
             </div>
@@ -127,30 +123,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">优势</h2>
+                <h2 class="feature-title">{{ $t('products.fpvDetail.sections.advantages.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                FPV穿越无人机具备高速、灵活的飞行能力，适合竞速、特技飞行和航拍创作。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行。
-              </p>
+              <p class="feature-description">{{ $t('products.fpvDetail.sections.advantages.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高速穿越能力</span>
+                  <span>{{ $t('products.fpvDetail.sections.advantages.items.highSpeed') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>低延迟图传系统</span>
+                  <span>{{ $t('products.fpvDetail.sections.advantages.items.lowLatencyVideo') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>灵活精准操控</span>
+                  <span>{{ $t('products.fpvDetail.sections.advantages.items.agileControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的机动性能</span>
+                  <span>{{ $t('products.fpvDetail.sections.advantages.items.maneuverability') }}</span>
                 </div>
               </div>
             </div>
@@ -159,23 +153,23 @@
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
-            <h2 class="specs-title">产品参数</h2>
-            <p class="specs-subtitle">详细的技术规格和配置信息</p>
+            <h2 class="specs-title">{{ $t('products.fpvDetail.specs.title') }}</h2>
+            <p class="specs-subtitle">{{ $t('products.fpvDetail.specs.subtitle') }}</p>
           </div>
 
           <div class="specs-tabs">
             <div class="tab-buttons">
               <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
-                基本参数
+                {{ $t('products.fpvDetail.specs.tabs.basic') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
-                技术参数
+                {{ $t('products.fpvDetail.specs.tabs.tech') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
-                包装清单
+                {{ $t('products.fpvDetail.specs.tabs.package') }}
               </button>
             </div>
 
@@ -183,16 +177,16 @@
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
                 <div v-if="!current" style="color: red; padding: 1rem;">
-                  调试信息：current对象为空
+                  {{ $t('products.fpvDetail.debug.currentEmpty') }}
                 </div>
                 <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
-                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                  {{ $t('products.fpvDetail.debug.basicEmpty') }} {{ JSON.stringify(current) }}
                 </div>
                 <div v-else>
                   <div class="specs-grid">
                     <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                      <div class="spec-label">{{ key }}</div>
-                      <div class="spec-value">{{ value }}</div>
+                      <div class="spec-label">{{ translateBasicKey(key) }}</div>
+                      <div class="spec-value">{{ translateBasicValue(value) }}</div>
                     </div>
                   </div>
                 </div>
@@ -201,15 +195,15 @@
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
                 <div class="package-content">
-                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                  <div class="package-section" v-for="(value, key) in current.tech" :key="key">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      {{ key }}
+                      {{ translateTechGroup(key) }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in value" key="key">
+                      <div class="package-item" v-for="(value, key) in value" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateTechItemKey(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -222,24 +216,24 @@
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      标配清单
+                      {{ $t('products.fpvDetail.specs.package.standardList') }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
+                      <div class="package-item" v-for="(value, key) in packaging_list" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translatePackageItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-file-text"></i>
-                      随机文件
+                      {{ $t('products.fpvDetail.specs.package.documents') }}
                     </h3>
-                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" :key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateDocumentItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -252,8 +246,8 @@
         <!-- 保修服务 -->
         <div class="warranty-section">
           <div class="warranty-header">
-            <h2 class="warranty-title">保修服务</h2>
-            <p class="warranty-subtitle">专业的售后保障，让您使用无忧</p>
+            <h2 class="warranty-title">{{ $t('products.fpvDetail.warranty.title') }}</h2>
+            <p class="warranty-subtitle">{{ $t('products.fpvDetail.warranty.subtitle') }}</p>
           </div>
           <div class="warranty-content">
             <div class="warranty-item">
@@ -261,8 +255,8 @@
                 <i class="bi bi-shield-check"></i>
               </div>
               <div class="warranty-text">
-                <h3>保修期限</h3>
-                <p>我们承诺对提供的产品给予一年保修期限，在这期间，客户可以享受到全方位保修服务。从产品交付之日起计算，无论是产品硬件故障，还是因产品质量问题导致性能异常等情况，我们将负责解决。</p>
+                <h3>{{ $t('products.fpvDetail.warranty.items.period.title') }}</h3>
+                <p>{{ $t('products.fpvDetail.warranty.items.period.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -270,8 +264,8 @@
                 <i class="bi bi-tools"></i>
               </div>
               <div class="warranty-text">
-                <h3>硬件维修与更换</h3>
-                <p>涵盖产品的各个零部件，如主板、显示屏、硬盘、电源等，若这些硬件出现非人为损坏故障，我们将免费进行维修或更换。</p>
+                <h3>{{ $t('products.fpvDetail.warranty.items.hardware.title') }}</h3>
+                <p>{{ $t('products.fpvDetail.warranty.items.hardware.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -279,8 +273,8 @@
                 <i class="bi bi-headset"></i>
               </div>
               <div class="warranty-text">
-                <h3>快速响应</h3>
-                <p>对于一般故障，客户可通过电话、邮件等方式向我们反馈，我们的客服人员会在接到反馈后2小时回复客户，确认已收到问题，然后，根据故障具体情况，在24小时内为客户提供解决方案。</p>
+                <h3>{{ $t('products.fpvDetail.warranty.items.response.title') }}</h3>
+                <p>{{ $t('products.fpvDetail.warranty.items.response.desc') }}</p>
               </div>
             </div>
           </div>
@@ -567,6 +561,123 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/products/fpv')
+    },
+    getIdKey(id) {
+      const parts = String(id || '').split('-')
+      return parts.length > 1 ? parts[1] : parts[0]
+    },
+    translateBasicKey(key) {
+      const map = {
+        '机身尺寸': 'bodySize',
+        '重量(不含电池)': 'weightNoBattery',
+        '机架材质': 'frameMaterial',
+        '动力系统': 'powerSystem',
+        '螺旋桨尺寸': 'propellerSize',
+        '电池容量': 'batteryCapacity',
+        '最大速度': 'maxSpeed',
+        '续航时间': 'flightTime',
+        '图传系统': 'videoTransmission',
+        '控制距离': 'controlRange',
+        '悬停精度': 'hoverAccuracy',
+        '工作环境温度': 'operatingTemp'
+      }
+      const code = map[key] || key
+      return typeof code === 'string' && map[key]
+        ? this.$t('products.fpvDetail.specs.labels.' + code)
+        : key
+    },
+    translateBasicValue(value) {
+      const map = {
+        '碳纤维': 'carbonFiber',
+        '无刷电机': 'brushlessMotor',
+        '3寸': 'prop3in',
+        '4.5寸': 'prop4_5in',
+        '5寸': 'prop5in',
+        '6寸': 'prop6in'
+      }
+      const code = map[value]
+      return code ? this.$t('products.fpvDetail.specs.values.' + code) : value
+    },
+    translateTechGroup(key) {
+      const map = {
+        '飞行器': 'aircraft',
+        '电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'remoteController'
+      }
+      const code = map[key] || key
+      return typeof code === 'string' && map[key]
+        ? this.$t('products.fpvDetail.specs.groups.' + code)
+        : key
+    },
+    translateTechItemKey(key) {
+      const map = {
+        '起飞重量': 'takeoffWeight',
+        '尺寸': 'dimensions',
+        '最大上升速度': 'maxAscentSpeed',
+        '最大下降速度': 'maxDescentSpeed',
+        '最大水平飞行速度': 'maxHorizontalSpeed',
+        '最大起飞海拔': 'maxTakeoffAltitude',
+        '最长飞行时间': 'maxFlightTime',
+        '最长悬停时间': 'maxHoverTime',
+        '最大续航历程': 'maxRange',
+        '最大抗风速度': 'maxWindResistance',
+        '最大可倾斜角度': 'maxTiltAngle',
+        '工作环境温度': 'operatingTemp',
+        '卫星导航系统': 'satelliteNavigation',
+        '悬停精度': 'hoverAccuracy',
+        '容量': 'capacity',
+        '重量': 'weight',
+        '标称电压': 'nominalVoltage',
+        '充电限制电压': 'chargeLimitVoltage',
+        '电池类型': 'batteryType',
+        '能量': 'energy',
+        '充电环境': 'chargingEnvironment',
+        '充电耗时': 'chargingTime',
+        '电池尺寸': 'batteryDimensions',
+        '输入': 'input',
+        '输出': 'output',
+        '最长续航时间': 'maxOperatingTime',
+        '充电环境温度': 'chargingEnvTemp',
+        '充电时间': 'chargingTime',
+        '充电方式': 'chargingMethod',
+        '电池容量': 'batteryCapacity'
+      }
+      const code = map[key] || key
+      return typeof code === 'string' && map[key]
+        ? this.$t('products.fpvDetail.specs.techLabels.' + code)
+        : key
+    },
+    translatePackageItem(key) {
+      const map = {
+        '主机': 'mainUnit',
+        '电机': 'motors',
+        '电池': 'battery',
+        '飞控': 'flightController',
+        '电调': 'esc',
+        '螺旋桨': 'propellers',
+        '遥控器': 'remoteController',
+        '摄像头': 'camera',
+        '连接杆': 'connectingRods',
+        '天线': 'antenna',
+        '螺丝/包': 'screwPack'
+      }
+      const code = map[key] || key
+      return typeof code === 'string' && map[key]
+        ? this.$t('products.fpvDetail.specs.package.items.' + code)
+        : key
+    },
+    translateDocumentItem(key) {
+      const map = {
+        '产品说明书': 'manual',
+        '快速入门指南': 'quickStart',
+        '免责声明': 'disclaimer',
+        '合格证': 'certificate'
+      }
+      const code = map[key] || key
+      return typeof code === 'string' && map[key]
+        ? this.$t('products.fpvDetail.specs.package.documentsMap.' + code)
+        : key
     }
   }
 }

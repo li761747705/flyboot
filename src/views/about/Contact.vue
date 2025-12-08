@@ -2,14 +2,14 @@
 <template>
   <div class="contact-page">
     <div class="contact-banner">
-      <img src="/images/about/contact/通用1900X400.png" alt="招贤纳士" loading="lazy" />
+      <img src="/images/about/contact/通用1900X400.png" :alt="$t('about.contactPage.bannerAlt')" loading="lazy" />
     </div>
     <!-- 联系信息区域 -->
     <section class="contact-info-section">
       <div class="container">
         <div class="contact-header">
-          <h2 class="contact-title">联系我们</h2>
-          <p class="contact-subtitle">随时为您提供专业的技术支持和服务</p>
+          <h2 class="contact-title">{{ $t('about.contactPage.title') }}</h2>
+          <p class="contact-subtitle">{{ $t('about.contactPage.subtitle') }}</p>
         </div>
         
         <div class="contact-info-card">
@@ -19,22 +19,22 @@
                 <i class="bi bi-geo-alt"></i>
               </div>
               <div class="contact-details">
-                <h3>中国大陆地址</h3>
+                <h3>{{ $t('about.contactPage.address.title') }}</h3>
                 <div class="contact-item">
                   <i class="bi bi-building"></i>
-                  <span>四川麒风智能科技有限公司</span>
+                  <span>{{ $t('about.contactPage.address.company') }}</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-geo-alt"></i>
-                  <span>四川省成都市高新区天府五街200号菁蓉汇7号楼</span>
+                  <span>{{ $t('about.contactPage.address.detail') }}</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-telephone"></i>
-                  <span>028-8888-8888</span>
+                  <span>{{ $t('about.contactPage.address.phone') }}</span>
                 </div>
                 <div class="contact-item">
                   <i class="bi bi-envelope"></i>
-                  <span>info@linfengai.com</span>
+                  <span>{{ $t('about.contactPage.address.email') }}</span>
                 </div>
               </div>
             </div>
@@ -46,8 +46,8 @@
                 <i class="bi bi-qr-code"></i>
               </div>
               <div class="qr-text">
-                <h4>扫码联系</h4>
-                <p>微信二维码</p>
+                <h4>{{ $t('about.contactPage.qr.title') }}</h4>
+                <p>{{ $t('about.contactPage.qr.caption') }}</p>
               </div>
             </div>
           </div>
@@ -60,8 +60,8 @@
       <div class="container">
         <div class="form-card">
           <div class="form-header">
-            <h3>在线咨询</h3>
-            <p>填写以下信息，我们将尽快与您联系</p>
+            <h3>{{ $t('about.contactPage.form.title') }}</h3>
+            <p>{{ $t('about.contactPage.form.subtitle') }}</p>
           </div>
           
           <form class="contact-form" @submit.prevent="submitContactForm">
@@ -69,58 +69,58 @@
               <div class="form-group">
                 <label for="name">
                   <i class="bi bi-person"></i>
-                  姓名
+                  {{ $t('about.contactPage.form.labels.name') }}
                 </label>
                 <input 
                   id="name"
                   v-model="contactForm.name" 
                   type="text" 
                   class="form-input" 
-                  placeholder="请输入您的姓名" 
+                  :placeholder="$t('about.contactPage.form.placeholders.name')" 
                   required 
                 />
               </div>
               <div class="form-group">
                 <label for="phone">
                   <i class="bi bi-telephone"></i>
-                  电话
+                  {{ $t('about.contactPage.form.labels.phone') }}
                 </label>
                 <input 
                   id="phone"
                   v-model="contactForm.phone" 
                   type="tel" 
                   class="form-input" 
-                  placeholder="请输入您的联系电话" 
+                  :placeholder="$t('about.contactPage.form.placeholders.phone')" 
                   required 
                 />
               </div>
             </div>
             
             <div class="form-group">
-              <label for="email">
-                <i class="bi bi-envelope"></i>
-                邮箱
-              </label>
+                <label for="email">
+                  <i class="bi bi-envelope"></i>
+                  {{ $t('about.contactPage.form.labels.email') }}
+                </label>
               <input 
                 id="email"
                 v-model="contactForm.email" 
                 type="email" 
                 class="form-input" 
-                placeholder="请输入您的邮箱地址" 
+                  :placeholder="$t('about.contactPage.form.placeholders.email')" 
                 required 
               />
             </div>
             
             <div class="form-group">
-              <label for="message">
+                <label for="message">
                 <i class="bi bi-chat-text"></i>
-                需求描述
+                {{ $t('about.contactPage.form.labels.message') }}
               </label>
               <textarea 
                 id="message"
                 v-model="contactForm.message" 
                 class="form-textarea" 
-                placeholder="请详细描述您的需求或问题..." 
+                :placeholder="$t('about.contactPage.form.placeholders.message')" 
                 rows="5"
                 required
               ></textarea>
@@ -129,7 +129,7 @@
             <div class="form-actions">
               <button type="submit" class="submit-btn">
                 <i class="bi bi-send"></i>
-                提交咨询
+                {{ $t('about.contactPage.form.submit') }}
               </button>
             </div>
           </form>
@@ -155,13 +155,13 @@ export default {
   methods: {
     submitContactForm() {
       if (!this.contactForm.name || !this.contactForm.phone || !this.contactForm.email || !this.contactForm.message) {
-        alert('请完整填写所有信息');
+        alert(this.$t('about.contactPage.form.alertFillAll'));
         return;
       }
       
-      const subject = encodeURIComponent('麒风智能网站联系表单留言');
+      const subject = encodeURIComponent(this.$t('about.contactPage.email.subject'));
       const body = encodeURIComponent(
-        `姓名：${this.contactForm.name}\n联系方式：${this.contactForm.phone}\n邮箱：${this.contactForm.email}\n需求：${this.contactForm.message}`
+        `${this.$t('about.contactPage.email.labels.name')}${this.contactForm.name}\n${this.$t('about.contactPage.email.labels.phone')}${this.contactForm.phone}\n${this.$t('about.contactPage.email.labels.email')}${this.contactForm.email}\n${this.$t('about.contactPage.email.labels.message')}${this.contactForm.message}`
       );
       
       window.location.href = `mailto:info@linfengai.com?subject=${subject}&body=${body}`;

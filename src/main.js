@@ -20,6 +20,51 @@ const app = createApp(App)
 app.use(router)
 app.use(i18n)
 
+function updateHead(info) {
+  if (!info || typeof window === 'undefined') return
+  if (info.title) {
+    document.title = info.title
+  }
+  if (Array.isArray(info.meta)) {
+    info.meta.forEach(m => {
+      if (!m || !m.name) return
+      const name = m.name
+      const content = m.content || ''
+      let tag = document.querySelector(`meta[name='${name}']`)
+      if (!tag) {
+        tag = document.createElement('meta')
+        tag.setAttribute('name', name)
+        document.head.appendChild(tag)
+      }
+      tag.setAttribute('content', content)
+    })
+  }
+}
+
+app.mixin({
+  mounted() {
+    const fn = this.$options && this.$options.metaInfo
+    if (typeof fn === 'function') {
+      const info = fn.call(this)
+      updateHead(info)
+    }
+  }
+})
+
+router.afterEach((to) => {
+  // 等待视图实例挂载完成后再读取 metaInfo（确保子路由优先生效）
+  setTimeout(() => {
+    let finalInfo = null
+    to.matched.forEach(record => {
+      const vm = record.instances && record.instances.default
+      if (vm && typeof vm.$options?.metaInfo === 'function') {
+        finalInfo = vm.$options.metaInfo.call(vm)
+        updateHead(finalInfo)
+      }
+    })
+  }, 0)
+})
+
 // 将事件总线添加到全局属性
 app.config.globalProperties.emitter = emitter
 

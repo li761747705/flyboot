@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机近距离、无感化巡检高压输电线路、铁塔及变电站，精准识别绝缘子破损、金具松脱、发热点等隐患。替代高危人工攀爬，效率提升数倍，保障电网稳定运行，降低运维成本与风险。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.powerline.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.powerline.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '红外温度监测', image: '/images/applications/powerline/01（600X350）.png' },
-        { title: '故障查找', image: '/images/applications/powerline/02(900X500).png' },
-        { title: '异物清除', image: '/images/applications/电力400X620.png' },
-        { title: '精准检查', image: '/images/applications/电力400X620.png' },
-        { title: '三维建模', image: '/images/applications/电力400X620.png' }
+        { titleKey: 'applicationsDetail.powerline.cards.item1', image: '/images/applications/powerline/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.powerline.cards.item2', image: '/images/applications/powerline/02(900X500).png' },
+        { titleKey: 'applicationsDetail.powerline.cards.item3', image: '/images/applications/电力400X620.png' },
+        { titleKey: 'applicationsDetail.powerline.cards.item4', image: '/images/applications/电力400X620.png' },
+        { titleKey: 'applicationsDetail.powerline.cards.item5', image: '/images/applications/电力400X620.png' }
       ]
     }
   },

@@ -10,26 +10,26 @@
             <div class="hero-content text-center">
               <div class="hero-badge">
                 <i class="bi bi-airplane"></i>
-                <span>固定翼无人机</span>
+                <span>{{ $t('products.fixedWingPage.heroBadge') }}</span>
               </div>
-              <h1 class="hero-title">固定翼无人机</h1>
-              <p class="hero-subtitle">长空翱翔，使命必达</p>
+              <h1 class="hero-title">{{ $t('products.fixedWingPage.heroTitle') }}</h1>
+              <p class="hero-subtitle">{{ $t('products.fixedWingPage.heroSubtitle') }}</p>
               <div class="hero-features">
                 <div class="feature-item">
                   <i class="bi bi-clock"></i>
-                  <span>长航时</span>
+                  <span>{{ $t('products.fixedWingPage.features.endurance') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-speedometer2"></i>
-                  <span>高效飞行</span>
+                  <span>{{ $t('products.fixedWingPage.features.efficient') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-grid-3x3"></i>
-                  <span>大面积覆盖</span>
+                  <span>{{ $t('products.fixedWingPage.features.coverage') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-gear-wide-connected"></i>
-                  <span>多场景应用</span>
+                  <span>{{ $t('products.fixedWingPage.features.multiScene') }}</span>
                 </div>
               </div>
             </div>
@@ -42,17 +42,17 @@
     <section class="products-section">
       <div class="container">
         <div class="section-header text-center mb-5">
-          <h2 class="section-title section-line">产品系列</h2>
-          <p class="section-subtitle">专业级固定翼无人机，适用于测绘、巡检、监控等场景</p>
+          <h2 class="section-title section-line">{{ $t('products.fixedWingPage.sectionTitle') }}</h2>
+          <p class="section-subtitle">{{ $t('products.fixedWingPage.sectionSubtitle') }}</p>
         </div>
         <div class="product-grid">
           <div class="product-card" v-for="(drone, index) in drones" :key="drone.id" @click="goToDetail(drone.id)">
             <div class="card-bg" :style="{ backgroundImage: `url('${drone.image}')`, backgroundSize: 'cover' }">
               <div class="card-overlay"></div>
               <div class="card-content">
-                <div class="product-badge" :class="getBadgeClass(index)">{{ drone.category }}</div>
-                <h3 class="product-name">{{ drone.name }}</h3>
-                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">查看详情</button>
+                <div class="product-badge" :class="getBadgeClass(index)">{{ $t(drone.categoryKey) }}</div>
+                <h3 class="product-name">{{ $t(drone.nameKey) }}</h3>
+                <button class="btn btn-detail" @click.stop="goToDetail(drone.id)">{{ $t('products.fixedWingPage.buttonDetail') }}</button>
               </div>
             </div>
           </div>
@@ -65,59 +65,68 @@
 <script>
 export default {
   name: 'FixedWingDrone',
+  metaInfo() {
+    return {
+      title: this.$t('meta.fixedWing.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.fixedWing.description') },
+        { name: 'keywords', content: this.$t('meta.fixedWing.keywords') }
+      ]
+    }
+  },
   data() {
     return {
       drones: [
         {
           id: 'fixed-f1800',
-          name: 'F1800 测绘型固定翼',
-          category: '测绘型',
-          description: '专业测绘无人机，高精度摄影测量',
+          nameKey: 'products.fixedWingDrones.f1800.name',
+          categoryKey: 'products.fixedWingDrones.f1800.category',
+          descKey: 'products.fixedWingDrones.f1800.description',
           image: '/images/products/fixedwing/02.png',
           specs: {
-            '最大起飞重量': '5.2kg',
-            '续航时间': '120分钟',
-            '最大飞行高度': '5000m',
-            '抗风能力': '6级'
+            maxTakeoffWeight: '5.2kg',
+            endurance: '120min',
+            maxAltitude: '5000m',
+            windResistance: 'Level 6'
           }
         },
         {
           id: 'fixed-s2000',
-          name: 'S2000 监控型固定翼',
-          category: '监控型',
-          description: '长航时监控无人机，大范围巡查',
+          nameKey: 'products.fixedWingDrones.s2000.name',
+          categoryKey: 'products.fixedWingDrones.s2000.category',
+          descKey: 'products.fixedWingDrones.s2000.description',
           image: '/images/products/fixedwing/02.png',
           specs: {
-            '最大起飞重量': '6.5kg',
-            '续航时间': '150分钟',
-            '最大飞行高度': '6000m',
-            '抗风能力': '6级'
+            maxTakeoffWeight: '6.5kg',
+            endurance: '150min',
+            maxAltitude: '6000m',
+            windResistance: 'Level 6'
           }
         },
         {
           id: 'fixed-v1500',
-          name: 'V1500 垂直起降固定翼',
-          category: 'VTOL型',
-          description: '垂直起降固定翼，无需跑道',
+          nameKey: 'products.fixedWingDrones.v1500.name',
+          categoryKey: 'products.fixedWingDrones.v1500.category',
+          descKey: 'products.fixedWingDrones.v1500.description',
           image: '/images/products/fixedwing/02.png',
           specs: {
-            '最大起飞重量': '4.8kg',
-            '续航时间': '90分钟',
-            '最大飞行高度': '4000m',
-            '抗风能力': '5级'
+            maxTakeoffWeight: '4.8kg',
+            endurance: '90min',
+            maxAltitude: '4000m',
+            windResistance: 'Level 5'
           }
         },
         {
           id: 'fixed-m3000',
-          name: 'M3000 大型测绘固定翼',
-          category: '大型',
-          description: '大型测绘固定翼，超长航时',
+          nameKey: 'products.fixedWingDrones.m3000.name',
+          categoryKey: 'products.fixedWingDrones.m3000.category',
+          descKey: 'products.fixedWingDrones.m3000.description',
           image: '/images/products/fixedwing/02.png',
           specs: {
-            '最大起飞重量': '12kg',
-            '续航时间': '240分钟',
-            '最大飞行高度': '8000m',
-            '抗风能力': '7级'
+            maxTakeoffWeight: '12kg',
+            endurance: '240min',
+            maxAltitude: '8000m',
+            windResistance: 'Level 7'
           }
         }
       ]

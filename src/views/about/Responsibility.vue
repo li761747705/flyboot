@@ -1,7 +1,7 @@
 <template>
   <div class="responsibility-page">
     <div class="responsibility-banner">
-      <img src="/images/about/responsibility/通用-1900X400.png" alt="社会责任" loading="lazy" />
+      <img src="/images/about/responsibility/通用-1900X400.png" :alt="$t('about.responsibilityPage.bannerAlt')" loading="lazy" />
     </div>
     <!-- 主要内容区下移 -->
     <div class="responsibility-content">
@@ -9,8 +9,8 @@
       <section class="responsibility-header">
         <div class="container">
           <div class="header-content">
-            <h2 class="page-title">社会责任</h2>
-            <p class="page-subtitle">用科技力量服务社会，践行企业责任</p>
+            <h2 class="page-title">{{ $t('about.responsibilityPage.title') }}</h2>
+            <p class="page-subtitle">{{ $t('about.responsibilityPage.subtitle') }}</p>
           </div>
         </div>
       </section>
@@ -27,7 +27,7 @@
             >
               <div class="project-image">
                 <div class="image-placeholder">
-                  <img :src="item.img" :alt="item.title" loading="lazy" />
+                  <img :src="item.img" :alt="$t(item.titleKey)" loading="lazy" />
                   </div>
               </div>
               <div class="project-content">
@@ -35,26 +35,26 @@
                   <div class="project-icon">
                     <i :class="item.icon"></i>
                   </div>
-                  <h3 class="project-title">{{ item.title }}</h3>
+                  <h3 class="project-title">{{ $t(item.titleKey) }}</h3>
                 </div>
                 <div class="project-description">
-                  <p>{{ item.desc }}</p>
+                  <p>{{ $t(item.descKey) }}</p>
                   <div v-if="item.features" class="project-features">
-                    <div class="feature-item" v-for="f in item.features" :key="f.text">
+                    <div class="feature-item" v-for="f in item.features" :key="f.textKey">
                       <i :class="f.icon"></i>
-                      <span>{{ f.text }}</span>
+                      <span>{{ $t(f.textKey) }}</span>
                     </div>
                   </div>
                   <div v-if="item.stats" class="project-stats">
-                    <div class="stat-item" v-for="s in item.stats" :key="s.label">
+                    <div class="stat-item" v-for="s in item.stats" :key="s.labelKey">
                       <div class="stat-number">{{ s.number }}</div>
-                      <div class="stat-label">{{ s.label }}</div>
+                      <div class="stat-label">{{ $t(s.labelKey) }}</div>
                     </div>
                   </div>
                   <div v-if="item.highlights" class="project-highlights">
-                    <div class="highlight-item" v-for="h in item.highlights" :key="h.text">
+                    <div class="highlight-item" v-for="h in item.highlights" :key="h.textKey">
                       <i :class="h.icon"></i>
-                      <span>{{ h.text }}</span>
+                      <span>{{ $t(h.textKey) }}</span>
                     </div>
                   </div>
                 </div>
@@ -69,15 +69,15 @@
         <div class="container">
           <div class="summary-card">
             <div class="summary-header">
-              <h3 class="summary-title">我们的承诺</h3>
-              <p class="summary-subtitle">持续用科技创新服务社会，承担更多社会责任</p>
+              <h3 class="summary-title">{{ $t('about.responsibilityPage.summary.title') }}</h3>
+              <p class="summary-subtitle">{{ $t('about.responsibilityPage.summary.subtitle') }}</p>
             </div>
             <div class="summary-content">
-              <div class="commitment-item" v-for="c in commitments" :key="c.title">
+              <div class="commitment-item" v-for="c in commitments" :key="c.titleKey">
                 <i :class="c.icon"></i>
                 <div class="commitment-text">
-                  <h4>{{ c.title }}</h4>
-                  <p>{{ c.desc }}</p>
+                  <h4>{{ $t(c.titleKey) }}</h4>
+                  <p>{{ $t(c.descKey) }}</p>
                 </div>
               </div>
             </div>
@@ -95,54 +95,54 @@ export default {
     return {
       projects: [
         {
-          title: '无人机救援行动',
+          titleKey: 'about.responsibilityPage.projects.rescue.title',
           img: '/images/about/responsibility/通用430X420.png',
           icon: 'bi bi-heart-pulse',
-          desc: '无人机在救援行动中发挥了重要作用，特别是在复杂环境的紧急情况下，无人机的高空视角和远程操作使其成为有效的救援工具。',
+          descKey: 'about.responsibilityPage.projects.rescue.desc',
           features: [
-            { icon: 'bi bi-eye', text: '高空视角监控' },
-            { icon: 'bi bi-wifi', text: '远程实时操作' },
-            { icon: 'bi bi-shield-check', text: '安全救援保障' }
+            { icon: 'bi bi-eye', textKey: 'about.responsibilityPage.projects.rescue.features.item1' },
+            { icon: 'bi bi-wifi', textKey: 'about.responsibilityPage.projects.rescue.features.item2' },
+            { icon: 'bi bi-shield-check', textKey: 'about.responsibilityPage.projects.rescue.features.item3' }
           ]
         },
         {
-          title: '无人机农作物喷洒作业示范',
+          titleKey: 'about.responsibilityPage.projects.agriculture.title',
           img: '/images/about/responsibility/通用430X420.png',
           icon: 'bi bi-droplet',
-          desc: '无人机喷洒农药的效率极高，单机每小时作业面积可达100亩以上，是传统人工喷洒的数倍。搭载AI技术和厘米级导航系统，能够实现精准感知，减少重喷和漏喷现象，提高农药利用率至90%以上。',
+          descKey: 'about.responsibilityPage.projects.agriculture.desc',
           stats: [
-            { number: '100+', label: '亩/小时作业面积' },
-            { number: '90%+', label: '农药利用率' },
-            { number: 'AI', label: '智能导航系统' }
+            { number: '100+', labelKey: 'about.responsibilityPage.projects.agriculture.stats.item1' },
+            { number: '90%+', labelKey: 'about.responsibilityPage.projects.agriculture.stats.item2' },
+            { number: 'AI', labelKey: 'about.responsibilityPage.projects.agriculture.stats.item3' }
           ]
         },
         {
-          title: '2022年泸定县地震救援',
+          titleKey: 'about.responsibilityPage.projects.earthquake.title',
           img: '/images/about/responsibility/通用430X420.png',
           icon: 'bi bi-telephone',
-          desc: '无人机在地震灾区建立专网通信，协助应急管理部构建应急指挥通信网络，保障应急救援工作的顺利进行。通过实时传输的画面帮助救援人员发现被困群众，并通过喊话器与他们取得联系，指导设置醒目标志。',
+          descKey: 'about.responsibilityPage.projects.earthquake.desc',
           highlights: [
-            { icon: 'bi bi-broadcast', text: '专网通信建立' },
-            { icon: 'bi bi-camera-video', text: '实时画面传输' },
-            { icon: 'bi bi-megaphone', text: '远程喊话指导' }
+            { icon: 'bi bi-broadcast', textKey: 'about.responsibilityPage.projects.earthquake.highlights.item1' },
+            { icon: 'bi bi-camera-video', textKey: 'about.responsibilityPage.projects.earthquake.highlights.item2' },
+            { icon: 'bi bi-megaphone', textKey: 'about.responsibilityPage.projects.earthquake.highlights.item3' }
           ]
         }
       ],
       commitments: [
         {
           icon: 'bi bi-lightbulb',
-          title: '技术创新',
-          desc: '持续投入研发，推动无人机技术在更多领域的应用'
+          titleKey: 'about.responsibilityPage.summary.items.innovation.title',
+          descKey: 'about.responsibilityPage.summary.items.innovation.desc'
         },
         {
           icon: 'bi bi-people',
-          title: '社会服务',
-          desc: '积极参与应急救援、农业现代化等社会公益事业'
+          titleKey: 'about.responsibilityPage.summary.items.service.title',
+          descKey: 'about.responsibilityPage.summary.items.service.desc'
         },
         {
           icon: 'bi bi-globe',
-          title: '环境保护',
-          desc: '通过精准农业技术，减少农药使用，保护生态环境'
+          titleKey: 'about.responsibilityPage.summary.items.environment.title',
+          descKey: 'about.responsibilityPage.summary.items.environment.desc'
         }
       ]
     }

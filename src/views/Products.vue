@@ -2,7 +2,7 @@
   <div class="products-page">
     <!-- 只在/products主页面显示主内容 -->
     <template v-if="$route.path === '/products'">
-      <section v-for="banner in allBanners" :key="banner.title" class="support-banner clickable-banner"
+      <section v-for="banner in allBanners" :key="banner.key" class="support-banner clickable-banner"
         :style="{ backgroundImage: `url('${banner.bgImg}')`, height: banner.height }" @click="goTo(banner.link)">
         <div class="support-banner-overlay">
           <h1 class="support-banner-title">{{ banner.title }}</h1>
@@ -18,7 +18,7 @@
         <p class="text-center mb-5" style="font-size: 1.1rem; color: #333;white-space: pre-wrap;">
           {{$t('products.titleCaseDes1')}}
          </p>
-        <div v-for="(group, idx) in droneGroups" :key="group.title" class="row align-items-center mb-5 flex-wrap drone-group-row">
+        <div v-for="(group, idx) in droneGroups" :key="group.key" class="row align-items-center mb-5 flex-wrap drone-group-row">
           <template v-if="idx % 2 === 0">
             <!-- 左图右文 -->
             <div class="col-md-6 mb-3 mb-md-0">
@@ -35,7 +35,7 @@
               <div class="mb-2 drone-group-title">{{ group.title }}</div>
               <div class="mb-3 drone-group-desc">{{ group.desc }}</div>
               <router-link :to="group.link" class="btn btn-outline-danger rounded-pill px-4 drone-group-btn">
-                查看产品 <span class="drone-group-btn-arrow">&gt;</span>
+                {{$t('products.viewProduct')}} <span class="drone-group-btn-arrow">&gt;</span>
               </router-link>
             </div>
           </template>
@@ -55,7 +55,7 @@
               <div class="mb-2 drone-group-title">{{ group.title }}</div>
               <div class="mb-3 drone-group-desc">{{ group.desc }}</div>
               <router-link :to="group.link" class="btn btn-outline-danger rounded-pill px-4 drone-group-btn">
-                查看产品 <span class="drone-group-btn-arrow">&gt;</span>
+                {{$t('products.viewProduct')}} <span class="drone-group-btn-arrow">&gt;</span>
               </router-link>
             </div>
           </template>
@@ -66,7 +66,7 @@
     <router-view />
     <!-- 页面底部行业应用banner（Footer上方） -->
     <div class="industry-banner-block">
-      <img src="/images/products/05.png" alt="行业应用" class="industry-banner-img" loading="lazy" />
+      <img src="/images/products/05.png" :alt="$t('applications.pageTitle')" class="industry-banner-img" loading="lazy" />
       <div class="industry-banner-content">
         <span class="industry-banner-title">{{$t('common.applications')}}</span>
         <button class="industry-banner-btn" @click="$router.push('/applications')">{{$t('common.learnMore')}}</button>
@@ -79,42 +79,63 @@
 <script>
 export default {
   name: 'Products',
-  data() {
+  metaInfo() {
     return {
-      allBanners: [
+      title: this.$t('meta.products.title'),
+      meta: [
+        { name: 'description', content: this.$t('meta.products.description') },
+        { name: 'keywords', content: this.$t('meta.products.keywords') }
+      ]
+    }
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    allBanners() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
         {
+          key: `products-${locale}`,
           title: this.$t('products.title'),
           subtitle: this.$t('products.description'),
           bgImg: '/images/products/通用-1900X400.png',
           height: '700px',
           link: '/support'
         }
-      ],
-      droneGroups: [
+      ]
+    },
+    droneGroups() {
+      const locale = this.$i18n && this.$i18n.locale;
+      return [
         {
+          key: `fpv-${locale}`,
           title: this.$t('products.droneGroups.fpvTitle'),
-          imageText: '穿越无人机图片',
+          imageText: this.$t('products.imagePlaceholder.fpv'),
           desc: this.$t('products.droneGroups.fpvDes'),
           link: '/products/fpv',
           image: '/images/products/01.png',
         },
         {
+          key: `multiRotor-${locale}`,
           title: this.$t('products.droneGroups.multiRotorTitle'),
-          imageText: '多旋翼无人机图片',
+          imageText: this.$t('products.imagePlaceholder.multiRotor'),
           desc: this.$t('products.droneGroups.multiRotorDes'),
           link: '/products/multi-rotor',
           image: '/images/products/02.png',
         },
         {
+          key: `fixedWing-${locale}`,
           title: this.$t('products.droneGroups.fixedWingTitle'),  
-          imageText: '固定翼无人机',
+          imageText: this.$t('products.imagePlaceholder.fixedWing'),
           desc: this.$t('products.droneGroups.fixedWingDes'),
           link: '/products/fixed-wing',
           image: '/images/products/03.png',
         },
         {
+          key: `helicopter-${locale}`,
           title: this.$t('products.droneGroups.helicopterTitle'),
-          imageText: '无人直升机',
+          imageText: this.$t('products.imagePlaceholder.helicopter'),
           desc: this.$t('products.droneGroups.helicopterDes'),
           link: '/products/helicopter',
           image: '/images/products/04.png',

@@ -20,22 +20,22 @@
             <div class="hero-content">
               <div class="product-badge">
                 <i class="bi bi-helicopter"></i>
-                <span>直升机无人机</span>
+                <span>{{ $t('products.helicopterDetail.badge') }}</span>
               </div>
-              <h1 class="product-title">{{ current.name }}</h1>
-              <p class="product-subtitle">专业级直升机无人机，垂直起降，精准悬停，多功能应用</p>
+              <h1 class="product-title">{{ translateProductName() }}</h1>
+              <p class="product-subtitle">{{ $t('products.helicopterDetail.subtitle') }}</p>
               <div class="product-highlights">
                 <div class="highlight-item">
                   <i class="bi bi-arrow-up-circle"></i>
-                  <span>垂直起降</span>
+                  <span>{{ $t('products.helicopterDetail.highlights.vtol') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-pause-circle"></i>
-                  <span>精准悬停</span>
+                  <span>{{ $t('products.helicopterDetail.highlights.preciseHover') }}</span>
                 </div>
                 <div class="highlight-item">
                   <i class="bi bi-gear-wide"></i>
-                  <span>多功能应用</span>
+                  <span>{{ $t('products.helicopterDetail.highlights.multiFunction') }}</span>
                 </div>
               </div>
             </div>
@@ -57,30 +57,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">飞行性能</h2>
+                <h2 class="feature-title">{{ $t('products.helicopterDetail.sections.flightPerformance.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                直升机无人机具备垂直起降、精准悬停的飞行能力，适合复杂环境下的作业任务。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现精准的作业控制。
-              </p>
+              <p class="feature-description">{{ $t('products.helicopterDetail.sections.flightPerformance.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>垂直起降能力</span>
+                  <span>{{ $t('products.helicopterDetail.sections.flightPerformance.items.vtolCapability') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>精准悬停控制</span>
+                  <span>{{ $t('products.helicopterDetail.sections.flightPerformance.items.preciseHoverControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>复杂环境适应</span>
+                  <span>{{ $t('products.helicopterDetail.sections.flightPerformance.items.complexEnvAdaptation') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>多功能作业能力</span>
+                  <span>{{ $t('products.helicopterDetail.sections.flightPerformance.items.multiMissionCapability') }}</span>
                 </div>
               </div>
             </div>
@@ -92,30 +90,28 @@
           <div class="feature-grid">
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">高强结构</h2>
+                <h2 class="feature-title">{{ $t('products.helicopterDetail.sections.strongStructure.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-shield-check"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                采用高强度铝合金和碳纤维复合材料，机身结构坚固且轻量化，适应复杂环境，保障飞行安全。先进的材料工艺和结构设计使得无人机在保证结构强度的同时，具有良好的抗疲劳性和耐久性。
-              </p>
+              <p class="feature-description">{{ $t('products.helicopterDetail.sections.strongStructure.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>高强度铝合金制造</span>
+                  <span>{{ $t('products.helicopterDetail.sections.strongStructure.items.aluminumAlloy') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>碳纤维复合材料</span>
+                  <span>{{ $t('products.helicopterDetail.sections.strongStructure.items.carbonFiberComposite') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>坚固耐用结构</span>
+                  <span>{{ $t('products.helicopterDetail.sections.strongStructure.items.durableStructure') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>优秀的抗疲劳性</span>
+                  <span>{{ $t('products.helicopterDetail.sections.strongStructure.items.fatigueResistance') }}</span>
                 </div>
               </div>
             </div>
@@ -137,30 +133,28 @@
             </div>
             <div class="feature-content">
               <div class="feature-header">
-                <h2 class="feature-title">优势</h2>
+                <h2 class="feature-title">{{ $t('products.helicopterDetail.sections.advantages.title') }}</h2>
                 <div class="feature-icon">
                   <i class="bi bi-speedometer2"></i>
                 </div>
               </div>
-              <p class="feature-description">
-                直升机无人机具备垂直起降、精准悬停的飞行能力，适合复杂环境下的作业任务。采用先进的飞控系统和动力配置，确保在各种复杂环境下都能稳定飞行，实现精准的作业控制。
-              </p>
+              <p class="feature-description">{{ $t('products.helicopterDetail.sections.advantages.desc') }}</p>
               <div class="feature-list">
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>垂直起降能力</span>
+                  <span>{{ $t('products.helicopterDetail.sections.advantages.items.vtolCapability') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>精准悬停控制</span>
+                  <span>{{ $t('products.helicopterDetail.sections.advantages.items.preciseHoverControl') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>复杂环境适应</span>
+                  <span>{{ $t('products.helicopterDetail.sections.advantages.items.complexEnvAdaptation') }}</span>
                 </div>
                 <div class="feature-item">
                   <i class="bi bi-check-circle-fill"></i>
-                  <span>多功能作业能力</span>
+                  <span>{{ $t('products.helicopterDetail.sections.advantages.items.multiMissionCapability') }}</span>
                 </div>
               </div>
             </div>
@@ -169,23 +163,23 @@
         <!-- 产品参数标签页 -->
         <div class="specs-section">
           <div class="specs-header">
-            <h2 class="specs-title">产品参数</h2>
-            <p class="specs-subtitle">详细的技术规格和配置信息</p>
+            <h2 class="specs-title">{{ $t('products.helicopterDetail.specs.title') }}</h2>
+            <p class="specs-subtitle">{{ $t('products.helicopterDetail.specs.subtitle') }}</p>
           </div>
 
           <div class="specs-tabs">
             <div class="tab-buttons">
               <button class="tab-btn" :class="{ active: activeTab === 'basic' }" @click="activeTab = 'basic'">
                 <i class="bi bi-info-circle"></i>
-                基本参数
+                {{ $t('products.helicopterDetail.specs.tabs.basic') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'tech' }" @click="activeTab = 'tech'">
                 <i class="bi bi-gear"></i>
-                技术参数
+                {{ $t('products.helicopterDetail.specs.tabs.tech') }}
               </button>
               <button class="tab-btn" :class="{ active: activeTab === 'package' }" @click="activeTab = 'package'">
                 <i class="bi bi-box-seam"></i>
-                包装清单
+                {{ $t('products.helicopterDetail.specs.tabs.package') }}
               </button>
             </div>
 
@@ -193,16 +187,16 @@
               <!-- 基本参数 -->
               <div v-show="activeTab === 'basic'" class="tab-pane">
                 <div v-if="!current" style="color: red; padding: 1rem;">
-                  调试信息：current对象为空
+                  {{ $t('products.helicopterDetail.debug.currentEmpty') }}
                 </div>
                 <div v-else-if="!current.basic" style="color: red; padding: 1rem;">
-                  调试信息：current.basic为空，current对象：{{ JSON.stringify(current) }}
+                  {{ $t('products.helicopterDetail.debug.basicEmpty') }} {{ JSON.stringify(current) }}
                 </div>
                 <div v-else>
                   <div class="specs-grid">
                     <div class="spec-item" v-for="(value, key) in current.basic" :key="key">
-                      <div class="spec-label">{{ key }}</div>
-                      <div class="spec-value">{{ value }}</div>
+                      <div class="spec-label">{{ translateBasicKey(key) }}</div>
+                      <div class="spec-value">{{ translateBasicValue(value) }}</div>
                     </div>
                   </div>
                 </div>
@@ -211,15 +205,15 @@
               <!-- 技术参数 -->
               <div v-show="activeTab === 'tech'" class="tab-pane">
                 <div class="package-content">
-                  <div class="package-section" v-for="(value, key) in current.tech" key="key">
+                  <div class="package-section" v-for="(value, key) in current.tech" :key="key">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      {{ key }}
+                      {{ translateTechGroup(key) }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in value" key="key">
+                      <div class="package-item" v-for="(value, key) in value" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateTechItemKey(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -232,24 +226,24 @@
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-box-seam"></i>
-                      标配清单
+                      {{ $t('products.helicopterDetail.specs.package.standardList') }}
                     </h3>
                     <div class="package-list">
-                      <div class="package-item" v-for="(value, key) in packaging_list" key="key">
+                      <div class="package-item" v-for="(value, key) in packaging_list" :key="key">
                         <i class="bi bi-check2-circle"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translatePackageItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
                   <div class="package-section">
                     <h3 class="package-title">
                       <i class="bi bi-file-text"></i>
-                      随机文件
+                      {{ $t('products.helicopterDetail.specs.package.documents') }}
                     </h3>
-                    <div class="package-list" v-for="(value, key) in packaging_documents" key="key">
+                    <div class="package-list" v-for="(value, key) in packaging_documents" :key="key">
                       <div class="package-item">
                         <i class="bi bi-file-text"></i>
-                        <span>{{ key }} {{ value }}</span>
+                        <span>{{ translateDocumentItem(key) }} {{ value }}</span>
                       </div>
                     </div>
                   </div>
@@ -262,8 +256,8 @@
         <!-- 保修服务 -->
         <div class="warranty-section">
           <div class="warranty-header">
-            <h2 class="warranty-title">保修服务</h2>
-            <p class="warranty-subtitle">专业的售后保障，让您使用无忧</p>
+            <h2 class="warranty-title">{{ $t('products.helicopterDetail.warranty.title') }}</h2>
+            <p class="warranty-subtitle">{{ $t('products.helicopterDetail.warranty.subtitle') }}</p>
           </div>
           <div class="warranty-content">
             <div class="warranty-item">
@@ -271,8 +265,8 @@
                 <i class="bi bi-shield-check"></i>
               </div>
               <div class="warranty-text">
-                <h3>保修期限</h3>
-                <p>我们承诺对提供的产品给予一年保修期限，在这期间，客户可以享受到全方位保修服务。从产品交付之日起计算，无论是产品硬件故障，还是因产品质量问题导致性能异常等情况，我们将负责解决。</p>
+                <h3>{{ $t('products.helicopterDetail.warranty.items.period.title') }}</h3>
+                <p>{{ $t('products.helicopterDetail.warranty.items.period.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -280,8 +274,8 @@
                 <i class="bi bi-tools"></i>
               </div>
               <div class="warranty-text">
-                <h3>硬件维修与更换</h3>
-                <p>涵盖产品的各个零部件，如主板、显示屏、硬盘、电源等，若这些硬件出现非人为损坏故障，我们将免费进行维修或更换。</p>
+                <h3>{{ $t('products.helicopterDetail.warranty.items.hardware.title') }}</h3>
+                <p>{{ $t('products.helicopterDetail.warranty.items.hardware.desc') }}</p>
               </div>
             </div>
             <div class="warranty-item">
@@ -289,8 +283,8 @@
                 <i class="bi bi-headset"></i>
               </div>
               <div class="warranty-text">
-                <h3>快速响应</h3>
-                <p>对于一般故障，客户可通过电话、邮件等方式向我们反馈，我们的客服人员会在接到反馈后2小时回复客户，确认已收到问题，然后，根据故障具体情况，在24小时内为客户提供解决方案。</p>
+                <h3>{{ $t('products.helicopterDetail.warranty.items.response.title') }}</h3>
+                <p>{{ $t('products.helicopterDetail.warranty.items.response.desc') }}</p>
               </div>
             </div>
           </div>
@@ -566,6 +560,115 @@ export default {
   methods: {
     goBack() {
       this.$router.push('/products/helicopter')
+    },
+    translateProductName() {
+      const id = this.$route.params.id || 'helicopter-h800'
+      // 兼容两类路由ID：helicopter-h800 / heli-m800 等
+      const map = {
+        'helicopter-h800': 'h800',
+        'helicopter-h1200': 'h1200',
+        'helicopter-h600': 'h600',
+        'helicopter-h1500': 'h1500',
+        // 列表页可能使用的ID前缀
+        'heli-h1000': 'h1000',
+        'heli-s600': 's600',
+        'heli-m800': 'm800',
+        'heli-f200': 'f200'
+      }
+      // 优先使用映射，其次按“-”拆分取后缀作为型号键
+      const key = map[id] || (String(id).includes('-') ? String(id).split('-')[1] : String(id))
+      return this.$t(`products.helicopterDrones.${key}.name`)
+    },
+    translateBasicKey(key) {
+      const map = {
+        '机身长度': 'fuselageLength',
+        '主旋翼直径': 'mainRotorDiameter',
+        '最大起飞重量': 'maxTakeoffWeight',
+        '最大载重': 'maxPayload',
+        '机身材质': 'bodyMaterial',
+        '动力系统': 'powerSystem'
+      }
+      const i18nKey = map[key]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.labels.${i18nKey}`) : key
+    },
+    translateBasicValue(value) {
+      const map = {
+        '铝合金': 'aluminumAlloy',
+        '碳纤维': 'carbonFiber',
+        '无刷电机': 'brushlessMotor',
+        '混合动力': 'hybridPower'
+      }
+      const i18nKey = map[value]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.values.${i18nKey}`) : value
+    },
+    translateTechGroup(key) {
+      const map = {
+        '飞行器': 'aircraft',
+        '电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'remoteController'
+      }
+      const i18nKey = map[key]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.groups.${i18nKey}`) : key
+    },
+    translateTechItemKey(key) {
+      const map = {
+        '起飞重量': 'takeoffWeight',
+        '尺寸': 'dimensions',
+        '最大上升速度': 'maxAscentSpeed',
+        '最大下降速度': 'maxDescentSpeed',
+        '最大水平飞行速度': 'maxHorizontalSpeed',
+        '最大起飞海拔': 'maxTakeoffAltitude',
+        '最长飞行时间': 'maxFlightTime',
+        '最长悬停时间': 'maxHoverTime',
+        '最大续航历程': 'maxRange',
+        '最大抗风速度': 'maxWindResistance',
+        '最大可倾斜角度': 'maxTiltAngle',
+        '工作环境温度': 'operatingTemp',
+        '卫星导航系统': 'satelliteNavigation',
+        '悬停精度': 'hoverAccuracy',
+        '容量': 'capacity',
+        '重量': 'weight',
+        '标称电压': 'nominalVoltage',
+        '充电限制电压': 'chargeLimitVoltage',
+        '电池类型': 'batteryType',
+        '能量': 'energy',
+        '充电环境': 'chargingEnvironment',
+        '充电耗时': 'chargingTime',
+        '电池尺寸': 'batteryDimensions',
+        '输入': 'input',
+        '输出': 'output',
+        '最长续航时间': 'maxOperatingTime',
+        '充电环境温度': 'chargingEnvTemp',
+        '充电时间': 'chargingTime',
+        '充电方式': 'chargingMethod',
+        '电池容量': 'batteryCapacity'
+      }
+      const i18nKey = map[key]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.techLabels.${i18nKey}`) : key
+    },
+    translatePackageItem(key) {
+      const map = {
+        '飞行器机身': 'mainUnit',
+        '主旋翼': 'mainRotor',
+        '尾旋翼': 'tailRotor',
+        '智能飞控': 'flightController',
+        '动力电池': 'battery',
+        '充电器': 'charger',
+        '遥控器': 'remoteController'
+      }
+      const i18nKey = map[key]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.package.items.${i18nKey}`) : key
+    },
+    translateDocumentItem(key) {
+      const map = {
+        '产品说明书': 'manual',
+        '快速入门指南': 'quickStart',
+        '免责声明': 'disclaimer',
+        '合格证': 'certificate'
+      }
+      const i18nKey = map[key]
+      return i18nKey ? this.$t(`products.helicopterDetail.specs.package.documentsMap.${i18nKey}`) : key
     }
   }
 }

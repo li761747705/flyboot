@@ -1,14 +1,15 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">国防应用</h1>
+      <h1 class="scene-title">{{ $t('applicationsDetail.defense.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.defense.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
@@ -16,7 +17,7 @@
           <div class="scene-card-img-wrapper">
             <span class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -29,11 +30,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '边境巡逻' },
-        { title: '目标侦察' },
-        { title: '通信保障' },
-        { title: '应急支援' },
-        { title: '演习训练' }
+        { titleKey: 'applicationsDetail.defense.cards.item1' },
+        { titleKey: 'applicationsDetail.defense.cards.item2' },
+        { titleKey: 'applicationsDetail.defense.cards.item3' },
+        { titleKey: 'applicationsDetail.defense.cards.item4' },
+        { titleKey: 'applicationsDetail.defense.cards.item5' }
       ]
     }
   },

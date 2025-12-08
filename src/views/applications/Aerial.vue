@@ -1,24 +1,24 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">应用概述</h1>
-      <h5>无人机空中俯瞰高速公路、铁路、桥梁、隧道，实时监测路况、拥堵、事故及设施完好性。高效识别边坡隐患、违章施工，辅助路政执法与养护规划，提升路网运行效率与公众出行安全。</h5>
+      <h1 class="scene-title">{{ $t('applicationsDetail.aerial.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.aerial.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
         >
           <div class="scene-card-img-wrapper">
-            <img v-if="item.image" :src="item.image" alt="" class="scene-card-img">
+            <img v-if="item.image" :src="item.image" :alt="$t(item.titleKey)" class="scene-card-img">
             <span v-else class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@ export default {
   data() {
     return {
       cards: [
-        { title: '违法抓拍与执法', image: '/images/applications/aerial/01（600X350）.png' },
-        { title: '事故快速处置', image: '/images/applications/aerial/02(900X500).png' },
-        { title: '现场测绘与勘察', image: '/images/applications/交通400X620.png' },
-        { title: '路况监测与引导', image: '/images/applications/交通400X620.png' },
-        { title: '设施巡查与隐患排查', image: '/images/applications/交通400X620.png' }
+        { titleKey: 'applicationsDetail.aerial.cards.item1', image: '/images/applications/aerial/01（600X350）.png' },
+        { titleKey: 'applicationsDetail.aerial.cards.item2', image: '/images/applications/aerial/02(900X500).png' },
+        { titleKey: 'applicationsDetail.aerial.cards.item3', image: '/images/applications/交通400X620.png' },
+        { titleKey: 'applicationsDetail.aerial.cards.item4', image: '/images/applications/交通400X620.png' },
+        { titleKey: 'applicationsDetail.aerial.cards.item5', image: '/images/applications/交通400X620.png' }
       ]
     }
   },

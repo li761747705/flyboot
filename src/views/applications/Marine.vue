@@ -1,14 +1,15 @@
 <template>
   <div class="scene-page">
     <div class="scene-title-wrapper">
-      <h1 class="scene-title">海事应用</h1>
+      <h1 class="scene-title">{{ $t('applicationsDetail.marine.title') }}</h1>
+      <h5>{{ $t('applicationsDetail.marine.overviewDesc') }}</h5>
     </div>
     <div class="scene-section">
-      <h2 class="scene-section-title">应用场景</h2>
+      <h2 class="scene-section-title">{{ $t('applicationsDetail.common.sectionTitle') }}</h2>
       <div class="scene-card-grid">
         <div
           v-for="item in cards"
-          :key="item.title"
+          :key="item.titleKey"
           class="scene-card"
           @click="onCardClick(item)"
           tabindex="0"
@@ -16,7 +17,7 @@
           <div class="scene-card-img-wrapper">
             <span class="scene-card-default-icon">+</span>
           </div>
-          <div class="scene-card-title">{{ item.title }}</div>
+          <div class="scene-card-title">{{ $t(item.titleKey) }}</div>
         </div>
       </div>
     </div>
@@ -29,16 +30,16 @@ export default {
   data() {
     return {
       cards: [
-        { title: '海域巡查' },
-        { title: '渔政执法' },
-        { title: '海洋监测' },
-        { title: '港口管理' },
-        { title: '应急救援' }
+        { titleKey: 'applicationsDetail.marine.cards.item1' },
+        { titleKey: 'applicationsDetail.marine.cards.item2' },
+        { titleKey: 'applicationsDetail.marine.cards.item3' },
+        { titleKey: 'applicationsDetail.marine.cards.item4' },
+        { titleKey: 'applicationsDetail.marine.cards.item5' }
       ]
     }
   },
   methods: {
-    onCardClick(item) {
+    onCardClick() {
       // 可点击但不跳转
     }
   }

@@ -334,6 +334,288 @@ export default {
       multiRotorDes: 'স্থিতিশীল ও নির্ভরযোগ্য, সুনির্দিষ্ট নিয়ন্ত্রণ ও মসৃণ উড্ডয়ন।',
       helicopterTitle: 'মানবহীন হেলিকপ্টার',
       helicopterDes: 'ভার্টিকাল টেকঅফ, উচ্চ বহন ক্ষমতা, চ্যালেঞ্জিং কাজের জন্য উপযোগী।'
+    },
+    fpvPage: {
+      heroBadge: 'FPV ড্রোন',
+      heroTitle: 'FPV ড্রোন',
+      heroSubtitle: 'অবিশ্বাস্য গতি, সুনির্দিষ্ট নিয়ন্ত্রণ',
+      features: { speed: 'উচ্চ গতি', hdFpv: 'এইচডি FPV', stunt: 'অ্যাক্রোবেটিক', filming: 'এয়ারিয়াল ফিল্মিং' },
+      sectionTitle: 'পণ্য সিরিজ',
+      sectionSubtitle: 'বিভিন্ন দৃশ্যের জন্য পেশাদার FPV ড্রোন',
+      buttonDetail: 'বিস্তারিত দেখুন',
+      loadingText: 'পণ্যের তথ্য লোড হচ্ছে...'
+    },
+    fpvDrones: {
+      p1: { name: 'P1 রেসিং FPV ড্রোন', category: 'রেসিং', description: 'রেস প্রতিযোগিতার জন্য ডিজাইন, সর্বোচ্চ গতি অভিজ্ঞতা' },
+      p2x: { name: 'P2X অ্যাক্রোবেটিক FPV ড্রোন', category: 'অ্যাক্রোবেটিক', description: 'ফ্রিস্টাইল অ্যাক্রোবেটিক ফ্লাইট' },
+      c1: { name: 'C1 সিনেমাটিক FPV ড্রোন', category: 'সিনেমাটিক', description: 'পেশাদার এয়ারিয়াল শুটিং, উচ্চ মানের ভিডিও' },
+      x4: { name: 'X4 কোয়াডকপ্টার FPV', category: 'শুরু', description: 'নবীন-বান্ধব, স্থিতিশীল নিয়ন্ত্রণ' }
+    },
+    multiRotorPage: {
+      heroBadge: 'মাল্টি-রোটর ড্রোন',
+      heroTitle: 'মাল্টি-রোটর ড্রোন',
+      heroSubtitle: 'দৃঢ় স্থিতিশীলতা, দৃষ্টিকোণ আপনার নিয়ন্ত্রণে',
+      features: { professional: 'পেশাদার', precision: 'উচ্চ নির্ভুলতা', stability: 'উচ্চ স্থিতিশীলতা', reliable: 'বিশ্বাসযোগ্য' },
+      sectionTitle: 'পণ্য সিরিজ',
+      sectionSubtitle: 'ছায়াচিত্র/ম্যাপিং/পরিদর্শনের জন্য পেশাদার মাল্টি-রোটর',
+      buttonDetail: 'বিস্তারিত দেখুন'
+    },
+    multiRotorDrones: {
+      drone1: { name: 'WW-1 হেক্সাকপ্টার', category: 'হেক্সা', description: 'ছায়াচিত্র ও ম্যাপিংয়ের জন্য পেশাদার হেক্সা ড্রোন' },
+      drone2: { name: 'WW-2 হেক্সা/অক্টা', category: 'হেক্সা', description: 'ভারী-বহন অক্টা কনফিগারেশন, শিল্প পরিদর্শন' },
+      drone3: { name: 'WW-3 ভাঁজযোগ্য ড্রোন', category: 'ভাঁজযোগ্য', description: 'পরিবহনযোগ্য ভাঁজযোগ্য ড্রোন, জরুরি উদ্ধার' },
+      drone4: { name: 'WW-4 শিল্প ড্রোন', category: 'শিল্প', description: 'বৃহৎ পরিসরের শিল্প巡检-এর জন্য উপযোগী' },
+      m600: { name: 'M600 পেশাদার মাল্টি-রোটর', category: 'পেশাদার', description: 'পেশাদার বহুমুখী প্ল্যাটফর্ম', banner: 'M600 পেশাদার মাল্টি-রোটর' },
+      m800: { name: 'M800 বড় মাল্টি-রোটর', category: 'শিল্প', description: 'বড় লোড ক্ষমতার প্ল্যাটফর্ম', banner: 'M800 বড় মাল্টি-রোটর' },
+      m400: { name: 'M400 লাইট মাল্টি-রোটর', category: 'পোর্টেবল', description: 'হালকা ওজন, বহনযোগ্য', banner: 'M400 লাইট মাল্টি-রোটর' },
+      m1000: { name: 'M1000 হেভি মাল্টি-রোটর', category: 'হেভি', description: 'ভারী দায়িত্বের কাজের জন্য', banner: 'M1000 হেভি মাল্টি-রোটর' }
+    },
+    fixedWingPage: {
+      heroBadge: 'ফিক্সড-উইং ড্রোন',
+      heroTitle: 'ফিক্সড-উইং ড্রোন',
+      heroSubtitle: 'দীর্ঘ সহনশীলতা, মিশন সম্পন্ন',
+      features: { endurance: 'দীর্ঘ সহনশীলতা', efficient: 'দক্ষ উড্ডয়ন', coverage: 'বিস্তৃত কভারেজ', multiScene: 'বহু-পরিস্থিতি' },
+      sectionTitle: 'পণ্য সিরিজ',
+      sectionSubtitle: 'দীর্ঘ航时 কভারেজের জন্য পেশাদার ফিক্সড-উইং',
+      buttonDetail: 'বিস্তারিত দেখুন'
+    },
+    fixedWingDrones: {
+      f1800: { name: 'F1800 ফিক্সড-উইং', category: 'পেশাদার', description: 'উচ্চ দক্ষতা, দীর্ঘ航时' },
+      s2000: { name: 'S2000 ফিক্সড-উইং', category: 'সার্ভে', description: 'ম্যাপিং ও巡检-এ উপযোগী' },
+      v1500: { name: 'V1500 ফিক্সড-উইং', category: 'দক্ষ', description: 'স্থিতিশীল, নির্ভরযোগ্য' },
+      m3000: { name: 'M3000 ফিক্সড-উইং', category: 'শিল্প', description: 'বৃহৎ এলাকা কভারেজ' }
+    },
+    helicopterPage: {
+      heroBadge: 'মানবহীন হেলিকপ্টার',
+      heroTitle: 'মানবহীন হেলিকপ্টার',
+      heroSubtitle: 'ভার্টিকাল টেকঅফ, ভারী-দায়িত্ব ক্ষমতা',
+      features: { industrial: 'শিল্প级', payload: 'বড় পেলোড', endurance: 'দীর্ঘ航时', reliability: 'উচ্চ বিশ্বাসযোগ্যতা' },
+      sectionTitle: 'পণ্য সিরিজ',
+      sectionSubtitle: 'পরিদর্শন/পরিবহন/监控-এর জন্য উপযোগী',
+      buttonDetail: 'বিস্তারিত দেখুন'
+    },
+    helicopterDrones: {
+      h1000: { name: 'H1000 ভারী-বহন হেলিকপ্টার', category: 'হেভি', description: 'বড়载重 পরিবহন ক্ষমতা' },
+      s600: { name: 'S600 巡查 হেলিকপ্টার', category: '巡查', description: 'দীর্ঘ航时 পর্যবেক্ষণ' },
+      m800: { name: 'M800 হাইব্রিড হেলিকপ্টার', category: 'হাইব্রিড', description: 'দক্ষ ও节能', banner: 'M800 混动无人直升机' },
+      f200: { name: 'F200 পোর্টেবল হেলিকপ্টার', category: 'পোর্টেবল', description: 'দ্রুত মোতায়েন' }
+    },
+    multiRotorDetail: {
+      badge: 'মাল্টি-রোটর ড্রোন',
+      subtitle: 'পেশাদার মাল্টি-রোটর: স্থিতিশীল悬停, নির্ভুল নিয়ন্ত্রণ, বহুমুখী প্রয়োগ',
+      highlights: {
+        stableHover: 'স্থিতিশীল悬停',
+        preciseControl: 'নির্ভুল নিয়ন্ত্রণ',
+        broadUse: 'বিস্তৃত প্রয়োগ'
+      },
+      sections: {
+        flightPerformance: {
+          title: 'উড্ডয়ন কর্মক্ষমতা',
+          desc: 'ছয়-অক্ষ নকশা জটিল পরিবেশে শক্তিশালী抗风 এবং স্থিতিশীল উড্ডয়ন নিশ্চিত করে',
+          items: {
+            stableHover: 'স্থিতিশীল悬停 ক্ষমতা',
+            preciseControl: 'নির্ভুল ফ্লাইট নিয়ন্ত্রণ',
+            multiScene: 'বহু প্রয়োগ দৃশ্য',
+            maneuverability: 'চমৎকার চালনা কর্মক্ষমতা'
+          }
+        },
+        strongStructure: {
+          title: 'উচ্চ-শক্ত কাঠামো',
+          desc: 'কার্বন ফাইবার ও অ্যালুমিনিয়াম合金 কাঠামো; হালকা ও শক্তিশালী; 抗疲劳 এবং耐久',
+          items: {
+            carbonFiberFrame: 'কার্বন ফাইবার ফ্রেম ডিজাইন',
+            aluminumParts: 'অ্যালুমিনিয়াম合金 অংশ',
+            lightweightHighStrength: 'হালকা ও উচ্চ-শক্ত',
+            fatigueResistance: 'চমৎকার 抗疲劳 কর্মক্ষমতা'
+          }
+        },
+        advantages: {
+          title: 'সুবিধা',
+          desc: 'VTOL/悬停/নমনীয় উড্ডয়ন সমর্থন; বহু কাজের পরিবেশে উপযোগী',
+          items: {
+            stableHover: 'স্থিতিশীল悬停 ক্ষমতা',
+            preciseControl: 'নির্ভুল নিয়ন্ত্রণ',
+            multiScene: 'বহু প্রয়োগ দৃশ্য',
+            maneuverability: 'চমৎকার চালনা কর্মক্ষমতা'
+          }
+        }
+      },
+      specs: {
+        title: 'পণ্য পরামিতি',
+        subtitle: 'বিস্তারিত প্রযুক্তিগত স্পেসিফিকেশন ও কনফিগারেশন',
+        tabs: { basic: 'মৌলিক', tech: 'প্রযুক্তিগত', package: 'প্যাকেজ তালিকা' },
+        basicLabels: {
+          size: 'বডির মাপ',
+          weightWithoutBattery: 'ওজন (ব্যাটারি ছাড়া)',
+          frameMaterial: 'ফ্রেম উপাদান',
+          powerSystem: 'পাওয়ার সিস্টেম',
+          propellerSize: 'প্রপেলার আকার',
+          batteryCapacity: 'ব্যাটারি ক্ষমতা'
+        },
+        values: { carbonFiber: 'কার্বন ফাইবার', brushlessMotor: 'ব্রাশলেস মোটর', prop10in: '10 ইঞ্চি', prop13in: '13 ইঞ্চি', prop15in: '15 ইঞ্চি', prop18in: '18 ইঞ্চি' },
+        techSections: { aircraft: 'ফ্লাইট ইউনিট', battery: 'ব্যাটারি', charger: 'চার্জার', rc: 'রিমোট কন্ট্রোলার' },
+        techLabels: {
+          size: 'মাপ', weight: 'ওজন',
+          takeoffWeight: 'উড্ডয়ন ওজন', maxClimbSpeed: 'সর্বোচ্চ ওঠার গতি', maxDescendSpeed: 'সর্বোচ্চ নামার গতি', maxHorizontalSpeed: 'সর্বোচ্চ অনুভূমিক গতি',
+          maxAltitude: 'সর্বোচ্চ 起飞海拔', maxFlightTime: 'সর্বোচ্চ ফ্লাইট সময়', maxHoverTime: 'সর্বোচ্চ 悬停 সময়', maxRange: 'সর্বোচ্চ রেঞ্জ', maxWindResistance: 'সর্বোচ্চ 抗风 গতি',
+          maxTiltAngle: 'সর্বোচ্চ ঝোঁক কোণ', workTemp: 'কাজের তাপমাত্রা', gnss: 'স্যাটেলাইট ন্যাভিগেশন', hoverAccuracy: '悬停 যথার্থতা',
+          capacity: 'ক্ষমতা', nominalVoltage: 'মনোনীত ভোল্টেজ', chargeLimitVoltage: 'চার্জ সীমা ভোল্টেজ', type: 'ব্যাটারি ধরন', energy: 'এনার্জি',
+          chargeEnv: 'চার্জিং পরিবেশ', chargeTime: 'চার্জিং সময়', batteryDimensions: 'ব্যাটারি মাত্রা', input: 'ইনপুট', output: 'আউটপুট',
+          batteryEndurance: 'সর্বোচ্চ কাজের সময়', chargeTemp: 'চার্জিং পরিবেশ তাপমাত্রা', chargeMethod: 'চার্জিং পদ্ধতি', batteryCapacity: 'ব্যাটারি ক্ষমতা'
+        },
+        package: {
+          standardList: 'স্ট্যান্ডার্ড তালিকা',
+          documents: 'দস্তাবেজ',
+          items: { host: 'ফ্লাইট ইউনিট', propellers: 'প্রপেলার', flightController: 'ফ্লাইট কন্ট্রোলার', battery: 'ব্যাটারি', charger: 'চার্জার', rc: 'রিমোট কন্ট্রোলার', manual: 'পণ্য নির্দেশিকা', quickGuide: 'দ্রুত নির্দেশিকা', disclaimer: 'ডিসক্লেইমার', certificate: 'সার্টিফিকেট' },
+          documentsMap: { manual: 'পণ্য নির্দেশিকা', quickGuide: 'দ্রুত নির্দেশিকা', disclaimer: 'ডিসক্লেইমার', certificate: 'সার্টিফিকেট' }
+        }
+      },
+      debug: { currentEmpty: 'ডিবাগ: current অবজেক্ট খালি', basicEmpty: 'ডিবাগ: current.basic খালি, current অবজেক্ট:' },
+      warranty: {
+        title: 'ওয়ারেন্টি সেবা', subtitle: 'পেশাদার售后保障, নিশ্চিন্ত ব্যবহার',
+        items: {
+          period: { title: 'ওয়ারেন্টি সময়', desc: 'ডেলিভারি থেকে এক বছর ওয়ারেন্টি; মানজনিত হার্ডওয়্যার ত্রুটি ও কর্মক্ষমতা সমস্যা কভার করা হবে।' },
+          hardware: { title: 'হার্ডওয়্যার মেরামত ও প্রতিস্থাপন', desc: 'মাদারবোর্ড/ডিসপ্লে/স্টোরেজ/পাওয়ার ইত্যাদি অন্তর্ভুক্ত; অ-মানব-সৃষ্ট ত্রুটিতে বিনামূল্যে মেরামত/প্রতিস্থাপন।' },
+          response: { title: 'দ্রুত প্রতিক্রিয়া', desc: 'ফোন/ইমেইল সমস্যায় 2 ঘন্টার মধ্যে নিশ্চিতকরণ, 24 ঘন্টার মধ্যে সমাধান।' }
+        }
+      },
+      models: { m600: 'M600 পেশাদার মাল্টি-রোটর', m800: 'M800 বড় মাল্টি-রোটর', m400: 'M400 লাইট মাল্টি-রোটর', m1000: 'M1000 হেভি মাল্টি-রোটর' }
+    },
+    fpvDetail: {
+      badge: 'FPV ড্রোন',
+      subtitle: 'পেশাদার FPV: উচ্চ গতি, সুনির্দিষ্ট নিয়ন্ত্রণ',
+      highlights: { speed: 'উচ্চ গতি', hdVideo: '高清 图传', stuntFlight: 'স্টন্ট ফ্লাইট' },
+      sections: {
+        flightPerformance: {
+          title: 'উড্ডয়ন কর্মক্ষমতা',
+          desc: 'উচ্চ গতি ও 灵活; প্রতিযোগিতা/ফ্রিস্টাইল/航拍 উপযোগী; উন্নত 飞控 ও 动力 সিস্টেম জটিল পরিবেশে স্থিতিশীল।',
+          items: { highSpeed: 'উচ্চ গতি', lowLatencyVideo: 'কম 遅延 ভিডিও', agileControl: 'নমনীয় নিয়ন্ত্রণ', maneuverability: 'চমৎকার চালনা ক্ষমতা' }
+        },
+        strongStructure: {
+          title: 'উচ্চ-শক্ত কাঠামো',
+          desc: 'কার্বন ফাইবার ফ্রেম; হালকা ও দৃঢ়; 抗疲劳 ও耐用, উচ্চ-তীব্র ফ্লাইটে স্থিতিশীল।',
+          items: { carbonFiberFrame: 'কার্বন ফাইবার ফ্রেম', lightweightOptimized: 'হালকা অপ্টিমাইজড কাঠামো', highStrengthImpact: 'উচ্চ-শক্ত আঘাত প্রতিরোধ', fatigueResistance: 'চমৎকার 抗疲劳 কর্মক্ষমতা' }
+        },
+        advantages: {
+          title: 'সুবিধা',
+          desc: 'গতি/灵活/精准; প্রতিযোগিতা/自由飞行/创意航拍',
+          items: { highSpeed: 'উচ্চ গতি', lowLatencyVideo: 'কম 遅延 ভিডিও', agileControl: 'নমনীয় নিয়ন্ত্রণ', maneuverability: 'চালনা ক্ষমতা' }
+        }
+      },
+      specs: {
+        title: 'পণ্য পরামিতি', subtitle: 'বিস্তারিত প্রযুক্তিগত স্পেসিফিকেশন',
+        tabs: { basic: 'মৌলিক', tech: 'প্রযুক্তিগত', package: 'প্যাকেজ' },
+        labels: {
+          bodySize: 'বডির মাপ', weightNoBattery: 'ওজন (ব্যাটারি ছাড়া)', frameMaterial: 'ফ্রেম উপাদান', powerSystem: 'পাওয়ার সিস্টেম',
+          propellerSize: 'প্রপেলার আকার', batteryCapacity: 'ব্যাটারি ক্ষমতা', maxSpeed: 'সর্বোচ্চ গতি', flightTime: 'উড্ডয়ন সময়',
+          videoTransmission: '图传 সিস্টেম', controlRange: 'নিয়ন্ত্রণ দূরত্ব', hoverAccuracy: '悬停 যথার্থতা', operatingTemp: 'কাজের তাপমাত্রা'
+        },
+        values: { carbonFiber: 'কার্বন ফাইবার', brushlessMotor: 'ব্রাশলেস মোটর', prop3in: '3 ইঞ্চি', prop4_5in: '4.5 ইঞ্চি', prop5in: '5 ইঞ্চি', prop6in: '6 ইঞ্চি' },
+        groups: { aircraft: 'ফ্লাইট ইউনিট', battery: 'ব্যাটারি', charger: 'চার্জার', remoteController: 'রিমোট কন্ট্রোলার' },
+        techLabels: {
+          takeoffWeight: 'উড্ডয়ন ওজন', dimensions: 'মাপ', maxAscentSpeed: 'সর্বোচ্চ ওঠার গতি', maxDescentSpeed: 'সর্বোচ্চ নামার গতি', maxHorizontalSpeed: 'সর্বোচ্চ অনুভূমিক গতি',
+          maxTakeoffAltitude: 'সর্বোচ্চ 起飞海拔', maxFlightTime: 'সর্বোচ্চ ফ্লাইট সময়', maxHoverTime: 'সর্বোচ্চ 悬停 সময়', maxRange: 'সর্বোচ্চ রেঞ্জ', maxWindResistance: 'সর্বোচ্চ 抗风 গতি',
+          maxTiltAngle: 'সর্বোচ্চ ঝোঁক কোণ', operatingTemp: 'কাজের তাপমাত্রা', satelliteNavigation: 'স্যাটেলাইট ন্যাভিগেশন', hoverAccuracy: '悬停 যথার্থতা',
+          capacity: 'ক্ষমতা', weight: 'ওজন', nominalVoltage: 'মনোনীত ভোল্টেজ', chargeLimitVoltage: 'চার্জ সীমা ভোল্টেজ', batteryType: 'ব্যাটারি ধরন', energy: 'এনার্জি',
+          chargingEnvironment: 'চার্জিং পরিবেশ', chargingTime: 'চার্জিং সময়', batteryDimensions: 'ব্যাটারি মাত্রা', input: 'ইনপুট', output: 'আউটপুট',
+          maxOperatingTime: 'সর্বোচ্চ কাজের সময়', chargingEnvTemp: 'চার্জিং পরিবেশ তাপমাত্রা', chargingMethod: 'চার্জিং পদ্ধতি', batteryCapacity: 'ব্যাটারি ক্ষমতা'
+        },
+        package: {
+          standardList: 'স্ট্যান্ডার্ড তালিকা', documents: 'দস্তাবেজ',
+          items: { mainUnit: 'মেইন ইউনিট', mainRotor: 'প্রধান রটার', tailRotor: 'টেইল রটার', motors: 'মোটর', battery: 'ব্যাটারি', flightController: 'ফ্লাইট কন্ট্রোলার', charger: 'চার্জার', esc: 'ইএসসি', propellers: 'প্রপেলার', remoteController: 'রিমোট', camera: 'ক্যামেরা', connectingRods: 'কানেক্টিং রড', antenna: 'অ্যান্টেনা', screwPack: 'স্ক্রু/প্যাক' },
+          documentsMap: { manual: 'পণ্য নির্দেশিকা', quickStart: 'দ্রুত শুরু নির্দেশিকা', disclaimer: 'ডিসক্লেইমার', certificate: 'সার্টিফিকেট' }
+        }
+      },
+      debug: { currentEmpty: 'ডিবাগ: current অবজেক্ট খালি', basicEmpty: 'ডিবাগ: current.basic খালি, current অবজেক্ট:' },
+      warranty: {
+        title: 'ওয়ারেন্টি সেবা', subtitle: 'পেশাদার售后保障, নিশ্চিন্ত ব্যবহার',
+        items: {
+          period: { title: 'ওয়ারেন্টি সময়', desc: 'ডেলিভারি থেকে এক বছর ওয়ারেন্টি; মানজনিত হার্ডওয়্যার ত্রুটি ও কর্মক্ষমতা সমস্যা কভার করা হবে।' },
+          hardware: { title: 'হার্ডওয়্যার মেরামত ও প্রতিস্থাপন', desc: 'মাদারবোর্ড, ডিসপ্লে, স্টোরেজ, পাওয়ার—অ-মানব-সৃষ্ট ত্রুটিতে বিনামূল্যে।' },
+          response: { title: 'দ্রুত প্রতিক্রিয়া', desc: 'সাধারণ সমস্যায় 2 ঘন্টার মধ্যে নিশ্চিতকরণ, 24 ঘন্টার মধ্যে সমাধান।' }
+        }
+      }
+    },
+    fixedWingDetail: {
+      badge: 'ফিক্সড-উইং ড্রোন', subtitle: 'পেশাদার ফিক্সড-উইং: দীর্ঘ航时, দক্ষ উড্ডয়ন, বিস্তৃত কভারেজ',
+      highlights: { endurance: 'দীর্ঘ航时', efficient: 'দক্ষ উড্ডয়ন', coverage: 'বিস্তৃত কভারেজ' },
+      sections: {
+        flightPerformance: {
+          title: 'উড্ডয়ন কর্মক্ষমতা',
+          desc: 'উইং-লিফট ভিত্তিক দীর্ঘ航时 ও 高效飞行; শক্ত载重 সক্ষমতা',
+          items: { longEndurance: 'দীর্ঘ航时 কাজ', efficientFlight: '高效飞行', wideCoverage: 'বৃহৎ এলাকা কভারেজ', excellentEndurance: 'চমৎকার সহনশীলতা' }
+        },
+        strongStructure: {
+          title: 'উচ্চ-শক্ত কাঠামো',
+          desc: 'ডানা/ফিউজেলাজ/টেইল/ল্যান্ডিং গিয়ার/动力系统; কার্বন ফাইবার কম্পোজিট ও হালকা নকশা',
+          items: { carbonFiber: 'কার্বন ফাইবার কম্পোজিট', lightweightDesign: 'হালকা নকশা', highStrengthDurability: 'উচ্চ-শক্ত ও耐久', fatigueResistance: 'চমৎকার 抗疲劳' }
+        },
+        advantages: {
+          title: 'সুবিধা', desc: 'দীর্ঘ航时 ও 高效率; বৃহৎ测绘 与 巡检',
+          items: { longEndurance: 'দীর্ঘ航时 কাজ', efficientFlight: '高效飞行', wideCoverage: 'বৃহৎ কভারেজ', excellentEndurance: 'চমৎকার সহনশীলতা' }
+        }
+      },
+      specs: {
+        title: 'পণ্য পরামিতি', subtitle: 'বিস্তারিত প্রযুক্তিগত স্পেসিফিকেশন',
+        tabs: { basic: 'মৌলিক', tech: 'প্রযুক্তিগত', package: 'প্যাকেজ' },
+        basicLabels: { wingspan: 'উইংসপ্যান', fuselageLength: 'ফিউজেলাজ দৈর্ঘ্য', maxTakeoffWeight: 'সর্বোচ্চ 起飞重量', maxPayload: 'সর্বোচ্চ载重', bodyMaterial: 'ফিউজেলাজ材质', powerSystem: '动力系统', maxSpeed: 'সর্বোচ্চ গতি', flightTime: '航时', controlRange: 'নিয়ন্ত্রণ দূরত্ব', operatingTemp: 'কাজের তাপমাত্রা' },
+        values: { carbonFiber: 'কার্বন ফাইবার', brushlessMotor: 'ব্রাশলেস মোটর', hybridPower: 'হাইব্রিড পাওয়ার' },
+        techSections: { aircraft: 'ফ্লাইট ইউনিট', battery: 'ব্যাটারি', charger: 'চার্জার', remoteController: 'রিমোট' },
+        techLabels: {
+          takeoffWeight: 'উড্ডয়ন ওজন', dimensions: 'মাপ', maxAscentSpeed: 'সর্বোচ্চ ওঠার গতি', maxDescentSpeed: 'সর্বোচ্চ নামার গতি', maxHorizontalSpeed: 'সর্বোচ্চ অনুভূমিক গতি', maxTakeoffAltitude: 'সর্বোচ্চ 起飞海拔',
+          maxFlightTime: 'সর্বোচ্চ ফ্লাইট সময়', maxHoverTime: 'সর্বোচ্চ 悬停 সময়', maxRange: 'সর্বোচ্চ রেঞ্জ', maxWindResistance: 'সর্বোচ্চ 抗风 গতি', maxTiltAngle: 'সর্বোচ্চ ঝোঁক কোণ', operatingTemp: 'কাজের তাপমাত্রা', gnss: 'স্যাটেলাইট ন্যাভিগেশন', hoverAccuracy: '悬停 যথার্থতা',
+          capacity: 'ক্ষমতা', weight: 'ওজন', nominalVoltage: 'মনোনীত ভোল্টেজ', chargeLimitVoltage: 'চার্জ সীমা ভোল্টেজ', batteryType: 'ব্যাটারি ধরন', energy: 'এনার্জি', chargeEnv: 'চার্জিং পরিবেশ', chargeTime: 'চার্জিং সময়', batteryDimensions: 'ব্যাটারি মাত্রা', input: 'ইনপুট', output: 'আউটপুট', batteryEndurance: 'সর্বোচ্চ কাজের সময়', chargeTemp: 'চার্জিং পরিবেশ তাপমাত্রা', chargeMethod: 'চার্জিং পদ্ধতি', batteryCapacity: 'ব্যাটারি ক্ষমতা'
+        },
+        package: {
+          standardList: 'স্ট্যান্ডার্ড তালিকা', documents: 'দস্তাবেজ',
+          items: { host: 'ফ্লাইট ইউনিট', wings: 'ডানা', flightController: 'ফ্লাইট কন্ট্রোলার', propellers: 'প্রপেলার', battery: 'ব্যাটারি', charger: 'চার্জার', rc: 'রিমোট কন্ট্রোলার' },
+          documentsMap: { manual: 'পণ্য নির্দেশিকা', quickGuide: 'দ্রুত নির্দেশিকা', disclaimer: 'ডিসক্লেইমার', certificate: 'সার্টিফিকেট' }
+        }
+      },
+      debug: { currentEmpty: 'ডিবাগ: current অবজেক্ট খালি', basicEmpty: 'ডিবাগ: current.basic খালি, current অবজেক্ট:' },
+      warranty: {
+        title: 'ওয়ারেন্টি সেবা', subtitle: 'পেশাদার售后保障',
+        items: {
+          period: { title: 'ওয়ারেন্টি সময়', desc: 'এক বছর ওয়ারেন্টি; মানের কারণে হার্ডওয়্যার/পারফরম্যান্স সমস্যা কভার।' },
+          hardware: { title: 'হার্ডওয়্যার মেরামত ও প্রতিস্থাপন', desc: 'মাদারবোর্ড/ডিসপ্লে/স্টোরেজ/পাওয়ার—অ-মানব-সৃষ্ট ত্রুটি।' },
+          response: { title: 'দ্রুত প্রতিক্রিয়া', desc: '2 ঘণ্টায় নিশ্চিতকরণ, 24 ঘণ্টায় সমাধান।' }
+        }
+      }
+    },
+    helicopterDetail: {
+      badge: 'মানবহীন হেলিকপ্টার', subtitle: 'পেশাদার হেলিকপ্টার: VTOL, সুনির্দিষ্ট 悬停, বহু-কাজ',
+      highlights: { vtol: 'VTOL', preciseHover: 'সুনির্দিষ্ট 悬停', multiFunction: 'বহু-কার্য' },
+      sections: {
+        flightPerformance: { title: 'উড্ডয়ন কর্মক্ষমতা', desc: 'VTOL ও 悬停 সক্ষমতা; উন্নত 飞控/动力 সিস্টেম জটিল পরিবেশে স্থিতিশীল', items: { vtolCapability: 'VTOL সক্ষমতা', preciseHoverControl: 'সুনির্দিষ্ট 悬停 নিয়ন্ত্রণ', complexEnvAdaptation: 'জটিল পরিবেশ অভিযোজন', multiMissionCapability: 'বহু কর্মক্ষমতা' } },
+        strongStructure: { title: 'উচ্চ-শক্ত কাঠামো', desc: 'উচ্চ-শক্ত অ্যালুমিনিয়াম合金 ও কার্বন ফাইবার কম্পোজিট; দৃঢ় ও হালকা; 抗疲劳 চমৎকার', items: { aluminumAlloy: 'অ্যালুমিনিয়াম合金', carbonFiberComposite: 'কার্বন ফাইবার কম্পোজিট', durableStructure: 'দৃঢ় কাঠামো', fatigueResistance: 'চমৎকার 抗疲劳' } },
+        advantages: { title: 'সুবিধা', desc: 'VTOL ও 悬停; 多样工况 অভিযোজন; স্থিতিশীল উড্ডয়ন', items: { vtolCapability: 'VTOL সক্ষমতা', preciseHoverControl: 'সুনির্দিষ্ট 悬停 নিয়ন্ত্রণ', complexEnvAdaptation: 'জটিল পরিবেশ অভিযোজন', multiMissionCapability: 'বহু কর্মক্ষমতা' } }
+      },
+      specs: {
+        title: 'পণ্য পরামিতি', subtitle: 'বিস্তারিত প্রযুক্তিগত স্পেসিফিকেশন',
+        tabs: { basic: 'মৌলিক', tech: 'প্রযুক্তিগত', package: 'প্যাকেজ' },
+        labels: { fuselageLength: 'ফিউজেলাজ দৈর্ঘ্য', mainRotorDiameter: 'প্রধান রটার ব্যাস', maxTakeoffWeight: 'সর্বোচ্চ 起飞重量', maxPayload: 'সর্বোচ্চ载重', bodyMaterial: 'ফিউজেলাজ材质', powerSystem: '动力系统' },
+        values: { aluminumAlloy: 'অ্যালুমিনিয়াম 合金', carbonFiber: 'কার্বন ফাইবার', brushlessMotor: 'ব্রাশলেস মোটর', hybridPower: 'হাইব্রিড পাওয়ার' },
+        groups: { aircraft: 'ফ্লাইট ইউনিট', battery: 'ব্যাটারি', charger: 'চার্জার', remoteController: 'রিমোট কন্ট্রোলার' },
+        techLabels: {
+          takeoffWeight: 'উড্ডয়ন ওজন', dimensions: 'মাপ', maxAscentSpeed: 'সর্বোচ্চ ওঠার গতি', maxDescentSpeed: 'সর্বোচ্চ নামার গতি', maxHorizontalSpeed: 'সর্বোচ্চ অনুভূমিক গতি', maxTakeoffAltitude: 'সর্বোচ্চ 起飞海拔',
+          maxFlightTime: 'সর্বোচ্চ ফ্লাইট সময়', maxHoverTime: 'সর্বোচ্চ 悬停 সময়', maxRange: 'সর্বোচ্চ রেঞ্জ', maxWindResistance: 'সর্বোচ্চ 抗风 গতি', maxTiltAngle: 'সর্বোচ্চ ঝোঁক কোণ', operatingTemp: 'কাজের তাপমাত্রা', satelliteNavigation: 'স্যাটেলাইট ন্যাভিগেশন', hoverAccuracy: '悬停 যথার্থতা',
+          capacity: 'ক্ষমতা', weight: 'ওজন', nominalVoltage: 'মনোনীত ভোল্টেজ', chargeLimitVoltage: 'চার্জ সীমা ভোল্টেজ', batteryType: 'ব্যাটারি ধরন', energy: 'এনার্জি', chargingEnvironment: 'চার্জিং পরিবেশ', chargingTime: 'চার্জিং সময়', batteryDimensions: 'ব্যাটারি মাত্রা', input: 'ইনপুট', output: 'আউটপুট', maxOperatingTime: 'সর্বোচ্চ কাজের সময়', chargingEnvTemp: 'চার্জিং পরিবেশ তাপমাত্রা', chargingMethod: 'চার্জিং পদ্ধতি', batteryCapacity: 'ব্যাটারি ক্ষমতা'
+        },
+        package: {
+          standardList: 'স্ট্যান্ডার্ড তালিকা', documents: 'দস্তাবেজ',
+          items: { mainUnit: 'মেইন ইউনিট', motors: 'মোটর', battery: 'ব্যাটারি', flightController: 'ফ্লাইট কন্ট্রোলার', esc: 'ইএসসি', propellers: 'প্রপেলার', remoteController: 'রিমোট', camera: 'ক্যামেরা', connectingRods: 'কানেক্টিং রড', antenna: 'অ্যান্টেনা', screwPack: 'স্ক্রু/প্যাক' },
+          documentsMap: { manual: 'পণ্য নির্দেশিকা', quickStart: 'দ্রুত শুরু নির্দেশিকা', disclaimer: 'ডিসক্লেইমার', certificate: 'সার্টিফিকেট' }
+        }
+      },
+      debug: { currentEmpty: 'ডিবাগ: current অবজেক্ট খালি', basicEmpty: 'ডিবাগ: current.basic খালি, current অবজেক্ট:' },
+      warranty: {
+        title: 'ওয়ারেন্টি সেবা', subtitle: 'পেশাদার售后保障',
+        items: {
+          period: { title: 'ওয়ারেন্টি সময়', desc: 'এক বছর ওয়ারেন্টি; মানজনিত সমস্যায় হার্ডওয়্যার/পারফরম্যান্স কভার।' },
+          hardware: { title: 'হার্ডওয়্যার মেরামত ও প্রতিস্থাপন', desc: 'অ-মানব-সৃষ্ট ত্রুটিতে বিনামূল্যে।' },
+          response: { title: 'দ্রুত প্রতিক্রিয়া', desc: '2 ঘণ্টায় নিশ্চিতকরণ, 24 ঘণ্টায় সমাধান।' }
+        }
+      }
     }
   },
   

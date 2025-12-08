@@ -294,6 +294,161 @@ export default {
       multiRotorDes: 'Стабильные и надежные, точный контроль и плавный полёт.',
       helicopterTitle: 'Беспилотные Вертолёты',
       helicopterDes: 'Вертикальный взлёт, высокая грузоподъёмность, идеальны для сложных задач.'
+    },
+    fpvPage: {
+      heroBadge: 'FPV Дроны',
+      heroTitle: 'FPV Дроны',
+      heroSubtitle: 'Невероятная скорость, точный контроль',
+      features: { speed: 'Высокая скорость', hdFpv: 'HD FPV', stunt: 'Акробатика', filming: 'Аэровидеосъёмка' },
+      sectionTitle: 'Линейка продуктов',
+      sectionSubtitle: 'Профессиональные FPV для разных сценариев',
+      buttonDetail: 'Подробнее',
+      loadingText: 'Загрузка информации о продукте...'
+    },
+    fpvDrones: {
+      p1: { name: 'P1 Гоночный FPV', category: 'Гонки', description: 'Для соревнований, экстрим-скорость' },
+      p2x: { name: 'P2X Акробатический FPV', category: 'Акробатика', description: 'Фристайл-акробатика' },
+      c1: { name: 'C1 Кинематографический FPV', category: 'Кино', description: 'Проф. аэросъёмка, HD-выход' },
+      x4: { name: 'X4 Квадрокоптер FPV', category: 'Новичок', description: 'Дружелюбен к новичкам, стабильное управление' }
+    },
+    multiRotorPage: {
+      heroBadge: 'Мультироторные Дроны',
+      heroTitle: 'Мультироторные Дроны',
+      heroSubtitle: 'Надёжная стабильность, углы обзора под контролем',
+      features: { professional: 'Профессионально', precision: 'Точность', stability: 'Стабильность', reliable: 'Надёжность' },
+      sectionTitle: 'Линейка продуктов',
+      sectionSubtitle: 'Профессиональные мультироторы для съёмки/картографии/инспекции',
+      buttonDetail: 'Подробнее'
+    },
+    multiRotorDrones: {
+      drone1: { name: 'WW-1 Гекса-коптер', category: 'Гекса', description: 'Профессиональный гекса для съёмки и картографии' },
+      drone2: { name: 'WW-2 Гекса/Окта', category: 'Гекса', description: 'Конфигурация высокой нагрузки для промышленной инспекции' },
+      drone3: { name: 'WW-3 Складной', category: 'Складной', description: 'Портативный складной дрон, экстренное спасение' },
+      drone4: { name: 'WW-4 Промышленный', category: 'Промышленный', description: 'Подходит для инспекций большого масштаба' },
+      m600: { name: 'M600 Проф. мультиротор', category: 'Проф.', description: 'Проф. многофункциональная платформа', banner: 'M600 Проф. мультиротор' },
+      m800: { name: 'M800 Большой мультиротор', category: 'Промышленный', description: 'Платформа с большой грузоподъёмностью', banner: 'M800 Большой мультиротор' },
+      m400: { name: 'M400 Лёгкий мультиротор', category: 'Портативный', description: 'Лёгкий, портативный', banner: 'M400 Лёгкий мультиротор' },
+      m1000: { name: 'M1000 Тяжёлый мультиротор', category: 'Тяжёлый', description: 'Для задач с высокой нагрузкой', banner: 'M1000 Тяжёлый мультиротор' }
+    },
+    fixedWingPage: {
+      heroBadge: 'Дроны с Фиксированным Крылом',
+      heroTitle: 'Дроны с Фиксированным Крылом',
+      heroSubtitle: 'Долгая автономность, миссия выполнена',
+      features: { endurance: 'Долгая автономность', efficient: 'Эффективный полёт', coverage: 'Широкое покрытие', multiScene: 'Разные сценарии' },
+      sectionTitle: 'Линейка продуктов',
+      sectionSubtitle: 'Проф. фиксированное крыло для широкой зоны и автономности',
+      buttonDetail: 'Подробнее'
+    },
+    fixedWingDrones: {
+      f1800: { name: 'F1800 Фиксированное крыло', category: 'Проф.', description: 'Высокая эффективность, долгая автономность' },
+      s2000: { name: 'S2000 Фиксированное крыло', category: 'Топография', description: 'Для картографии и инспекции' },
+      v1500: { name: 'V1500 Фиксированное крыло', category: 'Эффективность', description: 'Стабильный, надёжный' },
+      m3000: { name: 'M3000 Фиксированное крыло', category: 'Промышленный', description: 'Покрытие большой территории' }
+    },
+    helicopterPage: {
+      heroBadge: 'Беспилотные Вертолёты',
+      heroTitle: 'Беспилотные Вертолёты',
+      heroSubtitle: 'Вертикальный взлёт, высокая грузоподъёмность',
+      features: { industrial: 'Промышленный', payload: 'Большая нагрузка', endurance: 'Долгая автономность', reliability: 'Высокая надёжность' },
+      sectionTitle: 'Линейка продуктов',
+      sectionSubtitle: 'Подходит для инспекции/транспортировки/мониторинга',
+      buttonDetail: 'Подробнее'
+    },
+    helicopterDrones: {
+      h1000: { name: 'H1000 Тяжёлый вертолёт', category: 'Тяжёлый', description: 'Большая грузоподъёмность' },
+      s600: { name: 'S600 Патрульный вертолёт', category: 'Патруль', description: 'Долгий мониторинг' },
+      m800: { name: 'M800 Гибридный вертолёт', category: 'Гибрид', description: 'Эффективный и энергосберегающий', banner: 'M800 Гибридный вертолёт' },
+      f200: { name: 'F200 Портативный вертолёт', category: 'Портативный', description: 'Быстрое развёртывание' }
+    },
+    multiRotorDetail: {
+      badge: 'Мультироторные Дроны',
+      subtitle: 'Проф. мультиротор: стабильный полёт, точный контроль, многозадачность',
+      highlights: { stableHover: 'Стабильное зависание', preciseControl: 'Точный контроль', broadUse: 'Широкие применения' },
+      sections: {
+        flightPerformance: { title: 'Лётные Характеристики', desc: 'Гекса-схема обеспечивает устойчивость и сопротивление ветру в сложной среде', items: { stableHover: 'Стабильное зависание', preciseControl: 'Точный контроль', multiScene: 'Разные сценарии', maneuverability: 'Отличная манёвренность' } },
+        strongStructure: { title: 'Прочная Конструкция', desc: 'Углепластик и алюминиевый сплав: лёгкая и прочная, устойчива к усталости', items: { carbonFiberFrame: 'Каркас из углепластика', aluminumParts: 'Элементы из алюминиевого сплава', lightweightHighStrength: 'Лёгкая и прочная', fatigueResistance: 'Устойчивость к усталости' } },
+        advantages: { title: 'Преимущества', desc: 'VTOL и зависание; подходит для разных условий', items: { stableHover: 'Стабильное зависание', preciseControl: 'Точный контроль', multiScene: 'Разные сценарии', maneuverability: 'Манёвренность' } }
+      },
+      specs: {
+        title: 'Параметры Продукта', subtitle: 'Подробные технические характеристики',
+        tabs: { basic: 'Базовые', tech: 'Технические', package: 'Комплект' },
+        basicLabels: { size: 'Размеры корпуса', weightWithoutBattery: 'Вес (без батареи)', frameMaterial: 'Материал каркаса', powerSystem: 'Силовая установка', propellerSize: 'Размер винтов', batteryCapacity: 'Ёмкость батареи' },
+        values: { carbonFiber: 'Углепластик', brushlessMotor: 'Бесщёточный двигатель', prop10in: '10 дюймов', prop13in: '13 дюймов', prop15in: '15 дюймов', prop18in: '18 дюймов' },
+        techSections: { aircraft: 'Летательный аппарат', battery: 'Батарея', charger: 'Зарядное', rc: 'Пульт' },
+        techLabels: {
+          size: 'Размер', weight: 'Вес', takeoffWeight: 'Взлётный вес', maxClimbSpeed: 'Макс. скорость набора высоты', maxDescendSpeed: 'Макс. скорость снижения', maxHorizontalSpeed: 'Макс. горизонтальная скорость', maxAltitude: 'Макс. высота взлёта', maxFlightTime: 'Макс. время полёта', maxHoverTime: 'Макс. время зависания', maxRange: 'Макс. дальность', maxWindResistance: 'Макс. устойчивость к ветру', maxTiltAngle: 'Макс. угол крена', workTemp: 'Рабочая температура', gnss: 'Спутниковая навигация', hoverAccuracy: 'Точность зависания', capacity: 'Ёмкость', nominalVoltage: 'Номинальное напряжение', chargeLimitVoltage: 'Предел напряжения зарядки', type: 'Тип батареи', energy: 'Энергия', chargeEnv: 'Среда зарядки', chargeTime: 'Время зарядки', batteryDimensions: 'Размеры батареи', input: 'Вход', output: 'Выход', batteryEndurance: 'Макс. время работы', chargeTemp: 'Температура зарядки', chargeMethod: 'Метод зарядки', batteryCapacity: 'Ёмкость батареи'
+        },
+        package: { standardList: 'Стандартный комплект', documents: 'Документы', items: { host: 'Летательный аппарат', propellers: 'Винты', flightController: 'Полётный контроллер', battery: 'Батарея', charger: 'Зарядное', rc: 'Пульт', manual: 'Руководство', quickGuide: 'Краткое руководство', disclaimer: 'Отказ от ответственности', certificate: 'Сертификат' }, documentsMap: { manual: 'Руководство', quickGuide: 'Краткое руководство', disclaimer: 'Отказ от ответственности', certificate: 'Сертификат' } }
+      },
+      debug: { currentEmpty: 'Отладка: объект current пуст', basicEmpty: 'Отладка: current.basic пуст, объект current:' },
+      warranty: { title: 'Гарантийное Обслуживание', subtitle: 'Профессиональная поддержка', items: { period: { title: 'Срок гарантии', desc: 'Один год с даты поставки; покрывает аппаратные и производительные дефекты по качеству.' }, hardware: { title: 'Ремонт и замена', desc: 'Плата/экран/накопитель/питание; бесплатно, если не по вине пользователя.' }, response: { title: 'Быстрый отклик', desc: 'Подтверждение за 2 часа, решение за 24 часа для типовых проблем.' } } },
+      models: { m600: 'M600 Проф. мультиротор', m800: 'M800 Большой мультиротор', m400: 'M400 Лёгкий мультиротор', m1000: 'M1000 Тяжёлый мультиротор' }
+    },
+    fpvDetail: {
+      badge: 'FPV Дроны', subtitle: 'Проф. FPV: высокая скорость, точный контроль',
+      highlights: { speed: 'Высокая скорость', hdVideo: 'HD передача', stuntFlight: 'Акробатический полёт' },
+      sections: {
+        flightPerformance: { title: 'Лётные Характеристики', desc: 'Высокая скорость и манёвренность; гонки/фристайл/аэросъёмка', items: { highSpeed: 'Высокая скорость', lowLatencyVideo: 'Низкая задержка видео', agileControl: 'Манёвренный контроль', maneuverability: 'Отличная манёвренность' } },
+        strongStructure: { title: 'Прочная Конструкция', desc: 'Каркас из углепластика: лёгкий и прочный; устойчив к усталости', items: { carbonFiberFrame: 'Каркас из углепластика', lightweightOptimized: 'Облегчённая конструкция', highStrengthImpact: 'Ударопрочность', fatigueResistance: 'Устойчивость к усталости' } },
+        advantages: { title: 'Преимущества', desc: 'Скорость/манёвренность/точность; соревнования/свободный полёт/креативная съёмка', items: { highSpeed: 'Скорость', lowLatencyVideo: 'Низкая задержка', agileControl: 'Манёвренность', maneuverability: 'Контролируемость' } }
+      },
+      specs: {
+        title: 'Параметры Продукта', subtitle: 'Подробные технические характеристики',
+        tabs: { basic: 'Базовые', tech: 'Технические', package: 'Комплект' },
+        labels: { bodySize: 'Размеры корпуса', weightNoBattery: 'Вес (без батареи)', frameMaterial: 'Материал каркаса', powerSystem: 'Силовая установка', propellerSize: 'Размер винтов', batteryCapacity: 'Ёмкость батареи', maxSpeed: 'Макс. скорость', flightTime: 'Время полёта', videoTransmission: 'Передача видео', controlRange: 'Дальность управления', hoverAccuracy: 'Точность зависания', operatingTemp: 'Рабочая температура' },
+        values: { carbonFiber: 'Углепластик', brushlessMotor: 'Бесщёточный двигатель', prop3in: '3 дюйма', prop4_5in: '4.5 дюйма', prop5in: '5 дюймов', prop6in: '6 дюймов' },
+        groups: { aircraft: 'Летательный аппарат', battery: 'Батарея', charger: 'Зарядное', remoteController: 'Пульт' },
+        techLabels: {
+          takeoffWeight: 'Взлётный вес', dimensions: 'Размеры', maxAscentSpeed: 'Макс. скорость набора высоты', maxDescentSpeed: 'Макс. скорость снижения', maxHorizontalSpeed: 'Макс. горизонтальная скорость', maxTakeoffAltitude: 'Макс. высота взлёта', maxFlightTime: 'Макс. время полёта', maxHoverTime: 'Макс. время зависания', maxRange: 'Макс. дальность', maxWindResistance: 'Макс. устойчивость к ветру', maxTiltAngle: 'Макс. угол крена', operatingTemp: 'Рабочая температура', satelliteNavigation: 'Спутниковая навигация', hoverAccuracy: 'Точность зависания', capacity: 'Ёмкость', weight: 'Вес', nominalVoltage: 'Номинальное напряжение', chargeLimitVoltage: 'Предел напряжения зарядки', batteryType: 'Тип батареи', energy: 'Энергия', chargingEnvironment: 'Среда зарядки', chargingTime: 'Время зарядки', batteryDimensions: 'Размеры батареи', input: 'Вход', output: 'Выход', maxOperatingTime: 'Макс. время работы', chargingEnvTemp: 'Темп. среды зарядки', chargingMethod: 'Метод зарядки', batteryCapacity: 'Ёмкость батареи'
+        },
+        package: { standardList: 'Стандартный комплект', documents: 'Документы', items: { mainUnit: 'Основной блок', mainRotor: 'Главный ротор', tailRotor: 'Хвостовой ротор', motors: 'Двигатели', battery: 'Батарея', flightController: 'Полётный контроллер', charger: 'Зарядное', esc: 'ESC', propellers: 'Винты', remoteController: 'Пульт', camera: 'Камера', connectingRods: 'Тяги', antenna: 'Антенна', screwPack: 'Набор винтов' }, documentsMap: { manual: 'Руководство', quickStart: 'Быстрый старт', disclaimer: 'Отказ от ответственности', certificate: 'Сертификат' } }
+      },
+      debug: { currentEmpty: 'Отладка: объект current пуст', basicEmpty: 'Отладка: current.basic пуст' },
+      warranty: { title: 'Гарантийное Обслуживание', subtitle: 'Профессиональная поддержка', items: { period: { title: 'Срок гарантии', desc: 'Один год; покрывает проблемы качества.' }, hardware: { title: 'Ремонт/замена', desc: 'Бесплатно, если не по вине пользователя.' }, response: { title: 'Быстрый отклик', desc: 'Подтверждение за 2 ч, решение за 24 ч.' } } }
+    },
+    fixedWingDetail: {
+      badge: 'Дроны с Фиксированным Крылом', subtitle: 'Проф. крыло: долгая автономность, эффективность, широкое покрытие',
+      highlights: { endurance: 'Долгая автономность', efficient: 'Эффективный полёт', coverage: 'Широкое покрытие' },
+      sections: {
+        flightPerformance: { title: 'Лётные Характеристики', desc: 'Подъёмная сила крыла обеспечивает долгий полёт и высокую эффективность', items: { longEndurance: 'Долгие миссии', efficientFlight: 'Эффективный полёт', wideCoverage: 'Широкое покрытие', excellentEndurance: 'Превосходная автономность' } },
+        strongStructure: { title: 'Прочная Конструкция', desc: 'Крылья/фюзеляж/хвост/шасси/силовая установка; композиты углеволокна и облегчённый дизайн', items: { carbonFiber: 'Композит углеволокна', lightweightDesign: 'Облегчённый дизайн', highStrengthDurability: 'Прочность и долговечность', fatigueResistance: 'Устойчивость к усталости' } },
+        advantages: { title: 'Преимущества', desc: 'Автономность и эффективность; крупномасштабная картография/инспекция', items: { longEndurance: 'Долгая автономность', efficientFlight: 'Эффективный полёт', wideCoverage: 'Широкое покрытие', excellentEndurance: 'Превосходная автономность' } }
+      },
+      specs: {
+        title: 'Параметры Продукта', subtitle: 'Подробные технические характеристики',
+        tabs: { basic: 'Базовые', tech: 'Технические', package: 'Комплект' },
+        basicLabels: { wingspan: 'Размах крыла', fuselageLength: 'Длина фюзеляжа', maxTakeoffWeight: 'Макс. взлётный вес', maxPayload: 'Макс. полезная нагрузка', bodyMaterial: 'Материал фюзеляжа', powerSystem: 'Силовая установка', maxSpeed: 'Макс. скорость', flightTime: 'Автономность', controlRange: 'Дальность управления', operatingTemp: 'Рабочая температура' },
+        values: { carbonFiber: 'Углепластик', brushlessMotor: 'Бесщёточный двигатель', hybridPower: 'Гибридная силовая' },
+        techSections: { aircraft: 'Летательный аппарат', battery: 'Батарея', charger: 'Зарядное', remoteController: 'Пульт' },
+        techLabels: {
+          takeoffWeight: 'Взлётный вес', dimensions: 'Размеры', maxAscentSpeed: 'Макс. скорость набора высоты', maxDescentSpeed: 'Макс. скорость снижения', maxHorizontalSpeed: 'Макс. горизонтальная скорость', maxTakeoffAltitude: 'Макс. высота взлёта', maxFlightTime: 'Макс. время полёта', maxHoverTime: 'Макс. время зависания', maxRange: 'Макс. дальность', maxWindResistance: 'Макс. устойчивость к ветру', maxTiltAngle: 'Макс. угол крена', operatingTemp: 'Рабочая температура', gnss: 'Спутниковая навигация', hoverAccuracy: 'Точность зависания', capacity: 'Ёмкость', weight: 'Вес', nominalVoltage: 'Номинальное напряжение', chargeLimitVoltage: 'Предел напряжения зарядки', batteryType: 'Тип батареи', energy: 'Энергия', chargeEnv: 'Среда зарядки', chargeTime: 'Время зарядки', batteryDimensions: 'Размеры батареи', input: 'Вход', output: 'Выход', batteryEndurance: 'Макс. время работы', chargeTemp: 'Темп. среды зарядки', chargeMethod: 'Метод зарядки', batteryCapacity: 'Ёмкость батареи'
+        },
+        package: { standardList: 'Стандартный комплект', documents: 'Документы', items: { host: 'Летательный аппарат', wings: 'Крылья', flightController: 'Полётный контроллер', propellers: 'Винты', battery: 'Батарея', charger: 'Зарядное', rc: 'Пульт' }, documentsMap: { manual: 'Руководство', quickGuide: 'Краткое руководство', disclaimer: 'Отказ от ответственности', certificate: 'Сертификат' } }
+      },
+      debug: { currentEmpty: 'Отладка: объект current пуст', basicEmpty: 'Отладка: current.basic пуст' },
+      warranty: { title: 'Гарантийное Обслуживание', subtitle: 'Профессиональная поддержка', items: { period: { title: 'Срок гарантии', desc: 'Один год; покрывает проблемы качества.' }, hardware: { title: 'Ремонт/замена', desc: 'Бесплатно, если не по вине пользователя.' }, response: { title: 'Быстрый отклик', desc: 'Подтверждение за 2 ч, решение за 24 ч.' } } }
+    },
+    helicopterDetail: {
+      badge: 'Беспилотные Вертолёты', subtitle: 'Проф. вертолёт: VTOL, точное зависание, многозадачность',
+      highlights: { vtol: 'VTOL', preciseHover: 'Точное зависание', multiFunction: 'Многофункциональность' },
+      sections: {
+        flightPerformance: { title: 'Лётные Характеристики', desc: 'VTOL и зависание; продвинутые системы управления и силовая установка для сложных условий', items: { vtolCapability: 'VTOL', preciseHoverControl: 'Точный контроль зависания', complexEnvAdaptation: 'Адаптация к сложной среде', multiMissionCapability: 'Много задач' } },
+        strongStructure: { title: 'Прочная Конструкция', desc: 'Высокопрочный алюминиевый сплав и композиты углеволокна; прочный и лёгкий', items: { aluminumAlloy: 'Алюминиевый сплав', carbonFiberComposite: 'Композит углеволокна', durableStructure: 'Прочная конструкция', fatigueResistance: 'Устойчивость к усталости' } },
+        advantages: { title: 'Преимущества', desc: 'VTOL и зависание; адаптация к разным условиям; стабильный полёт', items: { vtolCapability: 'VTOL', preciseHoverControl: 'Точный контроль', complexEnvAdaptation: 'Адаптация', multiMissionCapability: 'Много задач' } }
+      },
+      specs: {
+        title: 'Параметры Продукта', subtitle: 'Подробные технические характеристики',
+        tabs: { basic: 'Базовые', tech: 'Технические', package: 'Комплект' },
+        labels: { fuselageLength: 'Длина фюзеляжа', mainRotorDiameter: 'Диаметр главного ротора', maxTakeoffWeight: 'Макс. взлётный вес', maxPayload: 'Макс. полезная нагрузка', bodyMaterial: 'Материал фюзеляжа', powerSystem: 'Силовая установка' },
+        values: { aluminumAlloy: 'Алюминиевый сплав', carbonFiber: 'Углепластик', brushlessMotor: 'Бесщёточный двигатель', hybridPower: 'Гибридная силовая' },
+        groups: { aircraft: 'Летательный аппарат', battery: 'Батарея', charger: 'Зарядное', remoteController: 'Пульт' },
+        techLabels: {
+          takeoffWeight: 'Взлётный вес', dimensions: 'Размеры', maxAscentSpeed: 'Макс. скорость набора высоты', maxDescentSpeed: 'Макс. скорость снижения', maxHorizontalSpeed: 'Макс. горизонтальная скорость', maxTakeoffAltitude: 'Макс. высота взлёта', maxFlightTime: 'Макс. время полёта', maxHoverTime: 'Макс. время зависания', maxRange: 'Макс. дальность', maxWindResistance: 'Макс. устойчивость к ветру', maxTiltAngle: 'Макс. угол крена', operatingTemp: 'Рабочая температура', satelliteNavigation: 'Спутниковая навигация', hoverAccuracy: 'Точность зависания', capacity: 'Ёмкость', weight: 'Вес', nominalVoltage: 'Номинальное напряжение', chargeLimitVoltage: 'Предел напряжения зарядки', batteryType: 'Тип батареи', energy: 'Энергия', chargingEnvironment: 'Среда зарядки', chargingTime: 'Время зарядки', batteryDimensions: 'Размеры батареи', input: 'Вход', output: 'Выход', maxOperatingTime: 'Макс. время работы', chargingEnvTemp: 'Темп. среды зарядки', chargingMethod: 'Метод зарядки', batteryCapacity: 'Ёмкость батареи'
+        },
+        package: { standardList: 'Стандартный комплект', documents: 'Документы', items: { mainUnit: 'Основной блок', motors: 'Двигатели', battery: 'Батарея', flightController: 'Полётный контроллер', esc: 'ESC', propellers: 'Винты', remoteController: 'Пульт', camera: 'Камера', connectingRods: 'Тяги', antenna: 'Антенна', screwPack: 'Набор винтов' }, documentsMap: { manual: 'Руководство', quickStart: 'Быстрый старт', disclaimer: 'Отказ от ответственности', certificate: 'Сертификат' } }
+      },
+      debug: { currentEmpty: 'Отладка: объект current пуст', basicEmpty: 'Отладка: current.basic пуст' },
+      warranty: { title: 'Гарантийное Обслуживание', subtitle: 'Профессиональная поддержка', items: { period: { title: 'Срок гарантии', desc: 'Один год; покрывает проблемы качества.' }, hardware: { title: 'Ремонт/замена', desc: 'Бесплатно, если не по вине пользователя.' }, response: { title: 'Быстрый отклик', desc: 'Подтверждение за 2 ч, решение за 24 ч.' } } }
     }
   },
   

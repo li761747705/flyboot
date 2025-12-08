@@ -287,6 +287,161 @@ export default {
       multiRotorDes: 'स्थिर और विश्वसनीय, सटीक नियंत्रण और सुगम उड़ान।',
       helicopterTitle: 'मानवरहित हेलीकॉप्टर',
       helicopterDes: 'वर्टिकल टेकऑफ़, उच्च वहन क्षमता, चुनौतीपूर्ण कार्यों के लिए आदर्श।'
+    },
+    fpvPage: {
+      heroBadge: 'FPV ड्रोन',
+      heroTitle: 'FPV ड्रोन',
+      heroSubtitle: 'अद्भुत गति, सटीक नियंत्रण',
+      features: { speed: 'उच्च गति', hdFpv: 'एचडी FPV', stunt: 'स्टंट उड़ान', filming: 'एरियल फिल्मिंग' },
+      sectionTitle: 'उत्पाद श्रृंखला',
+      sectionSubtitle: 'विभिन्न परिदृश्यों के लिए पेशेवर FPV ड्रोन',
+      buttonDetail: 'विवरण देखें',
+      loadingText: 'उत्पाद जानकारी लोड हो रही है...'
+    },
+    fpvDrones: {
+      p1: { name: 'P1 रेसिंग FPV ड्रोन', category: 'रेसिंग', description: 'प्रतियोगिता के लिए डिज़ाइन, अत्यधिक गति' },
+      p2x: { name: 'P2X स्टंट FPV ड्रोन', category: 'स्टंट', description: 'फ्रीस्टाइल स्टंट उड़ान' },
+      c1: { name: 'C1 सिनेमैटिक FPV ड्रोन', category: 'सिनेमैटिक', description: 'पेशेवर एरियल शूटिंग, उच्च गुणवत्ता वीडियो' },
+      x4: { name: 'X4 क्वाडकोप्टर FPV', category: 'शुरुआती', description: 'शुरुआती के लिए अनुकूल, स्थिर नियंत्रण' }
+    },
+    multiRotorPage: {
+      heroBadge: 'मल्टी-रोटर ड्रोन',
+      heroTitle: 'मल्टी-रोटर ड्रोन',
+      heroSubtitle: 'मजबूत स्थिरता, दृष्टिकोण पर आपका नियंत्रण',
+      features: { professional: 'प्रोफेशनल', precision: 'उच्च सटीकता', stability: 'उच्च स्थिरता', reliable: 'विश्वसनीय' },
+      sectionTitle: 'उत्पाद श्रृंखला',
+      sectionSubtitle: 'फोटोग्राफी/मैपिंग/निरीक्षण के लिए पेशेवर मल्टी-रोटर',
+      buttonDetail: 'विवरण देखें'
+    },
+    multiRotorDrones: {
+      drone1: { name: 'WW-1 हेक्साकॉप्टर', category: 'हेक्सा', description: 'फोटोग्राफी और मैपिंग के लिए प्रो' },
+      drone2: { name: 'WW-2 हेक्सा/ऑक्टा', category: 'हेक्सा', description: 'औद्योगिक निरीक्षण के लिए उच्च वहन क्षमता' },
+      drone3: { name: 'WW-3 फोल्डेबल', category: 'फोल्डेबल', description: 'पोर्टेबल फोल्डेबल, आपातकालीन सहायता' },
+      drone4: { name: 'WW-4 इंडस्ट्रियल', category: 'औद्योगिक', description: 'बड़े पैमाने पर निरीक्षण के लिए उपयुक्त' },
+      m600: { name: 'M600 प्रो मल्टी-रोटर', category: 'प्रो', description: 'पेशेवर बहुउद्देश्यीय प्लेटफ़ॉर्म', banner: 'M600 प्रो मल्टी-रोटर' },
+      m800: { name: 'M800 बड़ा मल्टी-रोटर', category: 'औद्योगिक', description: 'उच्च पेलोड प्लेटफ़ॉर्म', banner: 'M800 बड़ा मल्टी-रोटर' },
+      m400: { name: 'M400 हल्का मल्टी-रोटर', category: 'पोर्टेबल', description: 'हल्का और पोर्टेबल', banner: 'M400 हल्का मल्टी-रोटर' },
+      m1000: { name: 'M1000 भारी मल्टी-रोटर', category: 'भारी', description: 'उच्च भार कार्यों के लिए', banner: 'M1000 भारी मल्टी-रोटर' }
+    },
+    fixedWingPage: {
+      heroBadge: 'फिक्स्ड-विंग ड्रोन',
+      heroTitle: 'फिक्स्ड-विंग ड्रोन',
+      heroSubtitle: 'लंबी उड़ान, मिशन पूरा',
+      features: { endurance: 'लंबी सहनशक्ति', efficient: 'कुशल उड़ान', coverage: 'विस्तृत कवरेज', multiScene: 'एकाधिक परिदृश्य' },
+      sectionTitle: 'उत्पाद श्रृंखला',
+      sectionSubtitle: 'विस्तृत कवरेज और लंबी उड़ान के लिए प्रो फिक्स्ड-विंग',
+      buttonDetail: 'विवरण देखें'
+    },
+    fixedWingDrones: {
+      f1800: { name: 'F1800 फिक्स्ड-विंग', category: 'प्रो', description: 'उच्च दक्षता, लंबी उड़ान' },
+      s2000: { name: 'S2000 फिक्स्ड-विंग', category: 'मैपिंग', description: 'मैपिंग और निरीक्षण के लिए उपयुक्त' },
+      v1500: { name: 'V1500 फिक्स्ड-विंग', category: 'कुशल', description: 'स्थिर और विश्वसनीय' },
+      m3000: { name: 'M3000 फिक्स्ड-विंग', category: 'औद्योगिक', description: 'बड़े क्षेत्र की कवरेज' }
+    },
+    helicopterPage: {
+      heroBadge: 'मानवरहित हेलीकॉप्टर',
+      heroTitle: 'मानवरहित हेलीकॉप्टर',
+      heroSubtitle: 'वर्टिकल टेकऑफ, उच्च पेलोड क्षमता',
+      features: { industrial: 'औद्योगिक', payload: 'उच्च पेलोड', endurance: 'लंबी सहनशक्ति', reliability: 'उच्च विश्वसनीयता' },
+      sectionTitle: 'उत्पाद श्रृंखला',
+      sectionSubtitle: 'निरीक्षण/परिवहन/निगरानी के लिए उपयुक्त',
+      buttonDetail: 'विवरण देखें'
+    },
+    helicopterDrones: {
+      h1000: { name: 'H1000 भारी हेलीकॉप्टर', category: 'भारी', description: 'उच्च पेलोड परिवहन क्षमता' },
+      s600: { name: 'S600 गश्ती हेलीकॉप्टर', category: 'गश्ती', description: 'लंबी अवधि निगरानी' },
+      m800: { name: 'M800 हाइब्रिड हेलीकॉप्टर', category: 'हाइब्रिड', description: 'कुशल और ऊर्जा-बचत', banner: 'M800 हाइब्रिड हेलीकॉप्टर' },
+      f200: { name: 'F200 पोर्टेबल हेलीकॉप्टर', category: 'पोर्टेबल', description: 'त्वरित तैनाती' }
+    },
+    multiRotorDetail: {
+      badge: 'मल्टी-रोटर ड्रोन',
+      subtitle: 'प्रो मल्टी-रोटर: स्थिर होवर, सटीक नियंत्रण, बहु-उपयोग',
+      highlights: { stableHover: 'स्थिर होवर', preciseControl: 'सटीक नियंत्रण', broadUse: 'विस्तृत उपयोग' },
+      sections: {
+        flightPerformance: { title: 'उड़ान प्रदर्शन', desc: 'हेक्सा डिज़ाइन जटिल परिवेश में उच्च वायु-प्रतिरोध और स्थिर उड़ान देता है', items: { stableHover: 'स्थिर होवर', preciseControl: 'सटीक उड़ान नियंत्रण', multiScene: 'बहु परिदृश्य', maneuverability: 'उत्कृष्ट नियंत्रकता' } },
+        strongStructure: { title: 'हाई-स्ट्रेंथ संरचना', desc: 'कार्बन फाइबर और एल्यूमिनियम मिश्र धातु: हल्का और मजबूत, टिकाऊ', items: { carbonFiberFrame: 'कार्बन फाइबर फ्रेम', aluminumParts: 'एल्यूमिनियम मिश्र धातु पार्ट्स', lightweightHighStrength: 'हल्का और मजबूत', fatigueResistance: 'बेहतरीन थकान प्रतिरोध' } },
+        advantages: { title: 'फायदे', desc: 'VTOL/होवर सपोर्ट; विविध कार्य परिस्थितियों के लिए उपयुक्त', items: { stableHover: 'स्थिर होवर', preciseControl: 'सटीक नियंत्रण', multiScene: 'बहु परिदृश्य', maneuverability: 'उत्कृष्ट नियंत्रकता' } }
+      },
+      specs: {
+        title: 'प्रोडक्ट पैरामीटर', subtitle: 'विस्तृत तकनीकी स्पेसिफिकेशन और कॉन्फ़िगरेशन',
+        tabs: { basic: 'बेसिक', tech: 'टेक', package: 'पैकेज सूची' },
+        basicLabels: { size: 'बॉडी साइज', weightWithoutBattery: 'वज़न (बैटरी के बिना)', frameMaterial: 'फ्रेम सामग्री', powerSystem: 'पावर सिस्टम', propellerSize: 'प्रोपेलर आकार', batteryCapacity: 'बैटरी क्षमता' },
+        values: { carbonFiber: 'कार्बन फाइबर', brushlessMotor: 'ब्रशलेस मोटर', prop10in: '10 इंच', prop13in: '13 इंच', prop15in: '15 इंच', prop18in: '18 इंच' },
+        techSections: { aircraft: 'एयरक्राफ्ट', battery: 'बैटरी', charger: 'चार्जर', rc: 'रिमोट कंट्रोल' },
+        techLabels: {
+          size: 'आकार', weight: 'वज़न', takeoffWeight: 'टेकऑफ वज़न', maxClimbSpeed: 'अधिकतम चढ़ाई गति', maxDescendSpeed: 'अधिकतम अवरोहण गति', maxHorizontalSpeed: 'अधिकतम क्षैतिज गति', maxAltitude: 'अधिकतम टेकऑफ ऊँचाई', maxFlightTime: 'अधिकतम उड़ान समय', maxHoverTime: 'अधिकतम होवर समय', maxRange: 'अधिकतम रेंज', maxWindResistance: 'अधिकतम पवन प्रतिरोध', maxTiltAngle: 'अधिकतम झुकाव कोण', workTemp: 'ऑपरेटिंग तापमान', gnss: 'उपग्रह नेविगेशन', hoverAccuracy: 'होवर सटीकता', capacity: 'क्षमता', nominalVoltage: 'नाममात्र वोल्टेज', chargeLimitVoltage: 'चार्ज लिमिट वोल्टेज', type: 'बैटरी प्रकार', energy: 'ऊर्जा', chargeEnv: 'चार्जिंग वातावरण', chargeTime: 'चार्जिंग समय', batteryDimensions: 'बैटरी आयाम', input: 'इनपुट', output: 'आउटपुट', batteryEndurance: 'अधिकतम कार्य समय', chargeTemp: 'चार्जिंग वातावरण तापमान', chargeMethod: 'चार्जिंग विधि', batteryCapacity: 'बैटरी क्षमता'
+        },
+        package: { standardList: 'स्टैंडर्ड सूची', documents: 'दस्तावेज़', items: { host: 'एयरक्राफ्ट यूनिट', propellers: 'प्रोपेलर', flightController: 'फ्लाइट कंट्रोलर', battery: 'बैटरी', charger: 'चार्जर', rc: 'रिमोट कंट्रोल', manual: 'प्रोडक्ट मैनुअल', quickGuide: 'क्विक गाइड', disclaimer: 'डिस्क्लेमर', certificate: 'सर्टिफिकेट' }, documentsMap: { manual: 'प्रोडक्ट मैनुअल', quickGuide: 'क्विक गाइड', disclaimer: 'डिस्क्लेमर', certificate: 'सर्टिफिकेट' } }
+      },
+      debug: { currentEmpty: 'डिबग: current ऑब्जेक्ट खाली', basicEmpty: 'डिबग: current.basic खाली, current ऑब्जेक्ट:' },
+      warranty: { title: 'गारंटी सेवा', subtitle: 'प्रो-लेवल आफ्टर-सेल्स', items: { period: { title: 'गारंटी अवधि', desc: 'डिलीवरी से एक वर्ष; गुणवत्ता-जनित हार्डवेयर/परफॉर्मेंस समस्याओं को कवर करता है।' }, hardware: { title: 'हार्डवेयर मरम्मत/बदलाव', desc: 'मदरबोर्ड/डिस्प्ले/स्टोरेज/पावर; मानव-निर्मित कारणों के बिना मुफ्त मरम्मत/बदलाव।' }, response: { title: 'तेज़ प्रतिक्रिया', desc: '2 घंटे में पुष्टि, 24 घंटे में समाधान (सामान्य समस्याएँ)।' } } },
+      models: { m600: 'M600 प्रो मल्टी-रोटर', m800: 'M800 बड़ा मल्टी-रोटर', m400: 'M400 हल्का मल्टी-रोटर', m1000: 'M1000 भारी मल्टी-रोटर' }
+    },
+    fpvDetail: {
+      badge: 'FPV ड्रोन', subtitle: 'प्रो FPV: उच्च गति, सटीक नियंत्रण',
+      highlights: { speed: 'उच्च गति', hdVideo: 'HD ट्रांसमिशन', stuntFlight: 'स्टंट उड़ान' },
+      sections: {
+        flightPerformance: { title: 'उड़ान प्रदर्शन', desc: 'उच्च गति और चुस्ती; प्रतियोगिता/फ्रीस्टाइल/एरियल फिल्मिंग के लिए उपयुक्त', items: { highSpeed: 'उच्च गति', lowLatencyVideo: 'कम विलंबता वीडियो', agileControl: 'चुस्त नियंत्रण', maneuverability: 'उत्कृष्ट नियंत्रकता' } },
+        strongStructure: { title: 'हाई-स्ट्रेंथ संरचना', desc: 'कार्बन फाइबर फ्रेम: हल्का और मजबूत, टिकाऊ', items: { carbonFiberFrame: 'कार्बन फाइबर फ्रेम', lightweightOptimized: 'हल्की अनुकूलित संरचना', highStrengthImpact: 'उच्च-शक्ति इम्पैक्ट प्रतिरोध', fatigueResistance: 'थकान प्रतिरोध' } },
+        advantages: { title: 'फायदे', desc: 'गति/चुस्ती/सटीकता; प्रतियोगिता/फ्री फ्लाइट/क्रिएटिव फिल्मिंग', items: { highSpeed: 'उच्च गति', lowLatencyVideo: 'कम विलंबता', agileControl: 'चुस्त नियंत्रण', maneuverability: 'नियंत्रकता' } }
+      },
+      specs: {
+        title: 'प्रोडक्ट पैरामीटर', subtitle: 'विस्तृत तकनीकी स्पेसिफिकेशन',
+        tabs: { basic: 'बेसिक', tech: 'टेक', package: 'पैकेज' },
+        labels: { bodySize: 'बॉडी साइज', weightNoBattery: 'वज़न (बैटरी के बिना)', frameMaterial: 'फ्रेम सामग्री', powerSystem: 'पावर सिस्टम', propellerSize: 'प्रोपेलर आकार', batteryCapacity: 'बैटरी क्षमता', maxSpeed: 'अधिकतम गति', flightTime: 'उड़ान समय', videoTransmission: 'ट्रांसमिशन सिस्टम', controlRange: 'कंट्रोल रेंज', hoverAccuracy: 'होवर सटीकता', operatingTemp: 'ऑपरेटिंग तापमान' },
+        values: { carbonFiber: 'कार्बन फाइबर', brushlessMotor: 'ब्रशलेस मोटर', prop3in: '3 इंच', prop4_5in: '4.5 इंच', prop5in: '5 इंच', prop6in: '6 इंच' },
+        groups: { aircraft: 'एयरक्राफ्ट', battery: 'बैटरी', charger: 'चार्जर', remoteController: 'रिमोट कंट्रोल' },
+        techLabels: {
+          takeoffWeight: 'टेकऑफ वज़न', dimensions: 'आयाम', maxAscentSpeed: 'अधिकतम चढ़ाई गति', maxDescentSpeed: 'अधिकतम अवरोहण गति', maxHorizontalSpeed: 'अधिकतम क्षैतिज गति', maxTakeoffAltitude: 'अधिकतम टेकऑफ ऊँचाई', maxFlightTime: 'अधिकतम उड़ान समय', maxHoverTime: 'अधिकतम होवर समय', maxRange: 'अधिकतम रेंज', maxWindResistance: 'अधिकतम पवन प्रतिरोध', maxTiltAngle: 'अधिकतम झुकाव कोण', operatingTemp: 'ऑपरेटिंग तापमान', satelliteNavigation: 'उपग्रह नेविगेशन', hoverAccuracy: 'होवर सटीकता', capacity: 'क्षमता', weight: 'वज़न', nominalVoltage: 'नाममात्र वोल्टेज', chargeLimitVoltage: 'चार्ज लिमिट वोल्टेज', batteryType: 'बैटरी प्रकार', energy: 'ऊर्जा', chargingEnvironment: 'चार्जिंग वातावरण', chargingTime: 'चार्जिंग समय', batteryDimensions: 'बैटरी आयाम', input: 'इनपुट', output: 'आउटपुट', maxOperatingTime: 'अधिकतम कार्य समय', chargingEnvTemp: 'चार्जिंग वातावरण तापमान', chargingMethod: 'चार्जिंग विधि', batteryCapacity: 'बैटरी क्षमता'
+        },
+        package: { standardList: 'स्टैंडर्ड सूची', documents: 'दस्तावेज़', items: { mainUnit: 'मुख्य यूनिट', mainRotor: 'मुख्य रोटर', tailRotor: 'टेल रोटर', motors: 'मोटर', battery: 'बैटरी', flightController: 'फ्लाइट कंट्रोलर', charger: 'चार्जर', esc: 'ESC', propellers: 'प्रोपेलर', remoteController: 'रिमोट', camera: 'कैमरा', connectingRods: 'कनेक्टिंग रॉड', antenna: 'एंटेना', screwPack: 'स्क्रू पैक' }, documentsMap: { manual: 'प्रोडक्ट मैनुअल', quickStart: 'क्विक स्टार्ट गाइड', disclaimer: 'डिस्क्लेमर', certificate: 'सर्टिफिकेट' } }
+      },
+      debug: { currentEmpty: 'डिबग: current ऑब्जेक्ट खाली', basicEmpty: 'डिबग: current.basic खाली' },
+      warranty: { title: 'गारंटी सेवा', subtitle: 'प्रो-लेवल आफ्टर-सेल्स', items: { period: { title: 'गारंटी अवधि', desc: 'एक वर्ष; गुणवत्ता समस्याएँ कवर।' }, hardware: { title: 'मरम्मत/बदलाव', desc: 'मानव-निर्मित कारणों के बिना मुफ्त।' }, response: { title: 'तेज़ प्रतिक्रिया', desc: '2 घंटे में पुष्टि, 24 घंटे में समाधान।' } } }
+    },
+    fixedWingDetail: {
+      badge: 'फिक्स्ड-विंग ड्रोन', subtitle: 'प्रो फिक्स्ड-विंग: लंबी उड़ान, कुशल उड़ान, व्यापक कवरेज',
+      highlights: { endurance: 'लंबी उड़ान', efficient: 'कुशल उड़ान', coverage: 'विस्तृत कवरेज' },
+      sections: {
+        flightPerformance: { title: 'उड़ान प्रदर्शन', desc: 'विंग-लिफ्ट आधारित लंबी उड़ान और उच्च दक्षता; उच्च लोड क्षमता', items: { longEndurance: 'लंबी अवधि मिशन', efficientFlight: 'कुशल उड़ान', wideCoverage: 'विस्तृत कवरेज', excellentEndurance: 'उत्कृष्ट सहनशक्ति' } },
+        strongStructure: { title: 'हाई-स्ट्रेंथ संरचना', desc: 'विंग/फ्यूज़लाज/टेल/लैंडिंग गियर/पावर सिस्टम; कार्बन कॉम्पोज़िट और हल्का डिज़ाइन', items: { carbonFiber: 'कार्बन फाइबर कॉम्पोज़िट', lightweightDesign: 'हल्का डिज़ाइन', highStrengthDurability: 'उच्च ताकत और टिकाऊ', fatigueResistance: 'थकान प्रतिरोध' } },
+        advantages: { title: 'फायदे', desc: 'लंबी उड़ान और उच्च दक्षता; बड़े पैमाने की मैपिंग/निरीक्षण', items: { longEndurance: 'लंबी उड़ान', efficientFlight: 'कुशल उड़ान', wideCoverage: 'विस्तृत कवरेज', excellentEndurance: 'उत्कृष्ट सहनशक्ति' } }
+      },
+      specs: {
+        title: 'प्रोडक्ट पैरामीटर', subtitle: 'विस्तृत तकनीकी स्पेसिफिकेशन',
+        tabs: { basic: 'बेसिक', tech: 'टेक', package: 'पैकेज' },
+        basicLabels: { wingspan: 'विंगस्पैन', fuselageLength: 'फ्यूज़लाज लंबाई', maxTakeoffWeight: 'अधिकतम टेकऑफ वज़न', maxPayload: 'अधिकतम पेलोड', bodyMaterial: 'फ्यूज़लाज सामग्री', powerSystem: 'पावर सिस्टम', maxSpeed: 'अधिकतम गति', flightTime: 'उड़ान समय', controlRange: 'कंट्रोल रेंज', operatingTemp: 'ऑपरेटिंग तापमान' },
+        values: { carbonFiber: 'कार्बन फाइबर', brushlessMotor: 'ब्रशलेस मोटर', hybridPower: 'हाइब्रिड पावर' },
+        techSections: { aircraft: 'एयरक्राफ्ट', battery: 'बैटरी', charger: 'चार्जर', remoteController: 'रिमोट' },
+        techLabels: {
+          takeoffWeight: 'टेकऑफ वज़न', dimensions: 'आयाम', maxAscentSpeed: 'अधिकतम चढ़ाई गति', maxDescentSpeed: 'अधिकतम अवरोहण गति', maxHorizontalSpeed: 'अधिकतम क्षैतिज गति', maxTakeoffAltitude: 'अधिकतम टेकऑफ ऊँचाई', maxFlightTime: 'अधिकतम उड़ान समय', maxHoverTime: 'अधिकतम होवर समय', maxRange: 'अधिकतम रेंज', maxWindResistance: 'अधिकतम पवन प्रतिरोध', maxTiltAngle: 'अधिकतम झुकाव कोण', operatingTemp: 'ऑपरेटिंग तापमान', gnss: 'उपग्रह नेविगेशन', hoverAccuracy: 'होवर सटीकता', capacity: 'क्षमता', weight: 'वज़न', nominalVoltage: 'नाममात्र वोल्टेज', chargeLimitVoltage: 'चार्ज लिमिट वोल्टेज', batteryType: 'बैटरी प्रकार', energy: 'ऊर्जा', chargeEnv: 'चार्जिंग वातावरण', chargeTime: 'चार्जिंग समय', batteryDimensions: 'बैटरी आयाम', input: 'इनपुट', output: 'आउटपुट', batteryEndurance: 'अधिकतम कार्य समय', chargeTemp: 'चार्जिंग वातावरण तापमान', chargeMethod: 'चार्जिंग विधि', batteryCapacity: 'बैटरी क्षमता'
+        },
+        package: { standardList: 'स्टैंडर्ड सूची', documents: 'दस्तावेज़', items: { host: 'एयरक्राफ्ट यूनिट', wings: 'विंग्स', flightController: 'फ्लाइट कंट्रोलर', propellers: 'प्रोपेलर', battery: 'बैटरी', charger: 'चार्जर', rc: 'रिमोट' }, documentsMap: { manual: 'प्रोडक्ट मैनुअल', quickGuide: 'क्विक गाइड', disclaimer: 'डिस्क्लेमर', certificate: 'सर्टिफिकेट' } }
+      },
+      debug: { currentEmpty: 'डिबग: current ऑब्जेक्ट खाली', basicEmpty: 'डिबग: current.basic खाली' },
+      warranty: { title: 'गारंटी सेवा', subtitle: 'प्रो-लेवल आफ्टर-सेल्स', items: { period: { title: 'गारंटी अवधि', desc: 'एक वर्ष; गुणवत्ता समस्याएँ कवर।' }, hardware: { title: 'मरम्मत/बदलाव', desc: 'मानव-निर्मित कारणों के बिना मुफ्त।' }, response: { title: 'तेज़ प्रतिक्रिया', desc: '2 घंटे में पुष्टि, 24 घंटे में समाधान।' } } }
+    },
+    helicopterDetail: {
+      badge: 'मानवरहित हेलीकॉप्टर', subtitle: 'प्रो हेलीकॉप्टर: VTOL, सटीक होवर, बहु-कार्य',
+      highlights: { vtol: 'VTOL', preciseHover: 'सटीक होवर', multiFunction: 'मल्टी-फंक्शन' },
+      sections: {
+        flightPerformance: { title: 'उड़ान प्रदर्शन', desc: 'VTOL और होवर; उन्नत कंट्रोल/पावर सिस्टम जटिल परिवेश में स्थिर', items: { vtolCapability: 'VTOL क्षमता', preciseHoverControl: 'सटीक होवर नियंत्रण', complexEnvAdaptation: 'जटिल परिवेश अनुकूलन', multiMissionCapability: 'बहु-मिशन क्षमता' } },
+        strongStructure: { title: 'हाई-स्ट्रेंथ संरचना', desc: 'उच्च-शक्ति एल्यूमिनियम मिश्र धातु और कार्बन कंपोजिट; मजबूत और हल्का', items: { aluminumAlloy: 'एल्यूमिनियम मिश्र धातु', carbonFiberComposite: 'कार्बन कंपोजिट', durableStructure: 'टिकाऊ संरचना', fatigueResistance: 'थकान प्रतिरोध' } },
+        advantages: { title: 'फायदे', desc: 'VTOL और होवर; बहु-परिस्थिति अनुकूलता; स्थिर उड़ान', items: { vtolCapability: 'VTOL क्षमता', preciseHoverControl: 'सटीक होवर नियंत्रण', complexEnvAdaptation: 'जटिल परिवेश अनुकूलन', multiMissionCapability: 'बहु-मिशन क्षमता' } }
+      },
+      specs: {
+        title: 'प्रोडक्ट पैरामीटर', subtitle: 'विस्तृत तकनीकी स्पेसिफिकेशन',
+        tabs: { basic: 'बेसिक', tech: 'टेक', package: 'पैकेज' },
+        labels: { fuselageLength: 'फ्यूज़लाज लंबाई', mainRotorDiameter: 'मुख्य रोटर व्यास', maxTakeoffWeight: 'अधिकतम टेकऑफ वज़न', maxPayload: 'अधिकतम पेलोड', bodyMaterial: 'फ्यूज़लाज सामग्री', powerSystem: 'पावर सिस्टम' },
+        values: { aluminumAlloy: 'एल्यूमिनियम मिश्र धातु', carbonFiber: 'कार्बन फाइबर', brushlessMotor: 'ब्रशलेस मोटर', hybridPower: 'हाइब्रिड पावर' },
+        groups: { aircraft: 'एयरक्राफ्ट', battery: 'बैटरी', charger: 'चार्जर', remoteController: 'रिमोट' },
+        techLabels: {
+          takeoffWeight: 'टेकऑफ वज़न', dimensions: 'आयाम', maxAscentSpeed: 'अधिकतम चढ़ाई गति', maxDescentSpeed: 'अधिकतम अवरोहण गति', maxHorizontalSpeed: 'अधिकतम क्षैतिज गति', maxTakeoffAltitude: 'अधिकतम टेकऑफ ऊँचाई', maxFlightTime: 'अधिकतम उड़ान समय', maxHoverTime: 'अधिकतम होवर समय', maxRange: 'अधिकतम रेंज', maxWindResistance: 'अधिकतम पवन प्रतिरोध', maxTiltAngle: 'अधिकतम झुकाव कोण', operatingTemp: 'ऑपरेटिंग तापमान', satelliteNavigation: 'उपग्रह नेविगेशन', hoverAccuracy: 'होवर सटीकता', capacity: 'क्षमता', weight: 'वज़न', nominalVoltage: 'नाममात्र वोल्टेज', chargeLimitVoltage: 'चार्ज लिमिट वोल्टेज', batteryType: 'बैटरी प्रकार', energy: 'ऊर्जा', chargingEnvironment: 'चार्जिंग वातावरण', chargingTime: 'चार्जिंग समय', batteryDimensions: 'बैटरी आयाम', input: 'इनपुट', output: 'आउटपुट', maxOperatingTime: 'अधिकतम कार्य समय', chargingEnvTemp: 'चार्जिंग वातावरण तापमान', chargingMethod: 'चार्जिंग विधि', batteryCapacity: 'बैटरी क्षमता'
+        },
+        package: { standardList: 'स्टैंडर्ड सूची', documents: 'दस्तावेज़', items: { mainUnit: 'मुख्य यूनिट', motors: 'मोटर', battery: 'बैटरी', flightController: 'फ्लाइट कंट्रोलर', esc: 'ESC', propellers: 'प्रोपेलर', remoteController: 'रिमोट', camera: 'कैमरा', connectingRods: 'कनेक्टिंग रॉड', antenna: 'एंटेना', screwPack: 'स्क्रू पैक' }, documentsMap: { manual: 'प्रोडक्ट मैनुअल', quickStart: 'क्विक स्टार्ट गाइड', disclaimer: 'डिस्क्लेमर', certificate: 'सर्टिफिकेट' } }
+      },
+      debug: { currentEmpty: 'डिबग: current ऑब्जेक्ट खाली', basicEmpty: 'डिबग: current.basic खाली' },
+      warranty: { title: 'गारंटी सेवा', subtitle: 'प्रो-लेवल आफ्टर-सेल्स', items: { period: { title: 'गारंटी अवधि', desc: 'एक वर्ष; गुणवत्ता समस्याएँ कवर।' }, hardware: { title: 'मरम्मत/बदलाव', desc: 'मानव-निर्मित कारणों के बिना मुफ्त।' }, response: { title: 'तेज़ प्रतिक्रिया', desc: '2 घंटे में पुष्टि, 24 घंटे में समाधान।' } } }
     }
   },
   

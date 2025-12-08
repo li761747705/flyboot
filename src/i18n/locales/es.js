@@ -294,6 +294,185 @@ export default {
       multiRotorDes: 'Estables y fiables, control preciso y vuelo fluido.',
       helicopterTitle: 'Helicópteros No Tripulados',
       helicopterDes: 'Despegue vertical, gran capacidad de carga, ideal para tareas difíciles.'
+    },
+    fpvPage: {
+      heroBadge: 'Drones FPV',
+      heroTitle: 'Drones FPV',
+      heroSubtitle: 'Velocidad increíble, control preciso',
+      features: { speed: 'Alta velocidad', hdFpv: 'FPV en alta definición', stunt: 'Acrobacias', filming: 'Filmación aérea' },
+      sectionTitle: 'Serie de productos',
+      sectionSubtitle: 'Drones FPV profesionales para múltiples escenarios',
+      buttonDetail: 'Ver detalles',
+      loadingText: 'Cargando información del producto...'
+    },
+    fpvDrones: {
+      p1: { name: 'P1 Dron FPV de carreras', category: 'Carreras', description: 'Diseñado para competición, velocidad extrema' },
+      p2x: { name: 'P2X Dron FPV acrobático', category: 'Acrobacias', description: 'Vuelo freestyle acrobático' },
+      c1: { name: 'C1 Dron FPV cinematográfico', category: 'Cinematográfico', description: 'Filmación aérea profesional, salida de alta definición' },
+      x4: { name: 'X4 Dron FPV cuadricóptero', category: 'Principiante', description: 'Amigable para principiantes, control estable' }
+    },
+    multiRotorPage: {
+      heroBadge: 'Drones Multirrotor',
+      heroTitle: 'Drones Multirrotor',
+      heroSubtitle: 'Estabilidad sólida, ángulos de visión bajo control',
+      features: { professional: 'Profesional', precision: 'Precisión', stability: 'Estabilidad', reliable: 'Fiable' },
+      sectionTitle: 'Serie de productos',
+      sectionSubtitle: 'Multirrotores profesionales para fotografía, cartografía e inspección',
+      buttonDetail: 'Ver detalles'
+    },
+    multiRotorDrones: {
+      drone1: { name: 'WW-1 Hexacóptero', category: 'Hexacóptero', description: 'Hexacóptero profesional para fotografía y cartografía' },
+      drone2: { name: 'WW-2 Hexa/Octa', category: 'Hexa', description: 'Configuración de alta carga para inspecciones industriales' },
+      drone3: { name: 'WW-3 Plegable', category: 'Plegable', description: 'Dron plegable portátil, rescate de emergencia' },
+      drone4: { name: 'WW-4 Industrial', category: 'Industrial', description: 'Adecuado para inspecciones a gran escala' },
+      m600: { name: 'M600 Multirrotor profesional', category: 'Profesional', description: 'Plataforma versátil profesional', banner: 'M600 Multirrotor profesional' },
+      m800: { name: 'M800 Gran multirrotor', category: 'Industrial', description: 'Plataforma de gran capacidad de carga', banner: 'M800 Gran multirrotor' },
+      m400: { name: 'M400 Multirrotor ligero', category: 'Portátil', description: 'Ligero y portátil', banner: 'M400 Multirrotor ligero' },
+      m1000: { name: 'M1000 Multirrotor pesado', category: 'Pesado', description: 'Para tareas de alta carga', banner: 'M1000 Multirrotor pesado' }
+    },
+    fixedWingPage: {
+      heroBadge: 'Drones de Ala Fija',
+      heroTitle: 'Drones de Ala Fija',
+      heroSubtitle: 'Larga autonomía, misión cumplida',
+      features: { endurance: 'Larga autonomía', efficient: 'Vuelo eficiente', coverage: 'Gran cobertura', multiScene: 'Múltiples escenarios' },
+      sectionTitle: 'Serie de productos',
+      sectionSubtitle: 'Ala fija profesional para amplia cobertura y autonomía',
+      buttonDetail: 'Ver detalles'
+    },
+    fixedWingDrones: {
+      f1800: { name: 'F1800 Ala fija', category: 'Profesional', description: 'Alta eficiencia, larga autonomía' },
+      s2000: { name: 'S2000 Ala fija', category: 'Topografía', description: 'Adecuado para cartografía e inspección' },
+      v1500: { name: 'V1500 Ala fija', category: 'Eficiente', description: 'Estable y fiable' },
+      m3000: { name: 'M3000 Ala fija', category: 'Industrial', description: 'Cobertura de gran área' }
+    },
+    helicopterPage: {
+      heroBadge: 'Helicópteros No Tripulados',
+      heroTitle: 'Helicópteros No Tripulados',
+      heroSubtitle: 'Despegue vertical, gran capacidad de carga',
+      features: { industrial: 'Industrial', payload: 'Gran carga', endurance: 'Larga autonomía', reliability: 'Alta fiabilidad' },
+      sectionTitle: 'Serie de productos',
+      sectionSubtitle: 'Adecuado para inspección, transporte y monitorización',
+      buttonDetail: 'Ver detalles'
+    },
+    helicopterDrones: {
+      h1000: { name: 'H1000 Helicóptero de carga pesada', category: 'Pesado', description: 'Gran capacidad de transporte de carga' },
+      s600: { name: 'S600 Helicóptero de patrulla', category: 'Patrulla', description: 'Monitoreo de larga autonomía' },
+      m800: { name: 'M800 Helicóptero híbrido', category: 'Híbrido', description: 'Eficiente y energéticamente favorable', banner: 'M800 Helicóptero híbrido' },
+      f200: { name: 'F200 Helicóptero portátil', category: 'Portátil', description: 'Despliegue rápido' }
+    },
+    multiRotorDetail: {
+      badge: 'Drones Multirrotor',
+      subtitle: 'Multirrotor profesional: vuelo estable, control preciso, usos múltiples',
+      highlights: { stableHover: 'Estabilidad de vuelo estacionario', preciseControl: 'Control preciso', broadUse: 'Amplios escenarios de uso' },
+      sections: {
+        flightPerformance: {
+          title: 'Rendimiento de Vuelo',
+          desc: 'Diseño hexacóptero con gran resistencia al viento y vuelo estable en entornos complejos',
+          items: { stableHover: 'Vuelo estacionario estable', preciseControl: 'Control de vuelo preciso', multiScene: 'Múltiples escenarios', maneuverability: 'Gran maniobrabilidad' }
+        },
+        strongStructure: {
+          title: 'Estructura de Alta Resistencia',
+          desc: 'Carbono y aleación de aluminio: ligero y robusto, resistente a fatiga y duradero',
+          items: { carbonFiberFrame: 'Estructura de fibra de carbono', aluminumParts: 'Componentes de aleación de aluminio', lightweightHighStrength: 'Ligero y de alta resistencia', fatigueResistance: 'Excelente resistencia a la fatiga' }
+        },
+        advantages: {
+          title: 'Ventajas',
+          desc: 'Soporta VTOL y vuelo estacionario; adecuado para múltiples condiciones de trabajo',
+          items: { stableHover: 'Vuelo estacionario estable', preciseControl: 'Control preciso', multiScene: 'Múltiples escenarios', maneuverability: 'Gran maniobrabilidad' }
+        }
+      },
+      specs: {
+        title: 'Parámetros del Producto',
+        subtitle: 'Especificaciones técnicas detalladas y configuraciones',
+        tabs: { basic: 'Básico', tech: 'Técnico', package: 'Lista de Paquete' },
+        basicLabels: { size: 'Tamaño del fuselaje', weightWithoutBattery: 'Peso (sin batería)', frameMaterial: 'Material del marco', powerSystem: 'Sistema de potencia', propellerSize: 'Tamaño de hélice', batteryCapacity: 'Capacidad de batería' },
+        values: { carbonFiber: 'Fibra de carbono', brushlessMotor: 'Motor sin escobillas', prop10in: '10 pulgadas', prop13in: '13 pulgadas', prop15in: '15 pulgadas', prop18in: '18 pulgadas' },
+        techSections: { aircraft: 'Unidad aérea', battery: 'Batería', charger: 'Cargador', rc: 'Control remoto' },
+        techLabels: {
+          size: 'Tamaño', weight: 'Peso', takeoffWeight: 'Peso de despegue', maxClimbSpeed: 'Velocidad ascenso máx.', maxDescendSpeed: 'Velocidad descenso máx.', maxHorizontalSpeed: 'Velocidad horizontal máx.', maxAltitude: 'Altitud máx. de despegue', maxFlightTime: 'Tiempo de vuelo máx.', maxHoverTime: 'Tiempo estacionario máx.', maxRange: 'Alcance máx.', maxWindResistance: 'Resistencia al viento máx.', maxTiltAngle: 'Ángulo de inclinación máx.', workTemp: 'Temperatura de funcionamiento', gnss: 'Navegación satelital', hoverAccuracy: 'Precisión de vuelo estacionario', capacity: 'Capacidad', nominalVoltage: 'Voltaje nominal', chargeLimitVoltage: 'Voltaje límite de carga', type: 'Tipo de batería', energy: 'Energía', chargeEnv: 'Entorno de carga', chargeTime: 'Tiempo de carga', batteryDimensions: 'Dimensiones de la batería', input: 'Entrada', output: 'Salida', batteryEndurance: 'Tiempo de operación máx.', chargeTemp: 'Temperatura de carga', chargeMethod: 'Método de carga', batteryCapacity: 'Capacidad de batería'
+        },
+        package: {
+          standardList: 'Lista estándar', documents: 'Documentos',
+          items: { host: 'Unidad aérea', propellers: 'Hélices', flightController: 'Control de vuelo', battery: 'Batería', charger: 'Cargador', rc: 'Control remoto', manual: 'Manual del producto', quickGuide: 'Guía rápida', disclaimer: 'Descargo de responsabilidad', certificate: 'Certificado' },
+          documentsMap: { manual: 'Manual del producto', quickGuide: 'Guía rápida', disclaimer: 'Descargo de responsabilidad', certificate: 'Certificado' }
+        }
+      },
+      debug: { currentEmpty: 'Depuración: objeto current vacío', basicEmpty: 'Depuración: current.basic vacío, objeto current:' },
+      warranty: {
+        title: 'Servicio de Garantía', subtitle: 'Garantía postventa profesional, uso sin preocupaciones',
+        items: {
+          period: { title: 'Periodo de garantía', desc: 'Un año desde la entrega; cubre fallas de hardware y rendimiento por calidad.' },
+          hardware: { title: 'Reparación y reemplazo de hardware', desc: 'Incluye placa base/pantalla/almacenamiento/alimentación; reparación o reemplazo gratuito cuando no sea por causas humanas.' },
+          response: { title: 'Respuesta rápida', desc: 'Confirmación dentro de 2 horas y solución dentro de 24 horas para problemas comunes.' }
+        }
+      },
+      models: { m600: 'M600 Multirrotor profesional', m800: 'M800 Gran multirrotor', m400: 'M400 Multirrotor ligero', m1000: 'M1000 Multirrotor pesado' }
+    },
+    fpvDetail: {
+      badge: 'Drones FPV', subtitle: 'FPV profesional: alta velocidad y control preciso',
+      highlights: { speed: 'Alta velocidad', hdVideo: 'Transmisión HD', stuntFlight: 'Vuelo acrobático' },
+      sections: {
+        flightPerformance: { title: 'Rendimiento de Vuelo', desc: 'Alta velocidad y agilidad; apto para competición/freestyle/filmación aérea; control avanzado en entornos complejos', items: { highSpeed: 'Alta velocidad', lowLatencyVideo: 'Vídeo de baja latencia', agileControl: 'Control ágil', maneuverability: 'Gran maniobrabilidad' } },
+        strongStructure: { title: 'Estructura de Alta Resistencia', desc: 'Marco de fibra de carbono: ligero y robusto; resistente a fatiga y duradero', items: { carbonFiberFrame: 'Marco de fibra de carbono', lightweightOptimized: 'Estructura optimizada ligera', highStrengthImpact: 'Alta resistencia a impactos', fatigueResistance: 'Resistencia a la fatiga' } },
+        advantages: { title: 'Ventajas', desc: 'Velocidad, agilidad y precisión; competición, vuelo libre y filmación creativa', items: { highSpeed: 'Alta velocidad', lowLatencyVideo: 'Baja latencia', agileControl: 'Control ágil', maneuverability: 'Maniobrabilidad' } }
+      },
+      specs: {
+        title: 'Parámetros del Producto', subtitle: 'Especificaciones técnicas detalladas',
+        tabs: { basic: 'Básico', tech: 'Técnico', package: 'Paquete' },
+        labels: { bodySize: 'Tamaño del fuselaje', weightNoBattery: 'Peso (sin batería)', frameMaterial: 'Material del marco', powerSystem: 'Sistema de potencia', propellerSize: 'Tamaño de hélice', batteryCapacity: 'Capacidad de batería', maxSpeed: 'Velocidad máx.', flightTime: 'Tiempo de vuelo', videoTransmission: 'Sistema de transmisión', controlRange: 'Alcance de control', hoverAccuracy: 'Precisión estacionaria', operatingTemp: 'Temperatura de operación' },
+        values: { carbonFiber: 'Fibra de carbono', brushlessMotor: 'Motor sin escobillas', prop3in: '3 pulgadas', prop4_5in: '4.5 pulgadas', prop5in: '5 pulgadas', prop6in: '6 pulgadas' },
+        groups: { aircraft: 'Unidad aérea', battery: 'Batería', charger: 'Cargador', remoteController: 'Control remoto' },
+        techLabels: {
+          takeoffWeight: 'Peso de despegue', dimensions: 'Dimensiones', maxAscentSpeed: 'Velocidad ascenso máx.', maxDescentSpeed: 'Velocidad descenso máx.', maxHorizontalSpeed: 'Velocidad horizontal máx.', maxTakeoffAltitude: 'Altitud máx. despegue', maxFlightTime: 'Tiempo de vuelo máx.', maxHoverTime: 'Tiempo estacionario máx.', maxRange: 'Alcance máx.', maxWindResistance: 'Resistencia al viento máx.', maxTiltAngle: 'Ángulo de inclinación máx.', operatingTemp: 'Temperatura de operación', satelliteNavigation: 'Navegación satelital', hoverAccuracy: 'Precisión estacionaria', capacity: 'Capacidad', weight: 'Peso', nominalVoltage: 'Voltaje nominal', chargeLimitVoltage: 'Voltaje límite de carga', batteryType: 'Tipo de batería', energy: 'Energía', chargingEnvironment: 'Entorno de carga', chargingTime: 'Tiempo de carga', batteryDimensions: 'Dimensiones de la batería', input: 'Entrada', output: 'Salida', maxOperatingTime: 'Tiempo de operación máx.', chargingEnvTemp: 'Temperatura de carga', chargingMethod: 'Método de carga', batteryCapacity: 'Capacidad de batería'
+        },
+        package: { standardList: 'Lista estándar', documents: 'Documentos', items: { mainUnit: 'Unidad principal', mainRotor: 'Rotor principal', tailRotor: 'Rotor de cola', motors: 'Motores', battery: 'Batería', flightController: 'Control de vuelo', charger: 'Cargador', esc: 'ESC', propellers: 'Hélices', remoteController: 'Control remoto', camera: 'Cámara', connectingRods: 'Bielas', antenna: 'Antena', screwPack: 'Paquete de tornillos' }, documentsMap: { manual: 'Manual del producto', quickStart: 'Guía de inicio rápido', disclaimer: 'Descargo de responsabilidad', certificate: 'Certificado' } }
+      },
+      debug: { currentEmpty: 'Depuración: objeto current vacío', basicEmpty: 'Depuración: current.basic vacío' },
+      warranty: { title: 'Servicio de Garantía', subtitle: 'Garantía postventa profesional', items: { period: { title: 'Periodo de garantía', desc: 'Un año; cubre problemas de calidad.' }, hardware: { title: 'Reparación y reemplazo', desc: 'Gratuito si no es por causas humanas.' }, response: { title: 'Respuesta rápida', desc: 'Confirmación en 2 h, solución en 24 h.' } } }
+    },
+    fixedWingDetail: {
+      badge: 'Drones de Ala Fija', subtitle: 'Ala fija profesional: larga autonomía, vuelo eficiente, amplia cobertura',
+      highlights: { endurance: 'Larga autonomía', efficient: 'Vuelo eficiente', coverage: 'Amplia cobertura' },
+      sections: {
+        flightPerformance: { title: 'Rendimiento de Vuelo', desc: 'Elevación por alas para larga autonomía y alta eficiencia; gran capacidad de carga', items: { longEndurance: 'Tareas de larga autonomía', efficientFlight: 'Vuelo eficiente', wideCoverage: 'Cobertura amplia', excellentEndurance: 'Excelente resistencia' } },
+        strongStructure: { title: 'Estructura de Alta Resistencia', desc: 'Alas/fuselaje/cola/tren de aterrizaje/sistema de potencia; compuestos de carbono y diseño ligero', items: { carbonFiber: 'Compuesto de fibra de carbono', lightweightDesign: 'Diseño ligero', highStrengthDurability: 'Alta resistencia y durabilidad', fatigueResistance: 'Resistencia a la fatiga' } },
+        advantages: { title: 'Ventajas', desc: 'Autonomía y eficiencia; cartografía e inspección a gran escala', items: { longEndurance: 'Larga autonomía', efficientFlight: 'Vuelo eficiente', wideCoverage: 'Cobertura amplia', excellentEndurance: 'Excelente resistencia' } }
+      },
+      specs: {
+        title: 'Parámetros del Producto', subtitle: 'Especificaciones técnicas detalladas',
+        tabs: { basic: 'Básico', tech: 'Técnico', package: 'Paquete' },
+        basicLabels: { wingspan: 'Envergadura', fuselageLength: 'Longitud del fuselaje', maxTakeoffWeight: 'Peso máx. despegue', maxPayload: 'Carga útil máx.', bodyMaterial: 'Material del fuselaje', powerSystem: 'Sistema de potencia', maxSpeed: 'Velocidad máx.', flightTime: 'Autonomía', controlRange: 'Alcance de control', operatingTemp: 'Temperatura de operación' },
+        values: { carbonFiber: 'Fibra de carbono', brushlessMotor: 'Motor sin escobillas', hybridPower: 'Potencia híbrida' },
+        techSections: { aircraft: 'Unidad aérea', battery: 'Batería', charger: 'Cargador', remoteController: 'Control remoto' },
+        techLabels: {
+          takeoffWeight: 'Peso de despegue', dimensions: 'Dimensiones', maxAscentSpeed: 'Velocidad ascenso máx.', maxDescentSpeed: 'Velocidad descenso máx.', maxHorizontalSpeed: 'Velocidad horizontal máx.', maxTakeoffAltitude: 'Altitud máx. despegue', maxFlightTime: 'Tiempo de vuelo máx.', maxHoverTime: 'Tiempo estacionario máx.', maxRange: 'Alcance máx.', maxWindResistance: 'Resistencia al viento máx.', maxTiltAngle: 'Ángulo de inclinación máx.', operatingTemp: 'Temperatura de operación', gnss: 'Navegación satelital', hoverAccuracy: 'Precisión estacionaria', capacity: 'Capacidad', weight: 'Peso', nominalVoltage: 'Voltaje nominal', chargeLimitVoltage: 'Voltaje límite de carga', batteryType: 'Tipo de batería', energy: 'Energía', chargeEnv: 'Entorno de carga', chargeTime: 'Tiempo de carga', batteryDimensions: 'Dimensiones de la batería', input: 'Entrada', output: 'Salida', batteryEndurance: 'Tiempo de operación máx.', chargeTemp: 'Temperatura de carga', chargeMethod: 'Método de carga', batteryCapacity: 'Capacidad de batería'
+        },
+        package: { standardList: 'Lista estándar', documents: 'Documentos', items: { host: 'Unidad aérea', wings: 'Alas', flightController: 'Control de vuelo', propellers: 'Hélices', battery: 'Batería', charger: 'Cargador', rc: 'Control remoto' }, documentsMap: { manual: 'Manual del producto', quickGuide: 'Guía rápida', disclaimer: 'Descargo de responsabilidad', certificate: 'Certificado' } }
+      },
+      debug: { currentEmpty: 'Depuración: objeto current vacío', basicEmpty: 'Depuración: current.basic vacío' },
+      warranty: { title: 'Servicio de Garantía', subtitle: 'Garantía postventa profesional', items: { period: { title: 'Periodo de garantía', desc: 'Un año; cubre problemas de calidad.' }, hardware: { title: 'Reparación y reemplazo', desc: 'Gratuito si no es por causas humanas.' }, response: { title: 'Respuesta rápida', desc: 'Confirmación en 2 h, solución en 24 h.' } } }
+    },
+    helicopterDetail: {
+      badge: 'Helicópteros No Tripulados', subtitle: 'Helicóptero profesional: VTOL, vuelo estacionario preciso, múltiples tareas',
+      highlights: { vtol: 'VTOL', preciseHover: 'Vuelo estacionario preciso', multiFunction: 'Multifunción' },
+      sections: {
+        flightPerformance: { title: 'Rendimiento de Vuelo', desc: 'VTOL y vuelo estacionario; control avanzado y sistema de potencia para entornos complejos', items: { vtolCapability: 'Capacidad VTOL', preciseHoverControl: 'Control estacionario preciso', complexEnvAdaptation: 'Adaptación a entornos complejos', multiMissionCapability: 'Capacidad multi-misión' } },
+        strongStructure: { title: 'Estructura de Alta Resistencia', desc: 'Aleación de aluminio de alta resistencia y compuestos de carbono; robusto y ligero', items: { aluminumAlloy: 'Aleación de aluminio', carbonFiberComposite: 'Compuesto de fibra de carbono', durableStructure: 'Estructura duradera', fatigueResistance: 'Resistencia a la fatiga' } },
+        advantages: { title: 'Ventajas', desc: 'VTOL y vuelo estacionario; adaptable a múltiples condiciones; vuelo estable', items: { vtolCapability: 'Capacidad VTOL', preciseHoverControl: 'Control estacionario preciso', complexEnvAdaptation: 'Adaptación a entornos complejos', multiMissionCapability: 'Capacidad multi-misión' } }
+      },
+      specs: {
+        title: 'Parámetros del Producto', subtitle: 'Especificaciones técnicas detalladas',
+        tabs: { basic: 'Básico', tech: 'Técnico', package: 'Paquete' },
+        labels: { fuselageLength: 'Longitud del fuselaje', mainRotorDiameter: 'Diámetro del rotor principal', maxTakeoffWeight: 'Peso máx. despegue', maxPayload: 'Carga útil máx.', bodyMaterial: 'Material del fuselaje', powerSystem: 'Sistema de potencia' },
+        values: { aluminumAlloy: 'Aleación de aluminio', carbonFiber: 'Fibra de carbono', brushlessMotor: 'Motor sin escobillas', hybridPower: 'Potencia híbrida' },
+        groups: { aircraft: 'Unidad aérea', battery: 'Batería', charger: 'Cargador', remoteController: 'Control remoto' },
+        techLabels: {
+          takeoffWeight: 'Peso de despegue', dimensions: 'Dimensiones', maxAscentSpeed: 'Velocidad ascenso máx.', maxDescentSpeed: 'Velocidad descenso máx.', maxHorizontalSpeed: 'Velocidad horizontal máx.', maxTakeoffAltitude: 'Altitud máx. despegue', maxFlightTime: 'Tiempo de vuelo máx.', maxHoverTime: 'Tiempo estacionario máx.', maxRange: 'Alcance máx.', maxWindResistance: 'Resistencia al viento máx.', maxTiltAngle: 'Ángulo de inclinación máx.', operatingTemp: 'Temperatura de operación', satelliteNavigation: 'Navegación satelital', hoverAccuracy: 'Precisión estacionaria', capacity: 'Capacidad', weight: 'Peso', nominalVoltage: 'Voltaje nominal', chargeLimitVoltage: 'Voltaje límite de carga', batteryType: 'Tipo de batería', energy: 'Energía', chargingEnvironment: 'Entorno de carga', chargingTime: 'Tiempo de carga', batteryDimensions: 'Dimensiones de la batería', input: 'Entrada', output: 'Salida', maxOperatingTime: 'Tiempo de operación máx.', chargingEnvTemp: 'Temperatura de carga', chargingMethod: 'Método de carga', batteryCapacity: 'Capacidad de batería'
+        },
+        package: { standardList: 'Lista estándar', documents: 'Documentos', items: { mainUnit: 'Unidad principal', motors: 'Motores', battery: 'Batería', flightController: 'Control de vuelo', esc: 'ESC', propellers: 'Hélices', remoteController: 'Control remoto', camera: 'Cámara', connectingRods: 'Bielas', antenna: 'Antena', screwPack: 'Paquete de tornillos' }, documentsMap: { manual: 'Manual del producto', quickStart: 'Guía de inicio rápido', disclaimer: 'Descargo de responsabilidad', certificate: 'Certificado' } }
+      },
+      debug: { currentEmpty: 'Depuración: objeto current vacío', basicEmpty: 'Depuración: current.basic vacío' },
+      warranty: { title: 'Servicio de Garantía', subtitle: 'Garantía postventa profesional', items: { period: { title: 'Periodo de garantía', desc: 'Un año; cubre problemas de calidad.' }, hardware: { title: 'Reparación y reemplazo', desc: 'Gratuito si no es por causas humanas.' }, response: { title: 'Respuesta rápida', desc: 'Confirmación en 2 h, solución en 24 h.' } } }
     }
   },
   

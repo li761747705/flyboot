@@ -21,9 +21,12 @@ export default {
   data() {
     return { isRTL: false }
   },
-  created() {
+  async created() {
     this.emitter = getCurrentInstance().appContext.config.globalProperties.emitter;
     this.emitter.on('language-changed', this.handleLanguageChange);
+    
+    // 确保当前语言的完整翻译已加载
+    await this.ensureCurrentLanguageLoaded();
   },
   unmounted() {
     this.emitter.off('language-changed', this.handleLanguageChange);
@@ -31,16 +34,34 @@ export default {
   methods: {
     handleLanguageChange(newLocale) {
       this.isRTL = newLocale === 'ar';
+    },
+    async ensureCurrentLanguageLoaded() {
+      const currentLocale = this.$i18n.locale;
+      
+      try {
+        console.log(`Loading full language pack for ${currentLocale}...`)
+        const { setLocale } = await import('./i18n/index.js')
+        await setLocale(currentLocale)
+        console.log(`Full language pack ${currentLocale} loaded successfully`)
+        
+        // 强制重新渲染组件
+        this.$forceUpdate()
+      } catch (error) {
+        console.warn('Failed to load full language pack:', error)
+      }
     }
   },
   watch: {
     '$i18n.locale': {
       immediate: true,
-      handler(newLocale) {
+      async handler(newLocale) {
         this.isRTL = newLocale === 'ar';
         document.documentElement.setAttribute('dir', newLocale === 'ar' ? 'rtl' : 'ltr');
         document.documentElement.classList.toggle('rtl', newLocale === 'ar');
         document.documentElement.setAttribute('lang', newLocale);
+        
+        // 确保新语言的完整翻译已加载
+        await this.ensureCurrentLanguageLoaded();
       }
     }
   },
@@ -184,6 +205,115 @@ html[dir="rtl"] .text-end {
 
 html[dir="rtl"] .text-start {
   text-align: right !important;
+}
+
+/* 增强的RTL支持 */
+html[dir="rtl"] .navbar-nav {
+  padding-right: 0;
+}
+
+html[dir="rtl"] .navbar .dropdown-menu-end {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .navbar .navbar-nav .nav-link {
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar-toggler {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+html[dir="rtl"] .card {
+  text-align: right;
+}
+
+html[dir="rtl"] .card-body {
+  text-align: right;
+}
+
+html[dir="rtl"] .list-group-item {
+  text-align: right;
+}
+
+html[dir="rtl"] .table {
+  text-align: right;
+}
+
+html[dir="rtl"] .table th {
+  text-align: right;
+}
+
+html[dir="rtl"] .table td {
+  text-align: right;
+}
+
+html[dir="rtl"] .btn-group > .btn:not(:last-child):not(:first-child) {
+  margin-left: 0;
+  margin-right: -1px;
+}
+
+html[dir="rtl"] .form-control {
+  text-align: right;
+}
+
+html[dir="rtl"] .form-label {
+  text-align: right;
+}
+
+html[dir="rtl"] .form-check {
+  padding-left: 0;
+  padding-right: 1.25rem;
+}
+
+html[dir="rtl"] .form-check-input {
+  margin-left: 0;
+  margin-right: -1.25rem;
+}
+
+html[dir="rtl"] .form-check-label {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+/* RTL导航栏增强 */
+html[dir="rtl"] .navbar-brand {
+  margin-left: 0.5rem;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .navbar-nav .nav-link {
+  margin-left: 0;
+  margin-right: 0.1rem;
+}
+
+html[dir="rtl"] .mega-menu-inner {
+  padding-right: 2rem;
+  padding-left: 1rem;
+}
+
+html[dir="rtl"] .product-item {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+/* RTL响应式优化 */
+@media (max-width: 992px) {
+  html[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+  }
+  
+  html[dir="rtl"] .mega-menu-inner {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  html[dir="rtl"] .product-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .main-content {

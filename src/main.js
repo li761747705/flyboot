@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import i18n from './i18n'
+import i18n, { initI18n } from './i18n'
 
 // 引入Bootstrap样式和JS
 import 'bootstrap/dist/css/bootstrap.css'
@@ -68,4 +68,36 @@ router.afterEach((to) => {
 // 将事件总线添加到全局属性
 app.config.globalProperties.emitter = emitter
 
+// 确保在挂载前初始化默认语言
+const ensureDefaultLanguage = async () => {
+  const currentLocale = i18n.global.locale.value
+  const currentMessages = i18n.global.getLocaleMessage(currentLocale)
+  
+  // 检查是否包含关键的翻译键
+  const hasHomeTranslations = currentMessages && currentMessages.home && 
+    currentMessages.home.carousel && currentMessages.home.products && 
+    currentMessages.home.applications && currentMessages.home.serviceSupport
+  
+  if (!hasHomeTranslations) {
+    try {
+      console.log(`Loading full language pack for ${currentLocale}...`)
+      const { setLocale } = await import('./i18n/index.js')
+      await setLocale(currentLocale)
+      console.log(`Full language pack ${currentLocale} loaded successfully`)
+    } catch (error) {
+      console.warn('Failed to load default language:', error)
+    }
+  } else {
+    console.log(`Language ${currentLocale} already fully loaded`)
+  }
+}
+
+// 初始化i18n性能优化
+initI18n().then(() => {
+  console.log('i18n initialized with performance optimizations')
+}).catch(error => {
+  console.warn('Failed to initialize i18n optimizations:', error)
+})
+
+// 直接挂载应用，然后在 App.vue 中确保语言加载完成
 app.mount('#app')

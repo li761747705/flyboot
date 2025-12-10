@@ -3,7 +3,7 @@
     <div class="dropdown">
       <button class="btn btn-outline-dark btn-sm dropdown-toggle d-flex align-items-center" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="flag-icon">{{ currentFlag }}</span>
-        <span :class="['language-name', 'd-none', 'd-md-inline', $i18n.locale === 'ar' ? 'me-1' : 'ms-1']">{{ $t(`name`) }}</span>
+        <span :class="['language-name', 'd-none', 'd-md-inline', $i18n.locale === 'ar' ? 'me-1' : 'ms-1']">{{ $t(`common.name`) }}</span>
       </button>
       <ul class="dropdown-menu dropdown-menu-end language-menu" aria-labelledby="languageDropdown">
         <li v-for="lang in languages" :key="lang.code">
@@ -51,11 +51,17 @@ export default {
     }
   },
   methods: {
-    changeLanguage(lang) {
+    async changeLanguage(lang) {
       if (this.currentLocale === lang) return;
       
-      this.$i18n.locale = lang;
-      localStorage.setItem('locale', lang);
+      // 使用新的懒加载机制
+      const { setLocale } = await import('../i18n/index.js')
+      const success = await setLocale(lang);
+      
+      if (!success) {
+        console.error(`Failed to load language: ${lang}`);
+        return;
+      }
       
       // 处理RTL方向
       const isRTL = lang === 'ar';
